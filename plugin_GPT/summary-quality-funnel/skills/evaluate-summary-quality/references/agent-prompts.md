@@ -1,5 +1,7 @@
 # Agent role prompts
 
+These are task briefs for genuinely separate Codex subagents. They must not be submitted to Ollama or another local generative model to simulate Agent roles. Local inference is permitted only for embedding relevance evidence.
+
 ## Scorer Agent: anchor pass
 
 Provide only the article. Do not provide candidates.

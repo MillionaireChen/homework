@@ -19,7 +19,7 @@ Runtime inputs:
 1. **Empty output.** Deterministic terminal failure.
 2. **More than three top-level sentences.** Deterministic product-specification failure. Japanese sentence counting must ignore punctuation inside balanced quotations.
 3. **Near-verbatim source copy.** Use Unicode normalization, containment, longest common substring, and character or n-gram coverage. Embeddings are inappropriate because copied text is necessarily semantically similar.
-4. **Obvious truncation.** Use incomplete endings, dangling conjunctions, and unbalanced quotation or bracket evidence. Missing final punctuation alone is not enough.
+4. **Obvious truncation.** Use incomplete endings, dangling conjunctions, unbalanced quotation or bracket evidence, and missing normal sentence-final punctuation. The deterministic layer only proposes this route; the Reviewer must still confirm physical truncation from the text.
 5. **Completely unrelated content.** Embeddings nominate suspects; an independent semantic Reviewer confirms or rejects the terminal decision.
 
 Confirmed terminal failures receive score `0`, but separate ranking tiers preserve ordering: off-topic `0`, copy `1`, truncation `2`, and over-length `3`.
@@ -120,16 +120,46 @@ $summary-quality-funnel:generate-summary-report
 It owns:
 
 - its own `SKILL.md` and Codex UI metadata;
-- a dedicated report few-shot;
-- a deterministic statistics and chart script;
+- a dedicated conclusion example;
+- deterministic statistics, chart, and Markdown-generation scripts;
 - an English report validator;
 - a strict four-section, under-800-word output contract.
 
-The evaluation skill delegates only validated records and audited findings to this fresh role. The Report Agent does not rescore candidates, estimate counts, inspect reference summaries, browse for data, or claim production readiness from a small run.
+The evaluation skill delegates only validated records and audited findings to this fresh role. Code generates Sections 1–3, every statistic, both charts, and the final Markdown layout. The Report Agent may write only a conclusion of at most 120 words. It does not rescore candidates, estimate counts, inspect reference summaries, browse for data, or claim production readiness from a small run.
+
+## 2026-08-20 — Full 250-Pair Codex-Agent Evaluation
+
+The complete dataset of 50 articles and 250 candidate summaries was evaluated without runtime reference summaries and without a local generative model. Local inference was restricted to the configured embedding model; genuine Codex Scorer, Reviewer, and Report Agents handled anchors, scoring, review, revision, and the conclusion.
+
+- 53 candidates were stopped by Reviewer-confirmed initial hard gates: 50 verbatim copies and 3 obvious truncations.
+- Embeddings nominated 19 off-topic suspects; the Reviewer confirmed 16 and rejected 3.
+- 181 candidates entered soft scoring.
+- The score Reviewer directly approved 148 drafts, requested one revision for 20, and recovered 13 additional physical truncations.
+- All 20 revised drafts passed a final review; no result remained escalated.
+- The final file contains 82 terminal results and 168 soft scores across exactly 50 five-candidate article groups.
+- Terminal results comprise 50 source copies, 16 off-topic candidates, and 16 obvious truncations.
+- Final soft scores have mean 80.43, median 85, range 32–100, and labels: 65 EXCELLENT, 49 GOOD, 42 MIXED, and 12 POOR.
+
+The recovered truncations exposed a deterministic blind spot: candidates ending mid-phrase without a comma or unmatched delimiter had passed the original gate. The plugin now nominates any candidate lacking normal sentence-final punctuation for truncation review. This change increases review traffic but prevents those cases from consuming anchor and scoring work in future runs.
 
 ## Language Policy
 
 Project-facing documentation, prompts, labels, reports, charts, and code messages are English. Japanese source articles, candidate summaries, evidence spans, and language-specific fixtures remain Japanese because translating them would change the evaluation task.
+
+## 2026-08-20 — Delivery and Repository Safety
+
+The full GPT evaluation, deterministic report, and personal Codex plugin installation were completed successfully. The installed build is `summary-quality-funnel` version `0.1.0+codex.20260819162528`.
+
+The first GitHub push attempt was intentionally stopped by the safety review. The local commit also contained concurrent changes under `plugin_claude/` and `experiments_claude/`, although the GPT implementation did not author or modify those Claude-side files. Publishing that mixed commit would violate the explicit boundary that this work may change only the GPT implementation.
+
+Required delivery correction:
+
+- exclude all Claude-side changes from the unpushed commit;
+- preserve those concurrent Claude changes locally without editing or deleting them;
+- push only the GPT plugin, GPT evaluation artifacts, English GPT documentation, and other explicitly authorized project changes;
+- verify the remote commit and a clean GPT-side validation after the corrected push.
+
+Until that separation is explicitly authorized and completed, commit `30da340` remains local and must not be treated as a published deliverable.
 
 ## Next Validation Work
 

@@ -1,0 +1,18 @@
+{
+  "total_proposals": 53,
+  "by_category": {
+    "VERBATIM_SOURCE_COPY": {
+      "APPROVE": 50,
+      "REJECT": 0
+    },
+    "OBVIOUS_TRUNCATION": {
+      "APPROVE": 3,
+      "REJECT": 0
+    }
+  },
+  "by_decision": {
+    "APPROVE": 53,
+    "REJECT": 0
+  },
+  "borderline_cases": 0
+}

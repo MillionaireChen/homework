@@ -56,14 +56,18 @@ def structural_metrics(text: str) -> Dict[str, Any]:
 
     stripped = text.rstrip()
     final_char = stripped[-1:] if stripped else ""
+    missing_terminal_punctuation = bool(stripped and final_char not in TERMINALS)
     hard_truncation = bool(final_char in "、,，：:" or stack)
     suspected_truncation = bool(
-        hard_truncation or PARTICLE_ENDING.search(normalize(stripped))
+        hard_truncation
+        or missing_terminal_punctuation
+        or PARTICLE_ENDING.search(normalize(stripped))
     )
     return {
         "sentence_count": sentence_count,
         "unclosed_delimiters": stack,
         "final_character": final_char,
+        "missing_terminal_punctuation": missing_terminal_punctuation,
         "hard_truncation": hard_truncation,
         "suspected_truncation": suspected_truncation,
     }
@@ -173,14 +177,12 @@ def evaluate(record: Dict[str, Any]) -> Dict[str, Any]:
         "stage": "sentence_count", "result": "PASS", "evidence": sentence_evidence
     })
 
-    if shape["hard_truncation"]:
+    if shape["suspected_truncation"]:
         return draft_terminal(
             result, "OBVIOUS_TRUNCATION", "truncation_check", shape
         )
     result["evaluation_trace"].append({
-        "stage": "truncation_check",
-        "result": "FLAG" if shape["suspected_truncation"] else "PASS",
-        "evidence": shape,
+        "stage": "truncation_check", "result": "PASS", "evidence": shape,
     })
     result.update({"status": "READY_FOR_RELEVANCE"})
     return result
