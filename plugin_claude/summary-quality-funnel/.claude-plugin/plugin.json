@@ -1,0 +1,9 @@
+{
+  "name": "summary-quality-funnel",
+  "version": "0.1.0",
+  "description": "Reference-free summary quality scoring with hard gates, dual-agent review, and auditable traces. 硬约束早停、双 Agent 评分复核与完整审计轨迹;正式评分不依赖参考摘要。",
+  "author": {
+    "name": "Chen Jinhua"
+  },
+  "keywords": ["summary", "evaluation", "quality", "llm-judge", "japanese"]
+}
