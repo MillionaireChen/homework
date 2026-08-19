@@ -170,7 +170,7 @@ td .art { font-size:11px; color:var(--muted); white-space:nowrap; max-width:180p
 .num { text-align:right; white-space:nowrap; color:var(--muted); }
 </style>
 </head>
-<body>
+<body class="zh">
 <div id="app">
   <div id="side">
     <header>
@@ -178,7 +178,7 @@ td .art { font-size:11px; color:var(--muted); white-space:nowrap; max-width:180p
       <div id="stats">__STATS__</div>
       <button id="ovbtn">📊 全部 250 条总览</button>
       <input id="search" placeholder="搜索标题(日/中)…">
-      <label id="zhtoggle"><input type="checkbox" id="zhcb"> 显示中文翻译</label>
+      <label id="zhtoggle"><input type="checkbox" id="zhcb" checked> 显示中文翻译(默认开)</label>
     </header>
     <div id="list"></div>
   </div>
