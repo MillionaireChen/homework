@@ -1,4 +1,4 @@
 interface:
-  display_name: "摘要质量漏斗"
-  short_description: "硬门禁早停、三Agent评分复核、固定图表报告与完整审计轨迹"
+  display_name: "Summary Quality Funnel"
+  short_description: "Hard gates, reviewed scoring, report agent, and audit trails"
   default_prompt: "Use $evaluate-summary-quality to score, review, rank, and report this summary batch."

@@ -1,490 +1,150 @@
-# Processing Log — 评估设计决策日志
+# Project Decision Log
 
-> 本文件是工作过程记录(探索、假设、决策、被推翻的想法),最终报告 report.md 的素材来源。
-> 作业要求记录 AI 工具使用方式:本项目由本人(Chen Jinhua)与 Claude Code 协作完成,
-> 关键设计决策的讨论过程在本文件中标注"决策"条目。
+This file records the main decisions that shaped the project. `progressing_GT.md` contains the current GPT/Codex implementation log. Historical Claude implementation artifacts remain under `plugin_claude/` and are not modified by the GPT work.
 
----
+## 2026-08-19 — Initial Data Inspection
 
-## 2026-08-19 任务理解与初步探索
+The supplied corpus contains 50 Japanese news articles with five candidate summaries per article, for 250 article-summary pairs. Early exploration found several recurring patterns:
 
-### 任务
+- exact matches to supplied reference summaries;
+- prefixes or truncated forms of reference summaries;
+- direct copying from the article;
+- summaries belonging to another article;
+- unmarked cases containing hallucination, fine-grained factual errors, factual reversal, low coverage, incoherence, or invented commentary.
 
-- 250 条日语新闻摘要(50 篇文章 × 5 条),质量参差、生成方法不公开。
-- 需要:探索数据 → 设计评估 → **验证评估可信** → 报告。
-- 计分权重(按序):探索深度 > 设计合理性 > 验证 > 局限性自省 > 可复现性。实现质量不计分。
+The most difficult cases are fluent hallucinations and factual reversals because they can be topically similar and stylistically convincing.
 
-### 初步探索发现(脚本统计 + 抽查)
+## 2026-08-19 — Reference Summary Correction
 
-对 250 条摘要做了快速全局统计,已确认出题方埋入的失败模式大致为每篇 5 条各占一型:
+An early design used the supplied reference summary as a runtime coverage comparator and ranking anchor. The user correctly rejected this approach: a real production request contains only the source article and a generated candidate.
 
-| 类型 | 数量(初步估计) | 判定方式 |
-|---|---|---|
-| 参考摘要原样复制 | ~58 | 与 reference_summary 精确匹配 |
-| 抽取式照抄原文开头 | ~51 | 摘要前 40 字符可在原文中找到 |
-| 截断/不完整 | ~17 | 非句号结尾且长度异常短 |
-| 幻觉(编造事实) | 待全面确认 | 已人工验证 1 例:声称"联合国安理会紧急会合、全会一致采択决议",原文无此内容 |
-| 正常生成式摘要 | 其余 | — |
+Final rule:
 
-- 所有摘要句数均 ≤3,"格式合规"不是区分维度。
-- **关键结论:忠实性(幻觉检测)是廉价指标测不出的核心维度,决定了必须有 LLM 级别的语义判断。**
-- XL-Sum 参考摘要质量不均(作业方明示),不可当 ground truth。
+- runtime scoring must depend only on `(article, candidate_summary)`;
+- reference summaries may support offline exploration or validation;
+- reference-derived matches must never become a required runtime feature or automatic score.
 
----
+This correction changed the architecture from a reference-based ensemble to a reference-free funnel.
 
-## 2026-08-19 方案讨论与演进
+## 2026-08-19 — Deterministic First, Semantic Later
 
-讨论了 5 个方案后收敛:
-
-1. **方案一** LLM-as-Judge(rubric 打分)→ 被方案4吸收取代。
-2. **方案二** 规则层(抄参考/抄原文/截断检测)→ 保留,理由是确定性(非省钱):
-   字符串匹配对复制/截断类失败 100% 准确,LLM 反而可能被骗。
-3. **方案三** 本地 NLI → 升级为 **claim 级忠实性校验**:摘要分解为原子事实,
-   逐条用 LLM 对照原文验证。与整体打分机制不同(细粒度、可解释、能定位编造句)。
-4. **方案4** 人类全面评估 → 提炼专家规则 → 设计 prompt → agent 判断。
-   采用成对比较(篇内 5 条两两对比 + 位置交换消偏)+ 多次运行自我一致性 + 跨模型校验。
-5. **方案5** 加权合奏 = 最终架构(见下)。
-
-**决策:API 不设预算限制**(用户明确指示),成分取舍只看机制多样性,不看成本。
-
-### 最终合奏结构
-
-| 成分 | 机制 | 权重 |
-|---|---|---|
-| 人工评分(全量 250 条) | 人类判断 | 0.4 |
-| 专家 agent(成对比较 + rubric) | LLM 整体判断 | 0.3 |
-| Claim 级忠实性校验 | LLM 细粒度事实核查 | 0.2 |
-| 规则层 | 确定性字符串/结构检测 | 0.1 |
-
-- 加权前各成分归一化到同一刻度(方式待定:z-score 或映射到 0–100)。
-- 权重为先验设定,需在 golden test 集上做**敏感性分析**辩护;可对比"学出的最优权重"。
-- 报告叙事:人工分用于本数据集评分与校准,同时证明"纯机器合奏 ≈ 人工判断",
-  说明评估体系可脱离人自动扩展。
-
----
-
-## 2026-08-19 标注计划(golden dataset)【已确认,待执行】
-
-**决策:人工标注全量 250 条**(用户确认接受约 12–17 小时工作量),而非抽样 75 条。
-理由:合奏干净(每条都有真实人工分)、规则提炼不漏模式、验证集更大(统计更硬)。
-
-### 执行安排
-
-1. **第一批:15 篇文章(75 条)= dev 集**
-   - 用途:提炼专家规则、调 agent prompt、校准各成分刻度。
-   - 标完后由人工标注中总结"我实际在用的判断标准"→ 写成 rubric → 进 agent prompt。
-2. **并行**:机器三成分(规则层 / claim 校验 / 专家 agent)在此期间搭建。
-3. **第二批:剩余 35 篇(175 条)= 封存 test 集**
-   - 标注时**不看机器分**(盲标,防锚定)。
-   - 机器成分的最终验证只在此集上做,**只做一次**;看过结果后不得再改 prompt。
-4. **标注维度**(每条):忠实性违规(有/无 + 严重度)、覆盖度、流畅度、
-   以及**篇内 5 条质量排序**(data/README 明示评估器应能正确排序,是最直接的验证目标)。
-5. **质量纪律**:分批稳定节奏标注,不疲劳赶工;后期对约 10 条重标,
-   计算自我一致性(intra-annotator agreement),写入报告验证一节。
-6. 标注工具:待搭建(HTML 界面,左原文右摘要,按维度点选,自动存 JSONL,目标每条 ≤2 分钟)。
-
-### Golden dataset 使用时点(讨论中,见对话)
-
-- dev 集(75 条):开发期使用——提规则、调 prompt、校准刻度、预设权重。
-- test 集(175 条):最终验证期使用一次——机器成分与人工的相关性/排序一致性
-  (Kendall τ)、失败模式检出率(P/R)、权重敏感性分析。
-- 人工分本身全量进合奏(0.4);其可靠性由重标一致性佐证。
-
----
-
-## 2026-08-19 方法论备忘:rubric 的定义与提炼流程【已确认】
-
-Rubric = 评分细则表:把"什么算好、什么算差、差多少扣多少分"写成逐条明确的规则,
-使任何评审者(人或模型)照表评分结果趋于一致。
-
-本项目的 rubric 提炼流程(自下而上,非凭空设计):
-1. 标注者(本人)先凭直觉标注 dev 集(第一批 75 条);
-2. 回看标注,总结"实际在使用的判断标准"(例:出现编造数字即低分、照抄原文开头判不合格);
-3. 将标准显式化为分维度、分档、带惩罚规则的细则表(忠实性/覆盖度/简洁性等);
-4. rubric 原文写入 agent prompt,使 agent 复制人类评分逻辑;
-5. agent 与人工不一致处 → 视为 rubric 表述不清 → 修订 rubric 再验证(仅限 dev 集内迭代)。
-
-## 2026-08-19 探索深化:全量通读发现的失败模式(更新)
-
-与 AI 协作对全部 50 篇文章 + 250 条摘要逐条通读后,失败模式清单从初版 4 类扩展为:
-
-| # | 失败模式 | 典型例子 | 检测难度 |
-|---|---|---|---|
-| 1 | 抄参考摘要(原样复制) | ~58 条精确匹配 | 规则层,零难度 |
-| 2 | 照抄原文开头(抽取式) | ~51 条前 40 字符可在原文定位 | 规则层,零难度 |
-| 3 | 截断/不完整 | 半句戛然而止(止于"定居点"、乐队名"Seventee"中途) | 规则层,低难度 |
-| 4 | 编造事实(幻觉) | "安理会全会一致谴责决议"(原文无);"NHS 卡路里标签";"解雇 4 名教练" | 需语义比对,LLM 级 |
-| 5 | 细粒度事实错误 | 数字/日期/机构/人名替换:"72人"、"剑桥大学"(应为别处)、"《华尔街日报》" | claim 级校验最擅长 |
-| 6 | **事实反转** | 原文"实施全面关闭"→摘要"不实施全面关闭";"不予起诉"、"不解散众议院" | 高难度,NLI/LLM 也易漏 |
-| 7 | **错配/完全跑题** | 摘要写的是另一篇文章(叙利亚停火、优步、酸奶、越南南海钻探等) | 语义相似度即可捕获 |
-| 8 | 语序颠倒/逻辑混乱 | 句序打乱导致因果颠倒 | 中难度 |
-| 9 | 编造评价语句 | 摘要中掺入原文没有的主观评价 | 中难度 |
-
-设计启示:
-- 模式 1–3 由规则层确定性捕获(合奏权重虽仅 0.1,但对约半数摘要给出无可争议的定性)。
-- 模式 4–6 是 claim 级忠实性校验的主战场;**模式 6(事实反转)必须进 rubric 和扰动测试集**,
-  因为它是对 LLM judge 最强的对抗样本。
-- 模式 7 用文章-摘要语义相似度即可低成本检出,考虑在规则层追加一个嵌入相似度检测器。
-- 每篇 5 条的类型组合并不固定(并非每篇都是同样 5 型),分布需在标注时统计。
-
-## 2026-08-19 设计决定三则【已确认】
-
-1. **Few-shot 判例进 judge prompt**:dev 集标注除产出 rubric(法条)外,同时挑选
-   代表性判例(含评分理由)作为 few-shot(判例)写入 agent prompt。
-   选例原则:选难例(流畅型幻觉、事实反转)不选显然例;正负平衡防止 judge 过度苛刻;
-   仅从 dev 集取例,test 集绝不入 prompt。
-   验证实验:zero-shot vs few-shot 在 dev 集上的一致率消融对比,写入报告。
-2. **合奏公式升级为"加权求和 + 规则层硬性封顶(veto/cap)"**:
-   确定性检测(截断、抄参考、跑题等)不稀释为权重投票,而是直接对总分设上限
-   (例:截断摘要总分 ≤40)。理由:确定性的价值在于说一不二,
-   避免"LLM 觉得流畅"把明确不合格的摘要抬到中游。
-3. **不设独立 reranker 成分**:cross-encoder 相关性打分收编进规则层,
-   专职跑题检测(模式 7);篇内排序已由专家 agent 成对比较承担。
-   理由:相关性 ≠ 质量——reranker 会把照抄原文的抽取式摘要排最高,
-   作为总分成分会系统性奖励抄袭;且多一成分多一套验证负担。
-
-整体架构哲学(三层):工程确定性(规则层,能确定判的绝不交给概率模型)
-+ 大模型智能(agent/claim 校验,只判语义题)+ 人工兜底(全量标注,校准与验证)。
-生产环境局限写入报告:人工无法兜 100% 流量,生产形态应为抽样审计 + 漂移校准。
-
-## 2026-08-19 探索工具:数据集浏览器
-
-为支撑人工探索与后续标注,构建了单文件 HTML 数据集浏览器(`explore/dataset_viewer.html`):
-- 左侧文章列表(标题 + 自动检测标记概览),右侧原文 + 参考摘要 + 该篇 5 条摘要对照;
-- 每条摘要展示自动检测标记(规则层雏形):抄参考摘要 / 照抄原文开头 / 疑似截断 / 句数 / 字数;
-- 这些标记即规则层(合奏成分之一)的第一版实现,浏览器同时充当其人工抽查界面。
-- 生成脚本:`explore/build_viewer.py`(读取 data/ 原始文件,嵌入静态 HTML)。
-
-## 2026-08-19 定量确认:抄参考摘要名单与数据集构造规律
-
-精确比对全部 250 条后的确定性结论(完整名单见 `explore/ref_copies.json`):
-
-- **精确复制参考摘要:58 条**。分布规律:**50 篇文章每篇都恰有 ≥1 条**(42 篇 1 条,8 篇 2 条),
-  无一例外——这基本证实"抄参考"是出题方给每篇埋的**高分锚点**,不是作弊样本。
-  评估器应给它们打高分(其质量 = 参考摘要本身的质量,XL-Sum 参考质量不均,仍需逐条判)。
-- **参考摘要截断版:17 条**(34991666_7b3a10b0、35278497_f64d7d4c、36881141_86804cfb、
-  39776572_7682c3a7、44026917_27f86779、44285473_b6028e64、45001963_18f10be4、
-  45583472_ca389798、46669858_5fcda3e1、50469832_20573acb、51395937_e409196f、
-  52000333_a8b27666、52407075_d055d6a0、52451669_ce30cbb2、53732134_f51d084f、
-  features-and-analysis-40566272_23a0176c、features-and-analysis-46643494_c7b3a750)。
-  **重要发现:所有"截断"摘要都是参考摘要的前缀**——截断失败模式是拿参考摘要剪断构造的。
-- 仅空白差异的近似复制:0 条(复制都是字节级精确的)。
-
-58 条精确复制名单(summary_id):
-34991666_eb217fa8, 35278497_5a694519, 35647760_e08b3652, 36285464_17e4f012,
-36285464_b97582b2, 36881141_e92770b8, 37426493_12ba3116, 37712268_04ceca32,
-37868736_939d5a23, 37868736_ec4ae30e, 38476572_fa7ad300, 39776572_5c0bde1d,
-39932207_c5be3217, 40490051_e1edb2c8, 40504740_0a7f4dfb, 41396293_54b8e9a4,
-41875333_398f4a38, 41875333_beaac925, 42520667_e8e02131, 43284438_4ebb7ef8,
-43411421_d0c5a134, 43985653_8617611f, 44026917_68047f05, 44285473_70fe2837,
-44708203_584d8d23, 44708557_8b01c940, 44708557_ba0df854, 45001963_a542985b,
-45318822_3e18c9a9, 45392795_a027bba1, 45583472_a66a29cb, 45715110_3531d1d8,
-45715110_c95cebb3, 46601033_0845c743, 46601033_9dc8f17b, 46669858_d3c56cc2,
-48116477_4d229e3c, 48116477_b3855ba6, 48493511_b9b093a2, 50162696_62ac6926,
-50162696_6b12766c, 50285251_d5d3d3b5, 50469832_d35cd9c2, 51145805_1b36aaa6,
-51395937_6e674cea, 52000333_8c3c9670, 52407075_4c3606dd, 52451669_8c0732af,
-52873099_2b6a2491, 53174534_3c6e0621, 53274336_624e6dab, 53732134_e705b192,
-54083932_9e7163bb, 55155049_0166e910, features-and-analysis-40566272_7e05ff60,
-features-and-analysis-42940954_519dda6a, features-and-analysis-46478194_381886c7,
-features-and-analysis-46643494_94201a11
-
-### 由此修正一条早前决定
-
-- ~~抄参考摘要 → 标记+封顶~~ → **抄参考摘要 → 只打标记,不封顶**。
-  理由:它们是每篇的高分锚点;生产环境中摘要器见不到参考,复制参考在本数据集中
-  不构成作弊,其质量按文本本身评。规则层封顶名单更新为:
-  照抄原文(复制率)、截断、跑题(embedding 门禁)三类。
-
-### 评分目标的澄清(与用户对齐)
-
-输入是(文章, 摘要)成对,输出分数。分数高 = 忠实 + 覆盖主旨 + 完整通顺(≤3句)+ 非照抄原文;
-分数低 = 编造/事实反转/跑题/截断/照抄原文开头。
-最危险的失败是"表面像好摘要"的流畅型幻觉,评估器的核心价值在于看穿它。
-
-## 2026-08-19 关于"照抄"的两种思考及其调和(思考过程记录)
-
-任务文本从未规定"照抄算不算失败"(全文仅点名 faithfulness / coverage 两个示例维度,
-其余留白)——这是留给我们回答并辩护的设计决策。讨论中出现两种思考:
-
-### 思考 A(用户提出):照抄应扣分,至少扣 25%
-
-前提:"摘要也算是原文的一部分"——照抄型输出不是真正的总结行为,应受惩罚;
-但不应一棍子打死(不是 0 分),扣减下限 25%(即总分封顶 ≤75)。
-
-**验证与精确化**:实测 50 篇文章,参考摘要整段或前 30 字符均不出现在 `text` 字段中(0/50)
-——XL-Sum 构造时已把导语从正文中移除。因此在本应用的输入定义下
-(摘要器只见 `text`),"抄参考摘要"并**不是**"抄输入原文":
-- 惩罚规则精确化为:**照抄输入文本(lead copy)→ 扣分至少 25%,总分封顶 ≤75**,
-  具体封顶值(60–75 区间)在 dev 集标注后校准;
-- 抄参考摘要不触发此规则(它抄的东西不在输入里),质量按文本本身评。
-  用户"参考也是原文一部分,复制参考也应扣分"的观点作为备选立场记录,
-  最终由 dev 集标注的篇内排序来裁决哪种立场与人工判断一致。
-
-原则重申:惩罚的是照抄导致的质量缺陷(碎片拼接、开头多为图说/铺垫导致覆盖差),
-不是"抄"这个行为本身——评估器看不到生成方法。
-
-### 思考 B(用户提出):参考摘要当 ground truth,构造黄金数据省事
-
-吸引力:若参考可信,黄金数据可自动构造,省去大量人工标注。
-
-**对照任务警告**:ASSIGNMENT.md 原话——"XL-Sum 参考质量已知不均,把参考当作
-众多信号之一,而非 ground truth,并批判性地检查它们"。直接拿参考当 ground truth
-是出题方明文设置的陷阱警示,评审必查此点。
-
-**调和方案:两层黄金数据**——
-1. **构造衍生的确定性约束(免费,零人工)**:利用数据集构造规律自动生成
-   "已知正确的排序对":
-   - 抄参考(完整版)> 参考截断版 —— 同一文本剪断前后,质量序由构造保证(17 篇可用);
-   - 正常摘要 > 跑题摘要(错配是确定性的);
-   - 与参考的相似度可作合奏外的弱信号特征,不进总分。
-   这些约束可在人工标注完成前先行 sanity-check 评估器排序,兑现"省事"的合理部分。
-2. **人工标注(核心,不可替代)**:流畅型幻觉 vs 优秀生成式摘要的区分,
-   参考摘要裁决不了(参考本身质量不均,且幻觉摘要与参考的相似度可能很高)。
-   全量 250 条人工标注计划不变。
-
-结论:思考 A 采纳(精确化为"照抄输入文本"惩罚);思考 B 部分采纳
-(构造衍生约束作为免费的第一层金标准,参考不作 ground truth)。
-
-## 2026-08-19 立场修订【用户裁决】:抄"参考摘要" = 抄原文
-
-用户论点:数据虽提供 `reference_summary` 字段,但任务明文声明它**不是 ground truth**
-(质量不均、仅为众多信号之一),数据没有授权我们把它当"官方摘要";
-且该段文字本是 BBC 原文的导语段落(原发布物的一部分)。
-因此评估中不赋予它特殊地位——**复制该段落视同复制原文**,不作为高分锚点。
-
-落地:
-- **统一照抄规则**:无论抄正文片段还是抄疑似摘要段落,一律扣分至少 25%(总分封顶 ≤75),
-  具体封顶值在 dev 集校准。此规则取代早前"抄参考不封顶"的决定。
-- **可视化标签改名**(避免措辞预设立场):"抄参考摘要"→"**抄袭原文疑似摘要段落**";
-  "参考摘要截断版"→"疑似摘要段落截断版"。
-- **保留的对立假设(留待实证裁决)**:"每篇必有 1–2 条精确复制"的分布规律仍可能意味着
-  出题方将其用作高分锚点。裁决机制:dev 集人工标注的篇内排序——若人工判断显示
-  这些复制条应排前列,则回退本规则(回退与否都记录在案)。
-  这本身就是"假设 → 数据裁决"的探索方法论,写进报告。
-
-## 2026-08-19 立场再修订【用户最终裁决】:reference_summary 即参考答案
-
-用户裁决:`reference_summary` 字段就是参考答案,按参考答案对待,不再纠结其地位。
-此裁决取代上一条"复制参考视同抄原文"的规则。落地:
-
-- **与参考答案一致的 58 条 = 每篇的高分锚点**,不触发照抄惩罚,恢复高分。
-- **照抄惩罚(≥25%,封顶 ≤75)仅适用于复制正文 `text` 内容**(lead copy 类)。
-- **黄金数据第一层直接兑现**:每篇自带 1–2 条已知高分锚点(参考答案复制条)+
-  截断版必然劣于完整版 + 跑题必然垫底——零人工成本的排序约束显著变厚,
-  正是用户早前"用参考答案省事"思路的落地。
-- 可视化标签改回:"与参考答案一致" / "参考答案截断版";
-  文章视图绿色区块标题改为"参考答案(reference_summary)"。
-- 报告措辞注意:任务原文有"参考质量不均、勿当 ground truth"的提示,报告中表述为
-  "将参考作为每篇的强质量锚点使用,并在人工标注中对其批判性抽查"——
-  既执行本裁决,也与任务文本不冲突(人工标注环节天然覆盖了抽查)。
-
-决策演化脉络(保留作探索过程证据):锚点假设 → 抄袭统一惩罚 → 参考答案定论。
-
-## 2026-08-19 错误记录【AI 助手犯错,用户指正】
-
-**错误内容**:AI 助手(Claude)错误地将 `reference_summary`(参考答案)引导性地解释为
-"文章原文里疑似摘要的段落",并据此把讨论带偏到"抄文章里面的摘要算不算抄袭"这个伪问题上,
-一度把与参考答案一致的 58 条摘要纳入照抄惩罚(扣 ≥25%),
-还把可视化标签改成了"抄袭原文疑似摘要段落"——差点在标注开始前误导质量定义。
-
-**正确理解(用户指正)**:`reference_summary` 就是参考答案。
-每篇 5 条摘要中若有一条命中参考答案,那它就是好摘要,给高分,与"抄袭"无关。
-就这么简单,不需要绕。
-
-**纠正措施(均已执行)**:
-- 评分规则回退:命中参考答案 → 高分锚点,不触发任何惩罚;
-- 照抄惩罚仅适用于复制正文 `text` 的内容;
-- 可视化重做为如实字段展示,删除了全部 AI 添加的标签与判断。
-
-**教训**:
-1. 数据字段的语义以 schema/README 的字面为准,不做引导性的重新解释;
-2. 原始数据的可视化必须中立,分析判断另行输出、明确标注为推断;
-3. AI 的假设是假设,要显式标注,不得包装成数据事实混入讨论。
-
-## 2026-08-19 需求再分析:评估框架的未来使用场景与泛化设计【用户提出,已确认】
-
-### 需求理解
-
-用户提出一个关键视角:这套评估的价值不止于给当前 250 条摘要打分。
-从使用方(客户)的角度看,一个摘要应用上线后会持续产生新的摘要,
-客户真正需要的是**一套可以持续使用的评估框架**——今天在这批数据上校准好,
-明天新文章、新摘要来了,同样的规则、同样的流程,依然能输出可信的分数。
-因此设计必须回答:"换一批数据,这套东西还能用吗?"
-
-同时,当前数据集"每篇 5 条、质量分层"的构造本身就暗示了对评估器的期望:
-能按质量把摘要排出正确的顺序。我们的评分应当经得起这种排序层面的检验。
-
-### 设计承诺一:组件分两栏,数据集特有信号不做评分的必要条件
-
-| 可迁移组件(新数据直接可用) | 数据集特有信号(仅用于校准与验证) |
-|---|---|
-| 截断/照抄/格式规则 | 精确命中参考答案的锚点 |
-| claim 级忠实性核查(只对照原文) | 截断版<完整版的构造约束 |
-| LLM judge + rubric + few-shot | 每篇含高质量锚点的分布规律 |
-| 跑题门禁(embedding) | |
-| 覆盖度(有参考时对照参考;无参考时退化为 LLM 判主旨) | |
-
-原则:评分主体只依赖(文章, 摘要)对本身;锚点等构造性信号只许用来
-统一刻度、检验系统,不许成为打分的前提。生产环境无参考答案时,
-覆盖度维度有明确的退化路径,框架不失效。
-
-### 设计承诺二:三级"测试期"验证泛化能力
-
-1. **按文章切分的封存测试**(必做):dev 用 15 篇调规则与 prompt;评估器冻结后,
-   对其余 35 篇整篇端到端运行——对评估器而言即"未见过的新数据"。
-   按文章(而非按摘要)切分,是为了杜绝同篇信息在开发与测试间泄漏。
-2. **扰动试验台**(必做):对参考答案施加受控破坏(换数字、加否定、换实体、
-   截断、注入编造句)生成数百条全新摘要,评估器打分方向必须正确、
-   破坏越重分越低。纯合成新数据,零人工成本。
-3. **真实新数据测试**(可选加分项):在当前 50 篇之外另取新文章,
-   用真实 LLM 按不同质量档生成摘要,冻结的评估器直接运行,
-   作为"框架可持续使用"的最直接证据。约半天成本,视报告目标决定。
-
-此需求分析同时决定了报告 Limitations 一节的主线:明确交代哪些信号
-是本数据集特有的、生产使用时框架如何退化与补偿。
-
-## 2026-08-19 进展里程碑:确定性筛查完成,142/250 条已定性【零错误】
-
-用完全确定性的方法(字符串比对 + embedding 检索交叉验证),从 250 条摘要中
-挑出了所有"明显有问题/明显是锚点"的条目,并逐条核实无误:
-
-| 类别 | 数量 | 方法 | 核实方式 |
-|---|---|---|---|
-| 命中 reference answer | 58 条(50 篇每篇至少 1 条,8 篇有 2 条) | 精确字符串比对 | 字节级一致,无模糊地带;日志 explore/ref_hit_log.txt |
-| reference answer 截断版 | 17 条 | 前缀匹配 | 全部为参考答案前缀 |
-| 张冠李戴(与所属文章完全无关) | 16 条(散布在 16 篇不同文章,每篇最多 1 条) | embedding 检索(qwen3-embedding:0.6b):摘要与 50 篇文章算相似度,检索不到自己文章者判无关 | ① bge-reranker-v2-m3 交叉验证 16/16 一致;② 逐条人工核实全部无关,且**每条实为另一篇文章的 reference answer**(检索 top1 直接定位真实来源) |
-| 直接抄袭正文 | 51 条 | 字符前缀匹配(复制率规则待泛化) | 逐条可在正文中定位 |
-
-**检出成绩:16 条无关摘要 16/16 全检出,0 漏检,0 误伤(234 条正常摘要无一被冤枉)。**
-判定阈值(own_rank>1 且 margin<−0.15)两侧有宽阔空隙,程序稳定、可复现。
-
-技术选型结论:门禁用 embedding(0.6b 本地模型,秒级,阈值余量宽);
-reranker 分数饱和(非 0 即 1)、模型 2GB,仅留档作交叉验证证据(explore/offtopic_reranker.json)。
-
-附带发现:文章 features-and-analysis-40566272 的 reference answer 本身与其正文
-相关性极弱(CE 分 0.0004,检索仅排第 3)——XL-Sum 参考质量不均的实证案例,
-该篇锚点存疑,人工标注时需重点复核。
-
-**当前战线:剩余 108 条(桶 F)需语义级判断(幻觉/事实错误/事实反转 vs 正常摘要),
-分桶明细在 explore/sieve.json。**
-
-## 2026-08-19 重要澄清【用户指正】:真实数据没有参考答案,勿把脚手架当地基
-
-**用户指正的误区**:AI 助手在汇报确定性筛查成果时,未区分"依赖参考答案的方法"
-和"不依赖参考答案的方法"。必须写清楚:**真实的评估场景(摘要器上线后产出的数据)
-没有 reference answer**——参考答案只是本作业为方便我们构建与验证评估器而提供的
-脚手架。评估框架的地基必须建立在"只有(文章, 摘要)对"之上。
-
-按此标准重新审视四招确定性筛查的生产适用性:
-
-| 方法 | 依赖参考答案? | 生产环境(无参考)可用? |
-|---|---|---|
-| 命中参考答案(58 条) | 是 | **不可用**,纯作业脚手架(生产中输出不可能命中不存在的参考) |
-| 参考答案截断前缀(17 条) | 是 | **不可用**;但通用截断检测(句尾完整性)不依赖参考,可用 |
-| 张冠李戴检测(16 条) | **否**(embedding 只比对摘要↔文章) | **可用**,生产直接部署;"逐条核实为他篇参考答案"仅是本作业中的额外验证 |
-| 直接抄袭正文(51 条) | 否(字符匹配对象是正文) | **可用**,生产直接部署 |
-
-结论:
-- 四招中**两招可直接迁移**(跑题门禁、抄袭检测),**一招可替换为通用版**(截断检测),
-  **一招纯属本数据集校准/验证用**(参考答案命中);
-- 参考答案在本作业中的合法用途:锚定篇内排序、校准刻度、构造验证约束、
-  定义覆盖度要点——全部属于"开发与验证期"用途,**不进入生产评分路径**;
-- 此澄清与 DESIGN.md 第 8 节"组件两栏"一致,并强化其执行纪律:
-  报告中所有成果数字都须标注"是否依赖参考答案"。
-
-## 2026-08-19 框架定型【用户提出】:硬约束 / 软约束两级评分
-
-**流水线顺序原则(用户明确)**:便宜且确定的先上,每一道只处理上一道剩下的——
-字符串匹配(抄袭/截断/句数)→ embedding(无关)→ 大模型(事实/覆盖/通顺)。
-抄袭检测不用 embedding(字符匹配更准且 embedding 会给抄袭打高分);
-截断检测用句尾完整性规则(不依赖参考答案,生产可用)。
-
-**硬约束**(物理性检测,不需参考答案,违反者直接定性):
-- 超过 3 句 → 零分。依据:ASSIGNMENT.md 明文"3 sentences or fewer"是产品规格;
-  实测本数据集 0/250 触发,但保留在框架中面向生产数据。
-  实现注意:日语计句需排除引号内「。」。
-- 句子截断不完整 → 硬封顶(不合格)。
-- 抄袭正文 → 扣 ≥25%,封顶 ≤75(沿用先前裁决)。
-- 完全无关 → 垫底/零分。
-
-**软约束**(程度性判断,仅对通过硬约束者,大模型给梯度分):
-忠实性(编造/反转)、覆盖度、通顺连贯。
-
-**总分逻辑:先硬约束一票定性,再软约束排序定级。**
-
-**级联短路的成本收益(用户提出的核心动机)**:大模型放在最后一道,
-前面任何一道判死即提前终止(early exit),不再进入后续环节——
-① 省 token 与算力:本数据集硬约束提前终止 84 条(抄袭 51+截断 17+无关 16),
-加上命中参考答案 58 条,大模型只需处理 108/250(省约 57%),
-且省掉的都是"长文章全文对照"的最贵调用;
-② 省延迟:硬约束毫秒级拦截大部分坏摘要,生产吞吐量数量级提升;
-③ 可解释:每条被拦截的摘要都有确定性理由,不需要向人解释"模型为什么这么觉得"。
-
-## 2026-08-19 实验记录:正确答案 vs 无关摘要的 embedding 相似度对照【用户设计的实验】
-
-**实验设计(用户提出)**:同一篇文章,分别计算"正确答案 ↔ 文章"与"无关摘要 ↔ 文章"
-的向量相似度,各取 10 篇对照,验证正确答案是否与文章存在稳定的高相似度。
-
-**结果**(模型 qwen3-embedding:0.6b,日志 explore/refvsbad_sim_10articles.txt):
-
-| 组 | 相似度范围 | 平均 |
-|---|---|---|
-| 正确答案 ↔ 自己的文章 | 0.711 – 0.868 | 0.800 |
-| 无关摘要 ↔ 同一篇文章 | 0.163 – 0.398 | 0.275 |
-
-**结论**:
-- 用户猜想成立:正确答案与文章之间存在稳定的高相似度(≈0.8);
-- 两组之间有 **+0.313 的空隙**(正确答案最低 0.711 vs 无关最高 0.398),
-  阈值取 0.5 附近可稳定切分,支撑"相关性门禁"的零错误检出;
-- 边界能力再确认:相似度只能分"相关/无关",分不出"好/坏"
-  (编造事实的摘要相似度同样 ≥0.8);
-- 已知例外 1 篇:features-and-analysis-40566272 的正确答案 own_sim=0.459
-  (该篇参考与正文关系弱)——50 篇中 49 篇规律成立,阈值需留余量。
-
-## 2026-08-19 里程碑:Claude Code 插件建成 + 25 条端到端漏斗测试通过
-
-**插件**:`plugin_claude/summary-quality-funnel/`(与 codex 版共用 references/scripts;
-Claude 侧新增 .claude-plugin 清单、适配 Agent 工具的 SKILL.md、summary-scorer /
-summary-reviewer 两个 agent 定义、/evaluate-summaries 命令)。
-
-**端到端测试**(seed=7 随机 5 篇 × 5 条 = 25 对,结果 experiments_claude/):
-- 硬约束拦截 6 条(5 抄袭 + 1 截断);embedding 门禁提名 2 条跑题,独立 reviewer
-  重算后 8/8 APPROVE(抄袭逐条验证为正文 offset 0 起 100% 连续包含);
-- 软评分 17 条:5 scorer(锚点+claim核查)+ 5 reviewer 独立复核,16 APPROVE
-  + 1 **ESCALATE 改道**——硬门漏掉的无标点截断条(39776572_7682c3a7,半句止于
-  人名中途)被软评 reviewer 识别并改判 OBVIOUS_TRUNCATION 终止:双层防线互补的实证;
-- 抓获样例:否定反转 2 例("解散→不解散" 32分、"元気→衰弱" 37分)、
-  实体/数字替换("マシュハド→タブリーズ、52→72人" 57分)、编造升级
-  ("3死1失踪→5人全員死亡"+捏造国家紧急状态 38分)、细粒度日期错
-  ("生後3日→1週間過ぎ" 58分);
-- 全部 25 条通过 validate_result.py schema 校验,rank_results.py 篇内排序
-  形态正确:无关(rank0)< 抄袭 < 截断 < 低分软评 < 好摘要;
-- 输出:funnel_25_scores.jsonl / funnel_25_ranked.jsonl。
-- 待人工校准的观察:5 篇中命中参考答案的条目均被盲评为第 2 名(76–88 GOOD),
-  第 1 名均为生成式好摘要——judge 是否偏爱"流畅完整"风格,需 dev 集人工排序裁决。
-
-## 2026-08-19 实验记录:锚点 embedding 环节【用户提出,结论=不加】
-
-问题:摘要↔锚点(LLM 生成的要点浓缩)的 embedding 相似度,是否比摘要↔全文更有用?
-
-结果(25 条,16 条软评分条目,日志 experiments_claude/anchor_probe_log.txt):
-- Spearman(sim全文, 漏斗分)= **+0.512**
-- Spearman(sim锚点, 漏斗分)= **+0.424**(更差)
-
-原因:幻觉摘要在话题上与锚点几乎重合(它们模仿要点、只改事实),
-embedding 看不见事实翻转——状态反转条(37分)的 sim锚点高达 0.906,比多数好摘要还高。
-且锚点需先花一次 LLM 调用才能生成,若用于门禁会破坏"便宜的先上"的级联经济学。
-
-**结论:锚点不进 embedding 门禁;其价值保留在软评分阶段
-(作为 LLM 覆盖度对照的结构化要点清单)。** 有/没有该 embedding 环节的区别:
-相关性反而下降 0.09,成本增加,故不加。
-
-## 待办
-
-- [ ] 深化探索:全量幻觉筛查、失败模式分布全景、逐篇抽查
-- [ ] 搭建标注工具(HTML)
-- [ ] 第一批标注(15 篇 dev)
-- [ ] 三个机器评估器实现
-- [ ] 合奏 + 归一化
-- [ ] 封存集验证 + 扰动实验(受控注入错误,测各成分检出能力)
-- [ ] report.md(英/日),README(含 AI 使用说明),scores.jsonl
+The user proposed a cascade that removes obvious failures before expensive model judgment. The accepted order is:
+
+1. deterministic string and structure checks;
+2. embedding-based relevance nomination;
+3. semantic confirmation of possible off-topic content;
+4. claim-grounded soft scoring;
+5. independent review;
+6. validation, ranking, and reporting.
+
+This order reduces token use and latency while retaining more expensive reasoning for ambiguous candidates.
+
+## 2026-08-19 — Copy Detection
+
+Near-verbatim copying should be detected with physical text comparison, not embeddings. Useful signals include normalized containment, longest common substring, and character or n-gram coverage.
+
+The earlier idea of a 25% penalty was not supported by the assignment and was withdrawn. A confirmed whole-summary source copy is treated as failure to perform the summarization task. It receives score `0`, a copy-specific ranking tier, and an early stop. Shared entities, numbers, and short phrases remain legal.
+
+## 2026-08-19 — Sentence Count and Truncation
+
+The product specification requires three sentences or fewer. The final implementation treats a Reviewer-confirmed over-length candidate as a terminal failure while preserving a distinct rank tier.
+
+Truncation requires stronger evidence than missing punctuation. High-confidence signs include a dangling conjunction, an incomplete grammatical ending, or unbalanced quotation marks or brackets. A Reviewer confirms every proposed truncation because deterministic rules can miss unpunctuated fragments or flag legitimate short headlines.
+
+## 2026-08-19 — Relevance Gate
+
+Embeddings are suitable for identifying potentially unrelated summaries after deterministic failures have been removed. They are not suitable for judging summary quality: copied, hallucinated, and factually reversed candidates can all remain highly similar to the article.
+
+In a batch, the gate compares the candidate with its assigned article and other articles. Own-article rank and similarity margin provide strong nomination evidence. In a single-pair request, absolute similarity is only a warning because there is no comparative corpus.
+
+No embedding signal is terminal by itself. A semantic Reviewer confirms whether the candidate is actually unrelated.
+
+### Relevance calibration experiments
+
+Two experiments tested valid reference summaries against mismatched summaries:
+
+| Experiment | Valid reference mean | Unrelated mean | Observed gap |
+|---|---:|---:|---:|
+| 10 articles with curated unrelated summaries | 0.800 | 0.275 | 0.313 |
+| 10 new articles with random cross-article summaries, seed 42 | 0.780 | 0.263 | 0.343 |
+
+Across these 20 articles, valid examples were above roughly `0.70` and mismatches below roughly `0.40`. This supports `0.50` as a corpus-specific starting threshold. It does not eliminate the need for calibration or review.
+
+## 2026-08-19 — Hard and Soft Constraints
+
+Hard constraints determine whether a candidate qualifies for soft scoring:
+
+- empty output;
+- more than three sentences;
+- near-verbatim source copy;
+- obvious truncation;
+- completely unrelated content.
+
+Soft constraints create a quality gradient among survivors:
+
+- faithfulness, including hallucination and reversal;
+- coverage of the main event and key facts;
+- coherence and grammatical completeness;
+- conciseness.
+
+Terminal failures receive score `0` but retain separate rank tiers. This supports the user’s requirement to order five candidates rather than collapsing every failure into an indistinguishable bucket.
+
+## 2026-08-19 — Scorer and Reviewer Roles
+
+The user required two independent agents:
+
+- the Scorer produces a structured article anchor, claim checks, dimension scores, and a draft result;
+- the Reviewer confirms every early exit and independently audits the source evidence, score, label, and arithmetic.
+
+Every role call receives exactly one matching few-shot case. If the Reviewer requests a revision, the Scorer may revise once and the result is reviewed again. Unresolved disagreement is preserved explicitly.
+
+The trace records the actual path taken, including recovered failures that deterministic gates missed.
+
+## 2026-08-19 — Claude Plugin Milestone
+
+A separate Claude implementation was created under `plugin_claude/summary-quality-funnel/` and tested on a 25-pair sample. It demonstrated hard-gate routing, soft scoring, Reviewer correction, and ranking. One important case showed the value of two layers: the soft-stage Reviewer recovered an unpunctuated truncation missed by the deterministic rule.
+
+The GPT/Codex implementation must remain independent and must not edit the Claude plugin.
+
+## 2026-08-20 — GPT/Codex Plugin and 50-Pair Experiment
+
+The GPT/Codex implementation lives under `plugin_GPT/summary-quality-funnel/`. It contains reference-free hard-gate, embedding, validation, ranking, prompt, rubric, and schema components.
+
+A 50-pair experiment demonstrated the basic cascade without using reference summaries at runtime. It confirmed that deterministic copy detection can remove clear failures before embeddings and that relevance evidence can nominate cross-article mismatches.
+
+## 2026-08-20 — Random 20-Pair End-to-End Run
+
+A reproducible seed-42 run selected 20 pairs covering 14 unique articles.
+
+- 12 completed soft scoring.
+- 8 terminated: 5 copies, 2 truncations, and 1 off-topic candidate.
+- 3 final records required revision.
+- all 20 final records received Reviewer approval.
+- soft-score mean was 76.08, median 76, and range 43–98.
+
+The run caught fluent but factually wrong summaries and produced valid ranking records. It supports the conclusion that the pipeline is a usable prototype requiring broader validation.
+
+## 2026-08-20 — Anchor Embedding Ablation
+
+The user proposed embedding the candidate against the generated anchor in addition to the full article.
+
+The small ablation produced mixed results:
+
+- coverage Spearman correlation: article `0.5282`, anchor `0.6303`;
+- leave-one-out coverage MAE: article `3.6246`, anchor `4.0123`, combined `4.4121`.
+
+The anchor remains useful as a structured coverage checklist for the Scorer. Anchor similarity is not added as a gate or scoring feature because predictive error did not improve and anchor generation increases cost.
+
+## 2026-08-20 — Formal Report Agent
+
+The user requested a third role so that readers do not need to inspect JSONL.
+
+The GPT plugin now exposes `$summary-quality-funnel:generate-summary-report` as an independent skill. It receives only validated score artifacts and audited findings, generates deterministic charts and statistics, writes an English report with four fixed sections, and enforces an 800-word limit.
+
+The Report Agent cannot rescore candidates, inspect reference summaries, browse for new data during reporting, or claim production readiness from a small sample. Autonomous corpus expansion remains a separate future project with explicit authorization, provenance, licensing, deduplication, and evaluation requirements.
+
+## Current Status
+
+The current design has three isolated roles—Scorer, Reviewer, and Report Agent—and a deterministic-to-semantic cascade with early stopping. The next work is broader held-out validation, controlled factual perturbations, human ranking comparison, and threshold recalibration across models and domains.
+
+All project-facing material is English. Japanese source articles, candidate summaries, evidence spans, and language-specific fixtures remain Japanese because they are the evaluated data rather than documentation.

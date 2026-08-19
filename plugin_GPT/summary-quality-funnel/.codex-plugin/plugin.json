@@ -7,15 +7,15 @@
   },
   "skills": "./skills/",
   "interface": {
-    "displayName": "摘要质量漏斗",
-    "shortDescription": "硬约束早停、三 Agent 评分复核、图表报告与审计轨迹",
-    "longDescription": "输入文章与候选摘要，先执行确定性硬约束和相关性筛查，再由评分、复核与报告 Agent 输出质量分数、标签、证据、图表、简明 Markdown 报告和完整评估轨迹。正式评分不依赖参考摘要。",
+    "displayName": "Summary Quality Funnel",
+    "shortDescription": "Hard gates, three-agent review, charts, and audit trails",
+    "longDescription": "Evaluate article-summary pairs with deterministic hard gates and relevance screening, then use isolated Scorer, Reviewer, and Report Agent workflows to produce scores, labels, evidence, charts, a concise English Markdown report, and a complete audit trail. Runtime scoring does not require reference summaries.",
     "developerName": "Chen Jinhua",
     "category": "Productivity",
     "capabilities": ["Analyze", "Write"],
     "defaultPrompt": [
-      "评估这个文章与摘要对，输出分数、标签和完整复核轨迹。",
-      "批量评估这些摘要，按质量分排序，并生成不超过800词的图表报告。"
+      "Evaluate this article-summary pair and return a score, label, evidence, and complete review trace.",
+      "Evaluate and rank this summary batch, then generate an English chart report under 800 words."
     ]
   }
 }

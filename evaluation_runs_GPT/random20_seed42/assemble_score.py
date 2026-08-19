@@ -63,11 +63,11 @@ def terminal_from_hard(row):
         "dimensions": None,
         "anchor": None,
         "claim_checks": [],
-        "issues": ["候補全体が原文中に正規化後そのまま含まれる、逐語的な原文コピー"],
+        "issues": ["The normalized candidate is fully contained in the article and is a verbatim source copy."],
         "review": approved_review(
             row["summary_id"],
             1,
-            ["正規化後の候補全文が原文に完全包含され、copy metrics がすべて 1.0 のため終端判定を承認。"],
+            ["Approved the terminal result because the normalized candidate is fully contained in the article and every copy metric equals 1.0."],
         ),
         "evaluation_trace": row["evaluation_trace"]
         + [
@@ -103,18 +103,18 @@ def terminal_off_topic(row):
         "dimensions": None,
         "anchor": None,
         "claim_checks": [],
-        "issues": ["記事はタイ洞窟救助、候補はスコッチウイスキー販売で、主体・出来事・話題が一致しない"],
+        "issues": ["The article concerns a Thai cave rescue, while the candidate concerns Scotch whisky sales; the subjects, events, and topics do not match."],
         "review": approved_review(
             row["summary_id"],
             1,
-            ["Embedding は割当記事を14位、類似度0.3193とし、独立した意味確認でも完全な別話題だったため OFF_TOPIC を承認。"],
+            ["Approved OFF_TOPIC because the assigned article ranked 14th at similarity 0.3193 and independent semantic review confirmed a completely different topic."],
         ),
         "evaluation_trace": row["evaluation_trace"]
         + [
             {
                 "stage": "terminal_review",
                 "result": "APPROVE",
-                "evidence": {"confidence": "HIGH", "semantic_finding": "主体・出来事・話題が完全に不一致"},
+                "evidence": {"confidence": "HIGH", "semantic_finding": "The subject, event, and topic are completely mismatched."},
             },
             {
                 "stage": "early_stop",

@@ -1,23 +1,23 @@
-## 1. 输入数据
+## 1. Input Data
 
-本次评估使用 seed 42 从既有日文新闻文章—候选摘要语料中随机取得20组，覆盖14篇独立文章；运行时未使用参考摘要。
+This seed-42 run evaluated 20 Japanese news article-summary pairs from 14 unique articles, using `score_ranked.jsonl` as the validated final artifact. Runtime scoring did not use reference summaries.
 
-## 2. 漏斗过程
+## 2. Funnel Outcomes
 
-12组完成软评分，8组提前终止：5组为原文复制、2组为明显截断、1组为完全离题。确定性门提出5个终止项；另有2个硬失败由下游复核补获。离题样本的嵌入信号经独立语义确认后才终止。
+Twelve pairs completed soft scoring. Eight stopped early: five verbatim source copies, two obvious truncations, and one confirmed off-topic summary. The deterministic gate proposed five terminal outcomes, while downstream checks recovered two additional hard failures. Embedding flagged one off-topic suspect; the pipeline terminated it only after independent semantic review confirmed that its subject and event were unrelated to the assigned article.
 
-![漏斗结果](report_assets/pipeline_outcomes.png)
+![Pipeline outcomes](report_assets/pipeline_outcomes.png)
 
-## 3. 统计结果
+## 3. Results
 
-12组软评分均值76.08、中位数76，范围43–98；3组EXCELLENT、3组GOOD、5组MIXED、1组POOR。维度均值为忠实性35.50/50、覆盖度20.92/30、连贯性14.75/15、简洁性4.92/5。Reviewer复核并批准全部20组，其中3组至少修订一次。
+The 12 soft scores averaged 76.08, with a median of 76 and a range of 43–98. The distribution was three EXCELLENT, three GOOD, five MIXED, and one POOR. Mean dimension scores were 35.50/50 for faithfulness, 20.92/30 for coverage, 14.75/15 for coherence, and 4.92/5 for conciseness. The Reviewer approved all 20 final records; three required at least one revision.
 
-代表性成功样本以98分准确覆盖访日、演讲与行程；43分失败样本则改错国家、自爆者特征和战斗员人数，说明漏斗能区分流畅但事实错误的摘要。
+A representative success scored 98 after accurately covering the visit to Japan, the speech, and the itinerary. The 43-point failure remained fluent but changed the country, suicide-attacker details, and fighter counts, showing that surface coherence did not mask factual defects.
 
-锚点消融中，覆盖度Spearman相关由文章嵌入的0.5282升至锚点嵌入的0.6303；但留一法覆盖度MAE以文章单特征最低（3.6246），优于锚点单特征（4.0123）及二者合用（4.4121），因此不能据此认定锚点稳定提升预测。
+In the embedding ablation, coverage Spearman correlation increased from 0.5282 for article similarity to 0.6303 for anchor similarity. However, leave-one-out coverage MAE was lowest for article similarity alone (3.6246), versus anchor similarity (4.0123) or both features (4.4121). This small run therefore does not establish a stable predictive gain from anchors.
 
-![软评分结果](report_assets/soft_score_results.png)
+![Soft-score results](report_assets/soft_score_results.png)
 
-## 4. 结论
+## 4. Conclusion
 
-本轮结论为“可用原型，需要扩大验证”：pipeline能拦截明确违规、识别事实错误并通过Reviewer校正边界案例，具备可审计性；但20组小样本及消融结果尚不足以证明生产稳定性或泛化能力，不能表述为已获生产验证。
+This run supports a usable prototype that needs broader validation. The pipeline intercepted clear violations, distinguished fluent factual failures, and produced Reviewer-audited outcomes. The 20-pair sample and mixed ablation evidence are insufficient to establish production readiness, stability, or generalization.

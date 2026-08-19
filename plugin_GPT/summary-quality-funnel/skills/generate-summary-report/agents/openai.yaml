@@ -1,0 +1,4 @@
+interface:
+  display_name: "Summary Report Agent"
+  short_description: "Generate concise audited evaluation reports with fixed charts"
+  default_prompt: "Use $generate-summary-report to turn these validated summary scores into an English Markdown report with charts."

@@ -32,9 +32,8 @@ Read `references/embedding-calibration.md` only when calibrating or defending th
 10. On `REVISE`, let the Scorer revise once from explicit review findings, then review again. On unresolved disagreement, mark `LOW_CONFIDENCE` and preserve both positions.
 11. Run `scripts/validate_result.py`. Do not deliver output until schema, score ranges, dimension sums, review status, and trace rules pass.
 12. For five summaries per article, order terminal failure tiers first, then soft scores. Preserve evidence-backed ties.
-13. Run `scripts/make_report_charts.py` on the validated result. When available, also pass hard-gate and embedding draft files so the funnel statistics distinguish initial catches from downstream recoveries.
-14. Run the Report Agent with `report_stats.json`, chart paths, batch metadata, and concise audited findings. Require the four report sections, embed both charts, and keep the report below 800 lexical units.
-15. Run `scripts/validate_report.py`. Deliver the machine-readable result and human-readable report together.
+13. Delegate the validated result to a fresh Report Agent that invokes the sibling `$generate-summary-report` skill. Provide final score JSON/JSONL, batch metadata, hard-gate drafts, embedding drafts, and concise audited findings when available.
+14. Deliver the machine-readable result and the Report Agent's validated English Markdown report together.
 
 ## Agent execution
 
@@ -42,11 +41,11 @@ Use three role-isolated agents when delegation is available:
 
 - Scorer Agent: generate the article anchor in an article-only pass, then score candidates that passed every hard gate.
 - Reviewer Agent: independently confirm every early exit and review every soft score and cited source span.
-- Report Agent: summarize validated aggregate results and deterministic charts for a reader who will not inspect JSON/JSONL.
+- Report Agent: invoke `$generate-summary-report` in a fresh context to summarize validated aggregate results and deterministic charts for readers who will not inspect JSON/JSONL.
 
 Prefer different models for the two roles when practical. Otherwise use separate prompts and fresh contexts. If delegation is unavailable, execute the roles sequentially with isolated prompts and preserve their separate outputs.
 
-Every Agent call must include one relevant few-shot example from `references/few-shot-examples.md`. Select by stage and suspected condition. For a general soft-score call, use the closest dominant quality issue. Use `REPORT_SUMMARY` for the Report Agent. Never use evaluation targets from the current batch as few-shot examples.
+Every Scorer and Reviewer call must include one relevant few-shot example from `references/few-shot-examples.md`. Select by stage and suspected condition. For a general soft-score call, use the closest dominant quality issue. The Report Agent reads its own `references/report-example.md`. Never use evaluation targets from the current batch as few-shot examples.
 
 ## Efficiency rules
 
@@ -64,7 +63,6 @@ Every Agent call must include one relevant few-shot example from `references/few
 - `scripts/embedding_gate.py`: optional Ollama embedding evidence for single pairs or multi-article batches; pass `--article-corpus` when testing a summary subset against a larger article bank.
 - `scripts/validate_result.py`: final schema, arithmetic, review, and trace validation.
 - `scripts/rank_results.py`: rank validated results within each article while keeping off-topic last.
-- `scripts/make_report_charts.py`: derive audited batch statistics and two fixed PNG charts from final JSON/JSONL.
-- `scripts/validate_report.py`: enforce the four-section Markdown structure, local chart presence, and 800-unit length limit.
+- `$generate-summary-report`: sibling Report Agent skill that derives audited statistics, renders fixed charts, writes the four-section English Markdown report, and validates the 800-word limit.
 
 Use `python3 <script> --help` for CLI options.

@@ -1,153 +1,145 @@
-# 评估设计方案(草案 v0.1,待过目)
+# Summary Quality Evaluation Funnel
 
-日语新闻摘要质量评估 —— 基于 2026-08-19 全部讨论的收敛稿。
-决策过程与演化脉络见 processing.md;本文档只呈现"现在的设计是什么"。
+This document describes the current design for evaluating Japanese news summaries. The production path is reference-free: it accepts only an article and a candidate summary.
 
----
+## 1. Objective
 
-## 1. 任务与需求
+Input: one `(article, candidate_summary)` pair, with optional identifiers.
 
-**输入**:(文章, 摘要)成对。**输出**:每条摘要一个分数(及分维度子分)。
+Output: a validated score record containing:
 
-- 分数高 = 忠实(不编造、不反转)+ 覆盖要点 + 完整通顺(≤3 句)+ 非照抄原文;
-- 分数须**篇内可比**(5 条排出正确质量序)且**跨篇可比**(统一刻度);
-- **框架须可持续使用**:今天在本数据集上校准,未来新文章、新摘要来了,
-  同样的规则与流程依然输出可信分数(使用方的核心需求)。
+- a terminal failure or a 0–100 soft-quality score;
+- dimension scores for faithfulness, coverage, coherence, and conciseness;
+- a quality label and within-article ranking tier;
+- an auditable trace of each stage visited;
+- an independent Reviewer decision.
 
-## 2. 探索发现(设计的事实依据)
+The evaluator must remain useful when no gold or reference summary exists. Reference summaries may support offline research, but they never enter the runtime scoring path.
 
-50 篇文章 × 5 条摘要 = 250 条。全量通读 + 定量比对后确认的结构:
+## 2. Design Principles
 
-| 类型 | 规模 | 判定 |
-|---|---|---|
-| 命中参考答案(reference_summary) | 58 条,每篇 ≥1(8 篇有 2) | 精确匹配,高分锚点 |
-| 参考答案截断版 | 17 条(全部是参考答案的前缀) | 前缀匹配 |
-| 照抄正文开头 | ~51 条 | 字符复制率 |
-| 无标记(需语义判断) | ~124 条 | 其中藏:幻觉、细粒度事实错误、事实反转、跑题、语序颠倒、编造评价 |
+1. Apply cheap, deterministic checks before semantic or generative models.
+2. Separate hard constraints from soft quality judgments.
+3. Treat embeddings as relevance evidence, never as a quality score.
+4. Require independent review for every proposed early exit and every soft score.
+5. Preserve routing state, evidence, and corrections in the output.
+6. Generate human-readable reports from validated machine output, not from memory or estimates.
 
-关键事实:参考答案不出现在 text 字段中(0/50);所有摘要句数 ≤3,格式不是区分点;
-最难检的是"流畅型幻觉"与"事实反转"(表面像好摘要)。
+## 3. Funnel Architecture
 
-## 3. 质量维度(每个维度有明确对照物)
+### Stage A: Deterministic hard-gate proposals
 
-| 维度 | 对照物 | 为什么 |
-|---|---|---|
-| 忠实性 | **只对照原文 text** | 摘要说的每句话必须有出处;不得对照参考答案(其可能含正文外的背景信息) |
-| 覆盖度 | **对照参考答案** | 参考答案 = 记者对"本文要点"的权威定义,覆盖度 = 参考答案的关键事实覆盖了几条;无参考的新数据退化为 LLM 判主旨 |
-| 形式 | 产品规格 | ≤3 句、句子完整、连贯 |
-| 原创性 | 只对照 text | 照抄正文 → 扣分至少 25%(总分封顶 ≤75,具体值 dev 集校准);命中参考答案不属于照抄,是高分锚点 |
+The rule layer checks:
 
-## 4. 架构:三层哲学
+- empty output;
+- more than three top-level sentences;
+- near-verbatim copying from the article;
+- obvious syntactic truncation.
 
-**工程确定性 + 大模型智能 + 人工兜底**。能确定判的绝不交给概率模型;
-只有语义题才交给 LLM;人工负责校准与最终验证。
+These rules propose a route. A Reviewer confirms or rejects each proposed hard exit. Confirmed terminal cases receive a score of `0` and a separate ranking tier so that different failure modes remain sortable.
 
-### 4.1 规则层(确定性,5 个检测器)
+Recommended terminal ordering, from worst to least severe:
 
-| 检测器 | 机制 | 动作 |
-|---|---|---|
-| 命中参考答案 | 精确匹配 | 标记为高分锚点 |
-| 参考答案截断版 | 前缀匹配 | 标记 + 封顶(截断) |
-| 照抄正文 | 字符 n-gram 复制率(开头或中段都抓) | 标记 + 封顶 ≤75 |
-| 截断/不完整 | 句尾完整性 | 标记 + 硬封顶 |
-| 跑题门禁 | embedding 余弦相似度(固定模型+固定阈值,阈值在已确认的跑题样本上校准) | 标记 + 硬封顶 |
+1. `OFF_TOPIC` — rank `0`;
+2. `VERBATIM_SOURCE_COPY` — rank `1`;
+3. `OBVIOUS_TRUNCATION` — rank `2`;
+4. `OVER_SENTENCE_LIMIT` — rank `3`.
 
-原则:相似度只做门禁(低分报警),永远不做质量分(高分不证明质量,
-且相似度系统性奖励照抄)。不设独立 reranker;不用 BM25(复制率替代)。
+Local overlap, shared entities, dates, or fixed news phrases are not sufficient evidence of copying. Likewise, missing final punctuation alone is not sufficient evidence of truncation.
 
-### 4.2 LLM 智能层(两个独立机制)
+### Stage B: Embedding relevance nomination
 
-**a. 专家 agent(整体判断)**
-- rubric(法条)+ few-shot(判例)均从 dev 集人工标注中提炼,只取 dev 集;
-- **锚定成对比较**:每条摘要与"命中参考答案"的锚点条比较("比参考答案好/平/差多少"),
-  篇内 5 条两两比较(10 对/篇),位置交换消偏;锚点统一 → 跨篇刻度统一;
-- 每个判断跑 3 次取多数(自我一致性),另做跨模型一致率校验。
+For a multi-article batch, compare each candidate with the assigned article and the article corpus. Own-article rank and similarity margin nominate likely off-topic cases. For a single pair, absolute similarity is only a weak warning.
 
-**b. claim 级忠实性核查(细粒度判断)**
-- 摘要分解为原子事实,逐条对照原文验证"是否有出处";
-- 能定位"哪一句是编的",专攻幻觉/细粒度错误/事实反转;
-- 部分照抄掩护幻觉的情形只有此机制能拆穿。
+Embedding evidence never causes a terminal decision by itself. A semantic Reviewer must confirm that the candidate is unrelated. This protects topical but factually wrong summaries from being misclassified as relevant and protects unusual but valid summaries from being discarded.
 
-### 4.3 人工层(定标后的标注计划)
+Two offline experiments covering 20 articles found a wide separation between valid references and randomly mismatched summaries: valid similarities stayed above roughly `0.70`, while mismatches stayed below roughly `0.40`. A threshold near `0.50` is therefore a useful engineering starting point for this corpus, not a universal constant.
 
-- **精标 ~124 条无标记摘要**(幻觉/反转/跑题的主战场,人工不可替代);
-- 对规则层已定性的三类各**抽查 10 条**(确认规则没冤枉);
-- 每篇 5 条**排序**照标(有锚点在,排序快);
-- 维度:忠实性违规(有/无+严重度)、覆盖度、流畅度 + 篇内排序;
-- 纪律:盲标(不看机器分)、分批稳定节奏、后期重标 10 条算自我一致性;
-- 估计 6–8 小时(原全量精标方案的一半)。
+### Stage C: Article-only anchor generation
 
-## 5. 合奏与总分
+The Scorer produces a structured article anchor before seeing candidates:
 
-```
-总分 = cap( w1·人工 + w2·专家agent + w3·claim核查 + w4·规则层, 规则层封顶 )
-权重先验: 人工 0.4 / agent 0.3 / claim 0.2 / 规则 0.1
-```
+- main event;
+- key facts;
+- a concise anchor summary.
 
-- 各成分先归一化到同一刻度再加权;
-- **规则层封顶是硬约束**(先加权求和,再套封顶),不被智能层的高分稀释;
-- 人工未精标的行,人工权重按比例重分配给机器成分(报告说明);
-- 权重在封存 test 集上做**敏感性分析**辩护(排序对权重扰动稳健),
-  并与"学出的最优权重"对比;
-- 报告叙事:人工分用于本数据集评分与校准,同时证明"纯机器合奏 ≈ 人工判断",
-  说明框架可脱离人自动扩展。
+The anchor supports coverage reasoning only. It is not a gold answer and cannot override the source article. One anchor is cached per article.
 
-## 6. 黄金数据(两层)
+An anchor-embedding ablation showed mixed evidence: anchor similarity correlated more strongly with coverage on one small sample, but leave-one-out prediction error did not improve. Anchor embeddings therefore remain diagnostic rather than a scoring or gating feature.
 
-1. **构造衍生约束(免费,零人工)**:命中参考答案 = 篇内高分锚点;
-   完整版 > 截断版(17 篇);正常 > 跑题。开发期随时可用来 sanity-check。
-2. **人工标注(核心)**:按 4.3 执行。
-   **按文章切分** dev/test:15 篇 dev(提 rubric、选 few-shot、调 prompt、校准刻度与封顶值)
-   / 35 篇 test(封存,最终验证只做一次,看过结果不得再改 prompt)。
+### Stage D: Soft scoring
 
-## 7. 验证体系(三条独立防线 + 三级测试期)
+Only candidates that pass all terminal gates qualify for soft scoring.
 
-| 防线 | 内容 | 成本 |
-|---|---|---|
-| 结构性检验 | 锚点条是否排进篇内前列;截断版是否低于完整版;跑题是否垫底(50 篇逐篇统计) | 零人工 |
-| 扰动试验台 | 受控破坏参考答案(换数字/加否定/换实体/截断/注编造句)生成数百条新摘要,分数须方向正确、破坏越重分越低;事实反转专设一组 | 零人工 |
-| 人工对齐 | 封存 test 集上:Kendall τ(篇内排序)、各失败模式检出 P/R、与人工分相关性 | 人工标注 |
+| Dimension | Range | Primary question |
+|---|---:|---|
+| Faithfulness | 0–50 | Are all candidate claims supported by the article? |
+| Coverage | 0–30 | Does the candidate capture the main event and important facts? |
+| Coherence | 0–15 | Is it complete, grammatical, and logically ordered? |
+| Conciseness | 0–5 | Is it compact without unnecessary repetition? |
 
-辅助:judge 自我一致性(3 次运行)、跨模型一致率、zero-shot vs few-shot 消融、
-权重敏感性、标注者自我一致性(重标 10 条)。
+The Scorer decomposes the candidate into atomic claims, cites article evidence, assigns dimension scores, and calculates the total exactly. Semantic similarity cannot compensate for contradiction, hallucination, or factual reversal.
 
-**三级测试期**(泛化验证):
-1. 按文章切分的封存测试(必做)——35 篇对冻结的评估器即"新数据";
-2. 扰动试验台(必做)——纯合成新摘要;
-3. 真实新数据测试(可选加分)——另取新文章 + 真实 LLM 分档生成摘要,约半天成本。
+### Stage E: Independent review
 
-## 8. 泛化设计:组件两栏
+The Reviewer independently checks:
 
-| 可迁移组件(新数据直接可用) | 数据集特有信号(仅校准与验证) |
-|---|---|
-| 截断/照抄/格式规则 | 精确命中参考答案的锚点 |
-| claim 级忠实性核查 | 截断版<完整版构造约束 |
-| LLM judge + rubric + few-shot | 每篇含锚点的分布规律 |
-| 跑题门禁 | |
-| 覆盖度(无参考时退化为 LLM 判主旨) | |
+- every hard-gate proposal;
+- every off-topic nomination;
+- claim-to-source evidence;
+- dimension arithmetic and label boundaries;
+- whether the trace matches the route actually taken.
 
-原则:评分主体只依赖(文章, 摘要)对;构造性信号不做评分的必要条件。
+A `REVISE` decision permits one Scorer revision followed by a second review. Unresolved disagreement is preserved as `LOW_CONFIDENCE`; it is not silently averaged away.
 
-## 9. 工作流与交付物
+### Stage F: Report Agent
 
-```
-① 设计定稿(本文档过目通过)
-② 搭标注工具 → dev 集标注(15 篇)          ←—— 人工:约 2.5h
-③ 提炼 rubric + few-shot;并行实现三个机器成分
-④ dev 集校准(刻度/封顶值/阈值/权重先验)
-⑤ test 集标注(35 篇,盲标)                 ←—— 人工:约 4h
-⑥ 冻结评估器 → 三级测试期验证(一次性)
-⑦ 全量出分 scores.jsonl;撰写 report.md
-```
+The dedicated Report Agent receives validated score JSON or JSONL and produces:
 
-交付物映射:report.md(探索/设计/验证/局限)、scores.jsonl(总分+分维度子分)、
-code/(规则层、agent、claim 核查、合奏、验证脚本、标注工具)、
-README(运行方式 + AI 使用说明:决策权在人、AI 辅助执行与分析,含错误纠正记录)。
+- deterministic funnel and score charts;
+- an English Markdown report under 800 words;
+- four fixed sections: input data, funnel outcomes, results, and conclusion;
+- a calibrated verdict that distinguishes prototype evidence from production validation.
 
-## 10. 待定参数(dev 集校准后落定)
+The chart script computes all counts and aggregates. The Report Agent may interpret these values but must not invent or manually recalculate them. Corpus expansion and web collection are separate future capabilities requiring explicit authorization, provenance, licensing review, deduplication, and a new evaluation protocol.
 
-- 照抄封顶的精确值(60–75 区间,下限已定为扣 25%)
-- 截断/跑题的封顶值
-- 跑题门禁的相似度阈值
-- 合奏权重(先验 0.4/0.3/0.2/0.1,敏感性分析辩护)
-- 是否执行第三级"真实新数据测试"(可选加分项)
+## 4. Agent Boundaries
+
+- **Scorer Agent:** creates the article anchor and drafts the soft score.
+- **Reviewer Agent:** confirms early exits and audits every score.
+- **Report Agent:** summarizes only validated results and fixed statistics.
+
+Each role uses a fresh context. Scorer and Reviewer calls receive exactly one condition-matched few-shot example. The Report Agent uses its own report example rather than scoring examples.
+
+## 5. Efficiency and Early Stopping
+
+Confirmed terminal failures stop before expensive stages. The system does not embed confirmed copies, score confirmed truncations, or generate anchors for candidates that cannot qualify for soft scoring. Within a batch, article embeddings, source chunks, and anchors are cached.
+
+This cascade reduces model calls and latency while keeping deterministic failures explainable. The Reviewer remains mandatory because a cheap detector can still be confidently wrong at a boundary.
+
+## 6. Validation Strategy
+
+Validation has four layers:
+
+1. script and schema tests for every stage;
+2. controlled cases for copy, truncation, over-length, off-topic, contradiction, low coverage, incoherence, and verbosity;
+3. article-level held-out evaluation and perturbation tests;
+4. human comparison using ranking agreement and failure-mode precision/recall.
+
+Small random runs establish whether the pipeline executes coherently and catches known failure types. They do not establish production readiness. Thresholds must be recalibrated when the embedding model, language, domain, or article distribution changes.
+
+## 7. Current Evidence
+
+- A 50-pair reference-free funnel experiment demonstrated deterministic copy detection and embedding-based off-topic nomination.
+- Two independent 10-article relevance experiments reproduced a large similarity gap between matched and mismatched summaries.
+- A random 20-pair end-to-end run exercised all three roles, terminal routing, soft scoring, revision, validation, charts, and report generation.
+- The current conclusion is: **usable prototype that needs broader validation**.
+
+## 8. Deliverables
+
+- `plugin_GPT/summary-quality-funnel/`: Codex plugin with evaluation and report skills.
+- `experiments_GPT/`: reproducible exploratory and ablation outputs.
+- `evaluation_runs_GPT/`: audited end-to-end score records and reports.
+- `progressing_GT.md`: GPT-side decision and implementation log.
+
+Japanese text inside datasets, evaluated articles, candidate summaries, evidence spans, and language-specific fixtures is intentionally preserved. All project-facing documentation, prompts, labels, reports, and visualizations are English.

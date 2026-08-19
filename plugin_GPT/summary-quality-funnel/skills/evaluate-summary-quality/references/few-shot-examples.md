@@ -2,6 +2,8 @@
 
 Use synthetic examples only. Inject the smallest matching example into each Agent call. Do not include the entire bank.
 
+The Japanese passages below are evaluation inputs and source-evidence fixtures, not project documentation. Explanations, labels, and control fields remain English.
+
 ## ANCHOR_GENERATION
 
 Input article:
@@ -67,7 +69,7 @@ Candidate: `中央銀行は政策金利を0.25ポイント引き上げた。`
 Expected:
 
 ```json
-{"draft_terminal_result":"OFF_TOPIC","expected_review":"APPROVE","expected_score":0,"terminal_rank":0,"reason":"主体・事件・領域がすべて原文と無関係"}
+{"draft_terminal_result":"OFF_TOPIC","expected_review":"APPROVE","expected_score":0,"terminal_rank":0,"reason":"The subject, event, and domain are all unrelated to the article."}
 ```
 
 ## REVIEW_REJECT_BORDERLINE
@@ -81,7 +83,7 @@ Draft: `VERBATIM_SOURCE_COPY`
 Expected review:
 
 ```json
-{"decision":"REJECT","reason":"事実上の言い換えであり、全文の連続コピーではない","continue_at":"relevance_check"}
+{"decision":"REJECT","reason":"This is a substantive paraphrase, not a continuous full-candidate copy.","continue_at":"relevance_check"}
 ```
 
 ## EXCELLENT
@@ -117,7 +119,7 @@ Candidate: `野党は政府を批判した。`
 Expected draft:
 
 ```json
-{"dimensions":{"faithfulness":50,"coverage":5,"coherence":13,"conciseness":5},"score":73,"quality_label":"MIXED","issues":["減税案の可決、対象、開始時期を欠く"]}
+{"dimensions":{"faithfulness":50,"coverage":5,"coherence":13,"conciseness":5},"score":73,"quality_label":"MIXED","issues":["Omits the tax-cut approval, target population, and start date."]}
 ```
 
 ## INCOHERENT
@@ -129,7 +131,7 @@ Candidate: `監督が称賛した。初優勝は3対1で、選手は決勝だっ
 Expected draft:
 
 ```json
-{"dimensions":{"faithfulness":35,"coverage":18,"coherence":3,"conciseness":4},"score":60,"quality_label":"MIXED","issues":["語順と係り受けが崩れ、出来事の関係が不明瞭"]}
+{"dimensions":{"faithfulness":35,"coverage":18,"coherence":3,"conciseness":4},"score":60,"quality_label":"MIXED","issues":["Broken word order and dependencies make the event relationships unclear."]}
 ```
 
 ## VERBOSE
@@ -141,7 +143,7 @@ Candidate: `大学は来春、新しい工学部を開設する予定だ。新�
 Expected draft:
 
 ```json
-{"dimensions":{"faithfulness":50,"coverage":30,"coherence":13,"conciseness":1},"score":94,"quality_label":"EXCELLENT","issues":["重複表現があり簡潔性を欠く"]}
+{"dimensions":{"faithfulness":50,"coverage":30,"coherence":13,"conciseness":1},"score":94,"quality_label":"EXCELLENT","issues":["Repetitive phrasing reduces conciseness."]}
 ```
 
 ## REVIEW_APPROVE
@@ -161,37 +163,5 @@ Article says `死者はいない`; candidate says `10人が死亡`; Scorer marks
 Expected review:
 
 ```json
-{"decision":"REVISE","confidence":"HIGH","findings":["死亡 claim 与原文矛盾"],"suggested_dimensions":{"faithfulness":0,"coverage":12,"coherence":13,"conciseness":5}}
-```
-
-## REPORT_SUMMARY
-
-Audited statistics:
-
-```json
-{"input":{"pairs":10,"unique_articles":5,"reference_summary_used":false},"funnel":{"fully_soft_scored":7,"terminal_total":3,"terminal_by_type":{"VERBATIM_SOURCE_COPY":2,"OFF_TOPIC":1}},"soft_scores":{"mean":81.4,"minimum":62,"maximum":97,"labels":{"EXCELLENT":2,"GOOD":3,"MIXED":2}},"review":{"approved":10,"revised_at_least_once":1}}
-```
-
-Expected style:
-
-```markdown
-## 1. 输入数据
-
-本次从5篇文章抽取10组文章—摘要对；运行时未使用参考摘要。
-
-## 2. 漏斗过程
-
-7组进入完整软评分，3组提前终止：2组原文复制、1组完全无关。
-
-![流程结果](report_assets/pipeline_outcomes.png)
-
-## 3. 统计结果
-
-软评分平均81.4分，范围62–97；2组EXCELLENT、3组GOOD、2组MIXED。Reviewer复核全部10组，并修订1组。
-
-![软评分](report_assets/soft_score_results.png)
-
-## 4. 结论
-
-本轮支持“可用原型，需要扩大验证”：漏斗能拦截明确违规并产生可审计评分，但样本量不足以证明生产稳定性。
+{"decision":"REVISE","confidence":"HIGH","findings":["The death claim contradicts the article."],"suggested_dimensions":{"faithfulness":0,"coverage":12,"coherence":13,"conciseness":5}}
 ```

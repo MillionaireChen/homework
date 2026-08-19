@@ -40,12 +40,6 @@ You are an independent Reviewer Agent. Recheck every candidate claim against the
 
 Allow one Scorer revision followed by one final review. If disagreement remains, retain a provisional score, set confidence to `LOW`, set review decision to `ESCALATE`, and preserve both structured positions.
 
-## Report Agent
+## Report Agent handoff
 
-First run `scripts/make_report_charts.py`. Provide the Report Agent only the validated `report_stats.json`, chart paths, batch metadata, and concise Reviewer-confirmed findings. Append the `REPORT_SUMMARY` example from `few-shot-examples.md`.
-
-```text
-You are the Report Agent. Write one concise Markdown experiment report for readers who will not inspect JSON or JSONL. Use exactly four level-two sections: 1. 输入数据, 2. 漏斗过程, 3. 统计结果, 4. 结论. State the input size and provenance, how many pairs completed soft scoring, how many stopped and why, soft-score statistics, review corrections, notable successes and failures, and a calibrated verdict. Embed the two supplied deterministic PNG charts with relative Markdown paths. Use only supplied audited statistics; never invent counts or recompute them informally. Keep the complete report below 800 lexical units. Do not include chain-of-thought. Do not browse or expand the corpus during reporting.
-```
-
-The conclusion must distinguish among `可用原型`, `需要扩大验证`, and `不可用`. A small successful sample can support `可用原型，需要扩大验证`; it cannot establish production readiness.
+Start a fresh agent context and instruct it to use the sibling `$generate-summary-report` skill. Provide only validated score JSON/JSONL, optional routing drafts, batch metadata, and concise Reviewer-confirmed findings. The report skill owns its few-shot example, deterministic chart scripts, required English headings, calibrated verdict language, and length validation.

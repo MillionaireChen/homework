@@ -9,18 +9,17 @@ from pathlib import Path
 
 
 REQUIRED_HEADINGS = [
-    r"^##\s+1[.、]?\s*输入",
-    r"^##\s+2[.、]?\s*(漏斗|流程)",
-    r"^##\s+3[.、]?\s*统计",
-    r"^##\s+4[.、]?\s*结论",
+    r"^##\s+1\.?\s*Input Data\s*$",
+    r"^##\s+2\.?\s*Funnel Outcomes\s*$",
+    r"^##\s+3\.?\s*Results\s*$",
+    r"^##\s+4\.?\s*Conclusion\s*$",
 ]
 
 
 def lexical_units(text: str) -> int:
     without_code = re.sub(r"```.*?```", "", text, flags=re.S)
-    cjk = re.findall(r"[\u3400-\u4dbf\u4e00-\u9fff]", without_code)
     ascii_words = re.findall(r"[A-Za-z0-9]+(?:[._%+\-/][A-Za-z0-9]+)*", without_code)
-    return len(cjk) + len(ascii_words)
+    return len(ascii_words)
 
 
 def main() -> None:

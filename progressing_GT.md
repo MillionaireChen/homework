@@ -1,276 +1,141 @@
-# Progressing GT — 评估框架独立决策日志
+# Progressing GT — Independent Decision and Implementation Log
 
-> 本文件由 GPT 独立维护，不修改或覆盖现有 `processing.md`。
-> 核心目标：建立只依赖“文章正文 + 待评摘要”、可用于真实生产场景的评估漏斗。
+This file records the GPT/Codex implementation. It does not modify the Claude plugin. The production objective is a reference-free quality funnel that accepts only an article and a candidate summary.
 
----
+## 2026-08-19 — Hard and Soft Constraints
 
-## 2026-08-19 框架定型：硬约束与软约束分层
+The assignment requires summaries of three sentences or fewer. The design separates failures that can be detected with deterministic evidence from quality judgments that require semantic reasoning.
 
-### 任务原文核对
+Runtime inputs:
 
-`ASSIGNMENT.md` 对目标应用的描述是：给定一篇日语新闻文章，返回 **3 句或更少**的摘要
-（“it returns a summary of 3 sentences or fewer”）。
+- article text;
+- candidate summary;
+- optional article and summary identifiers.
 
-因此，`≤3 句` 是明确的产品输出规格。任务原文没有直接规定“超过 3 句等于零分”；
-最新设计是先记录长度违规、继续完成内容评价，最后再执行固定扣分或封顶。
+`reference_summary` is excluded from runtime evaluation. It may be used only for offline research and never as a production comparator, hidden label, or automatic high-score anchor.
 
-### 总体原则
+### Hard constraints
 
-评估器采用漏斗结构：**先用便宜、确定、可解释的硬约束处理明确失败，再对剩余摘要使用软约束做质量梯度评分。**
+1. **Empty output.** Deterministic terminal failure.
+2. **More than three top-level sentences.** Deterministic product-specification failure. Japanese sentence counting must ignore punctuation inside balanced quotations.
+3. **Near-verbatim source copy.** Use Unicode normalization, containment, longest common substring, and character or n-gram coverage. Embeddings are inappropriate because copied text is necessarily semantically similar.
+4. **Obvious truncation.** Use incomplete endings, dangling conjunctions, and unbalanced quotation or bracket evidence. Missing final punctuation alone is not enough.
+5. **Completely unrelated content.** Embeddings nominate suspects; an independent semantic Reviewer confirms or rejects the terminal decision.
 
-正式评估器只能接收：
+Confirmed terminal failures receive score `0`, but separate ranking tiers preserve ordering: off-topic `0`, copy `1`, truncation `2`, and over-length `3`.
 
-```text
-evaluator(article_text, candidate_summary)
-```
+### Soft constraints
 
-不得把 `reference_summary` 作为生产评分所需输入。参考摘要最多用于离线探索或验证，
-不能参与正式推理路径，也不能作为自动高分标签。
+Only survivors receive a continuous quality score:
 
-### 第一层：硬约束
+- faithfulness: 0–50;
+- coverage: 0–30;
+- coherence: 0–15;
+- conciseness: 0–5.
 
-硬约束处理可以通过物理性或高度确定的方法确认的事实。硬约束分为“提前终止型”和
-“确定性标签型”：复制正文属于前者；超过 3 句属于后者，先标记但继续评价内容。
+The source article is authoritative. A generated anchor may help organize coverage, but it is not a reference answer and cannot validate facts.
 
-#### 1. 超过 3 句
+## 2026-08-19 — Funnel Order and Cost Control
 
-- 方法：日语句界规则计数，不需要模型。
-- 判定：摘要句数 `>3` 即违反明确的产品规格。
-- 最新决定：添加 `OVER_3_SENTENCES` 标签，但不提前终止；继续判断相关性和内容质量，最后执行固定扣分或封顶。
-- 说明：任务文档只规定不超过 3 句，没有规定零分；继续评估可以保留它的内容质量信息，用于更细的篇内排序。
-- 数据现状：当前 250 条摘要均未超过 3 句，所以该规则主要面向未来真实数据。
-- 实现注意：不能简单统计所有 `。`；需要避免把引号内部引用中的句号错误计算为摘要主句。
-
-#### 2. 明显复制正文
-
-- 方法：Unicode/空白标准化、全文包含、最长连续相同字符串、字符或 n-gram 覆盖率。
-- 不使用 embedding：复制文本与正文的语义相似度天然很高，embedding 会错误地把这种失败视为强相关。
-- 最终裁决：确认整条摘要完整或近乎完整地逐字复制正文时，标记 `COPY`，设置 `rank_score=-1` 并提前终止。
-- 说明：它在质量含义上是不合格摘要；使用 `-1` 是为了保留与完全无关项及正常评分项之间的排序层级。
-- 边界保护：新闻实体、数字、固定短语等局部重合不算抄袭。只有全文包含或接近全文的高覆盖连续复制才触发硬失败。
-- 执行顺序：一旦确认复制，立即停止，不再送入 embedding 或 reranker。
-
-#### 3. 明显句子截断
-
-- 方法：句尾结构规则，例如以逗号、接续助词、未完成短语结尾，或者引号/括号未闭合。
-- 高置信度截断：归入硬约束失败，直接给零分或严格封顶。
-- 边界样本：不能仅凭“没有句号”判截断；合法短摘要可能省略句号。证据不足的样本进入后续语言判断。
-- 不使用参考摘要：真实场景没有参考答案，不能通过“是否为参考摘要前缀”来完成生产判定。
-- 不依赖 embedding/reranker：它们衡量相关性，截断摘要通常仍与正文高度相关，无法可靠判断句法是否完整。
-
-#### 4. 完全无关
-
-- 前置条件：只处理通过句数、复制和截断检查的摘要。
-- 第一步：embedding 将摘要与文章库逐篇匹配，找出分配文章排名靠后、明显匹配到其他文章的候选项。
-- 第二步：reranker 对分配文章和最强候选文章做交叉验证。
-- 判定：两种机制一致确认摘要属于其他文章时，标记 `OFF_TOPIC`、设置 `rank_score=-2` 并提前终止。
-- 原则：embedding 负责高召回提名，reranker 负责降低误杀；单一模型不直接作最终硬判定。
-
-### 第二层：软约束
-
-只有通过全部硬约束的摘要，才进入软约束评分。软约束不是简单的是/否判断，
-而是对质量程度进行分档和排序：
-
-1. **忠实性**：是否存在编造事实、数字或实体错误、否定反转、因果反转。
-2. **覆盖度**：是否抓住文章核心事件、关键主体和主要结论，而非只摘取局部细节。
-3. **完整与连贯**：是否表达完整、语序自然、逻辑关系清楚。
-4. **简洁性**：在不损失主旨的前提下是否足够凝练。
-
-软约束可由 claim 级事实核查和带 rubric 的 LLM judge 完成，输出连续分数；
-但其结果不得推翻已经触发的硬约束。
-
-### 最终流水线
+The execution order is:
 
 ```text
-文章正文 + 待评摘要
-        │
-        ▼
-确定性复制检查（命中 → COPY，rank_score=-1，提前终止）
-        │
-        ▼
-句数检查（>3 句 → 添加违规标签，继续）
-        │
-        ▼
-明显截断检查（高置信命中 → 硬失败）
-        │
-        ▼
-Embedding 跑题初筛
-        │
-        ▼
-Reranker 复核（确认完全无关 → OFF_TOPIC，rank_score=-2）
-        │
-        ▼
-LLM / claim 级软约束评分
-        │
-        ▼
-忠实性、覆盖度、完整性、简洁性综合分
+article + candidate
+  -> deterministic gate proposals
+  -> independent gate review
+  -> optional embedding relevance nomination
+  -> independent relevance review
+  -> article-only anchor generation
+  -> claim-grounded soft scoring
+  -> independent score review
+  -> schema validation and ranking
+  -> independent report generation
 ```
 
-### 小范围实验状态
+The pipeline stops after a confirmed terminal failure. It does not spend tokens generating an anchor or scoring a candidate that already failed. Article embeddings, anchors, and chunks are cached within a batch.
 
-独立的 50 条摘要试验已经验证了漏斗中的两个环节：
+## 2026-08-19 — Copy Policy Correction
 
-- 字符串规则检出 10 条完整复制正文的摘要，10 条均为正文全文包含，字符覆盖率 100%。
-- embedding 提名并由 reranker 确认 3 条完全无关摘要。
-- 剩余 37 条应进入截断或语义质量判断。
-- 该实验未使用 `reference_summary`。
+The assignment does not specify a 25% plagiarism penalty. That value came from an earlier design discussion and was removed.
 
-当前程序仍需进行一项顺序修正：复制摘要虽然不会改变最终判定，但在试验版中仍被计算了 embedding；
-正式漏斗必须在字符串规则命中后立即停止，使 embedding 只处理未被硬约束淘汰的剩余摘要。
+Current policy: if the whole candidate is confirmed as an exact or near-exact continuous copy of the article, it has not performed the requested summarization task. It therefore receives terminal label `VERBATIM_SOURCE_COPY`, score `0`, rank tier `1`, and an early stop. Local factual overlap is allowed and must not trigger this rule.
 
-### 评分立场修正：正文抄袭作为确定性不合格项
+## 2026-08-19 — Relevance Experiments
 
-再次核对 `ASSIGNMENT.md` 与 `data/README.md` 后确认：任务文档没有出现 copy、extractive、
-verbatim 或 plagiarism 等规则，也没有给出“抄袭扣 25%”的罚分标准。此前 25% 的说法不是需求，
-而是旧讨论中的人为折中，现予以废弃。
+Two independent 10-article experiments compared each article with a valid reference and with an unrelated summary.
 
-本评估器最终采用用户裁决：**若高置信度确认整条摘要完整或近乎完整地逐字复制输入正文，
-则视为没有完成摘要生成任务，标记 `COPY`、设置 `rank_score=-1` 并提前终止。** 为避免误伤，正常的实体、数字、引语和短语重合
-不触发该规则；只有全文包含或极高覆盖率的连续复制才属于硬失败。
+| Experiment | Matched range / mean | Mismatched range / mean | Separation |
+|---|---|---|---:|
+| Curated unrelated set | 0.711–0.868 / 0.800 | 0.163–0.398 / 0.275 | 0.313 |
+| Random cross-article set, seed 42 | 0.707–0.858 / 0.780 | 0.164–0.364 / 0.263 | 0.343 |
 
-### 下一步
+The result supports an initial relevance threshold near `0.50` for this model and corpus. It does not prove a universal constant. Model, language, domain, and distribution changes require recalibration. Similarity separates topic mismatch; it does not detect hallucination, reversal, or overall quality.
 
-1. 修正独立 GPT 试验程序，使复制项完全不进入 embedding。
-2. 新增日语句数检查并验证引号、括号等边界情况。
-3. 设计保守的高置信度截断规则，先在 50 条样本上测试误报情况。
-4. 只将通过上述硬约束的摘要交给 embedding 和 reranker。
-5. 暂不扩展到全量 250 条，先确认小样本漏斗每一层的准确性。
+## 2026-08-19 — Independent GPT Plugin
 
----
+The Codex implementation was created under `plugin_GPT/summary-quality-funnel/`. No file under `plugin_claude/` is edited by this work.
 
-## 2026-08-19 语义层升级：原文核查 + 运行时生成锚点
+The evaluation skill contains:
 
-### 用户提出的思路
+- deterministic hard-gate scripts;
+- an optional Ollama embedding gate;
+- a structured rubric and stage-specific few-shots;
+- isolated Scorer and Reviewer prompts;
+- result validation and ranking scripts.
 
-在摘要通过前置硬约束和相关性筛查后，让大模型先根据文章自身生成一份摘要，
-再将待评摘要分别与原文、以及大模型生成的摘要进行比较。这样可以为同一篇文章的 5 条摘要
-提供一个统一的比较尺度，也能帮助判断候选摘要是否覆盖了文章重点。
+The plugin is reference-free at runtime and preserves an auditable trace for every result.
 
-### 关键修正
+## 2026-08-20 — Random 20-Pair End-to-End Run
 
-大模型生成的摘要不能成为新的 ground truth。它可能遗漏重要信息、产生事实错误，
-也可能偏爱与自身相似的措辞。因此语义评估必须保留两条彼此独立的证据路径：
+A seed-42 sample of 20 article-summary pairs covering 14 unique articles was passed through the pipeline.
+
+- 12 candidates completed soft scoring.
+- 8 candidates terminated early: 5 copies, 2 truncations, and 1 off-topic result.
+- 5 terminal proposals originated in the deterministic gate.
+- 2 additional hard failures were recovered downstream.
+- all 20 final records were approved by the Reviewer;
+- 3 records required at least one revision;
+- soft scores ranged from 43 to 98, with mean 76.08 and median 76.
+
+The run showed that the cascade can route clear failures, distinguish fluent factual errors from good summaries, recover missed hard failures, and produce valid machine-readable records. The evidence supports a **usable prototype that needs broader validation**, not production readiness.
+
+## 2026-08-20 — Anchor Embedding Ablation
+
+The user proposed comparing candidate-to-article embeddings with candidate-to-generated-anchor embeddings.
+
+On the random 20-pair run, anchor similarity had a higher Spearman correlation with coverage than article similarity (`0.6303` versus `0.5282`). However, leave-one-out coverage prediction had lower mean absolute error with article similarity alone (`3.6246`) than with anchor similarity alone (`4.0123`) or both features (`4.4121`).
+
+Decision: keep the generated anchor for structured coverage reasoning, but do not add anchor embedding as a gate or score feature yet. The evidence is mixed, the sample is small, and anchor generation adds model cost.
+
+## 2026-08-20 — Formal Report Agent
+
+The initial implementation embedded reporting instructions inside the evaluation skill. That was not a genuinely independent Report Agent.
+
+The plugin now exposes a second first-class skill:
 
 ```text
-候选摘要 ↔ 原文
-    用于判断：忠实性、幻觉、事实反转、数字和实体错误
-
-候选摘要 ↔ 运行时生成锚点
-    用于判断：主旨覆盖、重点遗漏、信息取舍
+$summary-quality-funnel:generate-summary-report
 ```
 
-**事实证据始终以输入原文为准；模型生成锚点只用于辅助组织文章重点和统一覆盖度尺度。**
+It owns:
 
-### 锚点生成方式
+- its own `SKILL.md` and Codex UI metadata;
+- a dedicated report few-shot;
+- a deterministic statistics and chart script;
+- an English report validator;
+- a strict four-section, under-800-word output contract.
 
-模型在完全看不到任何候选摘要的情况下，只根据原文生成一次结构化文章锚点：
+The evaluation skill delegates only validated records and audited findings to this fresh role. The Report Agent does not rescore candidates, estimate counts, inspect reference summaries, browse for data, or claim production readiness from a small run.
 
-```json
-{
-  "main_event": "文章最核心的事件或结论",
-  "key_facts": [
-    "核心主体与行动",
-    "事件结果",
-    "关键数字、时间或地点",
-    "重要背景、条件或限制"
-  ],
-  "anchor_summary": "模型独立生成的2至3句摘要"
-}
-```
+## Language Policy
 
-结构化 `key_facts` 比只生成一段自由文本更稳定：评估器比较的是候选摘要覆盖了哪些事实，
-而不是候选摘要是否使用了与模型相同的词句。
+Project-facing documentation, prompts, labels, reports, charts, and code messages are English. Japanese source articles, candidate summaries, evidence spans, and language-specific fixtures remain Japanese because translating them would change the evaluation task.
 
-同一篇文章的锚点只生成一次并缓存，供该文章的 5 条候选摘要共同使用：
+## Next Validation Work
 
-```text
-1 篇文章
-    ↓
-1 次锚点生成
-    ↓
-同一锚点分别评估 5 条候选摘要
-```
-
-这比对 5 条摘要做 10 组两两比较更节省 token，也更容易保持评分尺度一致。
-
-### 候选摘要的两路语义检查
-
-#### 路径 A：候选摘要直接对照原文
-
-1. 将候选摘要拆成原子事实。
-2. 对每个事实标记：`SUPPORTED`、`CONTRADICTED` 或 `NOT_IN_SOURCE`。
-3. 单独检查人物、机构、地点、日期、数字、否定词和因果关系。
-4. 根据错误数量和严重程度计算忠实性分数。
-
-该路径不经过模型锚点，防止锚点自身的遗漏或错误污染忠实性判断。
-
-#### 路径 B：候选摘要对照结构化锚点
-
-1. 检查候选摘要覆盖了多少 `key_facts`。
-2. 检查是否遗漏最核心的 `main_event` 或事件结果。
-3. 检查是否只选择了局部细节而没有完成主旨概括。
-4. 允许候选摘要包含锚点未列出、但能够由原文支持的有效事实。
-
-该路径用于覆盖度，不以词面相似度作为质量依据。
-
-### 防止模型自我偏好的约束
-
-- 锚点生成阶段禁止输入任何候选摘要，避免候选内容污染文章重点。
-- 不因候选摘要与 `anchor_summary` 措辞相似而加分。
-- 不因候选摘要采用不同表达方式而扣分。
-- 锚点未提到的内容必须回到原文核实，不能直接判为错误。
-- 最好将“锚点生成”和“候选评分”分成两个独立 prompt；条件允许时可用不同模型交叉验证。
-- 保存模型名称、prompt 版本和锚点结果，保证评分可复现。
-
-### 更新后的完整漏斗
-
-```text
-文章正文 + 待评摘要
-        │
-        ▼
-确定性复制检查
-        ├─ 确认正文抄袭 → COPY，rank_score=-1，提前终止
-        ▼
-句数与结构检查
-        ├─ 超过3句 → 添加长度违规标签，继续评估
-        ├─ 高置信度截断 → 硬失败或严格封顶
-        ▼
-Embedding 相关性筛查
-        ├─ 可疑项 → cross-encoder / reranker 复核
-        ├─ 确认完全无关 → OFF_TOPIC，rank_score=-2，提前终止
-        ▼
-每篇文章生成并缓存一次结构化事实锚点
-        │
-        ├─ 候选摘要 ↔ 原文：忠实性事实核查
-        └─ 候选摘要 ↔ 锚点：主旨覆盖度检查
-        ▼
-表达完整性、连贯性和简洁性评分
-        ▼
-对长度违规执行扣分或封顶
-        ▼
-输出质量标签、维度分数和篇内5条摘要排序
-```
-
-### 排序输出原则
-
-流程状态与最终质量分分开保存，避免用一个数字同时表示“待处理”和“质量高低”：
-
-```json
-{
-  "status": "EVALUATED",
-  "quality_label": "FAITHFUL_BUT_INCOMPLETE",
-  "rank_score": 68,
-  "flags": ["OVER_3_SENTENCES"],
-  "dimension_scores": {
-    "faithfulness": 90,
-    "coverage": 60,
-    "coherence": 85,
-    "conciseness": 40
-  }
-}
-```
-
-保留的特殊排序分：确认完全无关为 `-2`，确认完整复制正文为 `-1`；
-其余摘要完成语义评价后使用正常分数区间。长度超过 3 句先标记并继续判断，
-最终通过固定扣分或封顶体现规格违反，不在最前端丢失其内容质量信息。
+- Run article-level held-out evaluation.
+- Add controlled perturbations for numbers, entities, negation, causality, and truncation.
+- Measure within-article ranking agreement against human labels.
+- Measure precision and recall for each terminal failure mode.
+- Recalibrate the embedding relevance gate across models and domains.
+- Treat autonomous web corpus expansion as a separate, explicitly authorized project with provenance and licensing controls.
