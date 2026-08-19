@@ -441,6 +441,44 @@ reranker 分数饱和(非 0 即 1)、模型 2GB,仅留档作交叉验证证据(e
 - 已知例外 1 篇:features-and-analysis-40566272 的正确答案 own_sim=0.459
   (该篇参考与正文关系弱)——50 篇中 49 篇规律成立,阈值需留余量。
 
+## 2026-08-19 里程碑:Claude Code 插件建成 + 25 条端到端漏斗测试通过
+
+**插件**:`plugin_claude/summary-quality-funnel/`(与 codex 版共用 references/scripts;
+Claude 侧新增 .claude-plugin 清单、适配 Agent 工具的 SKILL.md、summary-scorer /
+summary-reviewer 两个 agent 定义、/evaluate-summaries 命令)。
+
+**端到端测试**(seed=7 随机 5 篇 × 5 条 = 25 对,结果 experiments_claude/):
+- 硬约束拦截 6 条(5 抄袭 + 1 截断);embedding 门禁提名 2 条跑题,独立 reviewer
+  重算后 8/8 APPROVE(抄袭逐条验证为正文 offset 0 起 100% 连续包含);
+- 软评分 17 条:5 scorer(锚点+claim核查)+ 5 reviewer 独立复核,16 APPROVE
+  + 1 **ESCALATE 改道**——硬门漏掉的无标点截断条(39776572_7682c3a7,半句止于
+  人名中途)被软评 reviewer 识别并改判 OBVIOUS_TRUNCATION 终止:双层防线互补的实证;
+- 抓获样例:否定反转 2 例("解散→不解散" 32分、"元気→衰弱" 37分)、
+  实体/数字替换("マシュハド→タブリーズ、52→72人" 57分)、编造升级
+  ("3死1失踪→5人全員死亡"+捏造国家紧急状态 38分)、细粒度日期错
+  ("生後3日→1週間過ぎ" 58分);
+- 全部 25 条通过 validate_result.py schema 校验,rank_results.py 篇内排序
+  形态正确:无关(rank0)< 抄袭 < 截断 < 低分软评 < 好摘要;
+- 输出:funnel_25_scores.jsonl / funnel_25_ranked.jsonl。
+- 待人工校准的观察:5 篇中命中参考答案的条目均被盲评为第 2 名(76–88 GOOD),
+  第 1 名均为生成式好摘要——judge 是否偏爱"流畅完整"风格,需 dev 集人工排序裁决。
+
+## 2026-08-19 实验记录:锚点 embedding 环节【用户提出,结论=不加】
+
+问题:摘要↔锚点(LLM 生成的要点浓缩)的 embedding 相似度,是否比摘要↔全文更有用?
+
+结果(25 条,16 条软评分条目,日志 experiments_claude/anchor_probe_log.txt):
+- Spearman(sim全文, 漏斗分)= **+0.512**
+- Spearman(sim锚点, 漏斗分)= **+0.424**(更差)
+
+原因:幻觉摘要在话题上与锚点几乎重合(它们模仿要点、只改事实),
+embedding 看不见事实翻转——状态反转条(37分)的 sim锚点高达 0.906,比多数好摘要还高。
+且锚点需先花一次 LLM 调用才能生成,若用于门禁会破坏"便宜的先上"的级联经济学。
+
+**结论:锚点不进 embedding 门禁;其价值保留在软评分阶段
+(作为 LLM 覆盖度对照的结构化要点清单)。** 有/没有该 embedding 环节的区别:
+相关性反而下降 0.09,成本增加,故不加。
+
 ## 待办
 
 - [ ] 深化探索:全量幻觉筛查、失败模式分布全景、逐篇抽查
