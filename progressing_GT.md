@@ -159,7 +159,7 @@ Required delivery correction:
 - push only the GPT plugin, GPT evaluation artifacts, English GPT documentation, and other explicitly authorized project changes;
 - verify the remote commit and a clean GPT-side validation after the corrected push.
 
-Until that separation is explicitly authorized and completed, commit `30da340` remains local and must not be treated as a published deliverable.
+The separation was completed in clean commit `4dce8e1`, which contains no changes under `plugin_claude/` or `experiments_claude/`. Because the remote `main` branch had already advanced to the earlier mixed commit, the safety review prohibited deleting Claude-side content from `main` without separate authorization. The corrected GPT-only commit was therefore published to branch `codex/gpt-only-evaluation`. The local Claude changes remain present and uncommitted; this workflow did not edit or delete them.
 
 ## Next Validation Work
 
