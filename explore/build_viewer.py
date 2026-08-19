@@ -186,7 +186,7 @@ td .art { font-size:11px; color:var(--muted); white-space:nowrap; max-width:180p
 </div>
 <script>
 const DATA = __DATA__;
-const FLAG_NAME = { ref_copy:"抄参考摘要", ref_prefix:"参考摘要截断版", lead_copy:"照抄原文开头", truncated:"疑似截断", clean:"无标记" };
+const FLAG_NAME = { ref_copy:"抄袭原文疑似摘要段落", ref_prefix:"疑似摘要段落截断版", lead_copy:"照抄原文开头", truncated:"疑似截断", clean:"无标记" };
 const FLAG_COLOR = { ref_copy:"var(--b-refcopy)", ref_prefix:"var(--b-refpre)", lead_copy:"var(--b-lead)", truncated:"var(--b-trunc)", clean:"var(--b-clean)" };
 const listEl = document.getElementById("list");
 const mainEl = document.getElementById("main");
@@ -222,7 +222,7 @@ function renderMain(a, hlId){
     <h2>${esc(a.title)}</h2>
     <div class="h2zh">${esc(a.title_zh||"")}</div>
     <div class="meta">#${esc(a.id)} · ${a.len} 字 · <a href="${esc(a.url)}" target="_blank">BBC 原文 ↗</a></div>
-    <div class="label">参考摘要(XL-Sum,质量不均,仅作参照)</div>
+    <div class="label">原文疑似摘要段落(XL-Sum 参考字段;非 ground truth,质量不均,仅作参照)</div>
     <div class="refbox"><div class="ja">${esc(a.ref)}</div>${zhblk(a.ref_zh)}</div>
     <div class="label">文章全文</div>
     <div class="ja">${esc(a.text)}</div>
@@ -297,7 +297,7 @@ renderList("");
 </html>"""
 
 stats_parts = []
-name = {"ref_copy": "抄参考", "ref_prefix": "参考截断版", "lead_copy": "抄原文开头", "truncated": "疑似截断"}
+name = {"ref_copy": "抄疑似摘要段", "ref_prefix": "疑似摘要段截断版", "lead_copy": "抄原文开头", "truncated": "疑似截断"}
 for k in ["ref_copy", "ref_prefix", "lead_copy", "truncated"]:
     if k in flag_totals:
         stats_parts.append(f"{name[k]} <b>{flag_totals[k]}</b>")
