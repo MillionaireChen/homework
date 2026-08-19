@@ -1,0 +1,26 @@
+{
+ "total": 25,
+ "hard_gate_intercepted": 6,
+ "off_topic_intercepted": 2,
+ "reviewer_rerouted": 1,
+ "soft_scored": 16,
+ "terminals": {
+  "OBVIOUS_TRUNCATION": 2,
+  "VERBATIM_SOURCE_COPY": 5,
+  "OFF_TOPIC": 2
+ },
+ "soft_labels": {
+  "EXCELLENT": 4,
+  "GOOD": 6,
+  "MIXED": 3,
+  "POOR": 3
+ },
+ "soft_score_min": 32,
+ "soft_score_max": 99,
+ "articles": 5,
+ "charts": [
+  "funnel.png",
+  "scores_by_article.png",
+  "categories.png"
+ ]
+}

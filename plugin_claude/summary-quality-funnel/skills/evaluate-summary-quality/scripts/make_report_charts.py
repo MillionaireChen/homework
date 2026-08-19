@@ -55,10 +55,10 @@ def main() -> None:
         and e["evidence"].get("rerouted_by") for e in r["evaluation_trace"]))
 
     # 1. funnel
-    stages = [("输入", total),
-              ("过字符串硬门", total - hard_stage),
-              ("过相关性门禁", total - hard_stage - offtopic),
-              ("软评分完成", len(soft))]
+    stages = [("Input pairs", total),
+              ("Passed string gates", total - hard_stage),
+              ("Passed relevance gate", total - hard_stage - offtopic),
+              ("Soft-scored", len(soft))]
     fig, ax = plt.subplots(figsize=(7, 3.2))
     names = [s[0] for s in stages][::-1]
     vals = [s[1] for s in stages][::-1]
@@ -66,7 +66,7 @@ def main() -> None:
     for i, v in enumerate(vals):
         ax.text(v + 0.2, i, str(v), va="center", fontsize=11, fontweight="bold")
     ax.set_xlim(0, total * 1.12)
-    ax.set_title("级联漏斗:各阶段幸存数", fontsize=12)
+    ax.set_title("Cascade funnel: survivors per stage", fontsize=12)
     fig.tight_layout(); fig.savefig(args.outdir / "funnel.png", dpi=150); plt.close(fig)
 
     # 2. per-article grouped scores
@@ -91,7 +91,7 @@ def main() -> None:
     ax.bar(x, heights, color=colors)
     ax.set_xticks(ticks); ax.set_xticklabels(ticklabels, fontsize=9)
     ax.set_ylabel("score"); ax.set_ylim(0, 105)
-    ax.set_title("各文章 5 条摘要得分(篇内按名次排列;红/橙=硬约束终止)", fontsize=12)
+    ax.set_title("Scores per article (ordered by within-article rank; red/orange = terminal)", fontsize=12)
     fig.tight_layout(); fig.savefig(args.outdir / "scores_by_article.png", dpi=150); plt.close(fig)
 
     # 3. category counts
@@ -107,7 +107,7 @@ def main() -> None:
            color=[LABEL_COLORS.get(k) or TERMINAL_COLORS.get(k, "#64748b") for k in keys])
     for i, k in enumerate(keys):
         ax.text(i, cats[k] + 0.08, str(cats[k]), ha="center", fontweight="bold")
-    ax.set_title("结果类别分布", fontsize=12)
+    ax.set_title("Outcome category distribution", fontsize=12)
     plt.setp(ax.get_xticklabels(), rotation=20, ha="right", fontsize=8)
     fig.tight_layout(); fig.savefig(args.outdir / "categories.png", dpi=150); plt.close(fig)
 

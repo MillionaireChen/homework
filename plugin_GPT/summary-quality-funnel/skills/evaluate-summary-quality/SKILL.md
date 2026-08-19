@@ -37,21 +37,24 @@ Read `references/embedding-calibration.md` only when calibrating or defending th
 
 ## Agent execution
 
-Use three role-isolated agents when delegation is available:
+Use three genuinely separate Codex subagents:
 
 - Scorer Agent: generate the article anchor in an article-only pass, then score candidates that passed every hard gate.
 - Reviewer Agent: independently confirm every early exit and review every soft score and cited source span.
 - Report Agent: invoke `$generate-summary-report` in a fresh context to summarize validated aggregate results and deterministic charts for readers who will not inspect JSON/JSONL.
 
-Prefer different models for the two roles when practical. Otherwise use separate prompts and fresh contexts. If delegation is unavailable, execute the roles sequentially with isolated prompts and preserve their separate outputs.
+Launch these roles with Codex's subagent/delegation mechanism. Passing role prompts to a local model or simulating multiple roles inside one model call does not satisfy this requirement. Scorer and Reviewer must have separate agent identities and fresh task contexts; the Report Agent must be a third role.
 
-Every Scorer and Reviewer call must include one relevant few-shot example from `references/few-shot-examples.md`. Select by stage and suspected condition. For a general soft-score call, use the closest dominant quality issue. The Report Agent reads its own `references/report-example.md`. Never use evaluation targets from the current batch as few-shot examples.
+**Local-model prohibition:** never use Ollama or another local generative model for anchor generation, scoring, review, revision, or report conclusions. The only permitted local model is the configured embedding model used by `scripts/embedding_gate.py`. If Codex subagent delegation is unavailable, stop and report the missing capability instead of falling back to a local generator or single-agent prompt simulation.
+
+Every Scorer and Reviewer call must include one relevant few-shot example from `references/few-shot-examples.md`. Select by stage and suspected condition. For a general soft-score call, use the closest dominant quality issue. The Report Agent reads its own `references/conclusion-example.md`. Never use evaluation targets from the current batch as few-shot examples.
 
 ## Efficiency rules
 
 - Stop expensive work after a Reviewer-confirmed terminal failure.
 - Do not embed confirmed copies, over-length outputs, or obvious truncations.
 - Call a stronger relevance checker only on embedding suspects or boundary cases.
+- Use a Codex Reviewer subagent, not a local reranker or local generative model, for semantic confirmation.
 - Generate the anchor once per article, not once per summary.
 - Reuse source chunks, embeddings, and anchors within a batch.
 - Generate charts deterministically from final JSON/JSONL; do not ask the Report Agent to estimate counts or draw charts.
@@ -59,8 +62,19 @@ Every Scorer and Reviewer call must include one relevant few-shot example from `
 
 ## Scripts
 
+- `scripts/prepare_batch.py`: join article and summary JSONL while excluding dataset-only reference summaries.
 - `scripts/hard_gate.py`: deterministic draft gates and trace creation for JSON or JSONL input.
+- `scripts/apply_terminal_reviews.py`: apply genuine Codex Reviewer hard-gate decisions and create terminal/survivor artifacts.
 - `scripts/embedding_gate.py`: optional Ollama embedding evidence for single pairs or multi-article batches; pass `--article-corpus` when testing a summary subset against a larger article bank.
+- `scripts/apply_relevance_reviews.py`: apply genuine Codex Reviewer off-topic decisions and create terminal/survivor artifacts.
+- `scripts/make_agent_batches.py`: split survivors into deterministic article-aligned Codex Agent batches.
+- `scripts/validate_scorer_drafts.py`: validate Codex Scorer draft IDs, dimensions, anchors, labels, and trace events.
+- `scripts/validate_reviewer_outputs.py`: validate independent soft-score review IDs, decisions, score suggestions, few-shot use, and traces.
+- `scripts/apply_soft_reviews.py`: deterministically finalize approved drafts and isolate the single allowed revision pass.
+- `scripts/validate_revised_drafts.py`: validate the Scorer's single revision pass against Reviewer requests.
+- `scripts/validate_final_reviews.py`: validate the terminal Reviewer decision after the single revision pass.
+- `scripts/validate_late_terminal_reviews.py`: validate terminal failures recovered by the Reviewer during soft-score audit.
+- `scripts/assemble_reviewed_results.py`: merge terminal routes, approved drafts, one-pass revisions, and late terminal recoveries in original input order.
 - `scripts/validate_result.py`: final schema, arithmetic, review, and trace validation.
 - `scripts/rank_results.py`: rank validated results within each article while keeping off-topic last.
 - `$generate-summary-report`: sibling Report Agent skill that derives audited statistics, renders fixed charts, writes the four-section English Markdown report, and validates the 800-word limit.

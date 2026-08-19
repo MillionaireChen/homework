@@ -45,7 +45,7 @@ Recommended terminal ordering, from worst to least severe:
 3. `OBVIOUS_TRUNCATION` — rank `2`;
 4. `OVER_SENTENCE_LIMIT` — rank `3`.
 
-Local overlap, shared entities, dates, or fixed news phrases are not sufficient evidence of copying. Likewise, missing final punctuation alone is not sufficient evidence of truncation.
+Local overlap, shared entities, dates, or fixed news phrases are not sufficient evidence of copying. Missing normal final punctuation is a reproducible truncation warning, not an automatic final decision; the Reviewer confirms whether the candidate physically ends mid-thought.
 
 ### Stage B: Embedding relevance nomination
 
@@ -94,20 +94,20 @@ A `REVISE` decision permits one Scorer revision followed by a second review. Unr
 
 ### Stage F: Report Agent
 
-The dedicated Report Agent receives validated score JSON or JSONL and produces:
+The dedicated Report Agent receives deterministic statistics derived from validated score JSON or JSONL. The reporting code produces:
 
 - deterministic funnel and score charts;
-- an English Markdown report under 800 words;
+- Sections 1–3 and the fixed English Markdown layout under 800 words;
 - four fixed sections: input data, funnel outcomes, results, and conclusion;
-- a calibrated verdict that distinguishes prototype evidence from production validation.
+- a validated report artifact.
 
-The chart script computes all counts and aggregates. The Report Agent may interpret these values but must not invent or manually recalculate them. Corpus expansion and web collection are separate future capabilities requiring explicit authorization, provenance, licensing review, deduplication, and a new evaluation protocol.
+The Report Agent may author only the conclusion, capped at 120 words, and must distinguish prototype evidence from production validation. It cannot write Sections 1–3, invent or manually recalculate statistics, or edit charts. Corpus expansion and web collection are separate future capabilities requiring explicit authorization, provenance, licensing review, deduplication, and a new evaluation protocol.
 
 ## 4. Agent Boundaries
 
 - **Scorer Agent:** creates the article anchor and drafts the soft score.
 - **Reviewer Agent:** confirms early exits and audits every score.
-- **Report Agent:** summarizes only validated results and fixed statistics.
+- **Report Agent:** writes only a short conclusion from fixed validated statistics; code generates the rest of the report.
 
 Each role uses a fresh context. Scorer and Reviewer calls receive exactly one condition-matched few-shot example. The Report Agent uses its own report example rather than scoring examples.
 
@@ -133,7 +133,8 @@ Small random runs establish whether the pipeline executes coherently and catches
 - A 50-pair reference-free funnel experiment demonstrated deterministic copy detection and embedding-based off-topic nomination.
 - Two independent 10-article relevance experiments reproduced a large similarity gap between matched and mismatched summaries.
 - A random 20-pair end-to-end run exercised all three roles, terminal routing, soft scoring, revision, validation, charts, and report generation.
-- The current conclusion is: **usable prototype that needs broader validation**.
+- A full 250-pair run covered all 50 articles: 82 terminal results, 168 reviewed soft scores, 20 one-pass revisions, and no unresolved escalations.
+- The current conclusion is: **a functioning audited pipeline with evidence on this dataset, not a production-accuracy guarantee**.
 
 ## 8. Deliverables
 

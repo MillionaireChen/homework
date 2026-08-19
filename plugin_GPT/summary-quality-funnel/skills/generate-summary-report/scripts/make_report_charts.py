@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Create deterministic report statistics and charts from final score JSON/JSONL."""
+"""Create deterministic report statistics and charts from final score JSON/JSONL.
+
+This module is used by generate_report.py. Its CLI remains available for chart-only
+diagnostics, but the Report Agent must call generate_report.py for final reports.
+"""
 
 from __future__ import annotations
 
@@ -85,15 +89,23 @@ def build_stats(
         for row in hard_rows
         if row.get("draft_terminal_result")
     }
-    embedding_suspects = sum(
-        bool(row.get("embedding_evidence", {}).get("off_topic_suspect"))
+    embedding_suspect_ids = {
+        row.get("summary_id")
         for row in embedding_rows
-    )
+        if row.get("embedding_evidence", {}).get("off_topic_suspect")
+    }
+    confirmed_off_topic_ids = {
+        row.get("summary_id")
+        for row in terminal
+        if row.get("terminal_result") == "OFF_TOPIC"
+    }
     return {
         "input": {
             "pairs": len(rows),
             "unique_articles": len({str(row.get("article_id")) for row in rows}),
             "reference_summary_used": False,
+            "hard_gate_artifact_supplied": bool(hard_rows),
+            "embedding_artifact_supplied": bool(embedding_rows),
         },
         "funnel": {
             "fully_soft_scored": len(eligible),
@@ -101,7 +113,9 @@ def build_stats(
             "terminal_by_type": dict(sorted(terminal_counts.items())),
             "deterministic_gate_proposals": len(deterministic_ids),
             "hard_failures_recovered_downstream": len(final_hard_ids - deterministic_ids),
-            "embedding_off_topic_suspects": embedding_suspects,
+            "embedding_off_topic_suspects": len(embedding_suspect_ids),
+            "embedding_off_topic_confirmed": len(embedding_suspect_ids & confirmed_off_topic_ids),
+            "embedding_suspects_rejected": len(embedding_suspect_ids - confirmed_off_topic_ids),
         },
         "soft_scores": {
             "count": len(eligible),
@@ -115,7 +129,10 @@ def build_stats(
         "review": {
             "approved": sum(row.get("review", {}).get("decision") == "APPROVE" for row in rows),
             "escalated": sum(row.get("review", {}).get("decision") == "ESCALATE" for row in rows),
-            "revised_at_least_once": sum(int(row.get("review", {}).get("rounds", 0)) > 1 for row in rows),
+            "revised_at_least_once": sum(
+                any(event.get("stage") == "score_revision" for event in row.get("evaluation_trace", []))
+                for row in rows
+            ),
         },
     }
 
@@ -155,28 +172,43 @@ def plot_outcomes(stats: Dict[str, Any], output: Path) -> None:
 
 
 def plot_scores(rows: List[Dict[str, Any]], output: Path) -> None:
-    eligible = sorted(
-        (row for row in rows if row.get("eligible_for_soft_scoring") is True),
-        key=lambda row: (float(row["score"]), str(row.get("summary_id"))),
-        reverse=True,
-    )
+    eligible = [row for row in rows if row.get("eligible_for_soft_scoring") is True]
     scores = [float(row["score"]) for row in eligible]
-    colors = [LABEL_COLORS.get(row.get("quality_label"), "#6C757D") for row in eligible]
-    labels = [f"S{index}" for index in range(1, len(eligible) + 1)]
     mean = statistics.fmean(scores) if scores else 0.0
+    median = statistics.median(scores) if scores else 0.0
+    label_counts = Counter(row.get("quality_label", "UNKNOWN") for row in eligible)
 
-    fig, ax = plt.subplots(figsize=(9.2, 4.8))
-    bars = ax.bar(labels, scores, color=colors, width=0.72)
-    ax.axhline(mean, color="#264653", linestyle="--", linewidth=1.4, label=f"Mean {mean:.1f}")
-    for bar, value in zip(bars, scores):
-        ax.text(bar.get_x() + bar.get_width() / 2, value + 1.2, f"{value:.0f}", ha="center", fontsize=8)
-    ax.set_title("Reviewer-approved soft scores", loc="left", fontsize=15, fontweight="bold")
-    ax.set_ylabel("Score (0–100)")
-    ax.set_ylim(0, 108)
-    ax.grid(axis="y", alpha=0.18)
-    ax.legend(frameon=False, loc="lower left")
-    for spine in ("top", "right"):
-        ax.spines[spine].set_visible(False)
+    fig, (score_ax, label_ax) = plt.subplots(
+        1, 2, figsize=(9.2, 4.8), gridspec_kw={"width_ratios": [2.15, 1]}
+    )
+    bins = list(range(0, 101, 10))
+    score_ax.hist(scores, bins=bins, color="#2E86AB", edgecolor="white", linewidth=1.0)
+    score_ax.axvline(mean, color="#264653", linestyle="--", linewidth=1.5, label=f"Mean {mean:.1f}")
+    score_ax.axvline(median, color="#E76F51", linestyle=":", linewidth=1.7, label=f"Median {median:.1f}")
+    score_ax.set_title("Soft-score distribution", loc="left", fontsize=14, fontweight="bold")
+    score_ax.set_xlabel("Score (0–100)")
+    score_ax.set_ylabel("Candidates")
+    score_ax.set_xlim(0, 100)
+    score_ax.grid(axis="y", alpha=0.18)
+    score_ax.legend(frameon=False)
+
+    label_order = [name for name in ("EXCELLENT", "GOOD", "MIXED", "POOR") if label_counts.get(name)]
+    label_values = [label_counts[name] for name in label_order]
+    bars = label_ax.barh(
+        label_order[::-1],
+        label_values[::-1],
+        color=[LABEL_COLORS[name] for name in label_order[::-1]],
+        height=0.58,
+    )
+    for bar, value in zip(bars, label_values[::-1]):
+        label_ax.text(bar.get_width() + 0.15, bar.get_y() + bar.get_height() / 2, str(value), va="center")
+    label_ax.set_title("Quality labels", loc="left", fontsize=14, fontweight="bold")
+    label_ax.set_xlabel("Candidates")
+    label_ax.set_xlim(0, max(label_values, default=1) * 1.25)
+    label_ax.grid(axis="x", alpha=0.18)
+    for ax in (score_ax, label_ax):
+        for spine in ("top", "right"):
+            ax.spines[spine].set_visible(False)
     fig.tight_layout()
     fig.savefig(output, dpi=180, bbox_inches="tight")
     plt.close(fig)

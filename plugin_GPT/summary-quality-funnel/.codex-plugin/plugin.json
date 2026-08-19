@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Summary Quality Funnel",
     "shortDescription": "Hard gates, three-agent review, charts, and audit trails",
-    "longDescription": "Evaluate article-summary pairs with deterministic hard gates and relevance screening, then use isolated Scorer, Reviewer, and Report Agent workflows to produce scores, labels, evidence, charts, a concise English Markdown report, and a complete audit trail. Runtime scoring does not require reference summaries.",
+    "longDescription": "Evaluate article-summary pairs with deterministic hard gates and local embedding relevance screening, then launch genuine Codex Scorer, Reviewer, and Report subagents to produce scores, labels, evidence, fixed charts, a concise English Markdown report, and a complete audit trail. Local generative models are prohibited and runtime scoring does not require reference summaries.",
     "developerName": "Chen Jinhua",
     "category": "Productivity",
     "capabilities": ["Analyze", "Write"],

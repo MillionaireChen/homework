@@ -32,6 +32,7 @@ Read `references/embedding-calibration.md` only when calibrating or defending th
 10. On `REVISE`, let the Scorer revise once from explicit review findings, then review again. On unresolved disagreement, mark `LOW_CONFIDENCE` and preserve both positions.
 11. Run `scripts/validate_result.py`. Do not deliver output until schema, score ranges, dimension sums, review status, and trace rules pass.
 12. For five summaries per article, order terminal failure tiers first, then soft scores. Preserve evidence-backed ties. Use `scripts/rank_results.py`.
+13. After validation and ranking, produce the run report: run `scripts/make_report_charts.py` on the ranked JSONL, then launch the **`summary-reporter`** subagent with the ranked JSONL path, the stats JSON, and the chart directory. The report is English Markdown, under 800 words, with four fixed sections (input, funnel outcomes, results, conclusion) and the three charts embedded. The reporter consumes validated output only and never invents numbers.
 
 ## Agent execution
 
@@ -58,5 +59,6 @@ Every subagent call must include one relevant few-shot example from `references/
 - `scripts/embedding_gate.py`: optional Ollama embedding evidence for single pairs or multi-article batches; pass `--article-corpus` when testing a summary subset against a larger article bank.
 - `scripts/validate_result.py`: final schema, arithmetic, review, and trace validation.
 - `scripts/rank_results.py`: rank validated results within each article while keeping off-topic last.
+- `scripts/make_report_charts.py`: deterministic funnel/score/category charts + stats JSON from a ranked JSONL, consumed by the `summary-reporter` agent.
 
 Use `python3 <script> --help` for CLI options.

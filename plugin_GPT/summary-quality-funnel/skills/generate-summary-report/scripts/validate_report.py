@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a concise Markdown report produced by the Report Agent."""
+"""Validate a deterministic summary-quality Markdown report."""
 
 from __future__ import annotations
 
@@ -22,12 +22,8 @@ def lexical_units(text: str) -> int:
     return len(ascii_words)
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("report", type=Path)
-    parser.add_argument("--max-words", type=int, default=800)
-    args = parser.parse_args()
-    text = args.report.read_text(encoding="utf-8")
+def validate_report(report: Path, max_words: int = 800) -> int:
+    text = report.read_text(encoding="utf-8")
     errors = []
     for pattern in REQUIRED_HEADINGS:
         if not re.search(pattern, text, flags=re.M):
@@ -36,13 +32,25 @@ def main() -> None:
     if len(image_targets) < 2:
         errors.append("report must embed at least two charts")
     for target in image_targets:
-        if "://" not in target and not (args.report.parent / target).exists():
+        if "://" not in target and not (report.parent / target).exists():
             errors.append(f"missing local image: {target}")
     units = lexical_units(text)
-    if units > args.max_words:
-        errors.append(f"report has {units} lexical units; maximum is {args.max_words}")
+    if units > max_words:
+        errors.append(f"report has {units} lexical units; maximum is {max_words}")
     if errors:
-        raise SystemExit("\n".join(errors))
+        raise ValueError("\n".join(errors))
+    return units
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("report", type=Path)
+    parser.add_argument("--max-words", type=int, default=800)
+    args = parser.parse_args()
+    try:
+        units = validate_report(args.report, args.max_words)
+    except ValueError as exc:
+        raise SystemExit(str(exc)) from exc
     print(f"valid report: {args.report} ({units}/{args.max_words} lexical units)")
 
 

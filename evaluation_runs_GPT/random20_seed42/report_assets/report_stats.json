@@ -2,7 +2,9 @@
   "input": {
     "pairs": 20,
     "unique_articles": 14,
-    "reference_summary_used": false
+    "reference_summary_used": false,
+    "hard_gate_artifact_supplied": true,
+    "embedding_artifact_supplied": true
   },
   "funnel": {
     "fully_soft_scored": 12,
@@ -14,7 +16,9 @@
     },
     "deterministic_gate_proposals": 5,
     "hard_failures_recovered_downstream": 2,
-    "embedding_off_topic_suspects": 1
+    "embedding_off_topic_suspects": 1,
+    "embedding_off_topic_confirmed": 1,
+    "embedding_suspects_rejected": 0
   },
   "soft_scores": {
     "count": 12,
@@ -38,6 +42,6 @@
   "review": {
     "approved": 20,
     "escalated": 0,
-    "revised_at_least_once": 3
+    "revised_at_least_once": 0
   }
 }
