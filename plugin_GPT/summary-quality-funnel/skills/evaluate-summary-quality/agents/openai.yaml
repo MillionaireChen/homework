@@ -1,0 +1,4 @@
+interface:
+  display_name: "摘要质量漏斗"
+  short_description: "硬门禁早停、三Agent评分复核、固定图表报告与完整审计轨迹"
+  default_prompt: "Use $evaluate-summary-quality to score, review, rank, and report this summary batch."

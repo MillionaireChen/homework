@@ -1,0 +1,3403 @@
+{
+  "experiment": "reference-free deterministic-to-semantic funnel",
+  "reference_summary_used": false,
+  "test_summary_count": 50,
+  "retrieval_article_count": 50,
+  "test_selection": "first 10 articles in articles.jsonl, 5 summaries each",
+  "models": {
+    "embedding": "BAAI/bge-m3",
+    "reranker": "BAAI/bge-reranker-v2-m3"
+  },
+  "provisional_thresholds": {
+    "copy": "full containment OR longest>=50 and ratio>=0.50 OR longest>=30 and 12-char-shingle coverage>=0.85",
+    "embedding_suspect": "own_rank>1 and margin_vs_best_other<=-0.10",
+    "reranker_confirm": "best article is not assigned article, assigned_score<=0.20, and margin_vs_best_other<=-0.50"
+  },
+  "counts": {
+    "PASS_TO_SEMANTIC": 37,
+    "OFFTOPIC_REJECT": 3,
+    "COPY_REJECT": 10
+  },
+  "results": [
+    {
+      "summary_id": "35647760_06a21c1e",
+      "article_id": "35647760",
+      "summary": "オバマ米大統領は23日、キューバにあるグアンタナモ米海軍基地の収容所を閉鎖する計画を連邦議会に提出したと発表した。国防総省は計画の一環として、フロリダ州マイアミの連邦刑務所を主要な移送先として正式指名した。オバマ氏は収容所が米国の安全保障と価値観を損なっているとし、任期満了前の解決を目指すと述べた。",
+      "copy": {
+        "normalized_chars": 150,
+        "full_containment": false,
+        "longest_exact_chars": 11,
+        "longest_exact_ratio": 0.0733,
+        "matched_char_ratio": 0.36,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7987,
+        "own_rank": 1,
+        "best_match_article_id": "35647760",
+        "best_match_title": "オバマ氏、グアンタナモ収容所の閉鎖計画を発表",
+        "best_match_similarity": 0.7987,
+        "best_other_article_id": "41875333",
+        "margin_vs_best_other": 0.323,
+        "top5": [
+          {
+            "article_id": "35647760",
+            "similarity": 0.7987
+          },
+          {
+            "article_id": "41875333",
+            "similarity": 0.4757
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4323
+          },
+          {
+            "article_id": "39776572",
+            "similarity": 0.4305
+          },
+          {
+            "article_id": "43411421",
+            "similarity": 0.4289
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.994,
+        "best_match_article_id": "35647760",
+        "best_match_title": "オバマ氏、グアンタナモ収容所の閉鎖計画を発表",
+        "best_match_score": 0.994,
+        "margin_vs_best_other": 0.9939,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "35647760",
+            "score": 0.994
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0001
+          },
+          {
+            "article_id": "39776572",
+            "score": 0.0001
+          },
+          {
+            "article_id": "41875333",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "35647760_1ab002c6",
+      "article_id": "35647760",
+      "summary": "オバマ米大統領は23日、キューバにあるグアンタナモ米海軍基地の収容所を閉鎖する計画を連邦議会に提出したと発表した。残る91人のテロ容疑者を本国または米国内施設に移送する案だが、米本土での収容には議会が強く抵抗しており、阻止される可能性が強い。オバマ氏は収容所が米国の安全保障と価値観を損なっているとし、任期満了前の解決を目指すと述べた。",
+      "copy": {
+        "normalized_chars": 168,
+        "full_containment": false,
+        "longest_exact_chars": 11,
+        "longest_exact_ratio": 0.0655,
+        "matched_char_ratio": 0.4821,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.8611,
+        "own_rank": 1,
+        "best_match_article_id": "35647760",
+        "best_match_title": "オバマ氏、グアンタナモ収容所の閉鎖計画を発表",
+        "best_match_similarity": 0.8611,
+        "best_other_article_id": "41875333",
+        "margin_vs_best_other": 0.3653,
+        "top5": [
+          {
+            "article_id": "35647760",
+            "similarity": 0.8611
+          },
+          {
+            "article_id": "41875333",
+            "similarity": 0.4958
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4777
+          },
+          {
+            "article_id": "34991666",
+            "similarity": 0.4774
+          },
+          {
+            "article_id": "43411421",
+            "similarity": 0.4598
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9995,
+        "best_match_article_id": "35647760",
+        "best_match_title": "オバマ氏、グアンタナモ収容所の閉鎖計画を発表",
+        "best_match_score": 0.9995,
+        "margin_vs_best_other": 0.9993,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "35647760",
+            "score": 0.9995
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0002
+          },
+          {
+            "article_id": "41875333",
+            "score": 0.0
+          },
+          {
+            "article_id": "34991666",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "35647760_cfdbf473",
+      "article_id": "35647760",
+      "summary": "米ニューヨーク市で新型コロナウイルスとの戦いの最前線にいた医師が、自ら命を絶った。",
+      "copy": {
+        "normalized_chars": 41,
+        "full_containment": false,
+        "longest_exact_chars": 6,
+        "longest_exact_ratio": 0.1463,
+        "matched_char_ratio": 0.3659,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "OFFTOPIC_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.3148,
+        "own_rank": 14,
+        "best_match_article_id": "52451669",
+        "best_match_title": "米ニューヨーク市の医師が自殺 新型ウイルスの最前線で勤務",
+        "best_match_similarity": 0.6979,
+        "best_other_article_id": "52451669",
+        "margin_vs_best_other": -0.3831,
+        "top5": [
+          {
+            "article_id": "52451669",
+            "similarity": 0.6979
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "similarity": 0.475
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4063
+          },
+          {
+            "article_id": "40490051",
+            "similarity": 0.3842
+          },
+          {
+            "article_id": "34991666",
+            "similarity": 0.3745
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.0,
+        "best_match_article_id": "52451669",
+        "best_match_title": "米ニューヨーク市の医師が自殺 新型ウイルスの最前線で勤務",
+        "best_match_score": 0.9999,
+        "margin_vs_best_other": -0.9998,
+        "embedding_suspect": true,
+        "reranker_confirms": true,
+        "scored_candidates": [
+          {
+            "article_id": "52451669",
+            "score": 0.9999
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "score": 0.0007
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0
+          },
+          {
+            "article_id": "35647760",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "35647760_e08b3652",
+      "article_id": "35647760",
+      "summary": "オバマ米大統領は23日、キューバにあるグアンタナモ米海軍基地の収容所を閉鎖する計画を、議会に提出したと発表した。オバマ大統領は就任から間もなく、グアンタナモ収容所を閉鎖する方針を表明していた。",
+      "copy": {
+        "normalized_chars": 96,
+        "full_containment": false,
+        "longest_exact_chars": 9,
+        "longest_exact_ratio": 0.0938,
+        "matched_char_ratio": 0.1979,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7909,
+        "own_rank": 1,
+        "best_match_article_id": "35647760",
+        "best_match_title": "オバマ氏、グアンタナモ収容所の閉鎖計画を発表",
+        "best_match_similarity": 0.7909,
+        "best_other_article_id": "41875333",
+        "margin_vs_best_other": 0.33,
+        "top5": [
+          {
+            "article_id": "35647760",
+            "similarity": 0.7909
+          },
+          {
+            "article_id": "41875333",
+            "similarity": 0.4609
+          },
+          {
+            "article_id": "39776572",
+            "similarity": 0.4133
+          },
+          {
+            "article_id": "50469832",
+            "similarity": 0.4019
+          },
+          {
+            "article_id": "34991666",
+            "similarity": 0.3969
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9787,
+        "best_match_article_id": "35647760",
+        "best_match_title": "オバマ氏、グアンタナモ収容所の閉鎖計画を発表",
+        "best_match_score": 0.9787,
+        "margin_vs_best_other": 0.9786,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "35647760",
+            "score": 0.9787
+          },
+          {
+            "article_id": "41875333",
+            "score": 0.0002
+          },
+          {
+            "article_id": "39776572",
+            "score": 0.0001
+          },
+          {
+            "article_id": "50469832",
+            "score": 0.0001
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "35647760_e293a04b",
+      "article_id": "35647760",
+      "summary": "グアンタナモ収容所の閉鎖はオバマ大統領の目標のひとつだった 大統領は、いまだにグアンタナモに残るテロ容疑者91人を、それぞれの本国もしくは米国内の施設に移転したい考え。しかし連邦議会は、テロ容疑者を米本土で収容することに強い抵抗を示しており、政府提案を阻止する可能性が強い。ホワイトハウスの計画の要点は次の通り――。",
+      "copy": {
+        "normalized_chars": 157,
+        "full_containment": true,
+        "longest_exact_chars": 157,
+        "longest_exact_ratio": 1.0,
+        "matched_char_ratio": 1.0,
+        "shingle12_coverage": 1.0,
+        "copy_reject": true
+      },
+      "decision": "COPY_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.859,
+        "own_rank": 1,
+        "best_match_article_id": "35647760",
+        "best_match_title": "オバマ氏、グアンタナモ収容所の閉鎖計画を発表",
+        "best_match_similarity": 0.859,
+        "best_other_article_id": "43411421",
+        "margin_vs_best_other": 0.3682,
+        "top5": [
+          {
+            "article_id": "35647760",
+            "similarity": 0.859
+          },
+          {
+            "article_id": "43411421",
+            "similarity": 0.4908
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4872
+          },
+          {
+            "article_id": "34991666",
+            "similarity": 0.4647
+          },
+          {
+            "article_id": "50469832",
+            "similarity": 0.4599
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "38476572_420b873d",
+      "article_id": "38476572",
+      "summary": "ロシアとトルコが仲介したシリア全土の停戦合意は30日に発効し、散発的な衝突を除きほぼ維持された。国連安保理は停戦を支持するロシア提出の決議案を近く採決する見通しである。合意にはISなどの過激派は含まれず、ジャブハト・ファタハ・アル・シャムの扱いは情報が錯綜している。",
+      "copy": {
+        "normalized_chars": 133,
+        "full_containment": false,
+        "longest_exact_chars": 17,
+        "longest_exact_ratio": 0.1278,
+        "matched_char_ratio": 0.4737,
+        "shingle12_coverage": 0.0574,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.733,
+        "own_rank": 1,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_similarity": 0.733,
+        "best_other_article_id": "50162696",
+        "margin_vs_best_other": 0.097,
+        "top5": [
+          {
+            "article_id": "38476572",
+            "similarity": 0.733
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.636
+          },
+          {
+            "article_id": "40490051",
+            "similarity": 0.4315
+          },
+          {
+            "article_id": "50469832",
+            "similarity": 0.4136
+          },
+          {
+            "article_id": "37712268",
+            "similarity": 0.406
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9982,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_score": 0.9982,
+        "margin_vs_best_other": 0.9405,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "38476572",
+            "score": 0.9982
+          },
+          {
+            "article_id": "50162696",
+            "score": 0.0576
+          },
+          {
+            "article_id": "40490051",
+            "score": 0.0
+          },
+          {
+            "article_id": "50469832",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "38476572_65056524",
+      "article_id": "38476572",
+      "summary": "ロシアとトルコが仲介したシリア全土の停戦合意は30日に発効し、散発的な衝突を除きほぼ維持された。国連事務総長は同日夜、初日の停戦継続を「歴史的進展」と評価する声明を発表した。合意にはISなどの過激派は含まれず、ジャブハト・ファタハ・アル・シャムの扱いについては情報が錯綜している。",
+      "copy": {
+        "normalized_chars": 140,
+        "full_containment": false,
+        "longest_exact_chars": 17,
+        "longest_exact_ratio": 0.1214,
+        "matched_char_ratio": 0.5071,
+        "shingle12_coverage": 0.0543,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.6908,
+        "own_rank": 1,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_similarity": 0.6908,
+        "best_other_article_id": "50162696",
+        "margin_vs_best_other": 0.0487,
+        "top5": [
+          {
+            "article_id": "38476572",
+            "similarity": 0.6908
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.642
+          },
+          {
+            "article_id": "40490051",
+            "similarity": 0.4311
+          },
+          {
+            "article_id": "50469832",
+            "similarity": 0.4205
+          },
+          {
+            "article_id": "37712268",
+            "similarity": 0.4104
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9944,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_score": 0.9944,
+        "margin_vs_best_other": 0.9343,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "38476572",
+            "score": 0.9944
+          },
+          {
+            "article_id": "50162696",
+            "score": 0.0601
+          },
+          {
+            "article_id": "40490051",
+            "score": 0.0
+          },
+          {
+            "article_id": "50469832",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "38476572_7d88f5af",
+      "article_id": "38476572",
+      "summary": "ダマスカス郊外ドゥーマで30日に砲撃があったと反政府勢力は主張している。写真は、反政府勢力が支配するドゥーマ(30日） ロシア作成の安保理決議案は、シリア全土に人道援助を速やかに届けるよう求めるほか、ロシアとトルコが仲介し来月カザフスタンで予定される和平協議を支持し、政府と反政府勢力の間の政治的交渉による紛争の終結を求めている。シリアのアサド政権を支持するロシアはこれまで、アサド大統領退陣を前提とした紛争解決を求める米英仏による安保理決議案に対して、拒否権行使を繰り返してきた。",
+      "copy": {
+        "normalized_chars": 240,
+        "full_containment": true,
+        "longest_exact_chars": 240,
+        "longest_exact_ratio": 1.0,
+        "matched_char_ratio": 1.0,
+        "shingle12_coverage": 1.0,
+        "copy_reject": true
+      },
+      "decision": "COPY_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.7927,
+        "own_rank": 1,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_similarity": 0.7927,
+        "best_other_article_id": "50162696",
+        "margin_vs_best_other": 0.1875,
+        "top5": [
+          {
+            "article_id": "38476572",
+            "similarity": 0.7927
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.6052
+          },
+          {
+            "article_id": "37712268",
+            "similarity": 0.4853
+          },
+          {
+            "article_id": "40490051",
+            "similarity": 0.464
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4509
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "38476572_d43bbf3d",
+      "article_id": "38476572",
+      "summary": "国連安全保障理事会は近く、停戦合意を支持する決議案（ロシア提出）について採決する見通し。シリア全土で30日午前零時（日本時間午前7時）に発効した政府軍と反政府勢力の停戦合意は、散発的な衝突のほかは終日ほぼ継続したもようだ。",
+      "copy": {
+        "normalized_chars": 111,
+        "full_containment": false,
+        "longest_exact_chars": 10,
+        "longest_exact_ratio": 0.0901,
+        "matched_char_ratio": 0.4955,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.6519,
+        "own_rank": 1,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_similarity": 0.6519,
+        "best_other_article_id": "50162696",
+        "margin_vs_best_other": 0.0827,
+        "top5": [
+          {
+            "article_id": "38476572",
+            "similarity": 0.6519
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.5693
+          },
+          {
+            "article_id": "48493511",
+            "similarity": 0.4314
+          },
+          {
+            "article_id": "40490051",
+            "similarity": 0.4235
+          },
+          {
+            "article_id": "41396293",
+            "similarity": 0.4212
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9623,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_score": 0.9623,
+        "margin_vs_best_other": 0.9619,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "38476572",
+            "score": 0.9623
+          },
+          {
+            "article_id": "50162696",
+            "score": 0.0005
+          },
+          {
+            "article_id": "40490051",
+            "score": 0.0
+          },
+          {
+            "article_id": "48493511",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "38476572_fa7ad300",
+      "article_id": "38476572",
+      "summary": "シリア全土で30日午前零時（日本時間午前7時）に発効した政府軍と反政府勢力の停戦合意は、散発的な衝突のほかは終日ほぼ継続したもようだ。国連安全保障理事会は近く、停戦合意を支持する決議案（ロシア提出）について採決する見通し。",
+      "copy": {
+        "normalized_chars": 111,
+        "full_containment": false,
+        "longest_exact_chars": 10,
+        "longest_exact_ratio": 0.0901,
+        "matched_char_ratio": 0.4324,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.635,
+        "own_rank": 1,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_similarity": 0.635,
+        "best_other_article_id": "50162696",
+        "margin_vs_best_other": 0.0776,
+        "top5": [
+          {
+            "article_id": "38476572",
+            "similarity": 0.635
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.5574
+          },
+          {
+            "article_id": "48493511",
+            "similarity": 0.4236
+          },
+          {
+            "article_id": "40490051",
+            "similarity": 0.4222
+          },
+          {
+            "article_id": "41396293",
+            "similarity": 0.4084
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9892,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_score": 0.9892,
+        "margin_vs_best_other": 0.9872,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "38476572",
+            "score": 0.9892
+          },
+          {
+            "article_id": "50162696",
+            "score": 0.002
+          },
+          {
+            "article_id": "40490051",
+            "score": 0.0001
+          },
+          {
+            "article_id": "48493511",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "39776572_0c5e76b4",
+      "article_id": "39776572",
+      "summary": "米コメディアンのジミー・キメル氏は、生後間もない息子が先天性心臓疾患で緊急手術を受け一命を取り留めたと涙ながらに番組で語り、オバマケアの意義を訴えた。",
+      "copy": {
+        "normalized_chars": 75,
+        "full_containment": false,
+        "longest_exact_chars": 8,
+        "longest_exact_ratio": 0.1067,
+        "matched_char_ratio": 0.4667,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7842,
+        "own_rank": 1,
+        "best_match_article_id": "39776572",
+        "best_match_title": "米人気コメディアン、息子が九死に一生を得たと",
+        "best_match_similarity": 0.7842,
+        "best_other_article_id": "features-and-analysis-40566272",
+        "margin_vs_best_other": 0.3178,
+        "top5": [
+          {
+            "article_id": "39776572",
+            "similarity": 0.7842
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "similarity": 0.4664
+          },
+          {
+            "article_id": "53174534",
+            "similarity": 0.4622
+          },
+          {
+            "article_id": "55155049",
+            "similarity": 0.4358
+          },
+          {
+            "article_id": "35647760",
+            "similarity": 0.4122
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9968,
+        "best_match_article_id": "39776572",
+        "best_match_title": "米人気コメディアン、息子が九死に一生を得たと",
+        "best_match_score": 0.9968,
+        "margin_vs_best_other": 0.9967,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "39776572",
+            "score": 0.9968
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "score": 0.0001
+          },
+          {
+            "article_id": "53174534",
+            "score": 0.0
+          },
+          {
+            "article_id": "55155049",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "39776572_5c0bde1d",
+      "article_id": "39776572",
+      "summary": "米トーク番組やアカデミー賞授賞式などの司会で人気のコメディアン、ジミー・キメルさんが1日夜放送の番組で、生まれたばかりの息子が先天性の心臓疾患で死にかけたと涙ながらに語り、オバマケア（医療保険改革）の重要性を訴えた。",
+      "copy": {
+        "normalized_chars": 108,
+        "full_containment": false,
+        "longest_exact_chars": 9,
+        "longest_exact_ratio": 0.0833,
+        "matched_char_ratio": 0.537,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7903,
+        "own_rank": 1,
+        "best_match_article_id": "39776572",
+        "best_match_title": "米人気コメディアン、息子が九死に一生を得たと",
+        "best_match_similarity": 0.7903,
+        "best_other_article_id": "features-and-analysis-40566272",
+        "margin_vs_best_other": 0.3058,
+        "top5": [
+          {
+            "article_id": "39776572",
+            "similarity": 0.7903
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "similarity": 0.4845
+          },
+          {
+            "article_id": "53174534",
+            "similarity": 0.4645
+          },
+          {
+            "article_id": "43284438",
+            "similarity": 0.4264
+          },
+          {
+            "article_id": "55155049",
+            "similarity": 0.4042
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9947,
+        "best_match_article_id": "39776572",
+        "best_match_title": "米人気コメディアン、息子が九死に一生を得たと",
+        "best_match_score": 0.9947,
+        "margin_vs_best_other": 0.9944,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "39776572",
+            "score": 0.9947
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "score": 0.0004
+          },
+          {
+            "article_id": "43284438",
+            "score": 0.0002
+          },
+          {
+            "article_id": "53174534",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "39776572_7682c3a7",
+      "article_id": "39776572",
+      "summary": "米トーク番組やアカデミー賞授賞式などの司会で人気のコメディアン、ジミー・キメルさんが1日夜放送の番組で、生まれたばかり",
+      "copy": {
+        "normalized_chars": 59,
+        "full_containment": false,
+        "longest_exact_chars": 9,
+        "longest_exact_ratio": 0.1525,
+        "matched_char_ratio": 0.5085,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.5824,
+        "own_rank": 1,
+        "best_match_article_id": "39776572",
+        "best_match_title": "米人気コメディアン、息子が九死に一生を得たと",
+        "best_match_similarity": 0.5824,
+        "best_other_article_id": "features-and-analysis-46643494",
+        "margin_vs_best_other": 0.1799,
+        "top5": [
+          {
+            "article_id": "39776572",
+            "similarity": 0.5824
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.4025
+          },
+          {
+            "article_id": "43284438",
+            "similarity": 0.3908
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "similarity": 0.3834
+          },
+          {
+            "article_id": "53174534",
+            "similarity": 0.3721
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.8021,
+        "best_match_article_id": "39776572",
+        "best_match_title": "米人気コメディアン、息子が九死に一生を得たと",
+        "best_match_score": 0.8021,
+        "margin_vs_best_other": 0.802,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "39776572",
+            "score": 0.8021
+          },
+          {
+            "article_id": "43284438",
+            "score": 0.0001
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "score": 0.0
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "39776572_9264a945",
+      "article_id": "39776572",
+      "summary": "今年2月のアカデミー賞授賞式を司会したジミー・キメルさん キメルさんは番組冒頭で、4月21日に息子のビリーがロサンゼルスの病院で産まれた時のことを説明。安産で生まれたものの、誕生から3時間後に紫色になりはじめたビリーちゃんの異常に看護師が気づき、調べたところ心臓疾患があると分かった。症状は深刻で「無神論の人たちも僕たちのために祈ってくれた」とキメルさん。",
+      "copy": {
+        "normalized_chars": 177,
+        "full_containment": true,
+        "longest_exact_chars": 177,
+        "longest_exact_ratio": 1.0,
+        "matched_char_ratio": 1.0,
+        "shingle12_coverage": 1.0,
+        "copy_reject": true
+      },
+      "decision": "COPY_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.7184,
+        "own_rank": 1,
+        "best_match_article_id": "39776572",
+        "best_match_title": "米人気コメディアン、息子が九死に一生を得たと",
+        "best_match_similarity": 0.7184,
+        "best_other_article_id": "37426493",
+        "margin_vs_best_other": 0.2287,
+        "top5": [
+          {
+            "article_id": "39776572",
+            "similarity": 0.7184
+          },
+          {
+            "article_id": "37426493",
+            "similarity": 0.4897
+          },
+          {
+            "article_id": "50285251",
+            "similarity": 0.4569
+          },
+          {
+            "article_id": "53174534",
+            "similarity": 0.451
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "similarity": 0.4436
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "39776572_dff757fb",
+      "article_id": "39776572",
+      "summary": "米コメディアンのジミー・キメル氏は、生後1週間を過ぎた息子が先天性心臓疾患で緊急手術を受け一命を取り留めたと涙ながらに番組で語り、オバマケアの意義を訴えた。大統領のトランプ氏はキメル氏の訴えを受け、同制度の撤廃計画を再検討する意向を示したと伝えられている。",
+      "copy": {
+        "normalized_chars": 128,
+        "full_containment": false,
+        "longest_exact_chars": 8,
+        "longest_exact_ratio": 0.0625,
+        "matched_char_ratio": 0.2656,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.8154,
+        "own_rank": 1,
+        "best_match_article_id": "39776572",
+        "best_match_title": "米人気コメディアン、息子が九死に一生を得たと",
+        "best_match_similarity": 0.8154,
+        "best_other_article_id": "features-and-analysis-40566272",
+        "margin_vs_best_other": 0.3085,
+        "top5": [
+          {
+            "article_id": "39776572",
+            "similarity": 0.8154
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "similarity": 0.5069
+          },
+          {
+            "article_id": "55155049",
+            "similarity": 0.4882
+          },
+          {
+            "article_id": "35647760",
+            "similarity": 0.4875
+          },
+          {
+            "article_id": "53174534",
+            "similarity": 0.4781
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.987,
+        "best_match_article_id": "39776572",
+        "best_match_title": "米人気コメディアン、息子が九死に一生を得たと",
+        "best_match_score": 0.987,
+        "margin_vs_best_other": 0.9869,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "39776572",
+            "score": 0.987
+          },
+          {
+            "article_id": "55155049",
+            "score": 0.0001
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "score": 0.0001
+          },
+          {
+            "article_id": "35647760",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "45583472_014b86bd",
+      "article_id": "45583472",
+      "summary": "ニック・トリグル健康担当編集委員 英国のスーパーマーケットで売られている900点近いヨーグルト製品を調査した結果、ヨーグルトには砂糖が豊富に含まれているという結論となった。英リーズ大学主導の調査によると、砂糖の含有量が特に高いものの中には、オーガニック・ヨーグルトも含まれていた。100グラムあたりの糖分が、コーラ飲料より多いものもあった。",
+      "copy": {
+        "normalized_chars": 169,
+        "full_containment": true,
+        "longest_exact_chars": 169,
+        "longest_exact_ratio": 1.0,
+        "matched_char_ratio": 1.0,
+        "shingle12_coverage": 1.0,
+        "copy_reject": true
+      },
+      "decision": "COPY_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.8675,
+        "own_rank": 1,
+        "best_match_article_id": "45583472",
+        "best_match_title": "実はヨーグルト製品には砂糖がいっぱい（オーガニックでも） コーラよりも",
+        "best_match_similarity": 0.8675,
+        "best_other_article_id": "39932207",
+        "margin_vs_best_other": 0.4294,
+        "top5": [
+          {
+            "article_id": "45583472",
+            "similarity": 0.8675
+          },
+          {
+            "article_id": "39932207",
+            "similarity": 0.4381
+          },
+          {
+            "article_id": "features-and-analysis-42940954",
+            "similarity": 0.4051
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.3925
+          },
+          {
+            "article_id": "54083932",
+            "similarity": 0.3843
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "45583472_86972732",
+      "article_id": "45583472",
+      "summary": "英国のスーパーで販売されているヨーグルト製品の多くに砂糖が豊富に含まれていることが判明した。コーラ飲料より糖分が多いものもあり、国民保健サービス（NHS）は来年から全てのヨーグルト製品へのカロリー警告ラベル表示を義務付ける方針を発表した。",
+      "copy": {
+        "normalized_chars": 119,
+        "full_containment": false,
+        "longest_exact_chars": 14,
+        "longest_exact_ratio": 0.1176,
+        "matched_char_ratio": 0.6723,
+        "shingle12_coverage": 0.037,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7679,
+        "own_rank": 1,
+        "best_match_article_id": "45583472",
+        "best_match_title": "実はヨーグルト製品には砂糖がいっぱい（オーガニックでも） コーラよりも",
+        "best_match_similarity": 0.7679,
+        "best_other_article_id": "39932207",
+        "margin_vs_best_other": 0.3322,
+        "top5": [
+          {
+            "article_id": "45583472",
+            "similarity": 0.7679
+          },
+          {
+            "article_id": "39932207",
+            "similarity": 0.4356
+          },
+          {
+            "article_id": "52000333",
+            "similarity": 0.4177
+          },
+          {
+            "article_id": "50285251",
+            "similarity": 0.414
+          },
+          {
+            "article_id": "45318822",
+            "similarity": 0.4067
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.999,
+        "best_match_article_id": "45583472",
+        "best_match_title": "実はヨーグルト製品には砂糖がいっぱい（オーガニックでも） コーラよりも",
+        "best_match_score": 0.999,
+        "margin_vs_best_other": 0.999,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "45583472",
+            "score": 0.999
+          },
+          {
+            "article_id": "39932207",
+            "score": 0.0
+          },
+          {
+            "article_id": "52000333",
+            "score": 0.0
+          },
+          {
+            "article_id": "50285251",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "45583472_a1f7946d",
+      "article_id": "45583472",
+      "summary": "英国のスーパーで販売されているヨーグルト製品の多くに砂糖が豊富に含まれていることが判明した。コーラ飲料より糖分が多いものもあり、オーガニックや子ども向け製品も例外ではない。",
+      "copy": {
+        "normalized_chars": 86,
+        "full_containment": false,
+        "longest_exact_chars": 12,
+        "longest_exact_ratio": 0.1395,
+        "matched_char_ratio": 0.7907,
+        "shingle12_coverage": 0.0133,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.8288,
+        "own_rank": 1,
+        "best_match_article_id": "45583472",
+        "best_match_title": "実はヨーグルト製品には砂糖がいっぱい（オーガニックでも） コーラよりも",
+        "best_match_similarity": 0.8288,
+        "best_other_article_id": "39932207",
+        "margin_vs_best_other": 0.3902,
+        "top5": [
+          {
+            "article_id": "45583472",
+            "similarity": 0.8288
+          },
+          {
+            "article_id": "39932207",
+            "similarity": 0.4387
+          },
+          {
+            "article_id": "features-and-analysis-42940954",
+            "similarity": 0.4144
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.4096
+          },
+          {
+            "article_id": "45318822",
+            "similarity": 0.3935
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9999,
+        "best_match_article_id": "45583472",
+        "best_match_title": "実はヨーグルト製品には砂糖がいっぱい（オーガニックでも） コーラよりも",
+        "best_match_score": 0.9999,
+        "margin_vs_best_other": 0.9996,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "45583472",
+            "score": 0.9999
+          },
+          {
+            "article_id": "features-and-analysis-42940954",
+            "score": 0.0002
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "score": 0.0
+          },
+          {
+            "article_id": "39932207",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "45583472_a66a29cb",
+      "article_id": "45583472",
+      "summary": "ヨーグルトというと健康的な食べ物と思われがちだが、実は多くの場合、砂糖が豊富に含まれている。そのため消費者は、健康的なものを食べていると勘違いしない方がいい、と科学者は警告している。",
+      "copy": {
+        "normalized_chars": 91,
+        "full_containment": false,
+        "longest_exact_chars": 12,
+        "longest_exact_ratio": 0.1319,
+        "matched_char_ratio": 0.4835,
+        "shingle12_coverage": 0.0125,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7215,
+        "own_rank": 1,
+        "best_match_article_id": "45583472",
+        "best_match_title": "実はヨーグルト製品には砂糖がいっぱい（オーガニックでも） コーラよりも",
+        "best_match_similarity": 0.7215,
+        "best_other_article_id": "48116477",
+        "margin_vs_best_other": 0.3056,
+        "top5": [
+          {
+            "article_id": "45583472",
+            "similarity": 0.7215
+          },
+          {
+            "article_id": "48116477",
+            "similarity": 0.4159
+          },
+          {
+            "article_id": "features-and-analysis-42940954",
+            "similarity": 0.3997
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.393
+          },
+          {
+            "article_id": "45318822",
+            "similarity": 0.388
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9935,
+        "best_match_article_id": "45583472",
+        "best_match_title": "実はヨーグルト製品には砂糖がいっぱい（オーガニックでも） コーラよりも",
+        "best_match_score": 0.9935,
+        "margin_vs_best_other": 0.9931,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "45583472",
+            "score": 0.9935
+          },
+          {
+            "article_id": "48116477",
+            "score": 0.0004
+          },
+          {
+            "article_id": "features-and-analysis-42940954",
+            "score": 0.0001
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "45583472_ca389798",
+      "article_id": "45583472",
+      "summary": "ヨーグルトというと健康的な食べ物と思われがちだが、実は多くの場合、砂糖が豊富に含まれている。そのため",
+      "copy": {
+        "normalized_chars": 50,
+        "full_containment": false,
+        "longest_exact_chars": 12,
+        "longest_exact_ratio": 0.24,
+        "matched_char_ratio": 0.48,
+        "shingle12_coverage": 0.0256,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7227,
+        "own_rank": 1,
+        "best_match_article_id": "45583472",
+        "best_match_title": "実はヨーグルト製品には砂糖がいっぱい（オーガニックでも） コーラよりも",
+        "best_match_similarity": 0.7227,
+        "best_other_article_id": "features-and-analysis-46643494",
+        "margin_vs_best_other": 0.3286,
+        "top5": [
+          {
+            "article_id": "45583472",
+            "similarity": 0.7227
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.3941
+          },
+          {
+            "article_id": "features-and-analysis-42940954",
+            "similarity": 0.3935
+          },
+          {
+            "article_id": "48116477",
+            "similarity": 0.3811
+          },
+          {
+            "article_id": "45318822",
+            "similarity": 0.3735
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9972,
+        "best_match_article_id": "45583472",
+        "best_match_title": "実はヨーグルト製品には砂糖がいっぱい（オーガニックでも） コーラよりも",
+        "best_match_score": 0.9972,
+        "margin_vs_best_other": 0.9972,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "45583472",
+            "score": 0.9972
+          },
+          {
+            "article_id": "features-and-analysis-42940954",
+            "score": 0.0
+          },
+          {
+            "article_id": "48116477",
+            "score": 0.0
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "46669858_040576b7",
+      "article_id": "46669858",
+      "summary": "22日夜にインドネシアで発生した津波で、ジャワ島西部のビーチで演奏中だった人気ロックバンド「セヴンティーン」のメンバー3人とスタッフ1人が死亡し、ドラマーは依然行方不明となっている。",
+      "copy": {
+        "normalized_chars": 91,
+        "full_containment": false,
+        "longest_exact_chars": 17,
+        "longest_exact_ratio": 0.1868,
+        "matched_char_ratio": 0.5714,
+        "shingle12_coverage": 0.075,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7994,
+        "own_rank": 1,
+        "best_match_article_id": "46669858",
+        "best_match_title": "インドネシア津波で人気バンド流される 生存メンバーが涙の報告",
+        "best_match_similarity": 0.7994,
+        "best_other_article_id": "44708203",
+        "margin_vs_best_other": 0.3798,
+        "top5": [
+          {
+            "article_id": "46669858",
+            "similarity": 0.7994
+          },
+          {
+            "article_id": "44708203",
+            "similarity": 0.4197
+          },
+          {
+            "article_id": "53732134",
+            "similarity": 0.4084
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.4027
+          },
+          {
+            "article_id": "34991666",
+            "similarity": 0.3948
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9996,
+        "best_match_article_id": "46669858",
+        "best_match_title": "インドネシア津波で人気バンド流される 生存メンバーが涙の報告",
+        "best_match_score": 0.9996,
+        "margin_vs_best_other": 0.9995,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "46669858",
+            "score": 0.9996
+          },
+          {
+            "article_id": "44708203",
+            "score": 0.0001
+          },
+          {
+            "article_id": "53732134",
+            "score": 0.0001
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "46669858_592c0e2f",
+      "article_id": "46669858",
+      "summary": "22日夜にインドネシアで発生した津波で、ジャワ島西部のビーチで演奏中だった人気ロックバンド「セヴンティーン」のメンバー5人全員が死亡した。インドネシア政府は国家非常事態を宣言し、軍主導の大規模救援活動を開始している。",
+      "copy": {
+        "normalized_chars": 108,
+        "full_containment": false,
+        "longest_exact_chars": 17,
+        "longest_exact_ratio": 0.1574,
+        "matched_char_ratio": 0.5,
+        "shingle12_coverage": 0.0619,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7765,
+        "own_rank": 1,
+        "best_match_article_id": "46669858",
+        "best_match_title": "インドネシア津波で人気バンド流される 生存メンバーが涙の報告",
+        "best_match_similarity": 0.7765,
+        "best_other_article_id": "53732134",
+        "margin_vs_best_other": 0.3434,
+        "top5": [
+          {
+            "article_id": "46669858",
+            "similarity": 0.7765
+          },
+          {
+            "article_id": "53732134",
+            "similarity": 0.4331
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.429
+          },
+          {
+            "article_id": "52000333",
+            "similarity": 0.4145
+          },
+          {
+            "article_id": "50285251",
+            "similarity": 0.4039
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9977,
+        "best_match_article_id": "46669858",
+        "best_match_title": "インドネシア津波で人気バンド流される 生存メンバーが涙の報告",
+        "best_match_score": 0.9977,
+        "margin_vs_best_other": 0.9976,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "46669858",
+            "score": 0.9977
+          },
+          {
+            "article_id": "53732134",
+            "score": 0.0001
+          },
+          {
+            "article_id": "52000333",
+            "score": 0.0001
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "46669858_5fcda3e1",
+      "article_id": "46669858",
+      "summary": "インドネシアで22日発生した津波のため、これまでに少なくとも死者281人、負傷者1016人が確認されている ほか、行方不明者も出ている。インドネシアの人気ロックバンド「セヴンティ",
+      "copy": {
+        "normalized_chars": 88,
+        "full_containment": false,
+        "longest_exact_chars": 21,
+        "longest_exact_ratio": 0.2386,
+        "matched_char_ratio": 0.2841,
+        "shingle12_coverage": 0.1299,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7264,
+        "own_rank": 1,
+        "best_match_article_id": "46669858",
+        "best_match_title": "インドネシア津波で人気バンド流される 生存メンバーが涙の報告",
+        "best_match_similarity": 0.7264,
+        "best_other_article_id": "53732134",
+        "margin_vs_best_other": 0.308,
+        "top5": [
+          {
+            "article_id": "46669858",
+            "similarity": 0.7264
+          },
+          {
+            "article_id": "53732134",
+            "similarity": 0.4184
+          },
+          {
+            "article_id": "50285251",
+            "similarity": 0.411
+          },
+          {
+            "article_id": "42520667",
+            "similarity": 0.3889
+          },
+          {
+            "article_id": "35278497",
+            "similarity": 0.3872
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9659,
+        "best_match_article_id": "46669858",
+        "best_match_title": "インドネシア津波で人気バンド流される 生存メンバーが涙の報告",
+        "best_match_score": 0.9659,
+        "margin_vs_best_other": 0.9654,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "46669858",
+            "score": 0.9659
+          },
+          {
+            "article_id": "53732134",
+            "score": 0.0006
+          },
+          {
+            "article_id": "50285251",
+            "score": 0.0001
+          },
+          {
+            "article_id": "42520667",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "46669858_c2275577",
+      "article_id": "46669858",
+      "summary": "津波が襲った当時、インドネシアの人気ロックバンド「セヴンティーン」はビーチで演奏していた。（左から）メンバーのアンディさん、リーフィアンさん、バニさん、ヘルマンさん インドネシアでは現在、大津波の警報が全くなかったことについて、大勢が振り返り、コメントしている。事前に察知する余裕がまったくないまま、大津波に襲われる悲劇を、このバンドが如実に象徴してしまっている。",
+      "copy": {
+        "normalized_chars": 181,
+        "full_containment": true,
+        "longest_exact_chars": 181,
+        "longest_exact_ratio": 1.0,
+        "matched_char_ratio": 1.0,
+        "shingle12_coverage": 1.0,
+        "copy_reject": true
+      },
+      "decision": "COPY_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.7889,
+        "own_rank": 1,
+        "best_match_article_id": "46669858",
+        "best_match_title": "インドネシア津波で人気バンド流される 生存メンバーが涙の報告",
+        "best_match_similarity": 0.7889,
+        "best_other_article_id": "features-and-analysis-46643494",
+        "margin_vs_best_other": 0.3499,
+        "top5": [
+          {
+            "article_id": "46669858",
+            "similarity": 0.7889
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.439
+          },
+          {
+            "article_id": "44708203",
+            "similarity": 0.4305
+          },
+          {
+            "article_id": "35278497",
+            "similarity": 0.3977
+          },
+          {
+            "article_id": "52000333",
+            "similarity": 0.3948
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "46669858_d3c56cc2",
+      "article_id": "46669858",
+      "summary": "インドネシアで22日発生した津波のため、これまでに少なくとも死者281人、負傷者1016人が確認されている ほか、行方不明者も出ている。インドネシアの人気ロックバンド「セヴンティーン」はこの日、ジャワ島西部タンジュンレスンのビーチに建てたテント内でライブ演奏中だった。津波がテントを襲うと、バンドメンバーは流されてしまった。",
+      "copy": {
+        "normalized_chars": 161,
+        "full_containment": false,
+        "longest_exact_chars": 25,
+        "longest_exact_ratio": 0.1553,
+        "matched_char_ratio": 0.4596,
+        "shingle12_coverage": 0.14,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7829,
+        "own_rank": 1,
+        "best_match_article_id": "46669858",
+        "best_match_title": "インドネシア津波で人気バンド流される 生存メンバーが涙の報告",
+        "best_match_similarity": 0.7829,
+        "best_other_article_id": "53732134",
+        "margin_vs_best_other": 0.353,
+        "top5": [
+          {
+            "article_id": "46669858",
+            "similarity": 0.7829
+          },
+          {
+            "article_id": "53732134",
+            "similarity": 0.4298
+          },
+          {
+            "article_id": "34991666",
+            "similarity": 0.4001
+          },
+          {
+            "article_id": "35278497",
+            "similarity": 0.3973
+          },
+          {
+            "article_id": "42520667",
+            "similarity": 0.3943
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9982,
+        "best_match_article_id": "46669858",
+        "best_match_title": "インドネシア津波で人気バンド流される 生存メンバーが涙の報告",
+        "best_match_score": 0.9982,
+        "margin_vs_best_other": 0.9956,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "46669858",
+            "score": 0.9982
+          },
+          {
+            "article_id": "53732134",
+            "score": 0.0026
+          },
+          {
+            "article_id": "35278497",
+            "score": 0.0
+          },
+          {
+            "article_id": "34991666",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "48493511_28905ea8",
+      "article_id": "48493511",
+      "summary": "シリア全土で30日午前零時（日本時間午前7時）に発効した政府軍と反政府勢力の停戦合意は、散発的な衝突のほかは終日ほぼ継続したもようだ。国連安全保障理事会は近く、停戦合意を支持する決議案（ロシア提出）について採決する見通し。",
+      "copy": {
+        "normalized_chars": 111,
+        "full_containment": false,
+        "longest_exact_chars": 4,
+        "longest_exact_ratio": 0.036,
+        "matched_char_ratio": 0.1622,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "OFFTOPIC_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.4236,
+        "own_rank": 3,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_similarity": 0.635,
+        "best_other_article_id": "38476572",
+        "margin_vs_best_other": -0.2114,
+        "top5": [
+          {
+            "article_id": "38476572",
+            "similarity": 0.635
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.5574
+          },
+          {
+            "article_id": "48493511",
+            "similarity": 0.4236
+          },
+          {
+            "article_id": "40490051",
+            "similarity": 0.4222
+          },
+          {
+            "article_id": "41396293",
+            "similarity": 0.4084
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.0,
+        "best_match_article_id": "38476572",
+        "best_match_title": "シリア停戦合意、ほぼ持続 国連安保理は投票へ",
+        "best_match_score": 0.9892,
+        "margin_vs_best_other": -0.9892,
+        "embedding_suspect": true,
+        "reranker_confirms": true,
+        "scored_candidates": [
+          {
+            "article_id": "38476572",
+            "score": 0.9892
+          },
+          {
+            "article_id": "50162696",
+            "score": 0.002
+          },
+          {
+            "article_id": "40490051",
+            "score": 0.0001
+          },
+          {
+            "article_id": "48493511",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "48493511_709039c3",
+      "article_id": "48493511",
+      "summary": "中国の魏鳳和国防相は2日、シンガポールで開かれた国際会合において、1989年の天安門事件における軍の鎮圧は「正しい」方針だったと発言した。米国務省は同日付で異例の公式声明を発表し、中国の人権状況への深刻な懸念を示した。6月の武力鎮圧では数百から数千人の死者が出たとされるが、中国政府は現在も公式な死者数を明らかにしていない。",
+      "copy": {
+        "normalized_chars": 162,
+        "full_containment": false,
+        "longest_exact_chars": 14,
+        "longest_exact_ratio": 0.0864,
+        "matched_char_ratio": 0.4383,
+        "shingle12_coverage": 0.0199,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7256,
+        "own_rank": 1,
+        "best_match_article_id": "48493511",
+        "best_match_title": "天安門事件の鎮圧は「正しい」と中国国防相 30周年を前に異例の言及",
+        "best_match_similarity": 0.7256,
+        "best_other_article_id": "35647760",
+        "margin_vs_best_other": 0.2529,
+        "top5": [
+          {
+            "article_id": "48493511",
+            "similarity": 0.7256
+          },
+          {
+            "article_id": "35647760",
+            "similarity": 0.4727
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4564
+          },
+          {
+            "article_id": "41875333",
+            "similarity": 0.4499
+          },
+          {
+            "article_id": "35278497",
+            "similarity": 0.4288
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9908,
+        "best_match_article_id": "48493511",
+        "best_match_title": "天安門事件の鎮圧は「正しい」と中国国防相 30周年を前に異例の言及",
+        "best_match_score": 0.9908,
+        "margin_vs_best_other": 0.9908,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "48493511",
+            "score": 0.9908
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0
+          },
+          {
+            "article_id": "41875333",
+            "score": 0.0
+          },
+          {
+            "article_id": "35647760",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "48493511_7696c89d",
+      "article_id": "48493511",
+      "summary": "中国の魏鳳和国防相は2日、シンガポールで開かれた国際会合において、1989年の天安門事件における軍の鎮圧は「正しい」方針だったと発言した。天安門事件は中国国内ではタブーとされており、現職国防相が公式な場で擁護発言をするのは極めて異例である。6月の武力鎮圧では数百から数千人の死者が出たとされるが、中国政府は現在も公式な死者数を明らかにしていない。",
+      "copy": {
+        "normalized_chars": 173,
+        "full_containment": false,
+        "longest_exact_chars": 14,
+        "longest_exact_ratio": 0.0809,
+        "matched_char_ratio": 0.422,
+        "shingle12_coverage": 0.0185,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7358,
+        "own_rank": 1,
+        "best_match_article_id": "48493511",
+        "best_match_title": "天安門事件の鎮圧は「正しい」と中国国防相 30周年を前に異例の言及",
+        "best_match_similarity": 0.7358,
+        "best_other_article_id": "35647760",
+        "margin_vs_best_other": 0.2884,
+        "top5": [
+          {
+            "article_id": "48493511",
+            "similarity": 0.7358
+          },
+          {
+            "article_id": "35647760",
+            "similarity": 0.4474
+          },
+          {
+            "article_id": "41875333",
+            "similarity": 0.4316
+          },
+          {
+            "article_id": "35278497",
+            "similarity": 0.4267
+          },
+          {
+            "article_id": "41396293",
+            "similarity": 0.4188
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.997,
+        "best_match_article_id": "48493511",
+        "best_match_title": "天安門事件の鎮圧は「正しい」と中国国防相 30周年を前に異例の言及",
+        "best_match_score": 0.997,
+        "margin_vs_best_other": 0.997,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "48493511",
+            "score": 0.997
+          },
+          {
+            "article_id": "35278497",
+            "score": 0.0001
+          },
+          {
+            "article_id": "41875333",
+            "score": 0.0
+          },
+          {
+            "article_id": "35647760",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "48493511_abe69178",
+      "article_id": "48493511",
+      "summary": "天安門事件から30年 中国が忘れた映像 魏氏はシンガポールで開かれた会合で、聴衆から天安門事件について質問を受けた。中国の対応は不適切だったとする意見が今もあることに疑問を投げかけた魏氏は、「あの出来事は政治的な騒乱であり、中央政府は騒乱を収束するために対応した。正しい方針だ」と述べた。",
+      "copy": {
+        "normalized_chars": 142,
+        "full_containment": true,
+        "longest_exact_chars": 142,
+        "longest_exact_ratio": 1.0,
+        "matched_char_ratio": 1.0,
+        "shingle12_coverage": 1.0,
+        "copy_reject": true
+      },
+      "decision": "COPY_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.7405,
+        "own_rank": 1,
+        "best_match_article_id": "48493511",
+        "best_match_title": "天安門事件の鎮圧は「正しい」と中国国防相 30周年を前に異例の言及",
+        "best_match_similarity": 0.7405,
+        "best_other_article_id": "51145805",
+        "margin_vs_best_other": 0.2672,
+        "top5": [
+          {
+            "article_id": "48493511",
+            "similarity": 0.7405
+          },
+          {
+            "article_id": "51145805",
+            "similarity": 0.4733
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.432
+          },
+          {
+            "article_id": "50469832",
+            "similarity": 0.4049
+          },
+          {
+            "article_id": "41396293",
+            "similarity": 0.401
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "48493511_b9b093a2",
+      "article_id": "48493511",
+      "summary": "中国で起きた天安門事件から6月4日で30年を迎えるのを前に、同国の魏鳳和（ウェイ・フォンホー）国防相が2日、軍による民主化運動の鎮圧は「正しい」方針だったと、同事件について異例の言及をした。多数の死傷者を出した天安門事件は、中国ではタブーになっている。",
+      "copy": {
+        "normalized_chars": 126,
+        "full_containment": false,
+        "longest_exact_chars": 7,
+        "longest_exact_ratio": 0.0556,
+        "matched_char_ratio": 0.3492,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7808,
+        "own_rank": 1,
+        "best_match_article_id": "48493511",
+        "best_match_title": "天安門事件の鎮圧は「正しい」と中国国防相 30周年を前に異例の言及",
+        "best_match_similarity": 0.7808,
+        "best_other_article_id": "41396293",
+        "margin_vs_best_other": 0.3608,
+        "top5": [
+          {
+            "article_id": "48493511",
+            "similarity": 0.7808
+          },
+          {
+            "article_id": "41396293",
+            "similarity": 0.42
+          },
+          {
+            "article_id": "35647760",
+            "similarity": 0.4195
+          },
+          {
+            "article_id": "51145805",
+            "similarity": 0.4113
+          },
+          {
+            "article_id": "41875333",
+            "similarity": 0.3931
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9987,
+        "best_match_article_id": "48493511",
+        "best_match_title": "天安門事件の鎮圧は「正しい」と中国国防相 30周年を前に異例の言及",
+        "best_match_score": 0.9987,
+        "margin_vs_best_other": 0.9986,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "48493511",
+            "score": 0.9987
+          },
+          {
+            "article_id": "41396293",
+            "score": 0.0
+          },
+          {
+            "article_id": "35647760",
+            "score": 0.0
+          },
+          {
+            "article_id": "51145805",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "50469832_20573acb",
+      "article_id": "50469832",
+      "summary": "アメリカ政府は18日、パレスチナ自治区ヨルダン川西岸でイスラエル政府が建設してきた入植地",
+      "copy": {
+        "normalized_chars": 44,
+        "full_containment": false,
+        "longest_exact_chars": 8,
+        "longest_exact_ratio": 0.1818,
+        "matched_char_ratio": 0.7273,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.6938,
+        "own_rank": 1,
+        "best_match_article_id": "50469832",
+        "best_match_title": "イスラエル入植地「違法ではない」 米政府が方針転換",
+        "best_match_similarity": 0.6938,
+        "best_other_article_id": "50162696",
+        "margin_vs_best_other": 0.2535,
+        "top5": [
+          {
+            "article_id": "50469832",
+            "similarity": 0.6938
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.4403
+          },
+          {
+            "article_id": "35647760",
+            "similarity": 0.3921
+          },
+          {
+            "article_id": "38476572",
+            "similarity": 0.3842
+          },
+          {
+            "article_id": "40504740",
+            "similarity": 0.3668
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9583,
+        "best_match_article_id": "50469832",
+        "best_match_title": "イスラエル入植地「違法ではない」 米政府が方針転換",
+        "best_match_score": 0.9583,
+        "margin_vs_best_other": 0.9581,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "50469832",
+            "score": 0.9583
+          },
+          {
+            "article_id": "35647760",
+            "score": 0.0002
+          },
+          {
+            "article_id": "38476572",
+            "score": 0.0
+          },
+          {
+            "article_id": "50162696",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "50469832_512cbe90",
+      "article_id": "50469832",
+      "summary": "イスラエルは東エルサレムを含むヨルダン川西岸に、100カ所以上のユダヤ人入植地を建設してきた マイク・ポンペオ国務長官が記者会見で、ヨルダン川西岸の地位は、イスラエルとパレスチナが交渉すべきものとの見解を示した。「アメリカは法的論争をすべての面から慎重に検討した結果、イスラエル民間人によるヨルダン川西岸の入植地建設はただちに、国際法に則っていないというわけではないとの結論に達した」 ポンペオ氏はまた、「民間人の入植地建設を国際法に則していないと指摘する方法では、うまくいかなかった。平和の促進につながらなかった」と述べた。",
+      "copy": {
+        "normalized_chars": 261,
+        "full_containment": true,
+        "longest_exact_chars": 261,
+        "longest_exact_ratio": 1.0,
+        "matched_char_ratio": 1.0,
+        "shingle12_coverage": 1.0,
+        "copy_reject": true
+      },
+      "decision": "COPY_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.8491,
+        "own_rank": 1,
+        "best_match_article_id": "50469832",
+        "best_match_title": "イスラエル入植地「違法ではない」 米政府が方針転換",
+        "best_match_similarity": 0.8491,
+        "best_other_article_id": "35647760",
+        "margin_vs_best_other": 0.3848,
+        "top5": [
+          {
+            "article_id": "50469832",
+            "similarity": 0.8491
+          },
+          {
+            "article_id": "35647760",
+            "similarity": 0.4643
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.4482
+          },
+          {
+            "article_id": "43284438",
+            "similarity": 0.4336
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4229
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "50469832_8a6e1840",
+      "article_id": "50469832",
+      "summary": "ポンペオ米国務長官は、ヨルダン川西岸のイスラエル入植地を国際法違反とみなさない方針を発表した。これを受けて国連安全保障理事会は緊急会合を開き、米国の立場を非難する決議を全会一致で採択した。ヨルダン川西岸には約140の入植地があり、約60万人が居住している。",
+      "copy": {
+        "normalized_chars": 128,
+        "full_containment": false,
+        "longest_exact_chars": 12,
+        "longest_exact_ratio": 0.0938,
+        "matched_char_ratio": 0.5078,
+        "shingle12_coverage": 0.0085,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7716,
+        "own_rank": 1,
+        "best_match_article_id": "50469832",
+        "best_match_title": "イスラエル入植地「違法ではない」 米政府が方針転換",
+        "best_match_similarity": 0.7716,
+        "best_other_article_id": "50162696",
+        "margin_vs_best_other": 0.2645,
+        "top5": [
+          {
+            "article_id": "50469832",
+            "similarity": 0.7716
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.5071
+          },
+          {
+            "article_id": "35647760",
+            "similarity": 0.4937
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4554
+          },
+          {
+            "article_id": "38476572",
+            "similarity": 0.4554
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.8334,
+        "best_match_article_id": "50469832",
+        "best_match_title": "イスラエル入植地「違法ではない」 米政府が方針転換",
+        "best_match_score": 0.8334,
+        "margin_vs_best_other": 0.8333,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "50469832",
+            "score": 0.8334
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0
+          },
+          {
+            "article_id": "35647760",
+            "score": 0.0
+          },
+          {
+            "article_id": "50162696",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "50469832_9a5ac32c",
+      "article_id": "50469832",
+      "summary": "米国のポンペオ国務長官は、ヨルダン川西岸のイスラエル入植地を国際法違反とみなさない方針を発表した。従来の米国の立場からの転換で、イスラエルは歓迎、パレスチナ側は強く反発している。",
+      "copy": {
+        "normalized_chars": 89,
+        "full_containment": false,
+        "longest_exact_chars": 9,
+        "longest_exact_ratio": 0.1011,
+        "matched_char_ratio": 0.6742,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7894,
+        "own_rank": 1,
+        "best_match_article_id": "50469832",
+        "best_match_title": "イスラエル入植地「違法ではない」 米政府が方針転換",
+        "best_match_similarity": 0.7894,
+        "best_other_article_id": "50162696",
+        "margin_vs_best_other": 0.305,
+        "top5": [
+          {
+            "article_id": "50469832",
+            "similarity": 0.7894
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.4843
+          },
+          {
+            "article_id": "35647760",
+            "similarity": 0.4367
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4316
+          },
+          {
+            "article_id": "51145805",
+            "similarity": 0.4096
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9793,
+        "best_match_article_id": "50469832",
+        "best_match_title": "イスラエル入植地「違法ではない」 米政府が方針転換",
+        "best_match_score": 0.9793,
+        "margin_vs_best_other": 0.9793,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "50469832",
+            "score": 0.9793
+          },
+          {
+            "article_id": "35647760",
+            "score": 0.0001
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0
+          },
+          {
+            "article_id": "50162696",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "50469832_d35cd9c2",
+      "article_id": "50469832",
+      "summary": "アメリカ政府は18日、パレスチナ自治区ヨルダン川西岸でイスラエル政府が建設してきた入植地について、国際法違反とみなさないと発表した。米政府にとって方針転換となる。",
+      "copy": {
+        "normalized_chars": 81,
+        "full_containment": false,
+        "longest_exact_chars": 8,
+        "longest_exact_ratio": 0.0988,
+        "matched_char_ratio": 0.5926,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7683,
+        "own_rank": 1,
+        "best_match_article_id": "50469832",
+        "best_match_title": "イスラエル入植地「違法ではない」 米政府が方針転換",
+        "best_match_similarity": 0.7683,
+        "best_other_article_id": "50162696",
+        "margin_vs_best_other": 0.2916,
+        "top5": [
+          {
+            "article_id": "50469832",
+            "similarity": 0.7683
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.4766
+          },
+          {
+            "article_id": "35647760",
+            "similarity": 0.4331
+          },
+          {
+            "article_id": "51145805",
+            "similarity": 0.4043
+          },
+          {
+            "article_id": "55155049",
+            "similarity": 0.4014
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9964,
+        "best_match_article_id": "50469832",
+        "best_match_title": "イスラエル入植地「違法ではない」 米政府が方針転換",
+        "best_match_score": 0.9964,
+        "margin_vs_best_other": 0.9962,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "50469832",
+            "score": 0.9964
+          },
+          {
+            "article_id": "35647760",
+            "score": 0.0002
+          },
+          {
+            "article_id": "50162696",
+            "score": 0.0
+          },
+          {
+            "article_id": "51145805",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "53274336_27788032",
+      "article_id": "53274336",
+      "summary": "コーチらから長年暴行を受けていたと訴えていた韓国の女子トライアスロン選手チェ・スクヒョン氏（22）が先月自殺していたことが明らかになった。大韓体育会は事件を受けて4人のコーチを即刻解任し、文在寅大統領もスポーツ界の改革を約束する声明を発表した。韓国スポーツ界では近年、複数の競技で女性選手による虐待被害の告発が相次いでいる。",
+      "copy": {
+        "normalized_chars": 162,
+        "full_containment": false,
+        "longest_exact_chars": 9,
+        "longest_exact_ratio": 0.0556,
+        "matched_char_ratio": 0.2284,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.8117,
+        "own_rank": 1,
+        "best_match_article_id": "53274336",
+        "best_match_title": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か",
+        "best_match_similarity": 0.8117,
+        "best_other_article_id": "35278497",
+        "margin_vs_best_other": 0.3509,
+        "top5": [
+          {
+            "article_id": "53274336",
+            "similarity": 0.8117
+          },
+          {
+            "article_id": "35278497",
+            "similarity": 0.4608
+          },
+          {
+            "article_id": "52451669",
+            "similarity": 0.4605
+          },
+          {
+            "article_id": "36881141",
+            "similarity": 0.456
+          },
+          {
+            "article_id": "43411421",
+            "similarity": 0.4359
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9995,
+        "best_match_article_id": "53274336",
+        "best_match_title": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か",
+        "best_match_score": 0.9995,
+        "margin_vs_best_other": 0.9994,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "53274336",
+            "score": 0.9995
+          },
+          {
+            "article_id": "35278497",
+            "score": 0.0001
+          },
+          {
+            "article_id": "52451669",
+            "score": 0.0
+          },
+          {
+            "article_id": "36881141",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "53274336_624e6dab",
+      "article_id": "53274336",
+      "summary": "コーチらから長年暴行を受けていたと訴えていた韓国の女子トライアスロン選手のチェ・スクヒョン氏（22）が先月、自殺していたことが明らかになった。複数メディアが報じた。",
+      "copy": {
+        "normalized_chars": 82,
+        "full_containment": false,
+        "longest_exact_chars": 9,
+        "longest_exact_ratio": 0.1098,
+        "matched_char_ratio": 0.3171,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7996,
+        "own_rank": 1,
+        "best_match_article_id": "53274336",
+        "best_match_title": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か",
+        "best_match_similarity": 0.7996,
+        "best_other_article_id": "35278497",
+        "margin_vs_best_other": 0.3543,
+        "top5": [
+          {
+            "article_id": "53274336",
+            "similarity": 0.7996
+          },
+          {
+            "article_id": "35278497",
+            "similarity": 0.4453
+          },
+          {
+            "article_id": "52451669",
+            "similarity": 0.438
+          },
+          {
+            "article_id": "36881141",
+            "similarity": 0.4299
+          },
+          {
+            "article_id": "46669858",
+            "similarity": 0.4154
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9999,
+        "best_match_article_id": "53274336",
+        "best_match_title": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か",
+        "best_match_score": 0.9999,
+        "margin_vs_best_other": 0.9998,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "53274336",
+            "score": 0.9999
+          },
+          {
+            "article_id": "52451669",
+            "score": 0.0001
+          },
+          {
+            "article_id": "35278497",
+            "score": 0.0
+          },
+          {
+            "article_id": "36881141",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "53274336_a9156728",
+      "article_id": "53274336",
+      "summary": "コーチらから長年暴行を受けていたと訴えていた韓国の女子トライアスロン選手チェ・スクヒョン氏（22）が先月自殺していたことが明らかになった。同選手は大韓体育会などに被害を訴えていたが対応されず、暴行を示唆する音声テープも公開されている。韓国スポーツ界では近年、複数の競技で女性選手による虐待被害の告発が相次いでいる。",
+      "copy": {
+        "normalized_chars": 157,
+        "full_containment": false,
+        "longest_exact_chars": 9,
+        "longest_exact_ratio": 0.0573,
+        "matched_char_ratio": 0.2357,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.8467,
+        "own_rank": 1,
+        "best_match_article_id": "53274336",
+        "best_match_title": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か",
+        "best_match_similarity": 0.8467,
+        "best_other_article_id": "35278497",
+        "margin_vs_best_other": 0.3898,
+        "top5": [
+          {
+            "article_id": "53274336",
+            "similarity": 0.8467
+          },
+          {
+            "article_id": "35278497",
+            "similarity": 0.4568
+          },
+          {
+            "article_id": "36881141",
+            "similarity": 0.4471
+          },
+          {
+            "article_id": "52451669",
+            "similarity": 0.4394
+          },
+          {
+            "article_id": "46669858",
+            "similarity": 0.4234
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9998,
+        "best_match_article_id": "53274336",
+        "best_match_title": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か",
+        "best_match_score": 0.9998,
+        "margin_vs_best_other": 0.9998,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "53274336",
+            "score": 0.9998
+          },
+          {
+            "article_id": "35278497",
+            "score": 0.0001
+          },
+          {
+            "article_id": "52451669",
+            "score": 0.0
+          },
+          {
+            "article_id": "36881141",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "53274336_be2a4e06",
+      "article_id": "53274336",
+      "summary": "複数メディアが報じた。コーチらから長年暴行を受けていたと訴えていた韓国の女子トライアスロン選手のチェ・スクヒョン氏（22）が先月、自殺していたことが明らかになった。",
+      "copy": {
+        "normalized_chars": 82,
+        "full_containment": false,
+        "longest_exact_chars": 9,
+        "longest_exact_ratio": 0.1098,
+        "matched_char_ratio": 0.3659,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7889,
+        "own_rank": 1,
+        "best_match_article_id": "53274336",
+        "best_match_title": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か",
+        "best_match_similarity": 0.7889,
+        "best_other_article_id": "52451669",
+        "margin_vs_best_other": 0.3408,
+        "top5": [
+          {
+            "article_id": "53274336",
+            "similarity": 0.7889
+          },
+          {
+            "article_id": "52451669",
+            "similarity": 0.4481
+          },
+          {
+            "article_id": "35278497",
+            "similarity": 0.4435
+          },
+          {
+            "article_id": "36881141",
+            "similarity": 0.4406
+          },
+          {
+            "article_id": "46669858",
+            "similarity": 0.4188
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9998,
+        "best_match_article_id": "53274336",
+        "best_match_title": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か",
+        "best_match_score": 0.9998,
+        "margin_vs_best_other": 0.9997,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "53274336",
+            "score": 0.9998
+          },
+          {
+            "article_id": "52451669",
+            "score": 0.0002
+          },
+          {
+            "article_id": "35278497",
+            "score": 0.0001
+          },
+          {
+            "article_id": "36881141",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "53274336_cbcf19e0",
+      "article_id": "53274336",
+      "summary": "韓国女子トライアスロンのチェ・スクヒョン選手 報道によると、スクヒョン選手は暴行についてスポーツ当局に訴えたものの、無視されていたという。スクヒョン選手は高校生だった2015年に、トライアスロンの韓国代表に選ばれた。「歯を食いしばれ」 スクヒョン選手の両親は、同選手がコーチらから叩かれたり、暴言やハラスメントを受けたりしていたと訴えている。",
+      "copy": {
+        "normalized_chars": 169,
+        "full_containment": true,
+        "longest_exact_chars": 169,
+        "longest_exact_ratio": 1.0,
+        "matched_char_ratio": 1.0,
+        "shingle12_coverage": 1.0,
+        "copy_reject": true
+      },
+      "decision": "COPY_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.8426,
+        "own_rank": 1,
+        "best_match_article_id": "53274336",
+        "best_match_title": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か",
+        "best_match_similarity": 0.8426,
+        "best_other_article_id": "features-and-analysis-46478194",
+        "margin_vs_best_other": 0.4048,
+        "top5": [
+          {
+            "article_id": "53274336",
+            "similarity": 0.8426
+          },
+          {
+            "article_id": "features-and-analysis-46478194",
+            "similarity": 0.4377
+          },
+          {
+            "article_id": "35278497",
+            "similarity": 0.4188
+          },
+          {
+            "article_id": "51145805",
+            "similarity": 0.4119
+          },
+          {
+            "article_id": "44708203",
+            "similarity": 0.3914
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "55155049_0166e910",
+      "article_id": "55155049",
+      "summary": "アメリカのウィリアム・バー司法長官は1日、大統領選で大掛かりな不正があったとするドナルド・トランプ大統領の主張について、裏付ける証拠を司法省は発見できていないと述べた。",
+      "copy": {
+        "normalized_chars": 84,
+        "full_containment": false,
+        "longest_exact_chars": 12,
+        "longest_exact_ratio": 0.1429,
+        "matched_char_ratio": 0.5833,
+        "shingle12_coverage": 0.0137,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7647,
+        "own_rank": 1,
+        "best_match_article_id": "55155049",
+        "best_match_title": "【米大統領選2020】 バー司法長官、大規模な不正は「確認できていない」",
+        "best_match_similarity": 0.7647,
+        "best_other_article_id": "45001963",
+        "margin_vs_best_other": 0.316,
+        "top5": [
+          {
+            "article_id": "55155049",
+            "similarity": 0.7647
+          },
+          {
+            "article_id": "45001963",
+            "similarity": 0.4488
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4451
+          },
+          {
+            "article_id": "39776572",
+            "similarity": 0.4346
+          },
+          {
+            "article_id": "53174534",
+            "similarity": 0.4145
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9998,
+        "best_match_article_id": "55155049",
+        "best_match_title": "【米大統領選2020】 バー司法長官、大規模な不正は「確認できていない」",
+        "best_match_score": 0.9998,
+        "margin_vs_best_other": 0.9964,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "55155049",
+            "score": 0.9998
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0035
+          },
+          {
+            "article_id": "45001963",
+            "score": 0.0003
+          },
+          {
+            "article_id": "39776572",
+            "score": 0.0001
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "55155049_2d012498",
+      "article_id": "55155049",
+      "summary": "ウィリアム・バー司法長官 トランプ氏に特に近い側近の1人とみられているバー氏は、米AP通信の取材で、投票機が細工されてジョー・バイデン次期大統領の得票が増えたというトランプ氏側の主張に言及。「大掛かりな不正があった、選挙結果をねじ曲げるように機器が仕組まれていた、といった主張が出ている」と述べた。そのうえで、司法省と国土安全保障省が調べたが、「これまでのところ、そうした主張を証明するものは何も見つかっていない」、「選挙結果を変えるほどの規模の不正は、現在まで確認できていない」と話した。",
+      "copy": {
+        "normalized_chars": 244,
+        "full_containment": true,
+        "longest_exact_chars": 244,
+        "longest_exact_ratio": 1.0,
+        "matched_char_ratio": 1.0,
+        "shingle12_coverage": 1.0,
+        "copy_reject": true
+      },
+      "decision": "COPY_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.8642,
+        "own_rank": 1,
+        "best_match_article_id": "55155049",
+        "best_match_title": "【米大統領選2020】 バー司法長官、大規模な不正は「確認できていない」",
+        "best_match_similarity": 0.8642,
+        "best_other_article_id": "39776572",
+        "margin_vs_best_other": 0.3737,
+        "top5": [
+          {
+            "article_id": "55155049",
+            "similarity": 0.8642
+          },
+          {
+            "article_id": "39776572",
+            "similarity": 0.4904
+          },
+          {
+            "article_id": "features-and-analysis-40566272",
+            "similarity": 0.4625
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4572
+          },
+          {
+            "article_id": "45001963",
+            "similarity": 0.4396
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "55155049_9be24c04",
+      "article_id": "55155049",
+      "summary": "米国のウィリアム・バー司法長官は1日、AP通信の取材に対し、大統領選で大規模な不正があったとするトランプ大統領の主張について、これを裏付ける証拠は司法省として発見できていないと述べた。大統領に近い側近とみられていたバー氏の発言は、選挙結果を受け入れていないトランプ氏にとって大きな打撃となるとみられる。トランプ陣営の弁護士は反発する声明を発表する一方、民主党のシューマー上院院内総務は「次にクビにされるのは彼だろう」と予測した。",
+      "copy": {
+        "normalized_chars": 214,
+        "full_containment": false,
+        "longest_exact_chars": 18,
+        "longest_exact_ratio": 0.0841,
+        "matched_char_ratio": 0.6916,
+        "shingle12_coverage": 0.064,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.8487,
+        "own_rank": 1,
+        "best_match_article_id": "55155049",
+        "best_match_title": "【米大統領選2020】 バー司法長官、大規模な不正は「確認できていない」",
+        "best_match_similarity": 0.8487,
+        "best_other_article_id": "45001963",
+        "margin_vs_best_other": 0.3416,
+        "top5": [
+          {
+            "article_id": "55155049",
+            "similarity": 0.8487
+          },
+          {
+            "article_id": "45001963",
+            "similarity": 0.5071
+          },
+          {
+            "article_id": "39776572",
+            "similarity": 0.4895
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4761
+          },
+          {
+            "article_id": "41396293",
+            "similarity": 0.4681
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9997,
+        "best_match_article_id": "55155049",
+        "best_match_title": "【米大統領選2020】 バー司法長官、大規模な不正は「確認できていない」",
+        "best_match_score": 0.9997,
+        "margin_vs_best_other": 0.9995,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "55155049",
+            "score": 0.9997
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0002
+          },
+          {
+            "article_id": "39776572",
+            "score": 0.0001
+          },
+          {
+            "article_id": "45001963",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "55155049_a6c5b888",
+      "article_id": "55155049",
+      "summary": "米国のウィリアム・バー司法長官は1日、記者会見で大統領選における大規模な不正の証拠は発見できていないと述べた。バー氏はさらに、これまでの追加捜査で選挙結果を左右しない規模の個別不正は確認されていると説明した。トランプ陣営の弁護士は反発する声明を発表し、シューマー民主党院内総務は「次にクビにされるのは彼だろう」と予測した。",
+      "copy": {
+        "normalized_chars": 161,
+        "full_containment": false,
+        "longest_exact_chars": 13,
+        "longest_exact_ratio": 0.0807,
+        "matched_char_ratio": 0.6087,
+        "shingle12_coverage": 0.02,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7949,
+        "own_rank": 1,
+        "best_match_article_id": "55155049",
+        "best_match_title": "【米大統領選2020】 バー司法長官、大規模な不正は「確認できていない」",
+        "best_match_similarity": 0.7949,
+        "best_other_article_id": "45001963",
+        "margin_vs_best_other": 0.3212,
+        "top5": [
+          {
+            "article_id": "55155049",
+            "similarity": 0.7949
+          },
+          {
+            "article_id": "45001963",
+            "similarity": 0.4737
+          },
+          {
+            "article_id": "39776572",
+            "similarity": 0.4622
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4432
+          },
+          {
+            "article_id": "37868736",
+            "similarity": 0.4349
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9994,
+        "best_match_article_id": "55155049",
+        "best_match_title": "【米大統領選2020】 バー司法長官、大規模な不正は「確認できていない」",
+        "best_match_score": 0.9994,
+        "margin_vs_best_other": 0.9993,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "55155049",
+            "score": 0.9994
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0001
+          },
+          {
+            "article_id": "39776572",
+            "score": 0.0
+          },
+          {
+            "article_id": "45001963",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "55155049_bbe6c482",
+      "article_id": "55155049",
+      "summary": "米紙ニューヨーク・タイムズの社主は29日、ドナルド・トランプ米大統領と会談した際、報道記者を「国民の敵」と呼ぶべきでないと伝えたことを明らかにした。メディアに対する「暴力につながる」と警告したという。",
+      "copy": {
+        "normalized_chars": 100,
+        "full_containment": false,
+        "longest_exact_chars": 7,
+        "longest_exact_ratio": 0.07,
+        "matched_char_ratio": 0.35,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "OFFTOPIC_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.4285,
+        "own_rank": 4,
+        "best_match_article_id": "45001963",
+        "best_match_title": "記者を「国民の敵」と呼ぶべきでない NYタイムズ社主、トランプ氏に",
+        "best_match_similarity": 0.7213,
+        "best_other_article_id": "45001963",
+        "margin_vs_best_other": -0.2928,
+        "top5": [
+          {
+            "article_id": "45001963",
+            "similarity": 0.7213
+          },
+          {
+            "article_id": "52873099",
+            "similarity": 0.4693
+          },
+          {
+            "article_id": "41875333",
+            "similarity": 0.4515
+          },
+          {
+            "article_id": "55155049",
+            "similarity": 0.4285
+          },
+          {
+            "article_id": "50162696",
+            "similarity": 0.4184
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.0008,
+        "best_match_article_id": "45001963",
+        "best_match_title": "記者を「国民の敵」と呼ぶべきでない NYタイムズ社主、トランプ氏に",
+        "best_match_score": 0.9999,
+        "margin_vs_best_other": -0.999,
+        "embedding_suspect": true,
+        "reranker_confirms": true,
+        "scored_candidates": [
+          {
+            "article_id": "45001963",
+            "score": 0.9999
+          },
+          {
+            "article_id": "52873099",
+            "score": 0.0032
+          },
+          {
+            "article_id": "41875333",
+            "score": 0.0009
+          },
+          {
+            "article_id": "55155049",
+            "score": 0.0008
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "features-and-analysis-46478194_381886c7",
+      "article_id": "features-and-analysis-46478194",
+      "summary": "米オハイオ州スワントンの父親が、いじめの罰として10歳の娘を学校まで、合計8キロを数回に分けて歩かせた。父親がビデオを投稿したのを機に、このしつけ方法の是非が議論になっている。",
+      "copy": {
+        "normalized_chars": 88,
+        "full_containment": false,
+        "longest_exact_chars": 7,
+        "longest_exact_ratio": 0.0795,
+        "matched_char_ratio": 0.5909,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7183,
+        "own_rank": 1,
+        "best_match_article_id": "features-and-analysis-46478194",
+        "best_match_title": "いじめた罰だ、学校まで歩きなさい――父親のしつけビデオで議論",
+        "best_match_similarity": 0.7183,
+        "best_other_article_id": "features-and-analysis-46643494",
+        "margin_vs_best_other": 0.2236,
+        "top5": [
+          {
+            "article_id": "features-and-analysis-46478194",
+            "similarity": 0.7183
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.4948
+          },
+          {
+            "article_id": "43411421",
+            "similarity": 0.475
+          },
+          {
+            "article_id": "53274336",
+            "similarity": 0.472
+          },
+          {
+            "article_id": "43985653",
+            "similarity": 0.4502
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9995,
+        "best_match_article_id": "features-and-analysis-46478194",
+        "best_match_title": "いじめた罰だ、学校まで歩きなさい――父親のしつけビデオで議論",
+        "best_match_score": 0.9995,
+        "margin_vs_best_other": 0.9994,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "features-and-analysis-46478194",
+            "score": 0.9995
+          },
+          {
+            "article_id": "43411421",
+            "score": 0.0001
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "score": 0.0001
+          },
+          {
+            "article_id": "53274336",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "features-and-analysis-46478194_67a2365c",
+      "article_id": "features-and-analysis-46478194",
+      "summary": "父親によると、娘がバスで他の生徒をいじめたと叱られたのはこれで2回目だった カーステンさん（10）は、いじめ行為を学校にとがめられ、2回目だったためスクールバスの利用を3日間禁止された。そこで父親のマット・コックスさんは、生きる上で何が大切なのかを娘に教えることにした。寒い日の朝、コックスさんは学校までの道のりの一部を娘に歩かせた。",
+      "copy": {
+        "normalized_chars": 166,
+        "full_containment": true,
+        "longest_exact_chars": 166,
+        "longest_exact_ratio": 1.0,
+        "matched_char_ratio": 1.0,
+        "shingle12_coverage": 1.0,
+        "copy_reject": true
+      },
+      "decision": "COPY_REJECT",
+      "embedding": {
+        "assigned_similarity": 0.8415,
+        "own_rank": 1,
+        "best_match_article_id": "features-and-analysis-46478194",
+        "best_match_title": "いじめた罰だ、学校まで歩きなさい――父親のしつけビデオで議論",
+        "best_match_similarity": 0.8415,
+        "best_other_article_id": "53274336",
+        "margin_vs_best_other": 0.3846,
+        "top5": [
+          {
+            "article_id": "features-and-analysis-46478194",
+            "similarity": 0.8415
+          },
+          {
+            "article_id": "53274336",
+            "similarity": 0.4569
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.4422
+          },
+          {
+            "article_id": "44708557",
+            "similarity": 0.4397
+          },
+          {
+            "article_id": "43985653",
+            "similarity": 0.4249
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "features-and-analysis-46478194_83f0bbbb",
+      "article_id": "features-and-analysis-46478194",
+      "summary": "父親がビデオを投稿したのを機に、このしつけ方法の是非が議論になっている。米オハイオ州スワントンの父親が、いじめの罰として10歳の娘を学校まで、合計8キロを数回に分けて歩かせた。",
+      "copy": {
+        "normalized_chars": 88,
+        "full_containment": false,
+        "longest_exact_chars": 7,
+        "longest_exact_ratio": 0.0795,
+        "matched_char_ratio": 0.4545,
+        "shingle12_coverage": 0.0,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.7228,
+        "own_rank": 1,
+        "best_match_article_id": "features-and-analysis-46478194",
+        "best_match_title": "いじめた罰だ、学校まで歩きなさい――父親のしつけビデオで議論",
+        "best_match_similarity": 0.7228,
+        "best_other_article_id": "features-and-analysis-46643494",
+        "margin_vs_best_other": 0.222,
+        "top5": [
+          {
+            "article_id": "features-and-analysis-46478194",
+            "similarity": 0.7228
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.5008
+          },
+          {
+            "article_id": "43411421",
+            "similarity": 0.4763
+          },
+          {
+            "article_id": "53274336",
+            "similarity": 0.461
+          },
+          {
+            "article_id": "53174534",
+            "similarity": 0.4522
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.999,
+        "best_match_article_id": "features-and-analysis-46478194",
+        "best_match_title": "いじめた罰だ、学校まで歩きなさい――父親のしつけビデオで議論",
+        "best_match_score": 0.999,
+        "margin_vs_best_other": 0.9989,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "features-and-analysis-46478194",
+            "score": 0.999
+          },
+          {
+            "article_id": "43411421",
+            "score": 0.0001
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "score": 0.0
+          },
+          {
+            "article_id": "53274336",
+            "score": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "features-and-analysis-46478194_d84463e5",
+      "article_id": "features-and-analysis-46478194",
+      "summary": "米オハイオ州の父親が、スクールバスで他の生徒をいじめたとして10歳の娘に学校まで約8キロを歩かせ、その様子を収めた動画をフェイスブックに投稿した。動画は1700万回以上再生され、しつけ方法として賛否が分かれる議論を呼んでいる。娘は自分もいじめられた経験があると語り、人に優しくすることを学んだと話した。",
+      "copy": {
+        "normalized_chars": 151,
+        "full_containment": false,
+        "longest_exact_chars": 13,
+        "longest_exact_ratio": 0.0861,
+        "matched_char_ratio": 0.6026,
+        "shingle12_coverage": 0.0357,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.8011,
+        "own_rank": 1,
+        "best_match_article_id": "features-and-analysis-46478194",
+        "best_match_title": "いじめた罰だ、学校まで歩きなさい――父親のしつけビデオで議論",
+        "best_match_similarity": 0.8011,
+        "best_other_article_id": "features-and-analysis-46643494",
+        "margin_vs_best_other": 0.2889,
+        "top5": [
+          {
+            "article_id": "features-and-analysis-46478194",
+            "similarity": 0.8011
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.5122
+          },
+          {
+            "article_id": "43411421",
+            "similarity": 0.4943
+          },
+          {
+            "article_id": "44708557",
+            "similarity": 0.479
+          },
+          {
+            "article_id": "53274336",
+            "similarity": 0.4725
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9975,
+        "best_match_article_id": "features-and-analysis-46478194",
+        "best_match_title": "いじめた罰だ、学校まで歩きなさい――父親のしつけビデオで議論",
+        "best_match_score": 0.9975,
+        "margin_vs_best_other": 0.9974,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "features-and-analysis-46478194",
+            "score": 0.9975
+          },
+          {
+            "article_id": "44708557",
+            "score": 0.0001
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "score": 0.0001
+          },
+          {
+            "article_id": "43411421",
+            "score": 0.0001
+          }
+        ]
+      }
+    },
+    {
+      "summary_id": "features-and-analysis-46478194_fc95363c",
+      "article_id": "features-and-analysis-46478194",
+      "summary": "米オハイオ州の父親が、スクールバスで他の生徒をいじめたとして10歳の娘に学校まで約8キロを歩かせ、その様子を収めた動画をフェイスブックに投稿した。父親は後にテレビ番組に出演し、娘の学校側からもこのしつけ方法を称賛されたと語った。動画は1700万回以上再生され、親のしつけ方法として賛否が分かれる議論を呼んでいる。",
+      "copy": {
+        "normalized_chars": 156,
+        "full_containment": false,
+        "longest_exact_chars": 13,
+        "longest_exact_ratio": 0.0833,
+        "matched_char_ratio": 0.4231,
+        "shingle12_coverage": 0.0345,
+        "copy_reject": false
+      },
+      "decision": "PASS_TO_SEMANTIC",
+      "embedding": {
+        "assigned_similarity": 0.8051,
+        "own_rank": 1,
+        "best_match_article_id": "features-and-analysis-46478194",
+        "best_match_title": "いじめた罰だ、学校まで歩きなさい――父親のしつけビデオで議論",
+        "best_match_similarity": 0.8051,
+        "best_other_article_id": "features-and-analysis-46643494",
+        "margin_vs_best_other": 0.2815,
+        "top5": [
+          {
+            "article_id": "features-and-analysis-46478194",
+            "similarity": 0.8051
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "similarity": 0.5237
+          },
+          {
+            "article_id": "43411421",
+            "similarity": 0.4899
+          },
+          {
+            "article_id": "53174534",
+            "similarity": 0.4716
+          },
+          {
+            "article_id": "53274336",
+            "similarity": 0.4714
+          }
+        ]
+      },
+      "reranker": {
+        "assigned_score": 0.9994,
+        "best_match_article_id": "features-and-analysis-46478194",
+        "best_match_title": "いじめた罰だ、学校まで歩きなさい――父親のしつけビデオで議論",
+        "best_match_score": 0.9994,
+        "margin_vs_best_other": 0.9992,
+        "embedding_suspect": false,
+        "reranker_confirms": false,
+        "scored_candidates": [
+          {
+            "article_id": "features-and-analysis-46478194",
+            "score": 0.9994
+          },
+          {
+            "article_id": "features-and-analysis-46643494",
+            "score": 0.0001
+          },
+          {
+            "article_id": "53174534",
+            "score": 0.0001
+          },
+          {
+            "article_id": "43411421",
+            "score": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,532 @@
+[
+  {
+    "summary_id": "50162696_6b12766c",
+    "article_id": "50162696",
+    "status": "DRAFT",
+    "eligible_for_soft_scoring": true,
+    "few_shot_used": "LOW_COVERAGE",
+    "anchor": {
+      "main_event": "トランプ米大統領が、トルコによるシリア北部進攻を受けて発動した経済制裁の解除を表明した",
+      "key_facts": [
+        "トルコとロシアは22日、クルド人武装勢力を国境付近から遠ざけて安全地帯を設置することで合意した",
+        "トランプ氏はトルコが恒久停戦を約束したとして合意を歓迎した",
+        "米財務省は14日に発動した制裁の解除を確認した",
+        "米国は石油施設保護のため少数の米兵を残し、トルコにIS再台頭の阻止を求めた"
+      ],
+      "anchor_summary": "トランプ米大統領は、トルコがシリア北部で恒久停戦を約束したとして、同国に対する経済制裁の解除を表明した。背景には、トルコとロシアによる安全地帯設置の合意がある。"
+    },
+    "claim_checks": [
+      {
+        "claim": "トランプ大統領が、シリア北部への進攻を受けてトルコに発動した経済制裁の解除を発表した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「米財務省はその後、14日に発動した…経済制裁を解除した」"
+      },
+      {
+        "claim": "発表日は23日だった",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "原文は合意日を22日とするが、制裁解除発表の日付は記していない"
+      },
+      {
+        "claim": "発表はテレビ演説で行われた",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "原文にテレビ演説との記載はない"
+      },
+      {
+        "claim": "好ましくない事態が起きない限り解除するとの条件を示した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「我々が喜べないようなことが起きない限り、制裁は解除されるだろう」"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 42,
+      "coverage": 18,
+      "coherence": 14,
+      "conciseness": 5
+    },
+    "score": 79,
+    "quality_label": "GOOD",
+    "issues": [
+      "発表日と発表形式が原文で確認できない",
+      "制裁解除の核心は捉えるが、恒久停戦とトルコ・ロシア合意を欠く"
+    ],
+    "source_evidence": [
+      "「トルコは恒久的な停戦を約束してきた」",
+      "「米財務省はその後…経済制裁を解除した」",
+      "「安全地帯を設置することで合意」"
+    ],
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    }
+  },
+  {
+    "summary_id": "35278497_5a694519",
+    "article_id": "35278497",
+    "status": "DRAFT",
+    "eligible_for_soft_scoring": true,
+    "few_shot_used": "FACTUAL_ERROR",
+    "anchor": {
+      "main_event": "大みそかにケルン中央駅周辺で起きた集団暴行・窃盗事件の被害が500件を超え、警察対応や移民政策への批判が強まった",
+      "key_facts": [
+        "約1000人が集合し、少人数に分かれて女性を取り囲み所持品を奪った",
+        "マース法相は事件に計画性があったとの見方を示した",
+        "被害者は警察がほとんど対応しなかったと批判した",
+        "警察長官は情報を伏せていたとして職務停止となった",
+        "事件を受け、難民・移民受け入れ政策への批判が強まった"
+      ],
+      "anchor_summary": "大みそかのケルン中央駅周辺で集団暴行・窃盗事件が起き、被害は500件を超えた。約1000人が少人数に分かれて女性を襲ったとされ、警察対応やメルケル政権の移民政策への批判が強まった。"
+    },
+    "claim_checks": [
+      {
+        "claim": "大みそかにケルン中央駅で集団暴行事件が起きた",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「大みそかのケルン駅で起きた集団暴行事件」"
+      },
+      {
+        "claim": "ケルン警察が10日に被害件数を516件へ上方修正した",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "タイトルは「被害は500件以上」とするが、516件、10日、上方修正の記載はない"
+      },
+      {
+        "claim": "被害の4割が性的暴行だった",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "原文は「女性数人が性的暴行の被害を訴えている」とだけ記す"
+      },
+      {
+        "claim": "容疑者の大半は北アフリカ出身の難民希望者や不法移民だった",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "原文は容疑者の具体的な出身や在留資格を示していない"
+      },
+      {
+        "claim": "警察は9日時点で被害379件と発表していた",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "原文に379件との記載はない"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 20,
+      "coverage": 17,
+      "coherence": 14,
+      "conciseness": 4
+    },
+    "score": 55,
+    "quality_label": "MIXED",
+    "issues": [
+      "複数の精密な件数、割合、日付、容疑者属性が原文で確認できない",
+      "約1000人による組織的な襲撃や警察対応への批判を欠く"
+    ],
+    "source_evidence": [
+      "タイトル「被害は500件以上に」",
+      "「犯人は約1000人」",
+      "「女性数人が性的暴行の被害を訴えている」"
+    ],
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    }
+  },
+  {
+    "summary_id": "35278497_af8a0e59",
+    "article_id": "35278497",
+    "status": "DRAFT",
+    "eligible_for_soft_scoring": true,
+    "few_shot_used": "FACTUAL_ERROR",
+    "anchor": {
+      "main_event": "大みそかにケルン中央駅周辺で起きた集団暴行・窃盗事件の被害が500件を超え、警察対応や移民政策への批判が強まった",
+      "key_facts": [
+        "約1000人が集合し、少人数に分かれて女性を取り囲み所持品を奪った",
+        "マース法相は事件に計画性があったとの見方を示した",
+        "被害者は警察がほとんど対応しなかったと批判した",
+        "警察長官は情報を伏せていたとして職務停止となった",
+        "事件を受け、難民・移民受け入れ政策への批判が強まった"
+      ],
+      "anchor_summary": "大みそかのケルン中央駅周辺で集団暴行・窃盗事件が起き、被害は500件を超えた。約1000人が少人数に分かれて女性を襲ったとされ、警察対応やメルケル政権の移民政策への批判が強まった。"
+    },
+    "claim_checks": [
+      {
+        "claim": "大みそかにケルン中央駅で集団暴行・窃盗事件が起きた",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「ケルン中央駅に集合して…女性を取り囲んで襲い、所持品を奪った」"
+      },
+      {
+        "claim": "警察が10日に被害件数を516件へ上方修正した",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "タイトルは500件以上とするが、516件、10日、上方修正の記載はない"
+      },
+      {
+        "claim": "約4割が性的暴行だった",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "原文は「女性数人が性的暴行の被害を訴えている」とするのみ"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 29,
+      "coverage": 19,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "score": 68,
+    "quality_label": "MIXED",
+    "issues": [
+      "516件、10日、約4割という精密情報が原文で確認できない",
+      "事件規模、計画性、警察対応への批判を欠く"
+    ],
+    "source_evidence": [
+      "タイトル「被害は500件以上に」",
+      "「犯人は約1000人」",
+      "「女性数人が性的暴行の被害を訴えている」"
+    ],
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    }
+  },
+  {
+    "summary_id": "52000333_a8b27666",
+    "article_id": "52000333",
+    "status": "DRAFT",
+    "eligible_for_soft_scoring": true,
+    "few_shot_used": "INCOHERENT",
+    "anchor": {
+      "main_event": "新型ウイルス感染者の急増を受け、オーストラリアがクラブや映画館などを閉鎖した",
+      "key_facts": [
+        "感染者は1315人、死者は7人に達した",
+        "スーパーマーケット、ガソリンスタンド、薬局、宅配サービスは営業を継続する",
+        "連邦政府は学校を休校にしない方針だが、複数州は閉鎖を望んでいる",
+        "政府は全面的な外出封鎖は導入していない",
+        "モリソン首相は660億豪ドル規模の追加景気刺激策を発表した"
+      ],
+      "anchor_summary": "感染者が1315人に急増したオーストラリアは、クラブや映画館などを閉鎖した。生活必需サービスは営業を続け、連邦政府は学校を原則開校する一方、660億豪ドル規模の追加支援策を発表した。"
+    },
+    "claim_checks": [
+      {
+        "claim": "モリソン首相が感染急増を受けて必要不可欠でないサービスの停止を発表した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "タイトル「クラブや映画館を閉鎖」、本文「感染者数が…急増し、1315人」"
+      },
+      {
+        "claim": "発表は22日の閣議後だった",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "22日は景気刺激策の発表日に使われるが、閉鎖発表を閣議後とする記載はない"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 42,
+      "coverage": 12,
+      "coherence": 8,
+      "conciseness": 4
+    },
+    "score": 66,
+    "quality_label": "MIXED",
+    "issues": [
+      "末尾の孤立した「2」で出力が不自然に途切れている",
+      "閉鎖対象、感染者数、営業継続サービスなど主要情報を欠く",
+      "閣議後という発表状況は原文で確認できない"
+    ],
+    "source_evidence": [
+      "タイトル「クラブや映画館を閉鎖」",
+      "「感染者数が…1315人に上った」",
+      "「スーパーマーケットや…薬局、宅配サービス…営業は続けられる」"
+    ],
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    }
+  },
+  {
+    "summary_id": "52000333_8c3c9670",
+    "article_id": "52000333",
+    "status": "DRAFT",
+    "eligible_for_soft_scoring": true,
+    "few_shot_used": "FACTUAL_ERROR",
+    "anchor": {
+      "main_event": "新型ウイルス感染者の急増を受け、オーストラリアがクラブや映画館などを閉鎖した",
+      "key_facts": [
+        "感染者は1315人、死者は7人に達した",
+        "スーパーマーケット、ガソリンスタンド、薬局、宅配サービスは営業を継続する",
+        "連邦政府は学校を休校にしない方針だが、複数州は閉鎖を望んでいる",
+        "政府は全面的な外出封鎖は導入していない",
+        "モリソン首相は660億豪ドル規模の追加景気刺激策を発表した"
+      ],
+      "anchor_summary": "感染者が1315人に急増したオーストラリアは、クラブや映画館などを閉鎖した。生活必需サービスは営業を続け、連邦政府は学校を原則開校する一方、660億豪ドル規模の追加支援策を発表した。"
+    },
+    "claim_checks": [
+      {
+        "claim": "モリソン首相が感染急増を受けて必要不可欠でないサービスの停止を発表した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "タイトル「クラブや映画館を閉鎖」、本文「感染者数が…急増」"
+      },
+      {
+        "claim": "発表は22日の閣議後だった",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "閉鎖発表を22日の閣議後とする記載はない"
+      },
+      {
+        "claim": "23日正午から閉鎖が始まる",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "原文に開始日時の記載はない"
+      },
+      {
+        "claim": "クラブと映画館が閉鎖される",
+        "verdict": "SUPPORTED",
+        "source_evidence": "タイトル「クラブや映画館を閉鎖」"
+      },
+      {
+        "claim": "パブ、体育館、礼拝所も閉鎖される",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "原文にこれら三施設の列挙はない"
+      },
+      {
+        "claim": "レストランとカフェはテイクアウト営業のみとなる",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "原文にテイクアウト限定との記載はない"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 31,
+      "coverage": 22,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "score": 73,
+    "quality_label": "MIXED",
+    "issues": [
+      "開始日時と複数の閉鎖対象・営業条件が原文で確認できない",
+      "感染者数、学校方針、営業継続サービスを欠く"
+    ],
+    "source_evidence": [
+      "タイトル「クラブや映画館を閉鎖」",
+      "「感染者数が…1315人に上った」",
+      "「我々は人々を自宅に閉じ込めるという封鎖措置は導入していない」"
+    ],
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    }
+  },
+  {
+    "summary_id": "41875333_06c27e30",
+    "article_id": "41875333",
+    "status": "DRAFT",
+    "eligible_for_soft_scoring": true,
+    "few_shot_used": "EXCELLENT",
+    "anchor": {
+      "main_event": "トランプ米大統領がアジア5カ国歴訪の最初の訪問国として日本に到着し、米国の決意を強調した",
+      "key_facts": [
+        "トランプ氏は5日に横田基地へ到着した",
+        "独裁者や独裁政権は米国の決意を軽視すべきでないと演説した",
+        "日本滞在は5日から7日までの2泊3日",
+        "安倍首相と昼食を共にし、松山英樹選手を交えてゴルフをした",
+        "北朝鮮問題でプーチン大統領の協力を求める意向を示した"
+      ],
+      "anchor_summary": "トランプ米大統領はアジア5カ国歴訪の最初の訪問国として日本に到着し、横田基地で米国の決意を軽視してはならないと演説した。日本には2泊3日滞在し、安倍首相との昼食やゴルフ、首脳会談などを予定している。"
+    },
+    "claim_checks": [
+      {
+        "claim": "トランプ大統領が5日にアジア5カ国歴訪の最初の訪問国である日本へ到着した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「5日午前10時半すぎに…横田基地に到着」「日本を皮切りに」"
+      },
+      {
+        "claim": "独裁者は米国の決意を軽視してはならないと演説した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「どの独裁者も…米国の決意のほどを軽視してはならない」"
+      },
+      {
+        "claim": "北朝鮮の核・ミサイル開発で緊張が高まる中での訪問だった",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「北朝鮮の核・ミサイル開発をめぐり地域の緊張感が高まるなか」"
+      },
+      {
+        "claim": "日本で安倍首相と昼食とゴルフを共にした",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「安倍晋三首相と昼食を共にした後…ゴルフをした」"
+      },
+      {
+        "claim": "日本滞在は2泊3日の予定だった",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「日本は5日から7日まで、2泊3日の予定」"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 50,
+      "coverage": 28,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "score": 98,
+    "quality_label": "EXCELLENT",
+    "issues": [],
+    "source_evidence": [
+      "「日本を皮切りに…アジア5か国を訪れる」",
+      "「どの独裁者も…米国の決意のほどを軽視してはならない」",
+      "「安倍晋三首相と昼食を共にした後…ゴルフをした」"
+    ],
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    }
+  },
+  {
+    "summary_id": "40490051_5d9feeef",
+    "article_id": "40490051",
+    "status": "DRAFT",
+    "eligible_for_soft_scoring": true,
+    "few_shot_used": "FACTUAL_ERROR",
+    "anchor": {
+      "main_event": "イラク軍がモスル旧市街でISへの攻撃を続け、司令官らは制圧が近いとする一方、ISは女性による自爆攻撃で抵抗した",
+      "key_facts": [
+        "モスル奪還作戦は前年10月に始まり、東部は1月に解放された",
+        "旧市街には空爆と迫撃砲攻撃が行われている",
+        "ISは女性、一部では10代の女性による自爆攻撃を増やした",
+        "残存IS戦闘員は300人以下とみられ、作戦開始時は約6000人だった",
+        "国連は10万人以上の住民が人間の盾にされている可能性を指摘した"
+      ],
+      "anchor_summary": "イラク軍はモスル旧市街でISへの攻撃を続けており、司令官らは勝利が近いとの見方を示した。一方、ISは女性による自爆攻撃を増やして抵抗し、国連は10万人以上の住民が人間の盾にされている可能性を指摘している。"
+    },
+    "claim_checks": [
+      {
+        "claim": "モスルはシリア北部にある",
+        "verdict": "CONTRADICTED",
+        "source_evidence": "原文は一貫してイラク軍・イラク政府によるモスル奪還作戦としている"
+      },
+      {
+        "claim": "モスル旧市街でIS掃討作戦と空爆・迫撃砲攻撃が激化している",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「空爆や迫撃砲の一斉発射による攻撃が行われており」"
+      },
+      {
+        "claim": "ISは男性による自爆攻撃を増やしている",
+        "verdict": "CONTRADICTED",
+        "source_evidence": "「ISは一部女性による自爆攻撃を増やして抵抗」"
+      },
+      {
+        "claim": "30代男性による自爆攻撃が報告された",
+        "verdict": "CONTRADICTED",
+        "source_evidence": "原文が特記するのは「10代の女性」による攻撃"
+      },
+      {
+        "claim": "作戦開始時のIS戦闘員は約8000人だった",
+        "verdict": "CONTRADICTED",
+        "source_evidence": "「10月の作戦開始時には6000人近くいた」"
+      },
+      {
+        "claim": "現在のIS戦闘員は約500人である",
+        "verdict": "CONTRADICTED",
+        "source_evidence": "「IS戦闘員は300人を超えない」"
+      },
+      {
+        "claim": "司令官が勝利に近づいたと述べた",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「勝利にかなり近づいた」"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 8,
+      "coverage": 16,
+      "coherence": 14,
+      "conciseness": 5
+    },
+    "score": 43,
+    "quality_label": "POOR",
+    "issues": [
+      "国名、自爆攻撃者の性別と年齢、戦闘員数が原文と矛盾する",
+      "主要事実の多くが逆転または改変されている"
+    ],
+    "source_evidence": [
+      "「ISは一部女性による自爆攻撃を増やして抵抗」",
+      "「作戦開始時には6000人近く」",
+      "「IS戦闘員は300人を超えない」"
+    ],
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    }
+  },
+  {
+    "summary_id": "40490051_08737554",
+    "article_id": "40490051",
+    "status": "DRAFT",
+    "eligible_for_soft_scoring": true,
+    "few_shot_used": "EXCELLENT",
+    "anchor": {
+      "main_event": "イラク軍がモスル旧市街でISへの攻撃を続け、司令官らは制圧が近いとする一方、ISは女性による自爆攻撃で抵抗した",
+      "key_facts": [
+        "モスル奪還作戦は前年10月に始まり、東部は1月に解放された",
+        "旧市街には空爆と迫撃砲攻撃が行われている",
+        "ISは女性、一部では10代の女性による自爆攻撃を増やした",
+        "残存IS戦闘員は300人以下とみられ、作戦開始時は約6000人だった",
+        "国連は10万人以上の住民が人間の盾にされている可能性を指摘した"
+      ],
+      "anchor_summary": "イラク軍はモスル旧市街でISへの攻撃を続けており、司令官らは勝利が近いとの見方を示した。一方、ISは女性による自爆攻撃を増やして抵抗し、国連は10万人以上の住民が人間の盾にされている可能性を指摘している。"
+    },
+    "claim_checks": [
+      {
+        "claim": "イラク北部モスル旧市街でIS掃討作戦が続いている",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「ISが立てこもるモスルの旧市街」"
+      },
+      {
+        "claim": "空爆や迫撃砲攻撃が行われている",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「空爆や迫撃砲の一斉発射による攻撃が行われており」"
+      },
+      {
+        "claim": "ISは女性による自爆攻撃を増やしている",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「ISは一部女性による自爆攻撃を増やして抵抗」"
+      },
+      {
+        "claim": "10代の女性による攻撃も報告された",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「一部では10代の女性が自爆攻撃を行っている」"
+      },
+      {
+        "claim": "作戦開始時には約6000人、現在は約300人のIS戦闘員がいる",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「300人を超えない」「作戦開始時には6000人近く」"
+      },
+      {
+        "claim": "司令官が勝利に近づいたと述べた",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「勝利にかなり近づいた」"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 49,
+      "coverage": 28,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "score": 97,
+    "quality_label": "EXCELLENT",
+    "issues": [
+      "有志連合への迫撃砲攻撃の帰属は原文では明示的でないが、要旨への影響は軽微"
+    ],
+    "source_evidence": [
+      "「空爆や迫撃砲の一斉発射による攻撃」",
+      "「女性による自爆攻撃」",
+      "「300人を超えない」「6000人近く」"
+    ],
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    }
+  }
+]

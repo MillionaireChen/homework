@@ -1,0 +1,101 @@
+{
+  "summary_id": "52000333_a8b27666",
+  "article_id": "52000333",
+  "status": "REVISED_DRAFT",
+  "eligible_for_soft_scoring": false,
+  "score": 0,
+  "terminal_result": "OBVIOUS_TRUNCATION",
+  "terminal_rank": 2,
+  "quality_label": "OBVIOUS_TRUNCATION",
+  "hard_fail": true,
+  "hard_fail_reason": "候補は完全な第1文の後に孤立した「2」を残して終了しており、物理的な生成切断と判断できる。",
+  "dimensions": null,
+  "claim_checks": null,
+  "issues": [
+    "完全な第1文の後に孤立した「2」があり、出力が物理的に切断されている",
+    "ハードゲート通過とソフトスコア66はReviewer判断に基づき取り消した"
+  ],
+  "review": {
+    "decision": "PENDING",
+    "rounds": 1,
+    "confidence": "HIGH",
+    "findings": [
+      "Reviewerは、末尾の孤立した「2」を通常の低コヒーレンスではなく明白な物理的切断と判断し、OBVIOUS_TRUNCATIONへの修訂を要求した。"
+    ]
+  },
+  "evaluation_trace": [
+    {
+      "stage": "source_copy_check",
+      "result": "PASS",
+      "evidence": {
+        "normalized_chars": 79,
+        "full_containment": false,
+        "longest_exact_chars": 10,
+        "longest_exact_ratio": 0.1266,
+        "shingle12_coverage": 0.0,
+        "hard_copy": false
+      }
+    },
+    {
+      "stage": "sentence_count",
+      "result": "PASS",
+      "evidence": {
+        "sentence_count": 2,
+        "maximum_allowed": 3
+      }
+    },
+    {
+      "stage": "truncation_check",
+      "result": "REVISED_TO_FAIL",
+      "evidence": {
+        "final_character": "2",
+        "observed_ending": "。2",
+        "reason": "完全な第1文の後に意味を成さない孤立した数字が残り、物理的な生成切断が明白"
+      }
+    },
+    {
+      "stage": "draft_scoring",
+      "result": "RETRACTED",
+      "evidence": {
+        "previous_score": 66,
+        "previous_dimensions": {
+          "faithfulness": 42,
+          "coverage": 12,
+          "coherence": 8,
+          "conciseness": 4
+        },
+        "reason": "Reviewer-confirmed terminal failure is ineligible for soft scoring"
+      }
+    },
+    {
+      "stage": "soft_score_review",
+      "result": "REVISE",
+      "evidence": {
+        "confidence": "HIGH",
+        "finding": "候補は完全な第1文の後に孤立した「2」を残して終わっており、通常の低コヒーレンスではなく物理的な生成切断と判断できる。"
+      }
+    },
+    {
+      "stage": "scorer_revision",
+      "result": "APPLIED",
+      "evidence": {
+        "terminal_result": "OBVIOUS_TRUNCATION",
+        "score": 0,
+        "terminal_rank": 2,
+        "eligible_for_soft_scoring": false,
+        "dimensions": null
+      }
+    },
+    {
+      "stage": "early_stop",
+      "result": "OBVIOUS_TRUNCATION",
+      "evidence": {
+        "reason": "末尾の孤立した「2」により物理的な生成切断が確認された",
+        "skipped_stages": [
+          "relevance_check",
+          "soft_scoring"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,490 @@
+[
+  {
+    "summary_id": "37426493_6baeebc9",
+    "article_id": "37426493",
+    "eligible_for_soft_scoring": true,
+    "score": 65,
+    "terminal_rank": null,
+    "quality_label": "MIXED",
+    "hard_fail": false,
+    "hard_fail_reason": null,
+    "anchor": {
+      "main_event": "アンジェリーナ・ジョリーがブラッド・ピットとの結婚解消を19日に申し立てた",
+      "key_facts": [
+        "申し立ての理由は「家族の健康のための判断」",
+        "書類上の別居開始日は9月15日",
+        "ジョリーは夫妻の6人の子供の親権を求め、ピットには面会権を認めるよう要請",
+        "2人は2014年に正式に結婚した"
+      ],
+      "anchor_summary": "アンジェリーナ・ジョリーは19日、ブラッド・ピットとの結婚解消を申し立てた。書類では別居開始日は9月15日とされ、ジョリーは6人の子供の親権とピットの面会権を求めている。"
+    },
+    "claim_checks": [
+      {
+        "claim": "アンジェリーナ・ジョリーは女優・監督である",
+        "verdict": "SUPPORTED",
+        "source_evidence": "女優や映画監督としての仕事"
+      },
+      {
+        "claim": "ジョリーは41歳、ピットは52歳である",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "本文には両者の年齢の記載がない"
+      },
+      {
+        "claim": "ジョリーがピットとの離婚をロサンゼルス郡地裁に申し立てた",
+        "verdict": "SUPPORTED",
+        "source_evidence": "ジョリーさんがロサンゼルス郡地裁に提出した離婚の申し立て"
+      },
+      {
+        "claim": "申し立て日は15日である",
+        "verdict": "CONTRADICTED",
+        "source_evidence": "ジョリーさんは19日に「結婚解消」の申し立てを提出"
+      },
+      {
+        "claim": "弁護士は家族の健康のための判断だと説明した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「家族の健康のための判断だ」と説明した"
+      },
+      {
+        "claim": "別居開始日は9月1日である",
+        "verdict": "CONTRADICTED",
+        "source_evidence": "9月15日に別居開始と記載されている"
+      },
+      {
+        "claim": "ジョリーは4人の子供の親権を求めた",
+        "verdict": "CONTRADICTED",
+        "source_evidence": "夫妻の6人の子供について、ジョリーさんは自ら親権を求め"
+      },
+      {
+        "claim": "ピットに面会権を認めるよう要請した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "ピットさんには面会権を認めるよう裁判所に要請"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 20,
+      "coverage": 25,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "issues": [
+      "申し立て日を19日ではなく15日としている",
+      "別居開始日を9月15日ではなく9月1日としている",
+      "子供の人数を6人ではなく4人としている",
+      "年齢は本文で確認できない"
+    ],
+    "source_evidence": [
+      "ジョリーさんは19日に「結婚解消」の申し立てを提出",
+      "9月15日に別居開始と記載されている",
+      "夫妻の6人の子供について、ジョリーさんは自ら親権を求め"
+    ],
+    "few_shot_used": "FACTUAL_ERROR",
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    },
+    "evaluation_trace": [
+      {
+        "stage": "hard_gate",
+        "result": "PASS",
+        "evidence": "3文、連続コピーなし、末尾は句点"
+      },
+      {
+        "stage": "relevance_check",
+        "result": "PASS",
+        "evidence": "主体と離婚申し立て事件は記事と一致"
+      },
+      {
+        "stage": "draft_scoring",
+        "result": "DRAFT",
+        "few_shot": "FACTUAL_ERROR"
+      }
+    ]
+  },
+  {
+    "summary_id": "50469832_9a5ac32c",
+    "article_id": "50469832",
+    "eligible_for_soft_scoring": true,
+    "score": 96,
+    "terminal_rank": null,
+    "quality_label": "EXCELLENT",
+    "hard_fail": false,
+    "hard_fail_reason": null,
+    "anchor": {
+      "main_event": "米政府がヨルダン川西岸のイスラエル入植地を直ちに国際法違反とはみなさない方針を示した",
+      "key_facts": [
+        "ポンペオ国務長官が方針を発表",
+        "西岸の地位はイスラエルとパレスチナが交渉すべきだとした",
+        "イスラエルは方針転換を歓迎",
+        "PLOは平和と安全を危険にさらすと批判",
+        "西岸には約140の入植地があり約60万人が居住"
+      ],
+      "anchor_summary": "ポンペオ米国務長官は、ヨルダン川西岸のイスラエル民間入植地を直ちに国際法違反とはみなさないとの方針を示した。イスラエルは歓迎した一方、パレスチナ側は平和と安全を損なうとして批判した。"
+    },
+    "claim_checks": [
+      {
+        "claim": "ポンペオ国務長官は西岸のイスラエル入植地を国際法違反とみなさない方針を発表した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "入植地建設はただちに、国際法に則っていないというわけではない"
+      },
+      {
+        "claim": "これは従来の米国の立場からの転換である",
+        "verdict": "SUPPORTED",
+        "source_evidence": "イスラエルは、アメリカによるこの方針転換を歓迎した"
+      },
+      {
+        "claim": "イスラエルは歓迎した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "イスラエルは、アメリカによるこの方針転換を歓迎した"
+      },
+      {
+        "claim": "パレスチナ側は強く反発した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "アメリカの決定を「世界の安定と安全、平和」を危険にさらすものと批判"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 49,
+      "coverage": 27,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "issues": [
+      "原文の「直ちに国際法に則っていないわけではない」という限定をやや簡略化している"
+    ],
+    "source_evidence": [
+      "入植地建設はただちに、国際法に則っていないというわけではない",
+      "イスラエルは、アメリカによるこの方針転換を歓迎した",
+      "PLOの交渉担当者は決定を批判"
+    ],
+    "few_shot_used": "EXCELLENT",
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    },
+    "evaluation_trace": [
+      {
+        "stage": "hard_gate",
+        "result": "PASS",
+        "evidence": "2文、連続コピーなし、明白な切断なし"
+      },
+      {
+        "stage": "relevance_check",
+        "result": "PASS",
+        "evidence": "政策転換と双方の反応が記事に一致"
+      },
+      {
+        "stage": "draft_scoring",
+        "result": "DRAFT",
+        "few_shot": "EXCELLENT"
+      }
+    ]
+  },
+  {
+    "summary_id": "55155049_a6c5b888",
+    "article_id": "55155049",
+    "eligible_for_soft_scoring": true,
+    "score": 74,
+    "terminal_rank": null,
+    "quality_label": "MIXED",
+    "hard_fail": false,
+    "hard_fail_reason": null,
+    "anchor": {
+      "main_event": "バー米司法長官が大統領選の結果を変える規模の不正は確認できていないと述べた",
+      "key_facts": [
+        "発言はAP通信の取材で行われた",
+        "司法省と国土安全保障省は投票機操作の主張を裏付ける証拠を見つけていない",
+        "捜査は終了しておらず、信憑性のある疑いは追及すると司法省が説明",
+        "トランプ陣営の弁護士はバーの発言に反発",
+        "シューマー上院民主党院内総務はバーが解任される可能性に言及"
+      ],
+      "anchor_summary": "バー米司法長官はAP通信の取材で、司法省などの調査では選挙結果を変える規模の不正は確認できていないと述べた。トランプ陣営の弁護士は反発し、シューマー上院民主党院内総務はバーが次に解任される可能性を指摘した。"
+    },
+    "claim_checks": [
+      {
+        "claim": "バー司法長官は大規模な選挙不正の証拠を発見できていないと述べた",
+        "verdict": "SUPPORTED",
+        "source_evidence": "選挙結果を変えるほどの規模の不正は、現在まで確認できていない"
+      },
+      {
+        "claim": "バーは記者会見で発言した",
+        "verdict": "CONTRADICTED",
+        "source_evidence": "バー氏は、米AP通信の取材で"
+      },
+      {
+        "claim": "発言日は1日だった",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "本文はバー発言の日付を明示していない"
+      },
+      {
+        "claim": "追加捜査で結果を左右しない規模の個別不正が確認された",
+        "verdict": "NOT_IN_SOURCE",
+        "source_evidence": "捜査継続の記述はあるが、個別不正を確認したとの記述はない"
+      },
+      {
+        "claim": "トランプ陣営の弁護士は反発する声明を発表した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "ジュリアーニ弁護士とエリス弁護士は共同声明を発表"
+      },
+      {
+        "claim": "シューマーは「次にクビにされるのは彼だろう」と述べた",
+        "verdict": "SUPPORTED",
+        "source_evidence": "「次にクビにされるのはおそらく彼だろう」"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 28,
+      "coverage": 26,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "issues": [
+      "AP通信の取材を記者会見としている",
+      "本文で確認できない発言日を加えている",
+      "個別不正が確認されたという事実を追加している"
+    ],
+    "source_evidence": [
+      "米AP通信の取材で",
+      "選挙結果を変えるほどの規模の不正は、現在まで確認できていない",
+      "具体的で信憑性のある不正の疑いはできる限り素早く追及する"
+    ],
+    "few_shot_used": "FACTUAL_ERROR",
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    },
+    "evaluation_trace": [
+      {
+        "stage": "hard_gate",
+        "result": "PASS",
+        "evidence": "3文、連続コピーなし、明白な切断なし"
+      },
+      {
+        "stage": "relevance_check",
+        "result": "PASS",
+        "evidence": "バー発言と政治的反応は記事に一致"
+      },
+      {
+        "stage": "draft_scoring",
+        "result": "DRAFT",
+        "few_shot": "FACTUAL_ERROR"
+      }
+    ]
+  },
+  {
+    "summary_id": "45715110_c95cebb3",
+    "article_id": "45715110",
+    "eligible_for_soft_scoring": true,
+    "score": 86,
+    "terminal_rank": null,
+    "quality_label": "GOOD",
+    "hard_fail": false,
+    "hard_fail_reason": null,
+    "anchor": {
+      "main_event": "アリソン教授と本庶佑特別教授が免疫チェックポイント阻害療法の研究でノーベル医学生理学賞を共同受賞した",
+      "key_facts": [
+        "受賞者はジェイムズ・P・アリソンと本庶佑",
+        "免疫のブレーキとなるたんぱく質を阻害し、免疫系によるがん攻撃を可能にした",
+        "研究は進行性皮膚がんなどの治療に貢献",
+        "療法は一部の進行性肺がんにも使われている",
+        "療法は全患者に効くわけではない"
+      ],
+      "anchor_summary": "ジェイムズ・P・アリソン教授と本庶佑特別教授は、免疫のブレーキを阻害して免疫系にがんを攻撃させる研究により、ノーベル医学生理学賞を共同受賞した。この免疫チェックポイント阻害療法は、進行性の皮膚がんや肺がんなどの治療に貢献している。"
+    },
+    "claim_checks": [
+      {
+        "claim": "人体の免疫システムを使ってがんと戦う手法が発見された",
+        "verdict": "SUPPORTED",
+        "source_evidence": "免疫システムによるがん攻撃を可能にする方法を発見した"
+      },
+      {
+        "claim": "その科学者2人が今年のノーベル医学生理学賞を受賞した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "アリソン氏と本庶氏は、900万スウェーデンクローナの賞金を分け合う"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 50,
+      "coverage": 16,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "issues": [
+      "受賞者2人の氏名を欠く",
+      "免疫チェックポイント阻害療法の名称と具体的な仕組みを欠く",
+      "進行性がん治療への効果を欠く"
+    ],
+    "source_evidence": [
+      "アリソン教授と本庶教授は、このブレーキを動かすたんぱく質を阻害",
+      "免疫システムによるがん攻撃を可能にする方法を発見した",
+      "免疫チェックポイント阻害療法はがん治療に革命をもたらした"
+    ],
+    "few_shot_used": "LOW_COVERAGE",
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    },
+    "evaluation_trace": [
+      {
+        "stage": "hard_gate",
+        "result": "PASS",
+        "evidence": "1文、連続コピーなし、明白な切断なし"
+      },
+      {
+        "stage": "relevance_check",
+        "result": "PASS",
+        "evidence": "受賞と研究内容は記事の中心事象に一致"
+      },
+      {
+        "stage": "draft_scoring",
+        "result": "DRAFT",
+        "few_shot": "LOW_COVERAGE"
+      }
+    ]
+  },
+  {
+    "summary_id": "36881141_86804cfb",
+    "article_id": "36881141",
+    "eligible_for_soft_scoring": false,
+    "score": 0,
+    "terminal_rank": 2,
+    "quality_label": "OBVIOUS_TRUNCATION",
+    "hard_fail": true,
+    "hard_fail_reason": "OBVIOUS_TRUNCATION",
+    "anchor": {
+      "main_event": "北京のサファリパークで車を降りた女性2人が別々のトラに襲われ、1人が死亡した",
+      "key_facts": [
+        "最初の女性は車を降りた直後にトラに引きずられ負傷",
+        "助けようと降車した別の女性が別のトラに襲われ死亡",
+        "同行男性は無事だった",
+        "園は放し飼い区域で車から降りないよう注意していた",
+        "負傷した女性は治療を受けている"
+      ],
+      "anchor_summary": "北京の八達嶺野生動物世界で、車を降りた女性がトラに襲われ、助けようと降車した別の女性も別のトラに襲われて死亡した。最初の女性は負傷して治療を受け、同行男性は無事だった。"
+    },
+    "claim_checks": [],
+    "dimensions": null,
+    "issues": [
+      "候補は「女性2人が車」で途切れ、述語も事件結果もないため、物理的な生成切断が明白"
+    ],
+    "source_evidence": [
+      "1人の女性が車を降りたところでトラに襲われ",
+      "もう1人の女性が助けようと車を降りると、別のトラに襲われて死亡した"
+    ],
+    "few_shot_used": "TRUNCATED",
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    },
+    "evaluation_trace": [
+      {
+        "stage": "source_copy_check",
+        "result": "PASS",
+        "evidence": "連続・高被覆コピーではない"
+      },
+      {
+        "stage": "sentence_count",
+        "result": "PASS",
+        "evidence": "1つの未完文"
+      },
+      {
+        "stage": "truncation_check",
+        "result": "PROPOSED_HARD_FAIL",
+        "evidence": "末尾が「女性2人が車」で、統語的に完結していない",
+        "few_shot": "TRUNCATED"
+      },
+      {
+        "stage": "early_stop",
+        "result": "PENDING_REVIEW",
+        "evidence": "Reviewer確認後に終端結果を確定"
+      }
+    ]
+  },
+  {
+    "summary_id": "48116477_4d229e3c",
+    "article_id": "48116477",
+    "eligible_for_soft_scoring": true,
+    "score": 88,
+    "terminal_rank": null,
+    "quality_label": "GOOD",
+    "hard_fail": false,
+    "hard_fail_reason": null,
+    "anchor": {
+      "main_event": "アルツハイマー型に似た別の認知症LATEが特定された",
+      "key_facts": [
+        "アルツハイマー型と診断された患者の最大3分の1がLATEの可能性",
+        "LATEは主に80歳以上にみられ、この年齢層の5人に1人で確認",
+        "LATEはTDP-43に由来し、アルツハイマー型とは関連たんぱく質が異なる",
+        "LATEでは記憶低下がより緩やかとみられる",
+        "正確な識別は治療研究や臨床試験に重要"
+      ],
+      "anchor_summary": "研究者らは、アルツハイマー型認知症に似るが異なる病気であるLATEを特定した。アルツハイマー型と診断された患者の最大3分の1が実はLATEである可能性があり、主に80歳以上でみられるという。"
+    },
+    "claim_checks": [
+      {
+        "claim": "アルツハイマー型と診断された人の中に別種の認知症だった人が多く含まれる可能性がある",
+        "verdict": "SUPPORTED",
+        "source_evidence": "アルツハイマー型と診断された患者の最大で3分の1が、実はLATEである可能性"
+      },
+      {
+        "claim": "その認知症の種類が新たに特定された",
+        "verdict": "SUPPORTED",
+        "source_evidence": "LATEと呼ばれるこの症状は、アルツハイマー型認知症と似ているが、異なる病気"
+      },
+      {
+        "claim": "国際研究チームが研究を発表した",
+        "verdict": "SUPPORTED",
+        "source_evidence": "研究は医学誌「ブレイン」に発表された"
+      }
+    ],
+    "dimensions": {
+      "faithfulness": 50,
+      "coverage": 18,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "issues": [
+      "LATEという病名を欠く",
+      "最大3分の1という研究結果の規模を欠く",
+      "80歳以上での有病率やTDP-43との関連を欠く"
+    ],
+    "source_evidence": [
+      "アルツハイマー型と診断された患者の最大で3分の1が、実はLATEである可能性",
+      "LATEは80歳以上が罹患する",
+      "LATEはTDP-43と呼ばれるたんぱく質に由来する"
+    ],
+    "few_shot_used": "LOW_COVERAGE",
+    "review": {
+      "decision": "PENDING",
+      "rounds": 0,
+      "confidence": null,
+      "findings": []
+    },
+    "evaluation_trace": [
+      {
+        "stage": "hard_gate",
+        "result": "PASS",
+        "evidence": "1文、連続コピーなし、明白な切断なし"
+      },
+      {
+        "stage": "relevance_check",
+        "result": "PASS",
+        "evidence": "新たに特定された認知症という中心事象に一致"
+      },
+      {
+        "stage": "draft_scoring",
+        "result": "DRAFT",
+        "few_shot": "LOW_COVERAGE"
+      }
+    ]
+  }
+]

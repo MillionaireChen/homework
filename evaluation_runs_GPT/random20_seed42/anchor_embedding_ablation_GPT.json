@@ -1,0 +1,378 @@
+{
+  "experiment": "candidate-to-article vs candidate-to-anchor embedding ablation",
+  "model": "qwen3-embedding:0.6b",
+  "sample_seed": 42,
+  "notes": [
+    "No reference summary was used.",
+    "Only the 15 hard-gate survivors were embedded; five verbatim copies stopped earlier.",
+    "Article retrieval ranks came from the existing 50-article corpus run; anchor ranks use the 14 unique articles in this sample.",
+    "Correlations use only the 12 Reviewer-approved soft-scored summaries."
+  ],
+  "correlations": {
+    "coverage": {
+      "article_embedding": {
+        "pearson": 0.5046,
+        "spearman": 0.5282
+      },
+      "anchor_embedding": {
+        "pearson": 0.5175,
+        "spearman": 0.6303
+      }
+    },
+    "total_score": {
+      "article_embedding": {
+        "pearson": -0.187,
+        "spearman": -0.0839
+      },
+      "anchor_embedding": {
+        "pearson": 0.0973,
+        "spearman": 0.1958
+      }
+    },
+    "faithfulness": {
+      "article_embedding": {
+        "pearson": -0.3787,
+        "spearman": -0.4099
+      },
+      "anchor_embedding": {
+        "pearson": -0.0427,
+        "spearman": -0.0989
+      }
+    }
+  },
+  "coverage_prediction_loocv": {
+    "article_only": {
+      "features": [
+        "article_similarity"
+      ],
+      "mae": 3.6246,
+      "rmse": 4.3461
+    },
+    "anchor_only": {
+      "features": [
+        "anchor_similarity"
+      ],
+      "mae": 4.0123,
+      "rmse": 4.3738
+    },
+    "article_plus_anchor": {
+      "features": [
+        "article_similarity",
+        "anchor_similarity"
+      ],
+      "mae": 4.4121,
+      "rmse": 4.8381
+    }
+  },
+  "similarity_distributions": {
+    "soft_scored_article": {
+      "n": 12,
+      "min": 0.7014,
+      "max": 0.8678,
+      "mean": 0.7976
+    },
+    "soft_scored_anchor": {
+      "n": 12,
+      "min": 0.6466,
+      "max": 0.9157,
+      "mean": 0.797
+    },
+    "off_topic_article": {
+      "n": 1,
+      "min": 0.3193,
+      "max": 0.3193,
+      "mean": 0.3193
+    },
+    "off_topic_anchor": {
+      "n": 1,
+      "min": 0.2963,
+      "max": 0.2963,
+      "mean": 0.2963
+    }
+  },
+  "details": [
+    {
+      "article_id": "50162696",
+      "summary_id": "50162696_6b12766c",
+      "eligible_for_soft_scoring": true,
+      "score": 79,
+      "coverage": 18,
+      "faithfulness": 42,
+      "terminal_result": null,
+      "article_similarity": 0.7649,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.802,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "50162696",
+      "anchor_margin_vs_best_other": 0.3557
+    },
+    {
+      "article_id": "35278497",
+      "summary_id": "35278497_5a694519",
+      "eligible_for_soft_scoring": true,
+      "score": 55,
+      "coverage": 17,
+      "faithfulness": 20,
+      "terminal_result": null,
+      "article_similarity": 0.7959,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.7945,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "35278497",
+      "anchor_margin_vs_best_other": 0.377
+    },
+    {
+      "article_id": "52000333",
+      "summary_id": "52000333_a8b27666",
+      "eligible_for_soft_scoring": false,
+      "score": 0,
+      "coverage": null,
+      "faithfulness": null,
+      "terminal_result": "OBVIOUS_TRUNCATION",
+      "article_similarity": 0.7073,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.6374,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "52000333",
+      "anchor_margin_vs_best_other": 0.2822
+    },
+    {
+      "article_id": "41875333",
+      "summary_id": "41875333_06c27e30",
+      "eligible_for_soft_scoring": true,
+      "score": 98,
+      "coverage": 28,
+      "faithfulness": 50,
+      "terminal_result": null,
+      "article_similarity": 0.8587,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.8569,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "41875333",
+      "anchor_margin_vs_best_other": 0.3985
+    },
+    {
+      "article_id": "40490051",
+      "summary_id": "40490051_5d9feeef",
+      "eligible_for_soft_scoring": true,
+      "score": 43,
+      "coverage": 16,
+      "faithfulness": 8,
+      "terminal_result": null,
+      "article_similarity": 0.846,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.7818,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "40490051",
+      "anchor_margin_vs_best_other": 0.3431
+    },
+    {
+      "article_id": "52000333",
+      "summary_id": "52000333_8c3c9670",
+      "eligible_for_soft_scoring": true,
+      "score": 73,
+      "coverage": 22,
+      "faithfulness": 31,
+      "terminal_result": null,
+      "article_similarity": 0.7724,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.6968,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "52000333",
+      "anchor_margin_vs_best_other": 0.3314
+    },
+    {
+      "article_id": "37426493",
+      "summary_id": "37426493_6baeebc9",
+      "eligible_for_soft_scoring": true,
+      "score": 60,
+      "coverage": 20,
+      "faithfulness": 20,
+      "terminal_result": null,
+      "article_similarity": 0.8678,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.8623,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "37426493",
+      "anchor_margin_vs_best_other": 0.5123
+    },
+    {
+      "article_id": "50469832",
+      "summary_id": "50469832_9a5ac32c",
+      "eligible_for_soft_scoring": true,
+      "score": 96,
+      "coverage": 27,
+      "faithfulness": 49,
+      "terminal_result": null,
+      "article_similarity": 0.7996,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.9157,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "50469832",
+      "anchor_margin_vs_best_other": 0.4708
+    },
+    {
+      "article_id": "55155049",
+      "summary_id": "55155049_a6c5b888",
+      "eligible_for_soft_scoring": true,
+      "score": 70,
+      "coverage": 22,
+      "faithfulness": 28,
+      "terminal_result": null,
+      "article_similarity": 0.8628,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.8335,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "55155049",
+      "anchor_margin_vs_best_other": 0.5005
+    },
+    {
+      "article_id": "45715110",
+      "summary_id": "45715110_c95cebb3",
+      "eligible_for_soft_scoring": true,
+      "score": 86,
+      "coverage": 16,
+      "faithfulness": 50,
+      "terminal_result": null,
+      "article_similarity": 0.702,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.7507,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "45715110",
+      "anchor_margin_vs_best_other": 0.4307
+    },
+    {
+      "article_id": "36881141",
+      "summary_id": "36881141_86804cfb",
+      "eligible_for_soft_scoring": false,
+      "score": 0,
+      "coverage": null,
+      "faithfulness": null,
+      "terminal_result": "OBVIOUS_TRUNCATION",
+      "article_similarity": 0.6651,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.6653,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "36881141",
+      "anchor_margin_vs_best_other": 0.3273
+    },
+    {
+      "article_id": "48116477",
+      "summary_id": "48116477_4d229e3c",
+      "eligible_for_soft_scoring": true,
+      "score": 88,
+      "coverage": 18,
+      "faithfulness": 50,
+      "terminal_result": null,
+      "article_similarity": 0.7014,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.6466,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "48116477",
+      "anchor_margin_vs_best_other": 0.3202
+    },
+    {
+      "article_id": "44708203",
+      "summary_id": "44708203_6d931562",
+      "eligible_for_soft_scoring": false,
+      "score": 0,
+      "coverage": null,
+      "faithfulness": null,
+      "terminal_result": "OFF_TOPIC",
+      "article_similarity": 0.3193,
+      "article_rank_in_50": 14,
+      "anchor_similarity": 0.2963,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "44708203",
+      "anchor_margin_vs_best_other": 0.004
+    },
+    {
+      "article_id": "35278497",
+      "summary_id": "35278497_af8a0e59",
+      "eligible_for_soft_scoring": true,
+      "score": 68,
+      "coverage": 19,
+      "faithfulness": 29,
+      "terminal_result": null,
+      "article_similarity": 0.7464,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.8059,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "35278497",
+      "anchor_margin_vs_best_other": 0.4287
+    },
+    {
+      "article_id": "40490051",
+      "summary_id": "40490051_08737554",
+      "eligible_for_soft_scoring": true,
+      "score": 97,
+      "coverage": 28,
+      "faithfulness": 49,
+      "terminal_result": null,
+      "article_similarity": 0.8538,
+      "article_rank_in_50": 1,
+      "anchor_similarity": 0.8176,
+      "anchor_rank_in_sampled_14": 1,
+      "anchor_best_match_article_id": "40490051",
+      "anchor_margin_vs_best_other": 0.3786
+    }
+  ],
+  "article_anchors": [
+    {
+      "article_id": "35278497",
+      "anchor_summary": "大みそかのケルン中央駅周辺で集団暴行・窃盗事件が起き、被害は500件を超えた。約1000人が少人数に分かれて女性を襲ったとされ、警察対応やメルケル政権の移民政策への批判が強まった。"
+    },
+    {
+      "article_id": "36881141",
+      "anchor_summary": "北京のサファリパークで、車を降りた女性がトラに襲われ、助けようと降車した別の女性も別のトラに襲われて死亡した。最初の女性は負傷して治療を受け、同行男性は無事だった。"
+    },
+    {
+      "article_id": "37426493",
+      "anchor_summary": "アンジェリーナ・ジョリーは19日、ブラッド・ピットとの結婚解消を申し立てた。書類では別居開始日は9月15日とされ、ジョリーは6人の子供の親権とピットの面会権を求めている。"
+    },
+    {
+      "article_id": "37868736",
+      "anchor_summary": "英高等法院は、政府が議会承認なしにEU離脱手続きの第50条を発動する権限はないと判断した。政府は上訴する方針だが、メイ首相は翌年3月末までに離脱手続きを始める予定を維持している。"
+    },
+    {
+      "article_id": "40490051",
+      "anchor_summary": "イラク軍はモスル旧市街でISへの攻撃を続けており、司令官らは勝利が近いとの見方を示した。一方、ISは女性による自爆攻撃を増やして抵抗し、国連は10万人以上の住民が人間の盾にされている可能性を指摘している。"
+    },
+    {
+      "article_id": "40504740",
+      "anchor_summary": "ベトナムは、中国と領有権を争う南シナ海の海域で石油掘削を開始した。現場は両国が別々の名称で権利を主張する海域で、中国の反発が懸念されている。"
+    },
+    {
+      "article_id": "41875333",
+      "anchor_summary": "トランプ米大統領はアジア5カ国歴訪の最初の訪問国として日本に到着し、横田基地で米国の決意を軽視してはならないと演説した。日本には2泊3日滞在し、安倍首相との昼食やゴルフ、首脳会談などを予定している。"
+    },
+    {
+      "article_id": "44708203",
+      "anchor_summary": "タイの洞窟で9日間行方不明だった少年12人と監督が発見され、公開動画で元気な姿を見せた。食料と治療を受けているが、潜水習得か水位低下を待つ必要があり、救出に数カ月かかる可能性がある。"
+    },
+    {
+      "article_id": "45715110",
+      "anchor_summary": "ジェイムズ・P・アリソン教授と本庶佑特別教授は、免疫のブレーキを阻害して免疫系にがんを攻撃させる研究により、ノーベル医学生理学賞を共同受賞した。この免疫チェックポイント阻害療法は、進行性の皮膚がんや肺がんなどの治療に貢献している。"
+    },
+    {
+      "article_id": "48116477",
+      "anchor_summary": "研究者らは、アルツハイマー型認知症に似るが異なる病気であるLATEを特定した。アルツハイマー型と診断された患者の最大3分の1が実はLATEである可能性があり、主に80歳以上でみられるという。"
+    },
+    {
+      "article_id": "50162696",
+      "anchor_summary": "トランプ米大統領は、トルコがシリア北部で恒久停戦を約束したとして、同国に対する経済制裁の解除を表明した。背景には、トルコとロシアによる安全地帯設置の合意がある。"
+    },
+    {
+      "article_id": "50469832",
+      "anchor_summary": "ポンペオ米国務長官は、ヨルダン川西岸のイスラエル民間入植地を直ちに国際法違反とはみなさないとの方針を示した。イスラエルは歓迎した一方、パレスチナ側は平和と安全を損なうとして批判した。"
+    },
+    {
+      "article_id": "52000333",
+      "anchor_summary": "感染者が1315人に急増したオーストラリアは、クラブや映画館などを閉鎖した。生活必需サービスは営業を続け、連邦政府は学校を原則開校する一方、660億豪ドル規模の追加支援策を発表した。"
+    },
+    {
+      "article_id": "55155049",
+      "anchor_summary": "バー米司法長官はAP通信の取材で、司法省などの調査では選挙結果を変える規模の不正は確認できていないと述べた。トランプ陣営の弁護士は反発し、シューマー上院民主党院内総務はバーが次に解任される可能性を指摘した。"
+    }
+  ]
+}

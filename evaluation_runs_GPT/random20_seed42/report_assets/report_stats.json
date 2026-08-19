@@ -1,0 +1,43 @@
+{
+  "input": {
+    "pairs": 20,
+    "unique_articles": 14,
+    "reference_summary_used": false
+  },
+  "funnel": {
+    "fully_soft_scored": 12,
+    "terminal_total": 8,
+    "terminal_by_type": {
+      "OBVIOUS_TRUNCATION": 2,
+      "OFF_TOPIC": 1,
+      "VERBATIM_SOURCE_COPY": 5
+    },
+    "deterministic_gate_proposals": 5,
+    "hard_failures_recovered_downstream": 2,
+    "embedding_off_topic_suspects": 1
+  },
+  "soft_scores": {
+    "count": 12,
+    "mean": 76.08,
+    "median": 76.0,
+    "minimum": 43.0,
+    "maximum": 98.0,
+    "labels": {
+      "EXCELLENT": 3,
+      "GOOD": 3,
+      "MIXED": 5,
+      "POOR": 1
+    },
+    "dimension_means": {
+      "faithfulness": 35.5,
+      "coverage": 20.92,
+      "coherence": 14.75,
+      "conciseness": 4.92
+    }
+  },
+  "review": {
+    "approved": 20,
+    "escalated": 0,
+    "revised_at_least_once": 3
+  }
+}
