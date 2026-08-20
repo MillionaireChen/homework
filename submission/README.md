@@ -55,30 +55,72 @@ source spans, gate proposals, reviewer verdicts, and a stage-by-stage trace.
 
 ## How to run
 
-```bash
-python3 -m venv .venv && .venv/bin/pip install numpy requests matplotlib
+Both implementations are **plugins**. You install one and give it one instruction; the plugin runs
+the whole cascade itself, spawning its own gate, scorer, reviewer and reporter agents. Everything
+below is what those agents run internally — you do not drive the stages by hand.
+
+### Implementation A — Claude Code plugin
+
+The repository already ships the install config at `.claude/settings.json`:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "local": { "source": { "source": "directory", "path": "./plugin_claude" } }
+  },
+  "enabledPlugins": { "summary-quality-funnel@local": true }
+}
 ```
 
-The embedding stage needs a local Ollama with `qwen3-embedding:0.6b` (`ollama pull qwen3-embedding:0.6b`).
-It is optional — it only produces a hint and never decides an outcome.
+Open the repository in Claude Code and the plugin loads. In an interactive terminal session you can
+instead run `/plugin marketplace add ./plugin_claude` then `/plugin install summary-quality-funnel@local`.
 
-Deterministic stages, from the repository root:
+Then one command:
+
+```
+/summary-quality-funnel:evaluate-summaries evaluate all 250 pairs in data/
+```
+
+That is the whole reproduction step. The command runs the physical gates, the embedding hint, the
+grounding gate, per-article anchors, scoring and independent review, then validates, ranks, charts
+and reports. It provides four agents — `summary-grounding-gate`, `summary-scorer`,
+`summary-reviewer`, `summary-reporter` — plus a fifth, `summary-reviewer-blind`, which is committed
+but deliberately not used in this run (see Limitations).
+
+### Implementation B — Codex plugin
+
+Manifest at `plugin_GPT/summary-quality-funnel/.codex-plugin/plugin.json`, installed the same way
+Codex installs any local plugin. It exposes two skills rather than a slash command,
+`evaluate-summary-quality` and `generate-summary-report`, and Codex selects them from the request:
+
+```
+Evaluate and rank all 250 article-summary pairs in data/, then generate the chart report.
+```
+
+### Environment the agents rely on
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install numpy requests matplotlib
+ollama pull qwen3-embedding:0.6b     # optional
+```
+
+The embedding stage only produces a hint and is never terminal, so a run without Ollama still
+completes — implementation B's own full-250 run was executed with the embedding stage unavailable.
+
+### Inspecting or re-deriving results without re-running
+
+The deterministic parts of each plugin are plain scripts and can be replayed against the committed
+run artifacts:
 
 ```bash
 S=submission/code/implementation_a_claude/summary-quality-funnel/skills/evaluate-summary-quality/scripts
-.venv/bin/python $S/hard_gate.py        --input <pairs>.jsonl --output hard.jsonl --jsonl
-.venv/bin/python $S/embedding_gate.py   --input hard.jsonl    --output emb.jsonl
-.venv/bin/python $S/validate_result.py  <final>.jsonl
-.venv/bin/python $S/rank_results.py     --input <final>.jsonl --output ranked.jsonl
-.venv/bin/python $S/make_report_charts.py --input ranked.jsonl --outdir figures/
+.venv/bin/python $S/validate_result.py    runs/implementation_a_claude_full250/score.jsonl
+.venv/bin/python $S/rank_results.py       --input  runs/implementation_a_claude_full250/score.jsonl \
+                                          --output /tmp/ranked.jsonl
+.venv/bin/python $S/make_report_charts.py --input /tmp/ranked.jsonl --outdir /tmp/figs
 ```
 
-Agent stages (grounding gate, scorer, reviewer, reporter) run inside Claude Code. Install the plugin
-by pointing a local marketplace at the plugin directory in `.claude/settings.json`, then invoke
-`/summary-quality-funnel:evaluate-summaries`. Agent definitions and prompts are in the plugin's
-`agents/` and `skills/*/references/` directories and are readable without running anything.
-
-Reproduce the cross-validation:
+Cross-validating the two implementations is a single script and needs no agents:
 
 ```bash
 .venv/bin/python submission/code/cross_validation/compare_implementations.py \

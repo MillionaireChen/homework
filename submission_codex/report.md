@@ -20,7 +20,11 @@ The pipeline is:
 
 The resulting score is comparable across candidates, while the ranking is performed within each article. Terminal outcomes are assigned rank 0 or 1/2 according to severity, so a definite copy or unrelated summary cannot outrank a plausible summary merely because it resembles the source.
 
-The editable design is shown in [`diagrams/pipeline.drawio`](diagrams/pipeline.drawio) and [`diagrams/funnel.drawio`](diagrams/funnel.drawio).
+The editable design is shown in [`diagrams/pipeline.drawio`](diagrams/pipeline.drawio) and [`diagrams/funnel.drawio`](diagrams/funnel.drawio). Rendered previews are included below and can be opened directly if the Markdown viewer does not render Draw.io files.
+
+![Codex pipeline](diagrams/pipeline.png)
+
+![Observed funnel](diagrams/funnel.png)
 
 ## 3. Validation and results
 
@@ -42,7 +46,21 @@ The dimension means among soft-scored candidates were 37.44/50 faithfulness, 20.
 
 The experiment establishes that the implementation is operationally complete and produces separated within-article rankings for every article. It does not establish that every rank is objectively correct: there is no human adjudication set, and the evaluator is itself model-assisted.
 
-## 4. Limitations and next steps
+## 4. Cross-validation with the independent Claude implementation
+
+To test whether the result depended on one model or one prompt interpretation, the same 250 pairs were evaluated independently by the Claude implementation. Neither implementation saw the other’s outputs, and neither received reference summaries at runtime. The comparison was performed only after both score files were final.
+
+The two implementations agreed on the routing of **236/250 pairs (94.4%)**: 74 were terminal in both runs and 162 were soft-scored in both. Among the 74 jointly terminal cases, terminal-category agreement was **74/74 (100%)**. On the 162 pairs both systems scored, the Spearman correlation was **0.8907** and the mean absolute score difference was **6.85 points** (Claude mean 76.27, Codex mean 78.23).
+
+The 14 routing disagreements are informative rather than hidden: Claude alone terminated 11 cases (six central reversals, one fabrication, four truncations), while Codex alone terminated three (two truncations and one off-topic case). In the offline weak-label cross-check, both systems terminated all 50 article-copy cases and all 16 off-topic cases. The generated-candidate category was the main remaining uncertainty: Claude terminated 14/108 and Codex 8/108. This is exactly where a blinded human adjudication set is needed.
+
+![Routing agreement](figures/routing_agreement.png)
+
+![Score agreement](figures/score_agreement.png)
+
+This cross-implementation agreement is strong evidence that the funnel’s major signals are not arbitrary artifacts of one agent. It is not proof of objective correctness: the two systems share the same rubric and data, and agreement can reflect shared blind spots.
+
+## 5. Limitations and next steps
 
 The principal limitation is the absence of independent item-level human labels. Reviewer agreement proves that the pipeline is internally audited, not that the judgments match expert readers. The corpus is also one language, one news domain, and only 50 articles; thresholds may shift on other domains, lengths, or writing styles. The embedding stage was run only as assigned-article evidence and was not treated as a calibrated probability. The article-only anchor may omit facts that a human considers important, so coverage remains a judgment rather than a reference-match metric.
 
@@ -50,4 +68,4 @@ Next steps are to blind-label a stratified subset with human annotators, measure
 
 ## Conclusion
 
-The Codex implementation is a reproducible, reference-free ranking prototype: it handles hard violations early, reserves semantic effort for survivors, and records evidence and review traces for every decision. On this 250-pair corpus it completed all five-way rankings and achieved full internal review coverage. The results support the pipeline as an engineering scaffold and validation target, not as evidence of human-level correctness or production generalization.
+The Codex implementation is a reproducible, reference-free ranking prototype: it handles hard violations early, reserves semantic effort for survivors, and records evidence and review traces for every decision. On this 250-pair corpus it completed all five-way rankings and achieved full internal review coverage. Independent Claude/Codex agreement (94.4% routing, 0.8907 score correlation, and 100% agreement on jointly terminal categories) supports the stability of the design. The results still do not establish human-level correctness or production generalization.

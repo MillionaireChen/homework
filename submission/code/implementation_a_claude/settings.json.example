@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "local": {
+      "source": {
+        "source": "directory",
+        "path": "./plugin_claude"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "summary-quality-funnel@local": true
+  }
+}

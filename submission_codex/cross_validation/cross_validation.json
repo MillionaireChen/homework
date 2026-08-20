@@ -1,0 +1,124 @@
+{
+ "provenance": {
+  "claude_run": "submission/runs/implementation_a_claude_full250/score_ranked.jsonl",
+  "gpt_run": "evaluation_runs_GPT/full250_v1/score_ranked.jsonl",
+  "reference_used_at_runtime_by_either": false,
+  "weak_labels_derived_at": "cross-validation stage, after both runs were final",
+  "implementations_saw_each_other": false
+ },
+ "coverage": {
+  "comparable_pairs": 250,
+  "claude_rows": 250,
+  "gpt_rows": 250
+ },
+ "routing_agreement": {
+  "both_terminal": 74,
+  "both_scored": 162,
+  "claude_only_terminal": 11,
+  "gpt_only_terminal": 3,
+  "rate": 0.944,
+  "terminal_category_agreement": {
+   "compared": 74,
+   "identical": 74,
+   "rate": 1.0,
+   "mismatches": {}
+  }
+ },
+ "score_agreement": {
+  "compared": 162,
+  "spearman": 0.8907,
+  "mean_absolute_difference": 6.85,
+  "claude_mean": 76.27,
+  "gpt_mean": 78.23
+ },
+ "disagreement_attribution": {
+  "claude_only_terminal": {
+   "count": 11,
+   "by_terminal_type": {
+    "OBVIOUS_TRUNCATION": 4,
+    "FABRICATED_CONTENT": 1,
+    "FACTUAL_REVERSAL": 6
+   },
+   "by_weak_label": {
+    "REF_TRUNCATED": 4,
+    "GENERATED": 7
+   },
+   "gpt_scores_for_these": {
+    "min": 28,
+    "max": 66
+   }
+  },
+  "gpt_only_terminal": {
+   "count": 3,
+   "by_terminal_type": {
+    "OBVIOUS_TRUNCATION": 2,
+    "OFF_TOPIC": 1
+   },
+   "by_weak_label": {
+    "REF_TRUNCATED": 2,
+    "GENERATED": 1
+   },
+   "claude_scores_for_these": {
+    "min": 58,
+    "max": 71
+   }
+  }
+ },
+ "by_weak_label": {
+  "REF_VERBATIM": {
+   "count": 58,
+   "claude": {
+    "terminated": 0,
+    "mean_score": 78.64
+   },
+   "gpt": {
+    "terminated": 0,
+    "mean_score": 79.88
+   }
+  },
+  "GENERATED": {
+   "count": 108,
+   "claude": {
+    "terminated": 14,
+    "mean_score": 66.75
+   },
+   "gpt": {
+    "terminated": 8,
+    "mean_score": 72.14
+   }
+  },
+  "REF_TRUNCATED": {
+   "count": 17,
+   "claude": {
+    "terminated": 5,
+    "mean_score": 41.94
+   },
+   "gpt": {
+    "terminated": 3,
+    "mean_score": 39.88
+   }
+  },
+  "ARTICLE_COPY": {
+   "count": 51,
+   "claude": {
+    "terminated": 50,
+    "mean_score": 1.33
+   },
+   "gpt": {
+    "terminated": 50,
+    "mean_score": 1.41
+   }
+  },
+  "OFF_TOPIC": {
+   "count": 16,
+   "claude": {
+    "terminated": 16,
+    "mean_score": 0.0
+   },
+   "gpt": {
+    "terminated": 16,
+    "mean_score": 0.0
+   }
+  }
+ }
+}

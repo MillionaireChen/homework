@@ -8,6 +8,8 @@ The source used for the run is under [`code/summary-quality-funnel`](code/summar
 
 The report figures are generated deterministically from the final JSONL. Editable architecture and funnel diagrams are provided as [`pipeline.drawio`](diagrams/pipeline.drawio) and [`funnel.drawio`](diagrams/funnel.drawio); the PNGs in `figures/` are the report charts generated from the JSONL.
 
+The independent Claude implementation is compared with this Codex implementation in [`run_artifacts/cross_validation.json`](run_artifacts/cross_validation.json). The comparison script is [`code/compare_implementations.py`](code/compare_implementations.py); it reads only final outputs and derives weak reference labels after both runs are complete.
+
 ## AI-tool disclosure
 
 Codex agents performed the Grounding Gate, Scorer, Reviewer, and Report roles. A local embedding endpoint was used only for article-assigned relevance evidence; no local generative model and no reference summary were provided to runtime evaluators. The evaluation design, hard/soft constraint split, terminal policy, and validation checks were human-directed decisions refined with AI assistance.
