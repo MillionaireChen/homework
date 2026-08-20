@@ -51,7 +51,9 @@ The three rank-`0` categories share the worst tier because each of them makes th
 
 Local overlap, shared entities, dates, or fixed news phrases are not sufficient evidence of copying. Missing normal final punctuation is a reproducible truncation warning, not an automatic final decision; the Reviewer confirms whether the candidate physically ends mid-thought.
 
-### Stage B: Embedding relevance nomination
+### Stage B: Embedding relevance nomination — required, never terminal
+
+This stage is **required**. Every survivor must leave it carrying a similarity value, and a run that cannot reach the embedding model is incomplete rather than cheaper: the requirement is on the evidence, not on the decision. It needs a local Ollama server serving `qwen3-embedding:0.6b`.
 
 Compare the candidate with its own assigned article and with nothing else. A production request supplies one article and one candidate, so own-article rank against a corpus and margin to other articles are inadmissible: they consume context the caller never provided. Absolute similarity below the calibrated threshold is a cheap hint that the next stage should look closely.
 
@@ -155,9 +157,16 @@ Small random runs establish whether the pipeline executes coherently and catches
 
 ## 8. Deliverables
 
-- `plugin_GPT/summary-quality-funnel/`: Codex plugin with evaluation and report skills.
-- `experiments_GPT/`: reproducible exploratory and ablation outputs.
-- `evaluation_runs_GPT/`: audited end-to-end score records and reports.
-- `progressing_GT.md`: GPT-side decision and implementation log.
+The design is delivered as a plugin, twice, so that the same funnel can be installed rather than re-driven by hand.
+
+- `plugin_claude/summary-quality-funnel/`: Claude Code plugin — one command, one skill, four agents, deterministic scripts.
+- `plugin_GPT/summary-quality-funnel/`: Codex plugin — the same funnel with evaluation and report skills.
+- `evaluation_runs_claude/`, `evaluation_runs_GPT/`: audited end-to-end score records, audit trails, and reports for each plugin.
+- `experiments_claude/`, `experiments_GPT/`: reproducible exploratory and ablation outputs.
+- `cross_validation/`: agreement statistics between the two implementations, computed after both runs were final.
+- `processing.md`, `progressing_GT.md`: the decision and implementation logs for each side.
+
+In the assembled submission the same material appears as `plugins/a-claude-code/`, `plugins/b-codex/`,
+`runs/`, `code/`, and `cross_validation.json`.
 
 Japanese text inside datasets, evaluated articles, candidate summaries, evidence spans, and language-specific fixtures is intentionally preserved. All project-facing documentation, prompts, labels, reports, and visualizations are English.
