@@ -417,6 +417,26 @@ One further finding from the same test: the Reviewer noticed the draft's trace j
 
 Still untested: whether a Reviewer catches the amputated-mid-token group. This test covered only the undecidable group.
 
+## 2026-08-20 — Reference Reachability Is Prevented by Convention, Not by Construction
+
+Raised by the user after the full 250-pair run: the Reviewer is the last line of defence, so a verdict it reaches must be reachable in production, where no reference summary exists.
+
+What the run artifacts show:
+
+- the Reviewer's working file, `inputs.jsonl`, carries `article_id`, `summary_id`, `title`, `article`, `summary` and no reference field, so no reference text was handed to any Reviewer call;
+- `hard_gate.py` strips `reference_summary` from every record it passes on, and `validate_result.py` fails any output containing the string;
+- but `data/articles.jsonl` sits in the repository with its `reference_summary` column intact, and the Reviewer holds `Read`, `Grep`, and `Glob`. Nothing stopped it from opening that file. Only the prompt did.
+
+So the verdicts are very probably clean, and that is the problem: "probably clean, because we asked it not to look" is not a property anyone can verify from the artifacts. The guarantee is a convention, and a convention is not evidence.
+
+`summary-reviewer-blind` was added as the structural answer. Its judgment text is a byte-for-byte copy of `summary-reviewer`, which the run showed to be the strongest role in the funnel; only its access changes. It holds `Write` alone, has no Read, Grep, or Glob, and receives the article and candidate inline in its prompt, so a reference summary is out of reach rather than out of bounds. It ignores any text presented to it as a reference, records that it did, and stamps `corpus_blind: true` on every verdict file.
+
+**Deferred to the next version, deliberately.** The blind Reviewer is written and committed but no run has used it, and the cost is real: passing full article bodies inline makes every review call heavier than reading them from disk. Development cannot continue indefinitely, so the current position is stated plainly rather than fixed now:
+
+- the shipped 250-pair run was adjudicated by the file-reading Reviewer. Its verdicts are reference-free by convention and by the absence of reference fields in its inputs, not by construction;
+- treat that run as expert-rule tuning carried out in an environment where a reference existed, which is what it was;
+- the next version should re-adjudicate at least the 85 terminal decisions with `summary-reviewer-blind` and report the delta. That number is the honest measure of how much the reachability of a reference mattered, and until it exists, no claim about production-shaped review should be made.
+
 ## Current Status
 
 The current design has three isolated roles—Scorer, Reviewer, and Report Agent—and a deterministic-to-semantic cascade with early stopping. The next work is broader held-out validation, controlled factual perturbations, human ranking comparison, and threshold recalibration across models and domains.
