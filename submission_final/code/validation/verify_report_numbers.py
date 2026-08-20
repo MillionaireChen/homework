@@ -46,6 +46,14 @@ def spearman(xs, ys):
            * sum((ry[i] - my) ** 2 for i in range(n))) ** 0.5
     return num / den
 
+def pearson(xs, ys):
+    n = len(xs)
+    mx, my = sum(xs) / n, sum(ys) / n
+    num = sum((xs[i] - mx) * (ys[i] - my) for i in range(n))
+    den = (sum((xs[i] - mx) ** 2 for i in range(n))
+           * sum((ys[i] - my) ** 2 for i in range(n))) ** 0.5
+    return num / den
+
 # --------------------------------------------------- weak labels from corpus
 def weak_labels(articles, summaries):
     """One category per candidate, derived from the corpus alone.
@@ -160,9 +168,59 @@ def main():
         check(f"run A mean {k}", v, round(st.mean(dims[k]), 1), 0.05)
     check("run A pairs reaching the scorer", 170, 250 - 51 - 29)
 
+    softA_sorted = sorted(softA)
+    check("run A score median", 79, st.median(softA))
+    check("run A score SD", 15.1, round(st.pstdev(softA), 1), 0.05)
+    check("run A score Q1", 68, softA_sorted[len(softA_sorted) // 4])
+    check("run A score Q3", 87, softA_sorted[3 * len(softA_sorted) // 4])
+    labA = collections.Counter(A[i]["quality_label"] for i in ids if not term(A, i))
+    for k, v in [("EXCELLENT", 28), ("GOOD", 66), ("FINE", 34),
+                 ("MIXED", 25), ("POOR", 12)]:
+        check(f"run A label {k}", v, labA[k])
+
     tB = collections.Counter(B[i]["terminal_result"] for i in ids if term(B, i))
     check("run B terminals", 77, sum(tB.values()))
     check("run B graded", 173, sum(1 for i in ids if not term(B, i)))
+    for k, v in [("VERBATIM_SOURCE_COPY", 50), ("OFF_TOPIC", 17),
+                 ("FACTUAL_REVERSAL", 7), ("OBVIOUS_TRUNCATION", 3),
+                 ("FABRICATED_CONTENT", 0)]:
+        check(f"run B terminal {k}", v, tB[k])
+    softB = sorted(B[i]["score"] for i in ids if not term(B, i))
+    check("run B score mean", 76.2, round(st.mean(softB), 1), 0.05)
+    check("run B score median", 82, st.median(softB))
+    check("run B score SD", 19.0, round(st.pstdev(softB), 1), 0.05)
+    check("run B score Q1", 63, softB[len(softB) // 4])
+    check("run B score Q3", 91, softB[3 * len(softB) // 4])
+    check("run B score min", 28, min(softB))
+    check("run B score max", 100, max(softB))
+    dimsB = collections.defaultdict(list)
+    for i in ids:
+        if not term(B, i):
+            for k, v in B[i]["dimensions"].items():
+                dimsB[k].append(v)
+    for k, v in [("faithfulness", 37.4), ("coverage", 20.0),
+                 ("coherence", 13.9), ("conciseness", 4.8)]:
+        check(f"run B mean {k}", v, round(st.mean(dimsB[k]), 1), 0.05)
+    labB = collections.Counter(B[i]["quality_label"] for i in ids if not term(B, i))
+    for k, v in [("EXCELLENT", 52), ("GOOD", 49), ("FINE", 26),
+                 ("MIXED", 26), ("POOR", 20)]:
+        check(f"run B label {k}", v, labB[k])
+
+    # -- review completion (Table V, lower block) --------------------------
+    for run, nm, approve, one, two, high in ((A, "A", 250, 242, 8, 196),
+                                             (B, "B", 250, 95, 155, 250)):
+        dec = collections.Counter((run[i].get("review") or {}).get("decision")
+                                  for i in ids)
+        rounds = collections.Counter((run[i].get("review") or {}).get("rounds")
+                                     for i in ids)
+        conf = collections.Counter((run[i].get("review") or {}).get("confidence")
+                                   for i in ids)
+        check(f"run {nm}: final decision APPROVE", approve, dec["APPROVE"])
+        check(f"run {nm}: unresolved escalations", 0,
+              sum(v for k, v in dec.items() if k != "APPROVE"))
+        check(f"run {nm}: settled in one review round", one, rounds[1])
+        check(f"run {nm}: sent back for a second round", two, rounds[2])
+        check(f"run {nm}: reviewer confidence HIGH", high, conf["HIGH"])
 
     # -- III-A internal consistency ---------------------------------------
     bands = [("EXCELLENT", 90, 100), ("GOOD", 75, 89), ("FINE", 65, 74),
@@ -220,6 +278,31 @@ def main():
     check("run A: generated candidates reaching EXCELLENT", 28,
           sum(1 for i in ids if lab[i] == "GENERATED" and not term(A, i)
               and A[i]["score"] >= 90))
+    for run, nm, expect in ((A, "A", {"FRAGMENT": (5, 59.4), "REFERENCE": (0, 78.6),
+                                      "GENERATED": (14, 76.6)}),
+                            (B, "B", {"FRAGMENT": (3, 48.4), "REFERENCE": (0, 79.9),
+                                      "GENERATED": (8, 77.9)})):
+        for L, (stops, mean) in expect.items():
+            g = [i for i in ids if lab[i] == L]
+            check(f"run {nm}: {L} stopped", stops,
+                  sum(1 for i in g if term(run, i)))
+            alive = [run[i]["score"] for i in g if not term(run, i)]
+            check(f"run {nm}: {L} survivor mean", mean,
+                  round(st.mean(alive), 1), 0.05)
+    check("run B: FRAGMENT survivor range",  (34, 63),
+          (min(B[i]["score"] for i in ids if lab[i] == "FRAGMENT" and not term(B, i)),
+           max(B[i]["score"] for i in ids if lab[i] == "FRAGMENT" and not term(B, i))))
+    check("run B: REFERENCE survivor range", (40, 99),
+          (min(B[i]["score"] for i in ids if lab[i] == "REFERENCE"),
+           max(B[i]["score"] for i in ids if lab[i] == "REFERENCE")))
+    check("run B: GENERATED survivor range", (28, 100),
+          (min(B[i]["score"] for i in ids if lab[i] == "GENERATED" and not term(B, i)),
+           max(B[i]["score"] for i in ids if lab[i] == "GENERATED" and not term(B, i))))
+    check("run B: reference reproductions reaching EXCELLENT", 10,
+          sum(1 for i in ids if lab[i] == "REFERENCE" and B[i]["score"] >= 90))
+    check("run B: generated candidates reaching EXCELLENT", 42,
+          sum(1 for i in ids if lab[i] == "GENERATED" and not term(B, i)
+              and B[i]["score"] >= 90))
     frag_alive = [A[i]["score"] for i in ids if lab[i] == "FRAGMENT" and not term(A, i)]
     check("run A: fragments stopped", 5,
           sum(1 for i in ids if lab[i] == "FRAGMENT" and term(A, i)))
@@ -254,6 +337,28 @@ def main():
     check("run A: max within-article spread", 61, max(spreads))
     check("run A: articles with 2-4 survivors", 50,
           sum(v for k, v in survivors.items() if 2 <= k <= 4))
+    for run, nm, ranks, survs, spread in (
+            (A, "A", {1: 5, 2: 43, 3: 2}, {2: 4, 3: 27, 4: 19}, (26, 6, 61)),
+            (B, "B", {1: 7, 2: 36, 3: 7}, {2: 3, 3: 21, 4: 26}, (32, 2, 68))):
+        rk, sv, sp = collections.Counter(), collections.Counter(), []
+        for g in by_art.values():
+            refs = [i for i in g if lab[i] == "REFERENCE"]
+            order = sorted(g, key=lambda i: -run[i]["score"])
+            rk[min(order.index(i) for i in refs) + 1] += 1
+            alive = [run[i]["score"] for i in g if not term(run, i)]
+            sv[len(alive)] += 1
+            if len(alive) > 1:
+                sp.append(max(alive) - min(alive))
+        for r, v in ranks.items():
+            check(f"run {nm}: reference at within-article rank {r}", v, rk[r])
+        check(f"run {nm}: reference at rank 4 or 5", 0, rk[4] + rk[5])
+        for k, v in survs.items():
+            check(f"run {nm}: articles with {k} survivors", v, sv[k])
+        check(f"run {nm}: articles with 0, 1 or 5 survivors", 0,
+              sv[0] + sv[1] + sv[5])
+        check(f"run {nm}: spread median", spread[0], st.median(sp))
+        check(f"run {nm}: spread min", spread[1], min(sp))
+        check(f"run {nm}: spread max", spread[2], max(sp))
 
     # -- III-F cross-implementation ----------------------------------------
     both_term = [i for i in ids if term(A, i) and term(B, i)]
@@ -291,6 +396,31 @@ def main():
           min(A[i]["score"] for i in b_only))
     check("cross: A score range for B-only terminals (max)", 71,
           max(A[i]["score"] for i in b_only))
+    check("cross: pearson", 0.865, round(pearson(xa, xb), 3), 0.0005)
+    delta = [xa[k] - xb[k] for k in range(len(xa))]
+    check("cross: SD of delta", 8.81, round(st.pstdev(delta), 2), 0.005)
+    for lim, n in ((5, 86), (10, 124), (15, 145), (20, 156)):
+        check(f"cross: |delta| <= {lim}", n,
+              sum(1 for v in delta if abs(v) <= lim))
+    order5 = ["EXCELLENT", "GOOD", "FINE", "MIXED", "POOR"]
+    check("cross: label within one band", 157,
+          sum(1 for i in both_soft
+              if abs(order5.index(A[i]["quality_label"])
+                     - order5.index(B[i]["quality_label"])) <= 1))
+    for dim, rho, mad in (("faithfulness", 0.864, 4.25), ("coverage", 0.882, 2.96),
+                          ("coherence", 0.635, 0.70), ("conciseness", 0.243, 0.25)):
+        da = [A[i]["dimensions"][dim] for i in both_soft]
+        db = [B[i]["dimensions"][dim] for i in both_soft]
+        check(f"cross: {dim} spearman", rho, round(spearman(da, db), 3), 0.0005)
+        check(f"cross: {dim} mean |delta|", mad,
+              round(st.mean(abs(da[k] - db[k]) for k in range(len(da))), 2), 0.005)
+    wa = collections.Counter(lab[i] for i in a_only)
+    wb = collections.Counter(lab[i] for i in b_only)
+    check("cross: A-only weak labels GENERATED", 7, wa["GENERATED"])
+    check("cross: A-only weak labels FRAGMENT", 4, wa["FRAGMENT"])
+    check("cross: B-only weak labels GENERATED", 1, wb["GENERATED"])
+    check("cross: B-only weak labels FRAGMENT", 2, wb["FRAGMENT"])
+    check("cross: delta histogram bins sum to n", 162, len(delta))
 
     # -- III-G third read on the unlabelled block ---------------------------
     if os.path.exists(args.third_read):
@@ -318,6 +448,28 @@ def main():
         check("third read: mean audit score for the rest", 77.0,
               round(st.mean(third[i]["claude"]["score"]
                             for i in third if i not in set(stopped)), 1), 0.05)
+        check("third read: candidates the rest count", 95,
+              len([i for i in third if i not in set(stopped)]))
+        check("third read vs run A: pearson", 0.951,
+              round(pearson(tr, [A[i]["score"] for i in pool]), 3), 0.0005)
+        check("third read vs run B: pearson", 0.924,
+              round(pearson(tr, [B[i]["score"] for i in pool]), 3), 0.0005)
+        check("third read: A vs B spearman on the same pool", 0.916,
+              round(spearman([A[i]["score"] for i in pool],
+                             [B[i]["score"] for i in pool]), 3), 0.0005)
+        check("third read: A vs B MAD on the same pool", 6.52,
+              round(st.mean(abs(A[i]["score"] - B[i]["score"])
+                            for i in pool), 2), 0.005)
+        check("third read: range for candidates run A stopped", (20, 53),
+              (min(third[i]["claude"]["score"] for i in stopped),
+               max(third[i]["claude"]["score"] for i in stopped)))
+        stoppedB = [i for i in third if term(B, i)]
+        check("third read: candidates run B stopped in this block", 8, len(stoppedB))
+        check("third read: mean audit score for those (B)", 34.2,
+              round(st.mean(third[i]["claude"]["score"] for i in stoppedB), 1), 0.05)
+        check("third read: range for candidates run B stopped", (22, 59),
+              (min(third[i]["claude"]["score"] for i in stoppedB),
+               max(third[i]["claude"]["score"] for i in stoppedB)))
     else:
         print(f"[skip] third-read file not found: {args.third_read}", file=sys.stderr)
 
