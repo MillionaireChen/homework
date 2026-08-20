@@ -343,6 +343,27 @@ Verification on the 250-pair input: the gate still proposes exactly 53 terminals
 
 Not yet done: no run has exercised the new escalation path. The next run, which will also have the embedding stage enabled, is the one that tests it.
 
+## 2026-08-20 — Some Truncations Are Undecidable Without a Reference
+
+A one-record smoke test after the truncation fix contradicted the expectation behind the fix, which makes it the most useful result of the day.
+
+Test candidate `51395937_e409196f`, a leading fragment of its article's reference summary cut so that `方針を発表した。` became `方針を発表`. All four stages ran, with the embedding gate live for the first time: the physical gate flagged without proposing (`final_character` `表`, `missing_terminal_punctuation` true, `hard_truncation` false); the embedding gate reached the local model and returned `assigned_similarity` 0.7494 in `assigned_article_only` mode with zero cross-article comparisons; the Grounding Gate returned `GROUNDED`, citing the new peripheral-defect counter-example; the Scorer scored 60 MIXED and recorded the broken ending in `issues` without proposing a terminal.
+
+The Reviewer then reached the restored escalation path, compared the candidate against the `TRUNCATED` few-shot, and declined to escalate. Its argument: `…方針を発表` is ordinary Japanese news 体言止め, where the verbal noun discharges the main clause while every argument is present, so absent sentence-final punctuation is a register choice rather than a stop mid-thought. It also revised the score upward, 60 MIXED to 69 FINE, on the ground that coherence 6 of 15 belongs to genuinely garbled text.
+
+The corpus shows the candidate was cut mid-predicate: the characters after the cut are `した。`. So the verdict is wrong about the fact and correct about the evidence. `〜を発表` is simultaneously a legitimate headline register and the residue of cutting `〜を発表した。`, and the deleted text is the only thing that separates them. A reference-free evaluator does not have it. No prompt, rule, or agent working from the article and the candidate alone can decide this case.
+
+This splits the 14 truncations the full run missed into two groups that must never again be reported as one:
+
+- **amputated mid-token**, endings such as `しかしそ`, `女性2人が車`, `このうち4割`, `救助し`. The break is visible in the text, so a Reviewer can be expected to catch these, and missing them is a recall problem worth measuring.
+- **体言止め endings**, such as `発表` and `入植地`. Undecidable from the pair alone. Missing them is a limit of the reference-free contract, not a defect in the funnel, and must not be counted against the evaluator.
+
+So the earlier framing was wrong twice over: restoring the Reviewer's escalation permission was necessary but does not recover the whole class, and part of the class is unrecoverable by construction. The escalation path itself is confirmed working, having been reached, exercised, and used to reach a reasoned negative. The permission was the fix; the judgment stays with the Reviewer.
+
+One further finding from the same test: the Reviewer noticed the draft's trace jumped from `embedding_relevance` to `draft_scoring` with no `grounding_gate` entry, so `eligible_for_soft_scoring: true` was not reproducible from the trace. The cause was orchestration, the gate and Scorer having been launched in parallel to save a round trip, so the Scorer's input never carried the gate's trace event. Absent from a sequential run, but it shows a missing stage is visible from the artifact alone.
+
+Still untested: whether a Reviewer catches the amputated-mid-token group. This test covered only the undecidable group.
+
 ## Language Policy
 
 Project-facing documentation, prompts, labels, reports, charts, and code messages are English. Japanese source articles, candidate summaries, evidence spans, and language-specific fixtures remain Japanese because translating them would change the evaluation task.

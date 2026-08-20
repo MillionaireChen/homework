@@ -15,7 +15,13 @@ Hard constraints come in two layers and a candidate must clear both before it is
 1. `EMPTY_OUTPUT`: normalized candidate is empty.
 2. `OVER_SENTENCE_LIMIT`: candidate contains more than three top-level sentences.
 3. `VERBATIM_SOURCE_COPY`: whole or almost whole candidate is a continuous/high-coverage copy of the input body. Ordinary entity, number, quotation, and short-phrase overlap is insufficient.
-4. `OBVIOUS_TRUNCATION`: the candidate physically stops mid-thought. The deterministic gate proposes this only on evidence a string test can prove, a final comma or colon or an unclosed bracket or quotation, and treats particle endings as suspicion. Everything else it records and passes on: a candidate ending without sentence-final punctuation, on a bare noun, or on a clause with no predicate reaches the Reviewer, which reads the text and may escalate it during the soft-score pass. Truncation is therefore a review decision, not a gate decision.
+4. `OBVIOUS_TRUNCATION`: the candidate is a fragment that no longer carries the article's content. Truncation is a review decision, and the bar for terminating is high.
+
+   The deterministic gate proposes this only on evidence a string test can prove, a final comma or colon or an unclosed bracket or quotation. Everything else it records and passes on, including a candidate ending without sentence-final punctuation, on a bare noun, or on a clause with no predicate.
+
+   The Reviewer then decides on this rule: **a cut candidate that still reports what the article is about is not terminal.** It stays in soft scoring and loses coherence in proportion to how broken the reading is, with faithfulness and coverage judged on what it actually says. Terminate only when the fragment carries no usable content at all, for example a stub that names a subject and stops before saying anything about it.
+
+   This deliberately declines to distinguish a deliberate headline register from a cut, because the two are not separable from the article and the candidate alone. Both are penalized as reading defects rather than routed to `0`.
 5. `OFF_TOPIC`: candidate is unrelated to its assigned article. Judge this from the article and the candidate alone; embedding similarity may nominate and independent review must confirm. Confirmed `OFF_TOPIC` receives score `0` and ranks last without dispute.
 6. `FACTUAL_REVERSAL`: candidate asserts the opposite of the article's main event or its central outcome. The wording is fluent and the topic is correct, so nothing upstream can see it.
 7. `FABRICATED_CONTENT`: the candidate's central content has no basis in the article at all. The event, outcome, decision, quotation, or figure that carries the summary's message appears nowhere in the source.
