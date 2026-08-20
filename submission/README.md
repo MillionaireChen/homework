@@ -11,24 +11,30 @@ Two independent implementations of one reference-free evaluation design, each ru
 ```
 submission/
 ├── report.md                  primary artifact: exploration, design, validation, limitations
+├── processing.md              decision log kept while working: hypotheses, corrections, dead ends
+├── DESIGN.md                  the design as it stood at the end
 ├── scores.jsonl               250 rows, one per summary_id, both implementations per row
 ├── cross_validation.json      machine-readable agreement statistics between the two
 ├── figures/
-│   ├── *.png / *.svg         diagrams and charts embedded by the report (script-generated)
-│   └── *.drawio              editable source of the three diagrams (diagrams.net)
+│   ├── funnel_architecture   the three-layer funnel        .png .svg .drawio
+│   ├── funnel_results        outcomes + cross-validation   .png .svg .drawio
+│   ├── failure_modes         failure taxonomy              .png .svg .drawio
+│   └── *.png                 result charts from the runs (funnel, scores, categories,
+│                             reference validation, cross-implementation agreement)
 ├── code/
 │   ├── implementation_a_claude/   Claude Code plugin: skill, 4 agents, scripts
 │   ├── implementation_b_gpt/      GPT/Codex plugin: skill, agents, scripts
 │   ├── exploration/               data exploration and embedding calibration
-│   └── cross_validation/          compare_implementations.py
+│   ├── cross_validation/          compare_implementations.py
+│   └── figures/                   make_diagrams.py — regenerates the three diagrams
 └── runs/
     ├── implementation_a_claude_full250/   full audit trail: gates, reviews, drafts, verdicts
     └── implementation_b_gpt_full250/      same, for the second implementation
 ```
 
-Two further documents in the repository root record how the work actually proceeded, including
-abandoned approaches and corrections: `processing.md` (decision log) and `DESIGN.md` (design as it
-stood at the end).
+Two further documents record how the work actually proceeded, including abandoned approaches and
+corrections I had to make: [`processing.md`](processing.md) (decision log, written as the work
+happened) and [`DESIGN.md`](DESIGN.md) (the design as it stood at the end).
 
 ## scores.jsonl format
 
@@ -61,7 +67,8 @@ below is what those agents run internally — you do not drive the stages by han
 
 ### Implementation A — Claude Code plugin
 
-The repository already ships the install config at `.claude/settings.json`:
+The install config is `code/implementation_a_claude/settings.json.example`; in the working
+repository it lives at `.claude/settings.json`:
 
 ```json
 {
@@ -89,7 +96,7 @@ but deliberately not used in this run (see Limitations).
 
 ### Implementation B — Codex plugin
 
-Manifest at `plugin_GPT/summary-quality-funnel/.codex-plugin/plugin.json`, installed the way Codex
+Manifest at `code/implementation_b_gpt/summary-quality-funnel/.codex-plugin/plugin.json`, installed the way Codex
 installs a local plugin. Once installed it appears in the command list as two entries you invoke
 directly:
 
@@ -127,6 +134,15 @@ S=submission/code/implementation_a_claude/summary-quality-funnel/skills/evaluate
                                           --output /tmp/ranked.jsonl
 .venv/bin/python $S/make_report_charts.py --input /tmp/ranked.jsonl --outdir /tmp/figs
 ```
+
+Regenerate the three explanatory diagrams (SVG, plus PNG when ImageMagick is present):
+
+```bash
+.venv/bin/python submission/code/figures/make_diagrams.py --outdir submission/figures
+```
+
+The `.drawio` files hold the same diagrams for hand editing; the report embeds the PNGs, because a
+markdown image cannot point at drawio XML.
 
 Cross-validating the two implementations is a single script and needs no agents:
 

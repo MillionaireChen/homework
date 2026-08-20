@@ -11,23 +11,29 @@
 ```
 submission/
 ├── report.md                  首要产出:探索、设计、验证、局限
+├── processing.md              边做边写的决策日志:假设、纠正、走过的死路
+├── DESIGN.md                  收尾时的设计定稿
 ├── scores.jsonl               250 行,每个 summary_id 一行,同一行含两套实现的结果
 ├── cross_validation.json      两套实现一致性的机器可读统计
 ├── figures/
-│   ├── *.png / *.svg         报告嵌入的图与图表(脚本生成)
-│   └── *.drawio              三张图的可编辑源文件(diagrams.net)
+│   ├── funnel_architecture   三层漏斗架构        .png .svg .drawio
+│   ├── funnel_results        结果与交叉验证      .png .svg .drawio
+│   ├── failure_modes         失败模式分类        .png .svg .drawio
+│   └── *.png                 运行产出的结果图表(漏斗、分数、类别、
+│                             参考答案验证、两套实现一致性)
 ├── code/
 │   ├── implementation_a_claude/   Claude Code 插件:skill、4 个 agent、脚本
 │   ├── implementation_b_gpt/      GPT/Codex 插件:skill、agent、脚本
 │   ├── exploration/               数据探索与嵌入阈值校准
-│   └── cross_validation/          compare_implementations.py
+│   ├── cross_validation/          compare_implementations.py
+│   └── figures/                   make_diagrams.py —— 重新生成三张图
 └── runs/
     ├── implementation_a_claude_full250/   完整审计轨迹:各道门、复核、草稿、判定
     └── implementation_b_gpt_full250/      同上,第二套实现
 ```
 
-仓库根目录另有两份文档,记录了工作实际推进的过程,包括被放弃的方案和被纠正的错误:
-`processing.md`(决策日志)与 `DESIGN.md`(收尾时的设计定稿)。
+另有两份文档记录了工作实际推进的过程,包括被放弃的方案和我必须做出的纠正:
+[`processing.md`](processing.md)(边做边写的决策日志)与 [`DESIGN.md`](DESIGN.md)(收尾时的设计定稿)。
 
 ## scores.jsonl 格式
 
@@ -56,7 +62,7 @@ submission/
 
 ### 实现 A — Claude Code 插件
 
-仓库里已经带了安装配置 `.claude/settings.json`:
+安装配置见 `code/implementation_a_claude/settings.json.example`;在工作仓库里它位于 `.claude/settings.json`:
 
 ```json
 {
@@ -80,7 +86,7 @@ submission/
 
 ### 实现 B — Codex 插件
 
-清单在 `plugin_GPT/summary-quality-funnel/.codex-plugin/plugin.json`,按 Codex 安装本地插件的常规方式装。装好后它会在命令列表里显示为两个可直接调用的条目:
+清单在 `code/implementation_b_gpt/summary-quality-funnel/.codex-plugin/plugin.json`,按 Codex 安装本地插件的常规方式装。装好后它会在命令列表里显示为两个可直接调用的条目:
 
 - **Summary Quality Funnel** — 硬约束门、带复核的评分、报告 agent、审计轨迹
 - **Summary Report Agent** — 运行固定的报告代码,只由 agent 撰写结论部分
@@ -113,6 +119,14 @@ S=submission/code/implementation_a_claude/summary-quality-funnel/skills/evaluate
                                           --output /tmp/ranked.jsonl
 .venv/bin/python $S/make_report_charts.py --input /tmp/ranked.jsonl --outdir /tmp/figs
 ```
+
+重新生成三张说明图(SVG,装了 ImageMagick 时同时出 PNG):
+
+```bash
+.venv/bin/python submission/code/figures/make_diagrams.py --outdir submission/figures
+```
+
+`.drawio` 文件保存同样的图供手工编辑;报告嵌入的是 PNG——markdown 的图片语法无法指向 drawio XML。
 
 两套实现的交叉验证是单个脚本,不需要任何 agent:
 
