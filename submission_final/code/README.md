@@ -87,7 +87,7 @@ layout.
 
 ## `validation/`
 
-- `verify_report_numbers.py` — re-derives all 91 numbers quoted in the report
+- `verify_report_numbers.py` — re-derives all 199 numbers quoted in the report
   from `data/` and the two run files, and asserts each one. Run it with no
   arguments from this directory.
 - `compare_implementations.py` — the cross-host comparison of §III-F.
@@ -96,8 +96,11 @@ layout.
 
 ## `report/`
 
-`report.tex` and its build. All diagrams are TikZ and all charts are pgfplots
-drawn from the run data; there are no imported images.
+`report.tex` and its build (`build.sh`). All diagrams are TikZ and all charts
+are pgfplots drawn from the run data; there are no imported images.
+`archive/` holds the first version of the report, whose Validation section
+carried one mixed summary table instead of the five result tables the current
+one uses; it is kept because it is part of how the work went.
 
 ## The logs
 

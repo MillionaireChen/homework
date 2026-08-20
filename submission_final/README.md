@@ -137,7 +137,7 @@ Every number quoted in the report is re-derived from the shipped artifacts:
 
 ```bash
 cd code/validation
-python3 verify_report_numbers.py          # 91 checks, exits non-zero if any moves
+python3 verify_report_numbers.py          # 199 checks, exits non-zero if any moves
 ```
 
 It reads only `data/`, the two run files and the third-read file — no model, no

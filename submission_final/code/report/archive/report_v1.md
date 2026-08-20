@@ -278,190 +278,86 @@ produced it.
 ## III. Validation
 
 An evaluation is only worth its weakest justification, so the goal here was
-several checks that fail differently rather than one check repeated. Table V
-states what the two implementations produced; Tables VI–IX give each check's
-numbers. The prose says what each one can and cannot support.
+several checks that fail differently rather than one check repeated.
 
-### A. Run-level results
+**Table V — Seven validation checks.** "A" is the primary Claude-plugin run,
+"B" the independent Codex-plugin run.
 
-Table V is the whole outcome of both runs, side by side. Run A is the
-submitted one.
+| Check | What it tests | Result |
+|---|---|---:|
+| Arithmetic & bands | 500 records, sums and label boundaries | 0 errors |
+| Repeated text | 8 duplicate pairs inside one article | 8/8, 8/8 |
+| Pair conditioning | 14 texts under own *and* foreign article | 14/14, 14/14 |
+| Weak labels | 141 corpus-derivable categories | .915 / .901 |
+| Within-article order | planted failure vs. its reference | 0/50, 0/50 |
+| Cross-host routing | A vs. B on 250 pairs | .944 |
+| Third read | 109 candidates with no ground truth | ρ .960 |
 
-**Table V — Run-level results.** A is the primary Claude-plugin run and the
-source of `scores.jsonl`; B is the independent Codex-plugin run.
-
-| | A | B |
-|---|---:|---:|
-| Pairs / articles | 250 / 50 | 250 / 50 |
-| ***Routing*** | | |
-| Terminal | 85 | 77 |
-| Graded | 165 | 173 |
-| ***Terminal category*** | | |
-| `VERBATIM_SOURCE_COPY` | 50 | 50 |
-| `OFF_TOPIC` | 16 | 17 |
-| `FACTUAL_REVERSAL` | 13 | 7 |
-| `OBVIOUS_TRUNCATION` | 5 | 3 |
-| `FABRICATED_CONTENT` | 1 | 0 |
-| ***Graded score*** | | |
-| Mean / median | 76.1 / 79 | 76.2 / 82 |
-| SD | 15.1 | 19.0 |
-| Q1 / Q3 | 68 / 87 | 63 / 91 |
-| Min / max | 35 / 98 | 28 / 100 |
-| ***Dimension mean*** | | |
-| Faithfulness /50 | 38.7 | 37.4 |
-| Coverage /30 | 19.0 | 20.0 |
-| Coherence /15 | 13.5 | 13.9 |
-| Conciseness /5 | 4.8 | 4.8 |
-| ***Quality label*** | | |
-| EXCELLENT (90–100) | 28 | 52 |
-| GOOD (75–89) | 66 | 49 |
-| FINE (65–74) | 34 | 26 |
-| MIXED (50–64) | 25 | 26 |
-| POOR (0–49) | 12 | 20 |
-| ***Review completion*** | | |
-| Final decision APPROVE | 250 | 250 |
-| Unresolved escalations | 0 | 0 |
-| Settled in one review round | 242 | 95 |
-| Sent back for a second round | 8 | 155 |
-| Reviewer confidence HIGH | 196 | 250 |
-| ***Record integrity*** | | |
-| Dimension-sum errors | 0 | 0 |
-| Label-band violations | 0 | 0 |
-
-Three things are worth naming before any agreement statistic. The two
-implementations land on the *same* count for the failure a script can
-prove — 50 verbatim copies, exactly — and within one for the failure an
-embedding can nominate, 16 against 17 off-topic. They diverge on the two
-categories that only a reading can raise: A stops 13 reversals and 1
-fabrication where B stops 7 and 0. And their score distributions differ in
-shape, not in centre: the means are 76.1 and 76.2, but B's standard deviation
-is 19.0 against A's 15.1 and it awards 52 EXCELLENT against A's 28. B is the
-more generous reader at the top of the scale and the more permissive one at
-the boundary; A stops eight more candidates and compresses the survivors.
-Every disagreement reported below is a consequence of that single difference
-in temperament.
-
-The review-completion block is not symmetric either, and the asymmetry is
-procedural rather than substantive: B's orchestration sent 155 of 250 drafts
-back for a second round against A's 8. Both runs end with all 250 records
-approved and nothing escalated, so the two arrive at a complete audit by
-different routes — A by drafting closer to what the Reviewer would accept, B by
-revising more. That is a fact about the two hosts, not about the design, and it
-is worth knowing before reading any agreement figure between them.
-
-### B. Internal consistency
+### A. Internal consistency
 
 Across the 500 records of both runs, every soft score equals the sum of its
-four dimensions and every quality label falls inside its declared band: zero
-arithmetic and zero banding violations, the last two rows of Table V. This is a
-floor, not a result — it says the machinery did what it claims, nothing about
-whether the judgements are right.
+four dimensions and every quality label falls inside its declared band; there
+are zero arithmetic and zero banding violations. This is a floor, not a
+result — it says the machinery did what it claims, nothing about whether the
+judgements are right.
 
-### C. Determinism, and a natural experiment in pair conditioning
-
-The corpus supplies two free instruments, both noted in Section I-A.
+### B. The same text, scored twice
 
 Eight groups of candidates are byte-identical *and* attached to the same
 article. Each was scored independently, in a separate context, without either
 scorer knowing the twin existed. All eight received identical totals *and*
-identical values on all four dimensions, in both implementations, 8/8 and 8/8.
-Run-to-run variance on repeated input is therefore not the explanation for any
-spread reported below.
+identical values on all four dimensions, in both implementations. Run-to-run
+variance on repeated input is therefore not the reason for any spread reported
+below.
 
-Fourteen further groups, 32 candidates in all, are byte-identical but split
-across articles: the same text sits under its own article in one place and
-under a foreign one in another. If the evaluator graded text quality, both
-copies would score the same. They do not. In all 14 groups, in both
-implementations, the foreign placement was terminated at 0 as off-topic and the
-native placement was graded on its merits — the text of `54083932_9e7163bb`
-scores 87 under its own article and 0 as `44708203_6d931562` under another. The
-evaluator conditions on the pair, which is what the contract requires and what
-a text-only metric cannot do.
+### C. A natural experiment in pair conditioning
+
+Fourteen further groups are byte-identical but split across articles: the same
+text sits under its own article in one place and under a foreign one in
+another. If the evaluator were grading text quality, it would give both copies
+the same score. It does not. In all 14 groups, in both implementations, the
+foreign placement was terminated at 0 as off-topic and the native placement was
+graded on its merits — for instance the text of `54083932_9e7163bb` scores 87
+under its own article and 0 as `44708203_6d931562` under another. The evaluator
+is conditioning on the pair, which is what the contract requires and what a
+text-only metric cannot do.
 
 ### D. Agreement with corpus-derived weak labels
 
 After both runs were final, references were opened for the first time and the
-Table I categories were used as weak labels.
+Table I categories were used as weak labels. All 50 article copies and all 16
+foreign-article candidates terminated, in both runs. No reference reproduction
+was ever terminated. Overall agreement on the 141 labellable candidates is
+129/141 (0.915) for run A and 127/141 (0.901) for run B.
 
-**Table VI — Outcome by corpus-derived population.** "Stop" is the count
-terminated; the score columns describe the survivors only. The first two
-populations should always stop, the fourth should never stop.
-
-| Population | n | Stop A | Stop B | Survivor mean A | Survivor mean B |
-|---|---:|---:|---:|---:|---:|
-| Copy of the article | 50 | 50 | 50 | — | — |
-| Belongs elsewhere | 16 | 16 | 16 | — | — |
-| Reference fragment | 17 | 5 | 3 | 59.4 | 48.4 |
-| Reference reproduced | 58 | 0 | 0 | 78.6 | 79.9 |
-| Generated | 109 | 14 | 8 | 76.6 | 77.9 |
-| **Agreement, 141 labelled** | | **129** | **127** | **0.915** | **0.901** |
-
-Survivor ranges tell more than the means. Fragments survive at 39–70 in A and
-34–63 in B; reference reproductions at 42–89 and 40–99; generated candidates at
-35–98 and 28–100. The fragment band sits strictly below the reference band's
-upper half in both runs, and no surviving fragment reaches GOOD in either. The
-populations are separated even where they are not stopped.
-
-Full outcome distribution (Figure 2 in the PDF), counts per band:
+Outcome distribution per population, run A (Figure 2 in the PDF):
 
 | Population | terminal | poor | mixed | fine | good | excellent |
 |---|---:|---:|---:|---:|---:|---:|
-| **run A** | | | | | | |
 | Belongs elsewhere (16) | 16 | – | – | – | – | – |
 | Copy of the article (50) | 50 | – | – | – | – | – |
 | Reference fragment (17) | 5 | 2 | 6 | 4 | – | – |
 | Reference reproduced (58) | – | 1 | 3 | 13 | 41 | – |
 | Generated (109) | 14 | 9 | 16 | 17 | 25 | 28 |
-| **run B** | | | | | | |
-| Belongs elsewhere (16) | 16 | – | – | – | – | – |
-| Copy of the article (50) | 50 | – | – | – | – | – |
-| Reference fragment (17) | 3 | 7 | 7 | – | – | – |
-| Reference reproduced (58) | – | 2 | 5 | 10 | 31 | 10 |
-| Generated (109) | 8 | 11 | 14 | 16 | 18 | 42 |
 
-Two things there matter more than the headline agreement figure. First, the
-fragment population is graded rather than uniformly stopped — a deliberate
-divergence from the label, discussed in Section IV-B, not a detection failure.
-Second, in run A *no* reference reproduction reached EXCELLENT while 28
-generated candidates did. This is the reference-quality problem of Section I
-made quantitative: the evaluator credits only what the article body supports,
-and XL-Sum references routinely assert more than that. Run B, the more generous
-reader, places 10 references in the top band — and 42 generated candidates, so
-the ordering survives the difference in temperament.
+Two things there matter more than the headline number. First, the fragment
+population is graded rather than uniformly stopped: 5 of 17 terminate and the
+remaining 12 land between 39 and 70, none reaching GOOD. That is a deliberate
+divergence from the label, discussed in Section IV, not a detection failure.
+Second, *no* reference reproduction reached EXCELLENT while 28 generated
+candidates did. This is the reference-quality problem made quantitative: the
+evaluator credits only what the article body supports, and XL-Sum references
+routinely assert more than that.
 
 ### E. Within-article ordering
 
 The application needs candidates ordered inside an article, so ordering was
 checked directly rather than inferred from scores. Across all 50 articles, in
-both runs, zero articles placed a planted failure at or above the reference
-reproduction for that article.
-
-**Table VII — Within-article behaviour over the 50 articles.**
-
-| | A | B |
-|---|---:|---:|
-| Planted failure ≥ its reference | 0 | 0 |
-| ***Rank of the reference reproduction*** | | |
-| rank 1 | 5 | 7 |
-| rank 2 | 43 | 36 |
-| rank 3 | 2 | 7 |
-| rank 4 or 5 | 0 | 0 |
-| ***Survivors per article*** | | |
-| 2 survivors | 4 | 3 |
-| 3 survivors | 27 | 21 |
-| 4 survivors | 19 | 26 |
-| 0, 1 or 5 survivors | 0 | 0 |
-| ***Score spread among survivors*** | | |
-| median | 26 | 32 |
-| minimum / maximum | 6 / 61 | 2 / 68 |
-
-Ordering is also not degenerate. The median spread between the best and worst
-surviving candidate within an article is 26 points in A and 32 in B, and every
-article retained two to four survivors, so no article was either wiped out or
-passed untouched. The reference reproduction sits at within-article rank 2 in
-the large majority of articles — 43 of 50 in A, 36 of 50 in B — and never below
-rank 3. It is consistently near the top without being treated as the ceiling,
-which is the behaviour a design that distrusts its references should produce.
+both runs, *zero* articles placed a planted failure at or above the reference
+reproduction for that article. Ordering is also not degenerate: the median
+spread between the best and worst surviving candidate within an article is 26
+points (maximum 61), and every article retained between two and four survivors,
+so no article was either wiped out or passed untouched.
 
 ### F. Two implementations, two hosts
 
@@ -470,34 +366,10 @@ implement it twice and compare. The Codex plugin was written against the same
 rubric but a different host, different agent runtime and different underlying
 model, and neither implementation saw the other's output.
 
-**Table VIII — Cross-implementation agreement.** Routing over all 250 pairs;
-score statistics over the 162 pairs both implementations graded. Δ = A − B.
-
-| | count | rate |
-|---|---:|---:|
-| ***Routing, n = 250*** | | |
-| Agreement (both terminal or both graded) | 236 | 0.944 |
-| both terminal | 74 | |
-| both graded | 162 | |
-| terminal in A only | 11 | |
-| terminal in B only | 3 | |
-| Terminal-category agreement | 74 / 74 | 1.000 |
-| ***Score, n = 162*** | | |
-| Spearman ρ | | 0.891 |
-| Pearson r | | 0.865 |
-| Mean \|Δ\| | | 6.85 |
-| Mean Δ (SD) | | −1.97 (8.81) |
-| \|Δ\| ≤ 5 | 86 | 0.531 |
-| \|Δ\| ≤ 10 | 124 | 0.765 |
-| \|Δ\| ≤ 15 | 145 | 0.895 |
-| \|Δ\| ≤ 20 | 156 | 0.963 |
-| Label identical | 88 | 0.543 |
-| Label within one band | 157 | 0.969 |
-| ***Per dimension, n = 162: ρ / mean \|Δ\|*** | | |
-| Faithfulness /50 | | 0.864 / 4.25 |
-| Coverage /30 | | 0.882 / 2.96 |
-| Coherence /15 | | 0.635 / 0.70 |
-| Conciseness /5 | | 0.243 / 0.25 |
+On 250 pairs the two agree on routing (terminal versus graded) for 236, or
+94.4 %, and on *which* terminal category, for all 74 pairs both stopped. On the
+162 pairs both graded, Spearman ρ = 0.891 with a mean absolute difference of
+6.85 points and a signed mean of −1.97 (Figure 3 in the PDF).
 
 The disagreements are more informative than the agreements, and they are
 one-sided in a way that is easy to explain. All 11 pairs stopped only by A are
@@ -506,32 +378,13 @@ fabrication, which B scored between 28 and 66 — low, but not stopped. The 3
 stopped only by B were scored 58–71 by A. Not one disagreement is a case where
 one implementation saw a defect the other missed entirely. The two systems
 disagree about where the cliff is, not about which candidates are near it.
-Their weak-label composition says the same thing: the 11 are 7 generated
-candidates and 4 fragments, the 3 are 1 and 2 — all of them from the two
-populations where a judgement call is required.
 
-The per-dimension block needs a caveat rather than a boast. Faithfulness and
-coverage — the two dimensions that carry 80 of the 100 points and do the
-discriminating — correlate at 0.864 and 0.882 with mean absolute differences of
-4.25 of 50 and 2.96 of 30. Coherence and conciseness correlate far worse, 0.635
-and 0.243, but their absolute differences are 0.70 of 15 and 0.25 of 5: both
-runs push almost every survivor to the ceiling on these two, so the correlation
-is measuring the rank order of near-ties. That is range restriction, not
-disagreement, and it is also a sign that 15 and 5 points are more than these
-dimensions are earning.
-
-Exact agreement on the five-band label is only 88 of 162, or 54.3 %, and that
-number is here because it is the least flattering result in the report. It is a
-banding artefact — a mean absolute difference of 6.85 straddles boundaries 10 to
-15 points wide, and 96.9 % of the pairs are within one band — but it is a real
-caution. The bands are a convenience for a reader; the ordering is what should
-be trusted.
-
-Signed-difference distribution (Figure 3, lower panel), 5-point bins:
-
-| Δ = A − B | ≤−25 | −25 | −20 | −15 | −10 | −5 | 5 | 10 | 15 | 20 | >20 |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| pairs | 1 | 2 | 6 | 19 | 28 | 61 | 18 | 13 | 4 | 7 | 3 |
+Exact agreement on the five-band label is only 88 of 162 (54.3 %), and that
+number is reported here because it is the least flattering result in the
+report. It is a banding artefact — a mean absolute difference of 6.85 straddles
+boundaries that are 10 to 15 points wide — but it is a real caution: the bands
+are convenient for a reader and should not be treated as stable, whereas the
+underlying ordering is.
 
 ### G. The block with no ground truth
 
@@ -543,36 +396,13 @@ corpus. An evaluation that reports 0.915 agreement while remaining silent about
 this block is reporting the wrong number.
 
 So the 109 were scored a third time, by a separate reading that used the same
-rubric but had no access to either run's output. On the 94 candidates all three
-readings graded, the third read agrees with the primary run at ρ = 0.960 and
-4.09 points, and with the secondary run at ρ = 0.936 and 5.95 — in both cases
-more closely than the two implementations agree with each other on the same 94.
-
-**Table IX — Third independent reading of the 109 candidates that carry no
-derivable label.** The upper block is the 94 that all three readings graded; the
-lower block is the candidates a run terminated, scored by a reader who was never
-told they had been stopped.
-
-| Pair | n | ρ | r | mean \|Δ\| |
-|---|---:|---:|---:|---:|
-| Third read vs. A | 94 | 0.960 | 0.951 | 4.09 |
-| Third read vs. B | 94 | 0.936 | 0.924 | 5.95 |
-| A vs. B | 94 | 0.916 | — | 6.52 |
-
-| Group | n | third-read score |
-|---|---:|---|
-| Terminated by A | 14 | mean 32.5, range 20–53 |
-| Terminated by B | 8 | mean 34.2, range 22–59 |
-| Neither | 95 | mean 77.0 |
-
-The lower block of Table IX is the part that matters. The 14 candidates the
-primary run terminated in this block were given a mean of 32.5 by the
-independent read, range 20–53, against 77.0 for the rest; the 8 the secondary
-run terminated came out at 34.2. An independent reader who was never told those
-candidates had been stopped placed every one of them at the bottom of the
-distribution, and the two runs stopped candidates the third read scored at the
-same depth. The terminal decisions on the unlabelled block are corroborated by a
-source that did not make them.
+rubric but had no access to either run's output. Against the primary run this
+third read gives ρ = 0.960 with a mean absolute difference of 4.09 points;
+against the secondary run, ρ = 0.936 and 5.95 points. More pointedly: the 14
+candidates the primary run terminated in this block were given a mean of 32.5 by
+the independent read (range 20–53) against 77.0 for the rest. An independent
+reader who was never told those candidates had been stopped put every one of
+them at the bottom of the distribution.
 
 This does not make the scores correct — three readings of the same rubric can
 share a bias, and none of them is a human judgement. What it does establish is
@@ -583,7 +413,7 @@ idiosyncratic, which is the claim that was actually missing.
 
 Every quantity quoted above is re-derived from the shipped artifacts by
 `code/validation/verify_report_numbers.py`, which reads only `data/`, the two
-run files and the third-read file, and asserts each claim. It prints 199 checks
+run files and the third-read file, and asserts each claim. It prints 91 checks
 and exits non-zero if any of them moves. A reader who does not trust a number in
 this report can recompute it in one command rather than take it on faith.
 
