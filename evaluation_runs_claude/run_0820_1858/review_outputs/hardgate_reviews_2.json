@@ -1,0 +1,110 @@
+{
+  "43411421_374d8c16": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The article body opens 「私たちは2020年に投票する」 銃規制求める生徒たち全米で抗議 デモ隊は行進中、… and runs unbroken to …銃による暴力への対策に失敗していることを非難している。 which is the entire candidate; only the inter-sentence spaces differ, so containment and coverage 1.0 reproduce.",
+    "continue_at": null
+  },
+  "43985653_5686321e": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens ネルソンさん（写真左）とロビンソンさん（同右）は市からそれぞれ1ドルを受け取る。 and continues unbroken through …新たな事業に20万ドル（約2190万円）を寄付すると約束した。, which is the whole candidate with no added or reordered wording.",
+    "continue_at": null
+  },
+  "44026917_e93097e2": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens 労使交渉決裂で辞任に追い込まれたジャンマルク・ジャナイヤック会長兼CEO ストは7日で14日目に突入している。 and runs unbroken to …フランス政府は同社の負債のバックネット役にはならないとしている。, matching the candidate character for character.",
+    "continue_at": null
+  },
+  "44285473_3dc6f328": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens マリ移民の「スパイダーマン」 4歳児救助の瞬間 マモウドゥ・ガッサマさんは、ベランダを4階までよじ登って… and runs unbroken to …エマニュエル・マクロン仏大統領と面会した。, which is the complete candidate including the photo-caption line.",
+    "continue_at": null
+  },
+  "44708203_daf3b32b": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens with the same untranslated caption The boys can be seen introducing themselves next to a diver in a wetsuit and continues unbroken through …少年らはその後、食料の供給を受けたほか、治療も受けている。, covering the candidate in full.",
+    "continue_at": null
+  },
+  "44708557_30eec51a": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens ロブロックスは、複数人が同時にログインできるゲームプラットフォーム。プレイヤーは自分でゲームを作れ、… and runs unbroken to …スクリーンショット（ゲーム画面を撮影した画像）も共有した。, identical to the whole candidate.",
+    "continue_at": null
+  },
+  "45001963_ae50d79f": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens トランプ大統領はサルツバーガー氏と「とても良い」会談を行ったと話した and continues unbroken through the tweet ending …残念だ！」と書いた。; the candidate is that span and nothing else, so this is not mere quotation overlap.",
+    "continue_at": null
+  },
+  "45318822_77c1a188": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens ウーバーは米ライムと提携関係を結んでいる。… and runs unbroken to …高い頻度でするようになるとも予測した。; the candidate even reproduces the source typo 今までよりを高い頻度で, confirming a continuous copy.",
+    "continue_at": null
+  },
+  "45392795_7b0e7ddf": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens 国立博物館は、ブラジルや他の国々の歴史に関する品々を所蔵している 博物館には2000万点以上のコレクションが… and runs unbroken to …今年6月に200周年を祝ったばかりだった。, which is the entire candidate.",
+    "continue_at": null
+  },
+  "45583472_014b86bd": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens with the byline ニック・トリグル健康担当編集委員 and continues unbroken through …100グラムあたりの糖分が、コーラ飲料より多いものもあった。, matching the candidate in full including the byline.",
+    "continue_at": null
+  },
+  "45715110_979831e4": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens ミシェル・ロバーツ、BBCニュースオンライン健康担当編集長 米テキサス大学のジェイムズ・P・アリソン教授（70）と… and runs unbroken to …「際立って効果的」だと立証されたと評価している。, identical to the candidate.",
+    "continue_at": null
+  },
+  "46601033_f36934a6": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens プロジェクトに参加する28人のホームレスの人は当初、市内のロイヤル・ホテルに泊まる予定だったが、… and runs unbroken to …主催者のカール・シンプソンさんは「奇跡はあり得る」と話している。, which is the whole candidate.",
+    "continue_at": null
+  },
+  "46669858_5fcda3e1": {
+    "decision": "REJECT",
+    "terminal_result": null,
+    "evidence": "The unclosed 「 in 人気ロックバンド「セヴンティ is real, but the candidate's first sentence インドネシアで22日発生した津波のため、これまでに少なくとも死者281人、負傷者1016人が確認されている ほか、行方不明者も出ている。 is complete and tracks the article line 22日夜の津波で、スマトラ島とジャワ島の湾岸都市で少なくとも281人が死亡。1016人が負傷した。, so the fragment still reports what the article is about and is not a content-free stub; the cut is a coherence penalty, not a terminal.",
+    "continue_at": "grounding_gate"
+  },
+  "46669858_c2275577": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens 津波が襲った当時、インドネシアの人気ロックバンド「セヴンティーン」はビーチで演奏していた。 and runs unbroken through …大津波に襲われる悲劇を、このバンドが如実に象徴してしまっている。, exactly the candidate including the member-name caption line.",
+    "continue_at": null
+  },
+  "48116477_291f4b8f": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens ミシェル・ロバーツ、BBCニュースオンライン、保健編集長 ある専門家は、近年で最も重要な認知症に絡む発見だと話している。 and runs unbroken to …アルツハイマー型認知症と似ているが、異なる病気だという。, which is the candidate in full.",
+    "continue_at": null
+  },
+  "48493511_abe69178": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens 天安門事件から30年 中国が忘れた映像 魏氏はシンガポールで開かれた会合で、… and runs unbroken to …中央政府は騒乱を収束するために対応した。正しい方針だ」と述べた。, matching the entire candidate.",
+    "continue_at": null
+  },
+  "50162696_c832f13e": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens トルコのレジェプ・タイイップ・エルドアン大統領と、シリアに影響力をもつロシアのウラジーミル・プーチン大統領は22日、… and runs unbroken to …トランプ大統領は「大きな成果」だと歓迎した。, which is the whole candidate.",
+    "continue_at": null
+  },
+  "50285251_38ea6fd2": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "evidence": "The body opens デモ参加者のポスターには「呼吸させて、デリーの空気を毒さないで」と書かれている and runs unbroken through the in-body link line デリーの大気汚染、どれほど深刻？ 車のナンバーで通行制限 to …航空便30便以上が欠航となった。; reproducing that link line proves the span is one continuous copy.",
+    "continue_at": null
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "features-and-analysis-46478194_381886c7": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "Re-checked all six claims against the body. スワントン occurs nowhere in the title or the body of this article; the only place name is Ohio, carried by the closing line （英語記事 Ohio dad makes girl walk miles to school for bullying on bus）. NOT_IN_SOURCE is the right verdict and the city is a peripheral locator, not the summary message, so it stays a faithfulness penalty.",
+      "学校まで is licensed by the title 「いじめた罰だ、学校まで歩きなさい――父親のしつけビデオで議論」, and 合計8キロを数回に分けて matches 「合計8キロの距離は、カーステンさんがスクールバスの利用を禁止された3日間の間、数回に分けて歩ききった」. No entity, number, or negation substitution found.",
+      "Arithmetic verified: 43+26+15+5=89, and 89 falls in GOOD (75-89), so the label matches the band.",
+      "Noted but not revised: faithfulness 43 and coverage 26 sit at the lenient end given the invented city and the omission of the three-day bus ban, the 1700万回以上 view count, and the daughter's own remark. The total lands exactly on the GOOD ceiling with no headroom; the placement is still defensible against the rubric, and a correction of two or three points would not change the label, so a revision would be taste rather than error."
+    ]
+  },
+  "features-and-analysis-46478194_83f0bbbb": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Same claim set as the sibling candidate and the same support pattern verified independently: スワントン unsupported, everything else traceable.",
+      "Coherence defect reproduced: sentence one asserts the debate and refers to a bare 父親 who is only identified in sentence two, so the consequence precedes its cause. The text stays grammatical and recoverable, so 9/15 is a proportional reading penalty rather than a terminal one, and conciseness 4/5 for the duplicated 父親 is consistent.",
+      "Arithmetic verified: 43+26+9+4=82, GOOD (75-89). Correct band, and the 89 versus 82 gap against the sibling is explained entirely by the ordering and redundancy defects, which is internally consistent."
+    ]
+  },
+  "features-and-analysis-46478194_d84463e5": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "All eight claims re-verified in the body: 「娘がバスで他の生徒をいじめた」, 「カーステンさん（10）」, 「合計8キロの距離は…数回に分けて歩ききった」, 「コックスさんは3日、初日のビデオをフェイスブックに投稿」, 「以来1700万回以上再生され」, the positive-and-critical comment split, and the daughter's WTVG remark 「自分もいじめられたことがあり、今回のことで人に優しくすることを覚えた」. No reversal and no number substitution.",
+      "One imprecision the draft did not price: 学校まで約8キロを歩かせ compresses 「学校までの道のりの一部を娘に歩かせた」 plus 「3日間の間、数回に分けて」 into what reads as a single 8 km walk. The distance figure is exact and the 学校まで framing is carried by the title and the English headline, so SUPPORTED stands; a faithfulness of 47 rather than 50 would be equally defensible and would leave 95, still EXCELLENT. Label unaffected, so no revision.",
+      "Arithmetic verified: 50+28+15+5=98, EXCELLENT (90-100). Sentence count is three, inside the limit."
+    ]
+  },
+  "features-and-analysis-46478194_fc95363c": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "Both inventions reproduced from the supplied text. The article contains only 「地元テレビのWTVGニュースによると」 and the daughter's WTVG interview, plus 「コックスさんは地元メディアのニュース5クリーヴランドに対し、ビデオそのものやビデオに付いたコメントを…見せたと話した」. There is no appearance on a television programme. The only school material is 「いじめ行為を学校にとがめられ、2回目だったためスクールバスの利用を3日間禁止された」 and Espelage's 「いじめを助長している学校やスクールバスのありかたそのものに向き合っていない」; no school ever praises the father's method, and no such statement is attributed to him.",
+      "Verdict labels checked: the article is silent on both points rather than opposed, so NOT_IN_SOURCE is correct and CONTRADICTED would be an overreach. The automatic-revise rule for faithfulness above 40 with a CONTRADICTED claim is therefore not engaged, and faithfulness is 22 in any case.",
+      "Centrality boundary confirmed, so no ESCALATE. The load-bearing content is fully supported: an Ohio father, bullying on the school bus, the 10-year-old daughter, the roughly 8 km walk, the Facebook video, 1700万回以上再生, and the debate over the discipline. The fabrication is a second sentence standing beside a correctly stated central event, which is exactly the GROUNDED_PERIPHERAL_DEFECT pattern; FABRICATED_CONTENT requires the invented material to carry the summary's message, and here removing sentence two leaves the article's story intact. Handling it as a heavy faithfulness penalty is the right route.",
+      "Penalty size checked for proportionality: 22/50 is a 56 percent deduction, heavier than the 30/50 of the peripheral-defect reference case, which is appropriate because a full third of the sentence budget is invented and the invention is an attributed endorsement that points the reader in the opposite direction from the article's only expert voice.",
+      "Minor note that does not change the score: 父親は後にテレビ番組に出演し is closer to an overstatement of the News 5 Cleveland interview than a pure invention, but the school-praise fabrication alone justifies the deduction.",
+      "Arithmetic verified: 22+24+14+3=63, MIXED (50-64). Label matches the band."
+    ]
+  },
+  "features-and-analysis-46643494_1d91c9fd": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "All four claims verified: 「Subtle Asian Traits」を立ち上げたのは、豪メルボルンに住む中国系オーストラリア人の高校生9人だ / 「このフェイスブックのグループは今、海外に住むアジア人に文化的な一大現象を巻き起こしている」 / 「9月の立ち上げから現在までに100万人近くが参加している」 / 「参加者のほとんどが…オーストラリアやアメリカ、カナダ、イギリス在住の若者」. Faithfulness 50 stands; dropping 9人 and 9月 is an omission, not an error.",
+      "Coverage 21/30 examined closely because the total sits one point above the EXCELLENT boundary. The candidate omits the identity and stereotype dispute, the September date, and every content example. Treating the phenomenon rather than the dispute as the central story is supported by the title 「厳しい親に、5分進んだ時計……「在外アジア人あるある」がフェイスブックで話題に」, so 21 is inside a defensible range and the resulting label holds.",
+      "Arithmetic verified: 50+21+15+5=91, EXCELLENT (90-100). Single well-formed sentence, so coherence 15 and conciseness 5 are correct."
+    ]
+  },
+  "features-and-analysis-46643494_78994701": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "Source spans reproduced: 「最初のアイデアは、単に家での生活やアジア文化の「ちょっと変わったところ」、バブルティーに関するネタやジョークを共有したかったのだという（アジア発のこの人気ドリンクにまつわるジョークはたくさんある）」. The drink description and the founders' original intent are both supported.",
+      "Trace inconsistency noted but not revised: 頻繁に投稿されている is labelled SUPPORTED in claim_checks while the issues text correctly calls it a stretch. The article says the jokes are numerous and were the founding idea, but never quantifies posting frequency inside the group. This is an intensity inference, not a negation flip or an entity or number substitution, and the draft already prices it at 47/50, so the numeric outcome is right even though the verdict label is loose.",
+      "Coverage 7/30 is correct and matches the low-coverage precedent: the summary is built on a parenthetical aside and drops the nearly one million members, the nine Melbourne founders, the September launch, and the identity dispute. A faithful but off-focus summary landing in the low 70s is the calibrated result, not an error.",
+      "Arithmetic verified: 47+7+14+4=72, FINE (65-74). Label matches the band."
+    ]
+  },
+  "features-and-analysis-46643494_94201a11": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "Candidate reproduced: 「この写真は、フェイスブックに作られた「 Subtle Asian Traits （ちょっとしたアジア人の特徴）」というグループに投稿されたものだ。」 It is a picture caption and the demonstrative この写真 has no antecedent inside the candidate.",
+      "Not truncation and not an ESCALATE case. The sentence is syntactically complete and ends in だ。 with sentence-final punctuation, so it is not a cut fragment at all, and the terminal test of a stub that carries no usable content does not reach a complete sentence.",
+      "Not off topic and not centrally fabricated. The group and the platform check out against 「このフェイスブックのグループは今、海外に住むアジア人に文化的な一大現象を巻き起こしている」 and 「Subtle Asian Traits」を立ち上げたのは…, and the body itself carries photo references such as 「その後、母親から送られてきたというメッセージが下の写真だ」 and 「この投稿には3万以上の「いいね」が付いた」, so a photo posted to the group is unverifiable framing rather than an invented central event.",
+      "Faithfulness 42/50 examined against the apparent inconsistency with fc95363c, where two unsupported claims out of six cost 28 points while here two out of three cost only 8. The difference is justified by the nature of the unsupported material: a Japanese gloss that renders the group name accurately and a deixis about a photo, neither of which asserts anything false about the world, versus an invented television appearance and an invented institutional endorsement. Nothing here is contradicted, so a high faithfulness with a near-zero coverage is the rubric-correct shape.",
+      "Coverage 3/30 and coherence 5/15 are proportional, not arbitrary. Nothing of the main event, the membership figure, the founders, the content examples, or the dispute survives, yet the group name and platform are conveyed, so 3 rather than 0 is right. The sentence is grammatical but cannot be read standalone, so 5 sits correctly between the fully scrambled reference case at 3 and a merely awkward ordering.",
+      "Arithmetic verified: 42+3+5+5=55, MIXED (50-64). Routing a caption through soft scoring with severe coverage and coherence penalties is the correct treatment, since the rubric has no terminal category for wrong register and the candidate is on topic, complete, and not misleading."
+    ]
+  }
+}

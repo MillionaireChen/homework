@@ -1,0 +1,815 @@
+{
+  "46601033": {
+    "anchor": {
+      "main_event": "英国ハルのホームレス支援企画で、28人のホームレスの宿泊を市内のロイヤル・ホテルが拒否して批判を浴び、代わりにダブルツリー・ヒルトンがクリスマス・ディナー付きで28人分の宿泊を無料提供すると申し出た",
+      "key_facts": [
+        "参加するホームレスは28人で、当初はロイヤル・ホテルに泊まる予定だった",
+        "主催団体は Raise the Roof Hull Homeless Project、主催者はカール・シンプソンさん",
+        "シンプソンさんは「奇跡はあり得る」と話している",
+        "グループは計1092ポンド（約15万5000円）でツインルーム14室を予約していた",
+        "ロイヤル・ホテルは、昨年アイビス・ホテルの客室に破損があったという報告を受けて拒否したと説明した",
+        "主催団体はこの疑惑を「うそ」だと批判し、アイビス・ホテルも被害の認識を否定した",
+        "ロイヤル・ホテルは、かつてこのプロジェクトで働いていた人物から予約を受けないよう警告されたと説明した",
+        "シンプソン氏は15日夕にフェイスブックで予約取り消しを公表し、投稿は1500人以上にシェアされた",
+        "団体には9000ポンド以上の寄付金が集まった",
+        "17日の声明で、ダブルツリー・ヒルトンが28人分の2日間の宿泊と朝食、クリスマスディナーを無料提供すると発表",
+        "ロイヤル・ホテルは予約復活を提案したが、団体はこれを拒否した"
+      ],
+      "anchor_summary": "英国ハルのホームレス支援企画に参加する28人は当初ロイヤル・ホテルに泊まる予定だったが、同ホテルが宿泊を拒否して批判を浴びた。その後ダブルツリー・ヒルトンが28人分の2日間の宿泊と朝食、クリスマスディナーを無料で提供すると申し出た。団体には9000ポンド以上の寄付が集まり、ロイヤル・ホテルからの予約復活の提案は拒否された。"
+    },
+    "candidates": {
+      "46601033_0845c743": {
+        "claim_checks": [
+          {
+            "claim": "舞台となった街はハルである",
+            "verdict": "SUPPORTED",
+            "source_evidence": "企画の主催団体「Raise the Roof Hull Homeless Project（ハルのホームレスに屋根を）」／ハルのホームレスの人々は、クリスマスを屋根の下で過ごせることを楽しみにしている"
+          },
+          {
+            "claim": "ハルはイングランド北東部の街である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "本文中に地域を示す記述はなく、ハルの所在地は述べられていない"
+          },
+          {
+            "claim": "クリスマスにホームレスの人々をホテルに招待しようという企画がある",
+            "verdict": "SUPPORTED",
+            "source_evidence": "プロジェクトに参加する28人のホームレスの人は当初、市内のロイヤル・ホテルに泊まる予定だった"
+          },
+          {
+            "claim": "その企画が物議をかもしている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ホテル側が宿泊を拒否し、批判を浴びた"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 44,
+          "coverage": 9,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 73,
+        "quality_label": "FINE",
+        "issues": [
+          "イングランド北東部という地理情報は原文にない追加情報である",
+          "導入部だけを述べ、ロイヤル・ホテルの拒否、ダブルツリー・ヒルトンの無料提供の申し出、28人という規模、9000ポンド超の寄付といった中心的な事実をすべて省いている",
+          "記事の結末（企画が救われたこと）が読者に伝わらない"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "Claim-level audit against the source; one unsupported geographic detail, severe coverage shortfall, no central reversal or fabrication."
+          }
+        ]
+      },
+      "46601033_9dc8f17b": {
+        "claim_checks": [
+          {
+            "claim": "舞台となった街はハルである",
+            "verdict": "SUPPORTED",
+            "source_evidence": "企画の主催団体「Raise the Roof Hull Homeless Project（ハルのホームレスに屋根を）」"
+          },
+          {
+            "claim": "ハルはイングランド北東部の街である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "本文中に地域を示す記述はなく、ハルの所在地は述べられていない"
+          },
+          {
+            "claim": "クリスマスにホームレスの人々をホテルに招待しようという企画がある",
+            "verdict": "SUPPORTED",
+            "source_evidence": "プロジェクトに参加する28人のホームレスの人は当初、市内のロイヤル・ホテルに泊まる予定だった"
+          },
+          {
+            "claim": "その企画が物議をかもしている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ホテル側が宿泊を拒否し、批判を浴びた"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 44,
+          "coverage": 9,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 73,
+        "quality_label": "FINE",
+        "issues": [
+          "イングランド北東部という地理情報は原文にない追加情報である",
+          "導入部のみで、拒否したホテル、受け入れたホテル、28人という規模、寄付金という主要事実を欠く",
+          "本文は 46601033_0845c743 と同一のため、同一の判定と配点を適用した"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "Identical candidate text to 46601033_0845c743; independently re-checked and scored the same."
+          }
+        ]
+      },
+      "46601033_bbab625f": {
+        "claim_checks": [
+          {
+            "claim": "英国ハルで、クリスマスにホームレスを無料で宿泊させる企画がある",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ハルのホームレスの人々は、クリスマスを屋根の下で過ごせることを楽しみにしている／ダブルツリー・ヒルトンが28人分の2日間の宿泊と朝食、クリスマスディナーを無料で提供する"
+          },
+          {
+            "claim": "ロイヤル・ホテルが予約を拒否して批判を浴びた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ホテル側が宿泊を拒否し、批判を浴びた"
+          },
+          {
+            "claim": "市議会が同ホテルに対し事業ライセンスの一時停止処分を下した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事に市議会は一度も登場せず、処分や行政措置の記述もない。ホテル側の記述は 広報担当者は、ホテル側は条件付きなら予約を復活させることもできると付け加えた にとどまる"
+          },
+          {
+            "claim": "ダブルツリー・ヒルトンが28人分2日間の宿泊とディナーを無料で提供すると申し出た",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ダブルツリー・ヒルトンが28人分の2日間の宿泊と朝食、クリスマスディナーを無料で提供すると連絡してきた"
+          },
+          {
+            "claim": "ダブルツリー・ヒルトンはヒルトン系列である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事はダブルツリー・ヒルトンとのみ記し、系列関係には触れていない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 18,
+          "coverage": 25,
+          "coherence": 14,
+          "conciseness": 4
+        },
+        "score": 61,
+        "quality_label": "MIXED",
+        "issues": [
+          "第2文の市議会による事業ライセンス一時停止処分は完全な捏造で、行為主体も処分内容も原文に存在しない。行政制裁という重い虚偽情報のため忠実性を大きく減点した",
+          "ヒルトン系列という系列関係も原文にない補足である",
+          "中心事実（ホテルの拒否とダブルツリー・ヒルトンの申し出）は第1文と第3文で正しく保持されているため終止判定には至らないが、捏造文が要約の3分の1を占める点はレビュー時に再確認されたい",
+          "捏造文が紙幅を奪い、拒否理由（昨年の破損疑惑）や寄付金の増加に触れられていない"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "One fully fabricated secondary sentence (city council licence suspension) charged to faithfulness; the central event survives, so this stays in soft scoring per the peripheral-defect boundary."
+          }
+        ]
+      },
+      "46601033_e8bfdc85": {
+        "claim_checks": [
+          {
+            "claim": "英国ハルで、クリスマスにホームレスを無料で宿泊させる企画がある",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ハルのホームレスの人々は、クリスマスを屋根の下で過ごせることを楽しみにしている／宿泊と朝食、クリスマスディナーを無料で提供する"
+          },
+          {
+            "claim": "ロイヤル・ホテルは当初予約を受け付けた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ロイヤル・ホテルは当初、予約を受け付けたし"
+          },
+          {
+            "claim": "ロイヤル・ホテルは後に宿泊を拒否し批判を浴びた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ホテル側が宿泊を拒否し、批判を浴びた／シンプソン氏は15日夕、フェイスブックでロイヤル・ホテルが予約を取り消したことを明らかにした"
+          },
+          {
+            "claim": "ダブルツリー・ヒルトンが28人分2日間の宿泊と食事を無料で提供すると申し出た",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ダブルツリー・ヒルトンが28人分の2日間の宿泊と朝食、クリスマスディナーを無料で提供すると連絡してきた"
+          },
+          {
+            "claim": "企画は存続することとなった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ハルのホームレスの人々は、クリスマスを屋根の下で過ごせることを楽しみにしている（無料提供の申し出により宿泊が確保された）"
+          },
+          {
+            "claim": "この件をきっかけに慈善団体には9000ポンド以上の寄付が集まった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "この投稿は1500人以上の人々にシェアされ、「Raise the Roof Homeless Project」には9000ポンド以上の寄付金が集まった"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 48,
+          "coverage": 27,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 95,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "企画は存続することとなった は原文の直接記述ではなく妥当な推論だが、わずかに踏み込んだ表現である",
+          "拒否理由（昨年アイビス・ホテルで破損があったという報告）と、団体が予約復活の提案を拒否した点には触れていない"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "All claims traced to source spans; main event, resolution, and donation figure all covered."
+          }
+        ]
+      }
+    }
+  },
+  "46669858": {
+    "anchor": {
+      "main_event": "22日夜のインドネシア津波で、ジャワ島西部タンジュンレスンのビーチで演奏中だった人気ロックバンド「セヴンティーン」が波に流され、メンバー3人とスタッフ1人が死亡した",
+      "key_facts": [
+        "死亡したのはベーシスト、ギタリスト、マネージャーの3人とスタッフ1人",
+        "ドラマーは現在も行方不明",
+        "生存が確認されたバンドメンバーはリード・ボーカルのリーフィアン・ファジャルシャーさんのみ",
+        "23日にヘルマンさんとウジャンさんの遺体が見つかった",
+        "リーフィアンさんの妻ディラン・サハラさんもまだ見つかっていない",
+        "リーフィアンさんはインスタグラムで最新状況を投稿している",
+        "バンドはインドネシア国有電力会社（PLN）の忘年会で、従業員と家族約200人を前に演奏していた",
+        "PLNは従業員や家族あわせて29人が死亡し、13人が行方不明と発表",
+        "22日夜の津波でスマトラ島とジャワ島の湾岸都市で少なくとも281人が死亡、1016人が負傷",
+        "大津波の警報が全くなかったことが問題視されている",
+        "火山島アナククラカタウの噴火による地滑りが津波を引き起こしたと考えられている"
+      ],
+      "anchor_summary": "22日夜にインドネシアを襲った津波で、ジャワ島西部タンジュンレスンのビーチで演奏していた人気ロックバンド「セヴンティーン」が波に流され、メンバー3人とスタッフ1人が死亡、ドラマーは行方不明のままとなっている。生存が確認されたバンドメンバーはリード・ボーカルのリーフィアンさんのみで、同氏はインスタグラムで状況を伝えている。この津波では少なくとも281人が死亡、1016人が負傷し、アナククラカタウの噴火による地滑りが原因とみられている。"
+    },
+    "candidates": {
+      "46669858_040576b7": {
+        "claim_checks": [
+          {
+            "claim": "22日夜にインドネシアで津波が発生した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "22日夜の津波で、スマトラ島とジャワ島の湾岸都市で少なくとも281人が死亡"
+          },
+          {
+            "claim": "バンドはジャワ島西部のビーチで演奏中だった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "津波のあった22日夜、セヴンティーンはジャワ島西部タンジュンレスンのビーチで演奏していた"
+          },
+          {
+            "claim": "人気ロックバンドはセヴンティーンである",
+            "verdict": "SUPPORTED",
+            "source_evidence": "インドネシアの人気ロックバンド「セヴンティーン」"
+          },
+          {
+            "claim": "メンバー3人とスタッフ1人が死亡した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ベーシスト、ギタリスト、マネージャーのバンドメンバー3人が死亡した。スタッフ1人も津波の犠牲になった"
+          },
+          {
+            "claim": "ドラマーは依然行方不明である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ドラマーは現在も行方不明のままだ"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 21,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 91,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "見出しが強調する生存メンバー（リーフィアンさん）の涙の報告に触れていない",
+          "津波全体の被害（少なくとも281人死亡、1016人負傷）や、アナククラカタウ噴火という原因に触れていない"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "Every claim maps to an explicit source span; casualty breakdown and missing drummer are exact."
+          }
+        ]
+      },
+      "46669858_5fcda3e1": {
+        "claim_checks": [
+          {
+            "claim": "インドネシアで22日に津波が発生した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "22日夜の津波で、スマトラ島とジャワ島の湾岸都市で"
+          },
+          {
+            "claim": "これまでに少なくとも死者281人、負傷者1016人が確認されている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "少なくとも281人が死亡。1016人が負傷した"
+          },
+          {
+            "claim": "行方不明者も出ている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "13人が行方不明になっていると発表した／ドラマーは現在も行方不明のままだ"
+          },
+          {
+            "claim": "インドネシアの人気ロックバンド「セヴンティ（以下切断）",
+            "verdict": "SUPPORTED",
+            "source_evidence": "インドネシアの人気ロックバンド「セヴンティーン」（ただし候補は語中で切断され、述部が存在しない）"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 48,
+          "coverage": 11,
+          "coherence": 4,
+          "conciseness": 4
+        },
+        "score": 67,
+        "quality_label": "FINE",
+        "issues": [
+          "第2文がバンド名の語中（セヴンティ）で切断されており、述部を欠く破損した読み味になっている。コヒーレンスを大幅に減点した",
+          "実際に述べている内容自体はすべて原文に一致しており、虚偽はない",
+          "記事の中心であるバンドの被災（メンバー3人とスタッフ1人の死亡、ドラマーの行方不明、生存メンバーの報告）に到達する前に切れており、被覆率が著しく低い",
+          "確認されている ほか の箇所に不自然な空白がある"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "Truncated candidate scored on what it actually states: faithful but severely cut, penalized on coherence and coverage rather than terminated."
+          }
+        ]
+      },
+      "46669858_d3c56cc2": {
+        "claim_checks": [
+          {
+            "claim": "インドネシアで22日に津波が発生した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "22日夜の津波で、スマトラ島とジャワ島の湾岸都市で"
+          },
+          {
+            "claim": "これまでに少なくとも死者281人、負傷者1016人が確認されている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "少なくとも281人が死亡。1016人が負傷した"
+          },
+          {
+            "claim": "行方不明者も出ている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "13人が行方不明になっていると発表した"
+          },
+          {
+            "claim": "セヴンティーンはこの日、ジャワ島西部タンジュンレスンのビーチで演奏中だった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "津波のあった22日夜、セヴンティーンはジャワ島西部タンジュンレスンのビーチで演奏していた"
+          },
+          {
+            "claim": "演奏はビーチに建てたテント内で行われていた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "津波が流れ込んでくる前には、テントのテーブルの周りに聴衆約200人が集まり、バンドの音楽にじっと聞き入っていた"
+          },
+          {
+            "claim": "津波がテントを襲うとバンドメンバーは流された",
+            "verdict": "SUPPORTED",
+            "source_evidence": "大波の1つがテントを襲うと、歌声は叫び声へと変わった／現場の映像には、大勢が驚くほどの速度で流されていく様子が映っている"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 20,
+          "coherence": 14,
+          "conciseness": 5
+        },
+        "score": 89,
+        "quality_label": "GOOD",
+        "issues": [
+          "バンドの被災結果（メンバー3人とスタッフ1人の死亡、ドラマーの行方不明、リーフィアンさんのみ生存）という記事の核心的な帰結に触れていない",
+          "確認されている ほか の箇所に不自然な空白があり、読みを軽く損ねている"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "All claims supported; coverage docked because the band members outcome (deaths and missing drummer) is omitted."
+          }
+        ]
+      }
+    }
+  },
+  "48116477": {
+    "anchor": {
+      "main_event": "国際研究チームが、アルツハイマー型認知症と似ているが別の病気である新たな認知症 LATE（大脳辺縁系優位型老年期TDP-43脳症）を特定し、アルツハイマー型と診断された患者の最大3分の1が実はLATEである可能性があると発表した",
+      "key_facts": [
+        "研究は医学誌「ブレイン」に発表された",
+        "LATEはTDP-43というたんぱく質に由来し、アルツハイマー型はアミロイドとタウに関連する",
+        "研究は認知症患者の死後解剖の結果に基づく",
+        "LATEは80歳以上が罹患し、この年齢グループでは5人に1人の割合で確認された",
+        "アルツハイマー型とLATEは併発することもある",
+        "アルツハイマー型と違い、LATEはより緩やかに記憶が失われるとみられる",
+        "新たな認知症の特定は、治療方法が確立してこなかった理由の解明につながる可能性がある",
+        "研究を主導した米ケンタッキー大学のピート・ネルソン博士は、LATEはずっと存在していたと述べた",
+        "アルツハイマー型の原因たんぱく質を減らす薬の実験は失敗に終わり、開発競争から降りる製薬会社も出ている",
+        "英アルツハイマー・ソサエティーのジェイムズ・ピケット博士は、より精度の高い診断への最初の一歩だと評価した",
+        "アルツハイマー・リサーチのキャロル・ルートレッジ博士は、LATEを病院で医師が診断することはまだできないと指摘した"
+      ],
+      "anchor_summary": "国際研究チームが、アルツハイマー型認知症と似ているが異なる新たな認知症 LATE を特定し、医学誌ブレインに発表した。アルツハイマー型と診断された患者の最大3分の1が実はLATEである可能性があり、LATEはTDP-43というたんぱく質に由来し、80歳以上の5人に1人で確認された。専門家はこの発見を重要と評価する一方、病院でLATEを診断することはまだできないとの指摘もある。"
+    },
+    "candidates": {
+      "48116477_4d229e3c": {
+        "claim_checks": [
+          {
+            "claim": "これまでアルツハイマー型認知症と診断されていた人の中に、実は新たに発見された種類の認知症だった人が多く含まれている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "アルツハイマー型と診断された患者の最大で3分の1が、実はLATEである可能性があるとしている／これまでアルツハイマー型と言われていた人の多くが、実はそうではなかったと分かるだろう"
+          },
+          {
+            "claim": "その内容を国際研究チームが発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出しの アルツハイマー患者、実は別の種類の認知症か＝国際研究／研究は医学誌「ブレイン」に発表された"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 47,
+          "coverage": 16,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 83,
+        "quality_label": "GOOD",
+        "issues": [
+          "原文は 可能性がある という留保付きの推定だが、候補は 含まれている と断定寄りに述べており、わずかに踏み込みすぎている",
+          "新認知症の名称 LATE、最大3分の1という数字、TDP-43というたんぱく質、80歳以上という対象年齢といった主要事実をすべて省いている",
+          "臨床での診断がまだできないという重要な留保にも触れていない"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "Main event captured accurately but with hedging loss; no key fact carried, so coverage is limited."
+          }
+        ]
+      },
+      "48116477_833a6901": {
+        "claim_checks": [
+          {
+            "claim": "アルツハイマー型認知症と診断された患者の最大3分の1が、実は別種の認知症LATEだった可能性がある",
+            "verdict": "SUPPORTED",
+            "source_evidence": "アルツハイマー型と診断された患者の最大で3分の1が、実はLATEである可能性があるとしている"
+          },
+          {
+            "claim": "LATEは新しく特定された認知症である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "新たな認知症が特定されたことで／LATEはずっと存在していた。我々が初めて特定しただけだ"
+          },
+          {
+            "claim": "国際研究チームが発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出しの ＝国際研究／研究は医学誌「ブレイン」に発表された"
+          },
+          {
+            "claim": "LATEはTDP-43というタンパク質に由来する",
+            "verdict": "SUPPORTED",
+            "source_evidence": "LATEはTDP-43と呼ばれるたんぱく質に由来する"
+          },
+          {
+            "claim": "LATEは80歳以上で発症する別の病気とされる",
+            "verdict": "SUPPORTED",
+            "source_evidence": "LATEは80歳以上が罹患するもので／アルツハイマー型認知症と似ているが、異なる病気だという"
+          },
+          {
+            "claim": "この発見は認知症治療法の開発が進んでこなかった理由を明らかにする可能性がある",
+            "verdict": "SUPPORTED",
+            "source_evidence": "新たな認知症が特定されたことで、これまで認知症の治療方法が確立してこなかった理由が明らかになるかもしれない"
+          },
+          {
+            "claim": "臨床での診断方法はまだ確立されていない",
+            "verdict": "SUPPORTED",
+            "source_evidence": "現在、認知症を特定する単一の診断方法は確立されていない／LATEの症状を病院で医師が診断することはまだできない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 27,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 97,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "80歳以上の5人に1人という割合、研究が死後解剖に基づく点、主導したネルソン博士への言及がない"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "All seven atomic claims traced to explicit source spans, including the hedge 可能性 and the diagnostic caveat."
+          }
+        ]
+      },
+      "48116477_b3855ba6": {
+        "claim_checks": [
+          {
+            "claim": "これまでアルツハイマー型認知症と診断されていた人の中に、実は新たに発見された種類の認知症だった人が多く含まれている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "アルツハイマー型と診断された患者の最大で3分の1が、実はLATEである可能性があるとしている"
+          },
+          {
+            "claim": "その内容を国際研究チームが発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出しの ＝国際研究／研究は医学誌「ブレイン」に発表された"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 47,
+          "coverage": 16,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 83,
+        "quality_label": "GOOD",
+        "issues": [
+          "原文の 可能性がある という留保が失われ、断定寄りの表現になっている",
+          "LATEという名称、最大3分の1、TDP-43、80歳以上といった主要事実を欠く",
+          "本文は 48116477_4d229e3c と同一のため、同一の判定と配点を適用した"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "Identical candidate text to 48116477_4d229e3c; independently re-checked and scored the same."
+          }
+        ]
+      },
+      "48116477_f5fe4b35": {
+        "claim_checks": [
+          {
+            "claim": "アルツハイマー型認知症と診断された患者の最大3分の1が、実は別種の認知症LATEだった可能性がある",
+            "verdict": "SUPPORTED",
+            "source_evidence": "アルツハイマー型と診断された患者の最大で3分の1が、実はLATEである可能性があるとしている"
+          },
+          {
+            "claim": "国際研究チームが発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出しの ＝国際研究／研究は医学誌「ブレイン」に発表された"
+          },
+          {
+            "claim": "LATEはTDP-43というタンパク質に由来する",
+            "verdict": "SUPPORTED",
+            "source_evidence": "LATEはTDP-43と呼ばれるたんぱく質に由来する"
+          },
+          {
+            "claim": "現在は特効薬の臨床試験が第3相に入っている",
+            "verdict": "CONTRADICTED",
+            "source_evidence": "アルツハイマー型の原因とされるたんぱく質を脳内から減らす薬の実験は、失敗に終わった／効果的な治療法が見つからない中、認知症治療薬の開発競争から降りる製薬会社も出ている／研究チームは、LATEをより深く研究することで、新たな治療法が見つかるかもしれないと話した"
+          },
+          {
+            "claim": "英アルツハイマー・ソサエティーは、より精度の高い診断への最初の一歩だと評価した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "英アルツハイマー・ソサエティーのジェイムズ・ピケット博士は、この研究は「より精度の高い診断と、パーソナライズされた認知症治療への最初の一歩だ」と語った"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 20,
+          "coverage": 24,
+          "coherence": 14,
+          "conciseness": 4
+        },
+        "score": 62,
+        "quality_label": "MIXED",
+        "issues": [
+          "特効薬の臨床試験が第3相に入っている という記述は原文に存在しないうえ、治療薬の実験は失敗に終わり製薬会社が撤退しているという原文の状況と逆向きであり、医療情報として重大な虚偽である。忠実性を大きく減点した",
+          "同じ位置に置かれるべき原文の重要な留保（病院でLATEを診断することはまだできない）が、この捏造文に置き換わっている",
+          "第1文と第3文の中心内容（LATEの特定と最大3分の1という所見、英アルツハイマー・ソサエティーの評価）は原文に一致するため終止判定には至らないが、捏造の重さについてはレビューでの再確認を求める"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "One invented clinical-trial claim that runs against the article's stated state of drug development; charged heavily to faithfulness while the central finding survives."
+          }
+        ]
+      }
+    }
+  },
+  "48493511": {
+    "anchor": {
+      "main_event": "中国の魏国防相がシンガポールで開かれた会合で天安門事件について問われ、当時の中央政府による鎮圧対応は「正しい方針」だったと述べ、30周年を前に異例の言及をした",
+      "key_facts": [
+        "魏氏はシンガポールの会合で聴衆から天安門事件について質問を受けた",
+        "魏氏は あの出来事は政治的な騒乱であり、中央政府は騒乱を収束するために対応した。正しい方針だ と述べた",
+        "魏氏は この30年間で中国は大きく変わった と主張し、当時の対応ゆえに 中国は安定と発展を享受している との考えを示した",
+        "1989年4月、100万人を超える学生や労働者が民主化を求めて天安門広場を占拠し、約1カ月半デモを続けた",
+        "デモは共産党独裁体制の打倒、インフレ対策、賃金上昇、住宅事情の改善などを求めた",
+        "6月3日夜に軍の戦車と部隊が出動し、4日朝にかけて武器を持たないデモ参加者に発砲して多数を殺傷した",
+        "当局は後日、発砲による死者はゼロだと説明した",
+        "中国政府はデモ参加者の死者数を明らかにしておらず、死者は数百から数千人に上ったと言われている",
+        "ツイッター社が中国に関する投稿をしたアカウントを多数閉鎖し、謝罪に追い込まれた",
+        "マーコ・ルビオ米上院議員はツイッター社が中国政府の検閲機関になっていると批判した"
+      ],
+      "anchor_summary": "中国の魏国防相はシンガポールで開かれた会合で天安門事件について問われ、あの出来事は政治的な騒乱であり中央政府の対応は正しい方針だったと述べた。1989年6月3日夜から4日朝にかけて軍が武器を持たないデモ参加者に発砲して多数を殺傷し、死者は数百から数千人に上ったと言われるが、中国政府は死者数を明らかにしていない。関連してツイッター社が中国関連の投稿をしたアカウントを多数閉鎖し、謝罪する事態も起きている。"
+    },
+    "candidates": {
+      "48493511_709039c3": {
+        "claim_checks": [
+          {
+            "claim": "中国の魏国防相がシンガポールで開かれた国際会合で発言した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "魏氏はシンガポールで開かれた会合で、聴衆から天安門事件について質問を受けた／見出しの 天安門事件の鎮圧は「正しい」と中国国防相"
+          },
+          {
+            "claim": "発言は2日である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事本文にも見出しにも発言の日付は示されていない"
+          },
+          {
+            "claim": "1989年の天安門事件における軍の鎮圧は「正しい」方針だったと発言した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "中央政府は騒乱を収束するために対応した。正しい方針だ と述べた"
+          },
+          {
+            "claim": "米国務省が同日付で異例の公式声明を発表し、中国の人権状況への深刻な懸念を示した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事に米国務省は一度も登場しない。米国関係の記述は マーコ・ルビオ米上院議員（共和党）は、ツイッター社が中国政府の検閲機関になっていると批判した のみである"
+          },
+          {
+            "claim": "6月の武力鎮圧では数百から数千人の死者が出たとされる",
+            "verdict": "SUPPORTED",
+            "source_evidence": "天安門事件の死者は数百～数千人に上ったと言われている"
+          },
+          {
+            "claim": "中国政府は現在も公式な死者数を明らかにしていない",
+            "verdict": "SUPPORTED",
+            "source_evidence": "中国政府はこれまで、デモ参加者の死者数を明らかにしていない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 18,
+          "coverage": 23,
+          "coherence": 14,
+          "conciseness": 4
+        },
+        "score": 59,
+        "quality_label": "MIXED",
+        "issues": [
+          "第2文の 米国務省が同日付で異例の公式声明を発表し、中国の人権状況への深刻な懸念を示した は、行為主体・行為・内容のすべてが原文に存在しない捏造である。政府機関に帰属させた声明であるため忠実性を大きく減点した",
+          "発言日を 2日 と特定しているが、記事に日付の記載はない",
+          "魏鳳和 という氏名も原文には 魏氏 としかなく、名は補われている",
+          "中心事実（国防相が鎮圧を正しいと述べた）は第1文で正しく保持されているため終止判定には至らないが、捏造された政府声明の重さはレビューで再確認されたい",
+          "捏造文が紙幅を奪い、魏氏の 中国は安定と発展を享受している という主張や、1989年のデモの経緯に触れられていない"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "One fabricated attributed statement (US State Department) plus an unsupported date; the central remark by the defence minister survives, so soft scoring continues with a heavy faithfulness penalty."
+          }
+        ]
+      },
+      "48493511_7696c89d": {
+        "claim_checks": [
+          {
+            "claim": "中国の魏国防相がシンガポールで開かれた国際会合で発言した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "魏氏はシンガポールで開かれた会合で、聴衆から天安門事件について質問を受けた／見出しの 中国国防相"
+          },
+          {
+            "claim": "発言は2日である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事に発言の日付は示されていない"
+          },
+          {
+            "claim": "1989年の天安門事件における軍の鎮圧は「正しい」方針だったと発言した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "あの出来事は政治的な騒乱であり、中央政府は騒乱を収束するために対応した。正しい方針だ"
+          },
+          {
+            "claim": "天安門事件は中国国内ではタブーとされている",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事はタブーとは述べていない。関連する記述は 中国政府はこれまで、デモ参加者の死者数を明らかにしていない にとどまる"
+          },
+          {
+            "claim": "現職国防相が公式な場で擁護発言をするのは極めて異例である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出しの 30周年を前に異例の言及"
+          },
+          {
+            "claim": "6月の武力鎮圧では数百から数千人の死者が出たとされる",
+            "verdict": "SUPPORTED",
+            "source_evidence": "天安門事件の死者は数百～数千人に上ったと言われている"
+          },
+          {
+            "claim": "中国政府は現在も公式な死者数を明らかにしていない",
+            "verdict": "SUPPORTED",
+            "source_evidence": "中国政府はこれまで、デモ参加者の死者数を明らかにしていない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 42,
+          "coverage": 26,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 88,
+        "quality_label": "GOOD",
+        "issues": [
+          "発言日 2日 は原文にない特定情報である",
+          "中国国内ではタブーとされており という背景説明も原文には書かれていない補足である",
+          "魏鳳和 の名は原文の 魏氏 に含まれていない",
+          "ツイッター社のアカウント閉鎖と謝罪という記事後半の話題には触れていない"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "Central remark, its rarity, the casualty estimate, and the government's silence are all source-backed; two unsupported background details charged to faithfulness."
+          }
+        ]
+      },
+      "48493511_b9b093a2": {
+        "claim_checks": [
+          {
+            "claim": "天安門事件から6月4日で30年を迎える",
+            "verdict": "SUPPORTED",
+            "source_evidence": "天安門事件から30年／6月3日夜、天安門広場に軍の戦車と部隊が出動。4日朝にかけて／見出しの 30周年を前に"
+          },
+          {
+            "claim": "中国の魏国防相が発言した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "魏氏はシンガポールで開かれた会合で／見出しの 中国国防相"
+          },
+          {
+            "claim": "発言は2日である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事に発言の日付は示されていない"
+          },
+          {
+            "claim": "軍による民主化運動の鎮圧は「正しい」方針だったと述べた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "中央政府は騒乱を収束するために対応した。正しい方針だ／1989年4月、100万人を超える学生や労働者たちが民主化を求め"
+          },
+          {
+            "claim": "同事件について異例の言及をした",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出しの 30周年を前に異例の言及"
+          },
+          {
+            "claim": "天安門事件は多数の死傷者を出した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "武器を持たないデモ参加者たちに向けて発砲し、多数を殺傷した"
+          },
+          {
+            "claim": "天安門事件は中国ではタブーになっている",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事はタブーとは述べていない。関連する記述は 中国政府はこれまで、デモ参加者の死者数を明らかにしていない にとどまる"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 43,
+          "coverage": 24,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 87,
+        "quality_label": "GOOD",
+        "issues": [
+          "発言日 2日 は原文にない特定情報である",
+          "中国ではタブーになっている は原文に書かれていない補足である",
+          "魏鳳和（ウェイ・フォンホー）の名は原文の 魏氏 に含まれていない",
+          "死者は数百から数千人とされる点や、中国政府が死者数を公表していない点に触れていない",
+          "6月4日で30年 は見出しの 30周年 と本文の 4日朝 からの推論で、直接の記述ではない"
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [
+          {
+            "stage": "draft_scoring",
+            "detail": "Main event and its rarity accurately reported; two unsupported details (date, taboo framing) charged to faithfulness, casualty figures omitted from coverage."
+          }
+        ]
+      }
+    }
+  }
+}

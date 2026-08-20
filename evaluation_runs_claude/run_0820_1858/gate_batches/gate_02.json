@@ -1,0 +1,127 @@
+[
+ {
+  "article_id": "37426493",
+  "candidates": [
+   {
+    "summary_id": "37426493_12ba3116",
+    "embedding_hint": 0.8042,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "37426493_6baeebc9",
+    "embedding_hint": 0.8678,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "37426493_9d69dc21",
+    "embedding_hint": 0.869,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "37426493_f0038832",
+    "embedding_hint": 0.7921,
+    "low_similarity_hint": false
+   }
+  ]
+ },
+ {
+  "article_id": "37712268",
+  "candidates": [
+   {
+    "summary_id": "37712268_04ceca32",
+    "embedding_hint": 0.8218,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "37712268_a5a160b4",
+    "embedding_hint": 0.8499,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "37712268_c6edc467",
+    "embedding_hint": 0.8764,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "37712268_dbc28b65",
+    "embedding_hint": 0.2471,
+    "low_similarity_hint": true
+   }
+  ]
+ },
+ {
+  "article_id": "37868736",
+  "candidates": [
+   {
+    "summary_id": "37868736_939d5a23",
+    "embedding_hint": 0.8622,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "37868736_dbbb3ebf",
+    "embedding_hint": 0.837,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "37868736_ec4ae30e",
+    "embedding_hint": 0.8622,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "37868736_f0795d77",
+    "embedding_hint": 0.863,
+    "low_similarity_hint": false
+   }
+  ]
+ },
+ {
+  "article_id": "38476572",
+  "candidates": [
+   {
+    "summary_id": "38476572_420b873d",
+    "embedding_hint": 0.8459,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "38476572_65056524",
+    "embedding_hint": 0.8159,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "38476572_d43bbf3d",
+    "embedding_hint": 0.7976,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "38476572_fa7ad300",
+    "embedding_hint": 0.7966,
+    "low_similarity_hint": false
+   }
+  ]
+ },
+ {
+  "article_id": "39776572",
+  "candidates": [
+   {
+    "summary_id": "39776572_0c5e76b4",
+    "embedding_hint": 0.8216,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "39776572_5c0bde1d",
+    "embedding_hint": 0.8445,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "39776572_7682c3a7",
+    "embedding_hint": 0.5332,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "39776572_dff757fb",
+    "embedding_hint": 0.8458,
+    "low_similarity_hint": false
+   }
+  ]
+ }
+]

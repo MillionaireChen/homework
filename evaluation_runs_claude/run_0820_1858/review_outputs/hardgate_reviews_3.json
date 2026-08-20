@@ -1,0 +1,104 @@
+{
+ "50469832_512cbe90": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate reproduces the article prefix from 「イスラエルは東エルサレムを含むヨルダン川西岸に、100カ所以上のユダヤ人入植地を建設してきた」 through 「平和の促進につながらなかった」 as one continuous run, differing only by removed inter-sentence spaces, so all 261 normalized characters are copied.",
+  "continue_at": null
+ },
+ "51145805_b160c17f": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「サイパン育ちで現在は東京在住の西田みどりさん（25）は」 through 「西田さんは職員に付き添われてトイレに行ったという。」 reproduced continuously with no rewording, covering all 138 normalized characters.",
+  "continue_at": null
+ },
+ "51395937_47bdc118": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「フィンランドの現行制度では、父親は子供が満2歳になるまでの間、計2.2カ月の育休が取得できる」 through 「幼少期の子供と一緒に過ごす父親が少なすぎると不満を漏らしていた。」 copied continuously, all 251 normalized characters.",
+  "continue_at": null
+ },
+ "52000333_2dbb5d23": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「ボンダイビーチには、政府による「社会的距離」を確保するガイドラインを軽視した人が大勢殺到した」 through 「子供たちを自宅にとどまらせることは可能とした。」 copied continuously, all 199 normalized characters.",
+  "continue_at": null
+ },
+ "52407075_fb6cc3fc": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「ファーガス・ウォルシュ医療担当編集委員」 through 「残りの半数には新型ウイルスではなく髄膜炎のワクチンを比較のため接種する。」 copied continuously, all 155 normalized characters.",
+  "continue_at": null
+ },
+ "52451669_b35f8012": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「ローナ・ブリーン医師」 through 「それによって命を奪われた」と述べた。 copied continuously, including the byline-style caption line, all 172 normalized characters.",
+  "continue_at": null
+ },
+ "52873099_2dc6e329": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「ドナルド・トランプ大統領は繰り返し、アンティファが暴動を扇動していると非難している」 through 「各地の大都市で夜間外出禁止令が敷かれた。」 copied continuously, all 218 normalized characters.",
+  "continue_at": null
+ },
+ "53174534_cc932087": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「ジョギング中に射殺されたアフマド・アーベリーさん」 through the Holmes quotation 「大きな一歩だ」 copied continuously, all 168 normalized characters.",
+  "continue_at": null
+ },
+ "53274336_cbcf19e0": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「韓国女子トライアスロンのチェ・スクヒョン選手」 through 「暴言やハラスメントを受けたりしていたと訴えている。」 copied continuously, carrying over even the section heading 「歯を食いしばれ」, all 169 normalized characters.",
+  "continue_at": null
+ },
+ "53732134_cb3c4754": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「ハサン・ディアブ首相」 through 「アルマルサド・オンラインニュースに語った。」 copied continuously, all 132 normalized characters.",
+  "continue_at": null
+ },
+ "54083932_2ea5d08c": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「マシュー・ロブソンさんのマッカラン18年物のコレクション。」 through 「シングルモルトウイスキーのマッカランを1本贈られてきた。」 copied continuously, all 135 normalized characters.",
+  "continue_at": null
+ },
+ "55155049_2d012498": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「ウィリアム・バー司法長官」 through 「選挙結果を変えるほどの規模の不正は、現在まで確認できていない」 copied continuously, including both Barr quotations verbatim, all 244 normalized characters.",
+  "continue_at": null
+ },
+ "features-and-analysis-40566272_b7edf6c2": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「ローラ・ビッカー、BBCニュース、米ケンタッキー州ホワイツバーグ」 through 「待合室にはまだ順番待ちの患者が大勢いる。」 copied continuously, all 124 normalized characters.",
+  "continue_at": null
+ },
+ "features-and-analysis-42940954_f55f6cd9": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「ショーン・コクラン、BBC教育･家族問題担当編集委員」 through 「答えを絵に描かせた。」 copied continuously, all 248 normalized characters.",
+  "continue_at": null
+ },
+ "features-and-analysis-46478194_67a2365c": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「父親によると、娘がバスで他の生徒をいじめたと叱られたのはこれで2回目だった」 through 「コックスさんは学校までの道のりの一部を娘に歩かせた。」 copied continuously, all 166 normalized characters.",
+  "continue_at": null
+ },
+ "features-and-analysis-46643494_49520575": {
+  "decision": "APPROVE",
+  "terminal_result": "VERBATIM_SOURCE_COPY",
+  "evidence": "The candidate is the article opening 「フランシス・マオ、BBCニュース、シドニー」 through 「全くもう、ぜんぜん親と一緒にいてくれない。」 copied continuously over all 230 normalized characters; it also stops mid-quotation before 「いつも出かけてばかり」, but the continuous full-length copy is the stronger and verified ground, so copy rank 1 applies.",
+  "continue_at": null
+ },
+ "features-and-analysis-46643494_c7b3a750": {
+  "decision": "APPROVE",
+  "terminal_result": "OBVIOUS_TRUNCATION",
+  "evidence": "The whole candidate is 「この写真は、フェイスブックに作られた「 Subtle Asian Traits 」 with a physically unclosed opening bracket 「 and no closing 」, no sentence-final punctuation, and no predicate for 「この写真は」, so the fragment names a subject and stops before asserting anything about it.",
+  "continue_at": null
+ }
+}

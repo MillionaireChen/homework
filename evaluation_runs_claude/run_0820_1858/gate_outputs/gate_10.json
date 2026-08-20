@@ -1,0 +1,135 @@
+{
+ "55155049_0166e910": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "バー司法長官が大規模不正を裏付ける証拠を確認できていないという記事の中心事実をそのまま伝えている。"
+ },
+ "55155049_9be24c04": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "中心事実(不正の証拠なし)、トランプ氏への打撃、陣営の反発、シューマー氏の発言のいずれも原文に対応がある。"
+ },
+ "55155049_a6c5b888": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "中心事実である「大規模不正の証拠は未確認」は保持されており、発言の場を記者会見とした点と個別不正が確認済みとする副次的な一文は周辺的な瑕疵なので採点に回す。"
+ },
+ "55155049_bbe6c482": {
+  "verdict": "NOT_GROUNDED",
+  "category": "OFF_TOPIC",
+  "article_span": "バー氏は今回のAP通信の取材で…「選挙結果を変えるほどの規模の不正は、現在まで確認できていない」と話した",
+  "candidate_span": "米紙ニューヨーク・タイムズの社主は29日、ドナルド・トランプ米大統領と会談した際、報道記者を「国民の敵」と呼ぶべきでないと伝えたことを明らかにした",
+  "note": "候補はNYT社主とトランプ氏の会談という別件を述べており、バー司法長官の選挙不正発言という記事の主題と主体・出来事のいずれも一致しない。"
+ },
+ "features-and-analysis-40566272_1e919583": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "中心事実(公的医療保険が患者の命綱で共和党の縮小検討に危機感)は保持され、制度名の取り違えと支持率9割は周辺的な誤り。"
+ },
+ "features-and-analysis-40566272_23a0176c": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "アパラチア中央部がトランプ支持の貧しい地域だという記述は原文に対応があり、途中で切れている点は接地の問題ではない。"
+ },
+ "features-and-analysis-40566272_7e05ff60": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "ワシントンの決定が地域の将来を左右するという趣旨は原文の記述に沿っており、記事の主題から外れていない。"
+ },
+ "features-and-analysis-40566272_964b4aa4": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "メディケイド拡大への依存と共和党の縮小検討、8割の支持という記述はいずれも原文に一致する。"
+ },
+ "features-and-analysis-42940954_31b57567": {
+  "verdict": "NOT_GROUNDED",
+  "category": "OFF_TOPIC",
+  "article_span": "研究チームは世界20カ国で7歳から11歳の小学生に、大きくなったらどんな仕事に就きたいかと質問し、答えを絵に描かせた",
+  "candidate_span": "ベトナムは中国と領有権を争う海域内で石油の掘削を開始した",
+  "note": "候補は南シナ海の石油掘削という無関係な話題であり、子供の職業志望調査という記事の主題と全く重ならない。"
+ },
+ "features-and-analysis-42940954_519dda6a": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "途上国の子供の方が専門職志望が強いという調査の中心的な結論を正しく捉えている。"
+ },
+ "features-and-analysis-42940954_9e82620f": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "引用した二人の発言はいずれも原文にあり、主要事実の網羅が薄いのは採点で扱うべき問題。"
+ },
+ "features-and-analysis-42940954_b9c4ae98": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "調査規模、国別・男女別の傾向、ステレオタイプの指摘まで原文に忠実。"
+ },
+ "features-and-analysis-46478194_381886c7": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "いじめの罰として娘に計8キロを歩かせ動画で議論になったという中心事実は正確で、地名スワントンの追加は周辺的。"
+ },
+ "features-and-analysis-46478194_83f0bbbb": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "文の順序が入れ替わっているだけで、罰の内容と議論の発生という中心事実は原文どおり。"
+ },
+ "features-and-analysis-46478194_d84463e5": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "歩かせた経緯、1700万回超の再生、娘の発言のいずれも原文に対応がある。"
+ },
+ "features-and-analysis-46478194_fc95363c": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "中心事実(娘を歩かせ動画を投稿し賛否を呼んだ)は保持されており、テレビ出演と学校側の称賛という無根拠な一文は副次的な追加なので採点に回す。"
+ },
+ "features-and-analysis-46643494_1d91c9fd": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "メルボルンの高校生が立ち上げたグループが100万人近くに拡大したという中心事実を正しく伝えている。"
+ },
+ "features-and-analysis-46643494_78994701": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "バブルティーのネタと創設者の当初の意図は原文に明記されており、焦点が周辺的なのは網羅性の問題。"
+ },
+ "features-and-analysis-46643494_94201a11": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "記事と同じフェイスブックのグループに言及しており、情報量が乏しい点は接地ではなく網羅性の問題。"
+ }
+}

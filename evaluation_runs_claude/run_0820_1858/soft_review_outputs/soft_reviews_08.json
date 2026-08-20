@@ -1,0 +1,134 @@
+{
+  "46601033_0845c743": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Re-checked all four claims against the article plus title. 「イングランド北東部」 is correctly marked NOT_IN_SOURCE: the body names ハル only through 「Raise the Roof Hull Homeless Project」 and 「ハルのホームレスの人々」, never its region.",
+      "The two supported claims (a Christmas hotel-stay project for homeless people, and the controversy) are reproducible from 「プロジェクトに参加する28人のホームレスの人は当初、市内のロイヤル・ホテルに泊まる予定だったが、ホテル側が宿泊を拒否し、批判を浴びた」.",
+      "Coverage 9/30 is consistent with the evidence: the candidate reaches only the setup and omits the refusal, the ダブルツリー・ヒルトン offer, the 28-person scale and the 9000-pound donations, i.e. the anchor main_event is not delivered.",
+      "Arithmetic verified: 44 + 9 + 15 + 5 = 73, and FINE is the correct band for 65-74."
+    ]
+  },
+  "46601033_9dc8f17b": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Candidate text is byte-identical to 46601033_0845c743; I re-verified it against the article independently and reached the same verdicts.",
+      "Identical dimensions to the twin candidate, so the batch is internally consistent. Arithmetic verified: 44 + 9 + 15 + 5 = 73, label FINE correct."
+    ]
+  },
+  "46601033_bbab625f": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Definitive ruling on the flagged boundary case: the invented 市議会 licence suspension is NOT terminal. The summary's message rests on sentence 1 (ロイヤル・ホテルが予約を拒否して批判を浴びた) and sentence 3 (ダブルツリー・ヒルトンが28人分2日間の宿泊とディナーを無料提供と申し出), both reproducible from 「ホテル側が宿泊を拒否し、批判を浴びた」 and 「ダブルツリー・ヒルトンが28人分の2日間の宿泊と朝食、クリスマスディナーを無料で提供すると連絡してきた」. The council sanction is an added parallel secondary claim, exactly the GROUNDED_PERIPHERAL_DEFECT pattern, so it stays in soft scoring as a faithfulness penalty and is not FABRICATED_CONTENT.",
+      "I searched the article for 市議会, ライセンス, 処分 and 行政: none appear. The only statement about the hotel's later posture is 「広報担当者は、ホテル側は条件付きなら予約を復活させることもできると付け加えた」. NOT_IN_SOURCE, not CONTRADICTED, is the right verdict; no CONTRADICTED claim exists, so the faithfulness-above-40 trigger does not apply and faithfulness is in any case 18.",
+      "Faithfulness 18/50 is a proportionate heavy charge for a fabricated administrative sanction against a named business plus the unsupported 「ヒルトン系列」 gloss; it sits well below the 30/50 of the peripheral-defect few-shot, which is right because this invention is heavier.",
+      "Coverage 25/30 is at the generous edge next to 46601033_e8bfdc85 at 27, which additionally carries the resolution and the donations, but the ordering is correct and the gap is within a defensible band. Arithmetic verified: 18 + 25 + 14 + 4 = 61, label MIXED correct for 50-64."
+    ]
+  },
+  "46601033_e8bfdc85": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "All six claims reproduce: 「ロイヤル・ホテルは当初、予約を受け付けたし」 for the initial acceptance, 「ホテル側が宿泊を拒否し、批判を浴びた」 for the refusal, 「ダブルツリー・ヒルトンが28人分の2日間の宿泊と朝食、クリスマスディナーを無料で提供する」 for the offer (28人分 and 2日間 both exact), and 「Raise the Roof Homeless Project」には9000ポンド以上の寄付金が集まった for the donation figure.",
+      "「企画は存続することとなった」 is a light inference rather than a source sentence; the 2-point faithfulness deduction to 48 is an appropriate, conservative charge.",
+      "Coverage 27/30 is warranted: main event, resolution and donations are all present, only the refusal rationale (アイビス・ホテルの破損報告) and the rejected reinstatement offer are missing. Arithmetic verified: 48 + 27 + 15 + 5 = 95, EXCELLENT correct for 90-100."
+    ]
+  },
+  "46669858_040576b7": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Every claim maps to an explicit span: 「津波のあった22日夜、セヴンティーンはジャワ島西部タンジュンレスンのビーチで演奏していた」, 「ベーシスト、ギタリスト、マネージャーのバンドメンバー3人が死亡した。スタッフ1人も津波の犠牲になった」, 「ドラマーは現在も行方不明のままだ」.",
+      "Checked the casualty arithmetic for a possible entity substitution: the article itself counts the manager inside the three band members, so メンバー3人とスタッフ1人 is an exact match, not an inflation. Faithfulness 50/50 stands.",
+      "Coverage 21/30 is consistent with the documented omissions (sole survivor リーフィアンさん and his Instagram reports, the 281 dead / 1016 injured totals, the アナククラカタウ cause). Arithmetic verified: 50 + 21 + 15 + 5 = 91, EXCELLENT correct."
+    ]
+  },
+  "46669858_5fcda3e1": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "Truncation ruling: NOT terminal, so the draft was right to keep it in soft scoring. The candidate is cut mid-word at 「セヴンティ」 with an unclosed quotation mark, but its first sentence is complete and carries usable article content (22日発生の津波、少なくとも死者281人、負傷者1016人、行方不明者). That is not the empty stub the rubric reserves OBVIOUS_TRUNCATION for.",
+      "Figures verified against 「22日夜の津波で、スマトラ島とジャワ島の湾岸都市で少なくとも281人が死亡。1016人が負傷した」 and 「13人が行方不明になっていると発表した」. Nothing the candidate actually asserts is false, so faithfulness 48/50 is sound; the dangling fourth fragment asserts nothing and cannot be scored as an error.",
+      "Coherence 4/15 is proportionate to the break: roughly half the output is a subject with no predicate and an unclosed 「. Coverage 11/30 is defensible, since the candidate stops before the article's core (band members killed, drummer missing, sole survivor).",
+      "Arithmetic verified: 48 + 11 + 4 + 4 = 67, FINE correct for 65-74. Confidence MEDIUM only because coverage 11 and coherence 4 are judgment calls on a broken text; neither is outside a defensible band."
+    ]
+  },
+  "46669858_d3c56cc2": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "All six claims reproduce, including the tent setting (「津波が流れ込んでくる前には、テントのテーブルの周りに聴衆約200人が集まり」) and the sweeping away (「大波の1つがテントを襲うと、歌声は叫び声へと変わった」 plus 「大勢が驚くほどの速度で流されていく様子が映っている」). Faithfulness 50/50 stands.",
+      "Coverage 20/30 correctly reflects that the candidate stops at the scene and never reports the outcome (3 members and 1 staff dead, drummer missing, only リーフィアンさん confirmed alive), which is the anchor's main_event.",
+      "Coherence 14/15 for the stray space in 「確認されている ほか」 is proportionate. Arithmetic verified: 50 + 20 + 14 + 5 = 89, GOOD correct at the top of 75-89."
+    ]
+  },
+  "48116477_4d229e3c": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Both claims reproduce from 「アルツハイマー型と診断された患者の最大で3分の1が、実はLATEである可能性があるとしている」 and from ネルソン博士's 「これまでアルツハイマー型と言われていた人の多くが、実はそうではなかったと分かるだろう」, plus the title 「＝国際研究」. No entity or number substitution.",
+      "The small faithfulness deduction to 47 for losing the 可能性 hedge is defensible and conservative; the Nelson quotation partially licenses the assertive phrasing, so the draft did not under-penalize.",
+      "Coverage 16/30 matches the evidence: the main event is delivered but no key fact is (LATE の名称, 最大3分の1, TDP-43, 80歳以上, 臨床診断は不可). Arithmetic verified: 47 + 16 + 15 + 5 = 83, GOOD correct."
+    ]
+  },
+  "48116477_833a6901": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "All seven claims verified individually, including 「LATEはTDP-43と呼ばれるたんぱく質に由来する」, 「LATEは80歳以上が罹患するもので」, 「新たな認知症が特定されたことで、これまで認知症の治療方法が確立してこなかった理由が明らかになるかもしれない」 and the caveat 「LATEの症状を病院で医師が診断することはまだできない」. The 可能性 hedge is preserved in the candidate, so faithfulness 50/50 is correct.",
+      "Coverage 27/30 is right: only 80歳以上の5人に1人, the post-mortem basis and ネルソン博士's attribution are missing. Arithmetic verified: 50 + 27 + 15 + 5 = 97, EXCELLENT correct."
+    ]
+  },
+  "48116477_b3855ba6": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Candidate text is byte-identical to 48116477_4d229e3c; re-verified independently with the same result.",
+      "Identical dimensions to the twin candidate. Arithmetic verified: 47 + 16 + 15 + 5 = 83, GOOD correct."
+    ]
+  },
+  "48116477_f5fe4b35": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Definitive ruling on the flagged boundary case: 「現在は特効薬の臨床試験が第3相に入っている」 is NOT terminal fabrication. The summary's load-bearing content is sentence 1 (最大3分の1がLATEだった可能性、国際研究チームの発表), reproducible verbatim in substance from 「アルツハイマー型と診断された患者の最大で3分の1が、実はLATEである可能性があるとしている」, and sentence 3, reproducible from ピケット博士's 「より精度の高い診断と、パーソナライズされた認知症治療への最初の一歩だ」. The trial claim is an added secondary clause, so it belongs in soft scoring.",
+      "The CONTRADICTED verdict is upheld on my own reading: the article states 「アルツハイマー型の原因とされるたんぱく質を脳内から減らす薬の実験は、失敗に終わった」 and 「認知症治療薬の開発競争から降りる製薬会社も出ている」, and no phase-3 trial appears anywhere. A phase-3 特効薬 trial points the opposite way from the article's stated state of drug development, so this is stronger than a mere omission.",
+      "The mandatory check passes: faithfulness is 20, not above 40, so no automatic REVISE is triggered despite the CONTRADICTED claim. 20/50 is a proportionate charge for a false medical claim that also displaces the article's diagnostic caveat.",
+      "Coverage 24/30 is slightly generous but correctly ordered below 48116477_833a6901 at 27. Arithmetic verified: 20 + 24 + 14 + 4 = 62, MIXED correct for 50-64."
+    ]
+  },
+  "48493511_709039c3": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Definitive ruling on the flagged boundary case: the invented 米国務省 statement is NOT terminal. The summary's central assertion is sentence 1, that the Chinese defence minister called the 1989 crackdown 「正しい」, reproducible from 「中央政府は騒乱を収束するために対応した。正しい方針だ」 and from the title 「天安門事件の鎮圧は「正しい」と中国国防相」. Sentence 3 is likewise supported by 「天安門事件の死者は数百～数千人に上ったと言われている」 and 「中国政府はこれまで、デモ参加者の死者数を明らかにしていない」. The State Department sentence is an added parallel claim, not the message the summary rests on, so it is a faithfulness penalty and not FABRICATED_CONTENT.",
+      "I searched the article for 国務省 and 声明 in a US context: absent. The only US-related span is 「マーコ・ルビオ米上院議員（共和党）は、ツイッター社が中国政府の検閲機関になっていると批判した」, which is a senator's criticism of Twitter, not a State Department statement on human rights. NOT_IN_SOURCE is the correct verdict.",
+      "The date 「2日」 and the full name 魏鳳和 are likewise absent from the article, which says only 魏氏 and gives no date; the draft charged both.",
+      "Faithfulness 18/50 is proportionate for an invented statement attributed to a government body plus two unsupported specifics, and is consistent with 46601033_bbab625f at 18. Arithmetic verified: 18 + 23 + 14 + 4 = 59, MIXED correct."
+    ]
+  },
+  "48493511_7696c89d": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "No CONTRADICTED claim exists here, so the faithfulness-above-40 trigger does not fire. The two flagged additions are genuinely NOT_IN_SOURCE: the article gives no date for the remark and never says the event is a taboo; the nearest span is only 「中国政府はこれまで、デモ参加者の死者数を明らかにしていない」.",
+      "「現職国防相が公式な場で擁護発言をするのは極めて異例である」 is correctly marked SUPPORTED, since the title 「30周年を前に異例の言及」 is part of the article record.",
+      "Casualty and silence claims reproduce exactly from 「天安門事件の死者は数百～数千人に上ったと言われている」 and 「中国政府はこれまで、デモ参加者の死者数を明らかにしていない」.",
+      "Calibration note, not an error requiring revision: faithfulness 42/50 charges only 8 points for three unsupported specifics (日付、タブー、氏名), while 46601033_0845c743 lost 6 for a single geographic addition. I judge 42 to be at the lenient edge of a defensible band, and I decline to substitute my own number for a 4-point difference; averaging is not permitted and no verdict is wrong.",
+      "Arithmetic verified: 42 + 26 + 15 + 5 = 88, GOOD correct for 75-89."
+    ]
+  },
+  "48493511_b9b093a2": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "Claims re-verified: 「多数の死傷者」 from 「武器を持たないデモ参加者たちに向けて発砲し、多数を殺傷した」, the 異例 framing from the title, and 「軍による民主化運動の鎮圧」 from 「1989年4月、100万人を超える学生や労働者たちが民主化を求め」 combined with the June 3-4 troop deployment.",
+      "「6月4日で30年」 is an inference from the title's 30周年 plus 「4日朝にかけて」 rather than a stated span; marking it SUPPORTED with the inference noted in issues is acceptable and does not change any dimension materially.",
+      "The date 「2日」, the taboo framing and the full name 魏鳳和 are correctly NOT_IN_SOURCE; no negation flip or entity substitution was missed.",
+      "Same calibration note as 48493511_7696c89d: faithfulness 43/50 is on the lenient side for three unsupported specifics, but it is internally consistent with the sibling candidate and no verdict is wrong, so I do not revise.",
+      "Arithmetic verified: 43 + 24 + 15 + 5 = 87, GOOD correct."
+    ]
+  }
+}

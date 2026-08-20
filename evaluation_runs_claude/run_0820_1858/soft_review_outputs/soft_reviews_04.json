@@ -1,0 +1,165 @@
+{
+ "40504740_0a7f4dfb": {
+  "decision": "APPROVE",
+  "confidence": "HIGH",
+  "findings": [
+   "Both claims re-verified independently. The drilling start is carried by the title 「ベトナムが南シナ海で石油掘削を開始 中国と領有権争う海域」 and by 「国際企業タリスマン・ベトナム社と契約した掘削船がベトナム南東部沖で掘削を行っているという」; the industry-source attribution is carried by 「ほかの石油業界関係者らはBBCに対し」 and 「業界コンサルタントがBBCに語ったところによると」.",
+   "No addition, no entity or number substitution, no negation flip. Faithfulness 50 stands.",
+   "Coverage 17 of 30 is consistent with a candidate that keeps only the main event and its attribution while dropping the rig name ディープシー・メトロ1, the 約400キロ distance, the 先月21日 start date and the 范長竜 departure.",
+   "Arithmetic verified: 50 + 17 + 15 + 5 = 87, and 87 falls in the GOOD band 75-89."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "40504740_93d0066d": {
+  "decision": "APPROVE",
+  "confidence": "HIGH",
+  "findings": [
+   "All four background claims reproduce from the article, including 「南シナ海で領有権が争われている西沙（Paracel ）諸島や南沙諸島（Spratly ）」 and 「2014年には、西沙（パラセル）諸島に近い南シナ海の別の海域で、ベトナムと中国双方の沿岸警備隊を含む船の間で衝突が起きている」.",
+   "The word 長年 is a fair inference from the three-year permit history and the 2014 lease and clash, not an out-of-source addition, so faithfulness 50 is acceptable.",
+   "Coverage 5 of 30 correctly reflects the total omission of the central event, the start of drilling. This reproduces the LOW_COVERAGE pattern in the few-shot bank, which also pairs coverage 5 with coherence 13 for a total of 73.",
+   "Terminal check: not OFF_TOPIC. The content is background drawn from this same article, so soft scoring is the right route.",
+   "Arithmetic verified: 50 + 5 + 13 + 5 = 73, and 73 falls in the FINE band 65-74."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "40504740_f0e7e3f5": {
+  "decision": "APPROVE",
+  "confidence": "HIGH",
+  "findings": [
+   "All six claims re-verified. The rig, the operator, the 先月21日 start and the 范長竜・中央軍事委員会副主席 early departure all reproduce verbatim from the body.",
+   "The phrase ベトナム南東部沖約400キロ merges 「ベトナム南東部沖」 with 「ベトナム沿岸から約400キロ離れた海域」, and both describe the same drilling site, so the synthesis is faithful; 「指摘されている」 adds an attribution frame the source does not have. Faithfulness 48 is a proportionate two-point charge.",
+   "Coverage 26 of 30 sits at the generous edge, since the Chinese claim to almost the whole South China Sea, the three-year permit refusal and the Repsol ownership are all missing, but it stays inside a defensible range and does not touch a band boundary.",
+   "Arithmetic verified: 48 + 26 + 15 + 5 = 94, and 94 falls in the EXCELLENT band 90-100."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "41396293_54b8e9a4": {
+  "decision": "APPROVE",
+  "confidence": "HIGH",
+  "findings": [
+   "Central claim verified: the title 「日本の安倍首相、解散・総選挙を表明 「国難突破」と」 plus 「安倍首相は25日の記者会見で疑惑をあらためて否定し、衆院解散は追求をそらすためではないと語った」 establish the 25th announcement of dissolution and a general election.",
+   "The addition 「今週召集される臨時国会冒頭での」 is confirmed absent. The string 臨時国会 appears nowhere in the article record, and the only timing statement is 「日本国内のメディアは来月22日になると伝えている」. NOT_IN_SOURCE stands.",
+   "Evidence note without score change: the Scorer treats 「国難突破」 as weaker because it appears only in the headline, but the rubric counts the title as source, and the title attributes that phrase to Abe. What genuinely lacks support is 「国民の政権負託をあらためて問う」, so the composite claim remains correctly NOT_IN_SOURCE.",
+   "No CONTRADICTED claim, so the automatic-revise rule for faithfulness above 40 is not engaged. A 14-point charge for two out-of-source additions is proportionate against the FACTUAL_ERROR precedent, which charges 24 points for an outright contradicted figure.",
+   "Arithmetic verified: 36 + 20 + 15 + 5 = 76, at the low edge of the GOOD band 75-89."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "41396293_964415be": {
+  "decision": "APPROVE",
+  "confidence": "MEDIUM",
+  "findings": [
+   "Same text as 54b8e9a4 with the two sentences inverted. Claim verdicts and faithfulness 36 are correctly held identical, which is the consistency I would require across the pair.",
+   "Coherence 8 of 15 for the ordering inversion is at the strict end. Both sentences are grammatical and complete and only the logically-ordered criterion fails, while the INCOHERENT few-shot reserves 3 of 15 for broken dependencies. A value near 10 or 11 would also be defensible.",
+   "That alternative does not change the outcome: 36 + 20 + 11 + 5 = 72 is still inside FINE, so the band is unaffected and no revision is required.",
+   "Arithmetic verified as drafted: 36 + 20 + 8 + 5 = 69, and 69 falls in the FINE band 65-74."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "41396293_a3eb7364": {
+  "decision": "APPROVE",
+  "confidence": "HIGH",
+  "findings": [
+   "Five claims re-verified. 夏に低迷していた支持率が回復 matches 「安倍首相への支持率は今年夏に記録的な低水準を付けた後、回復傾向にある」 and 野党が混乱 matches 「その一方で、野党勢力はもっぱら混乱状態にある」.",
+   "The same two out-of-source additions as the sibling candidates, 「今週召集される臨時国会冒頭での」 and the press-conference statement 「改めて国民の審判を仰ぐ」, are correctly flagged, and faithfulness is correctly held at 36 across all three candidates of this article.",
+   "Coverage 24 against the siblings 20 is justified by the two additional supported background facts on ratings and opposition disarray; the 2兆円 policy package, the Koike new party and the reported voting day remain missing.",
+   "Arithmetic verified: 36 + 24 + 15 + 5 = 80, and 80 falls in the GOOD band 75-89."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "41875333_06c27e30": {
+  "decision": "APPROVE",
+  "confidence": "HIGH",
+  "findings": [
+   "All six claims re-verified against the body, including 「5日午前10時半すぎに東京の米軍横田基地に到着したトランプ大統領」, 「日本は5日から7日まで、2泊3日の予定」 and the lunch and golf with 安倍晋三首相 and 松山英樹.",
+   "The quoted 「どの独裁者も米国の決意を軽視してはならない」 is a faithful abridgement of 「それが誰だろうと、どの独裁者もどの独裁政権も、米国の決意のほどを軽視してはならない」: the addressee and the meaning are preserved, so a one-point charge is right. This is the exact contrast with sibling aa36a21a, whose quotation has no source at all.",
+   "Naming only 在日米軍 where the article says 在日米軍と自衛隊 is incomplete but not false.",
+   "Arithmetic verified: 49 + 26 + 15 + 5 = 95, and 95 falls in the EXCELLENT band 90-100."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "41875333_398f4a38": {
+  "decision": "APPROVE",
+  "confidence": "MEDIUM",
+  "findings": [
+   "Arrival and tour-start claims verified from 「5日午前10時半すぎに東京の米軍横田基地に到着したトランプ大統領」 and 「トランプ氏は日本を皮切りに、14日までの間に韓国、中国、ベトナム、フィリピンのアジア5か国を訪れる」.",
+   "Labeling note: 「どの国も」 broadens the source addressee 「どの独裁者もどの独裁政権も」, so the third claim is more precisely a partly supported generalization than SUPPORTED. The Scorer already charged it at three points and the direction of the article message, the title 米国の決意強調, is preserved, so the numbers stand.",
+   "Coverage 15 of 30 for a single sentence that carries only the main event is consistent with how the siblings of this article were scored.",
+   "Arithmetic verified: 47 + 15 + 15 + 5 = 82, and 82 falls in the GOOD band 75-89."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "41875333_aa36a21a": {
+  "decision": "APPROVE_TERMINAL",
+  "confidence": "HIGH",
+  "score": 0,
+  "terminal_rank": 0,
+  "quality_label": "HARD_FAIL_FABRICATION",
+  "findings": [
+   "Evidence reproduced independently from the supplied record. Title: 「トランプ米大統領、訪日 米国の決意強調」. Body: 「米軍が平和と自由を守るために必要な予算・人員・装備などのリソースを必ず確保すると約束した」 and 「在日米軍と自衛隊の歓迎に出迎えられたトランプ氏は、「それが誰だろうと、どの独裁者もどの独裁政権も、米国の決意のほどを軽視してはならない」と演説した」. I also searched the whole article record for 世界の警察 and it occurs nowhere; the only occurrence in the input file is inside this candidate itself.",
+   "Position kept from the earlier grounding review, argued at full strength: the opening clause 「5日、アジア5カ国歴訪の皮切りとして日本に到着し」 is exactly right, the second and third sentences on North Korean tension, the lunch and golf with Abe and the 2泊3日 schedule are all verifiable, and the fact that he addressed 在日米軍 is true, so on that reading only the content of one quotation is invented and it resembles the additive invention 全国初の試み in GROUNDED_PERIPHERAL_DEFECT.",
+   "Position upheld, and the reason it prevails: the invention here is not additive and not secondary. It is an attributed direct quotation that occupies the only substantive statement the summary makes about the news; strip it and the candidate collapses into an itinerary. The rubric lists an invented attributed quotation that carries the summary message as FABRICATED_CONTENT, and this one also displaces and inverts the article central point, pledged resources and 米国の決意 that must not be underestimated, into a message of American retrenchment.",
+   "GROUNDED_PERIPHERAL_DEFECT does not fit, because that counter-example requires the invention to sit beside a correctly stated central fact without displacing it. Here the invented quotation replaces the very content the headline identifies as the news.",
+   "Within-article contrast confirms the boundary is categorical rather than gradual: sibling 06c27e30 carries the same structure with an abridged but faithful quotation and scores 95, while this candidate substitutes a sentence that exists nowhere and means the opposite.",
+   "Category: FABRICATED_CONTENT is retained as the more precise label, since the defect is an invented attributed quotation. FACTUAL_REVERSAL is the equivalent alternative because the invention inverts the central message, and it carries the same score 0 and the same terminal_rank 0, so the ranking outcome is identical either way.",
+   "Consequence: eligible_for_soft_scoring false, dimensions null, score 0, terminal_rank 0. No soft dimensions are invented for this candidate."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": "FABRICATED_CONTENT"
+ },
+ "41875333_beaac925": {
+  "decision": "APPROVE",
+  "confidence": "MEDIUM",
+  "findings": [
+   "The candidate text is identical to 398f4a38 and receives identical dimensions, which is the cross-candidate consistency I would require.",
+   "The same labeling note applies: 「どの国も」 generalizes the source addressee 「どの独裁者もどの独裁政権も」, and the three-point charge already reflects it.",
+   "Arithmetic verified: 47 + 15 + 15 + 5 = 82, and 82 falls in the GOOD band 75-89."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "42520667_e8e02131": {
+  "decision": "APPROVE",
+  "confidence": "HIGH",
+  "findings": [
+   "Claims re-verified from 「物価高騰に抗議するイラン第2の都市マシュハドのデモでは52人が逮捕された（28日）」, 「イランにおける反政府デモは異例」, 「29日には、当局からの警告をよそに、抗議は北東部から北西部ラシュト、西部ケルマンシャーなどに飛び火」 and 「ロウハニ大統領の失政を批判する」.",
+   "The given name ハッサン is confirmed absent from the article record. NOT_IN_SOURCE is the right verdict, and a two-point charge for a true but out-of-source given name is proportionate.",
+   "Coverage 17 of 30 fits a single sentence that carries the origin, the date, the spread and the targets while dropping the 52 arrests, the seven cities, the 2009 comparison, the Khamenei criticism and the US State Department condemnation.",
+   "Arithmetic verified: 48 + 17 + 15 + 5 = 85, and 85 falls in the GOOD band 75-89."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "42520667_ece25a42": {
+  "decision": "APPROVE",
+  "confidence": "HIGH",
+  "findings": [
+   "All six claims re-verified, including every figure: 52人が逮捕された, 少なくとも7都市, the 2009 presidential-election comparison, and the Syria complaint 「シリアを出ろ、我々のことを考えろ」.",
+   "Folding the social-media spread and the seven-city figure into the 29th is a mild synthesis that the article ordering supports, so the one-point charge is right rather than a contradiction.",
+   "Coverage 27 of 30 is earned: only the US State Department condemnation and the Kermanshah clashes are missing.",
+   "Arithmetic verified: 49 + 27 + 15 + 5 = 96, and 96 falls in the EXCELLENT band 90-100."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ },
+ "42520667_f33c4810": {
+  "decision": "APPROVE",
+  "confidence": "HIGH",
+  "findings": [
+   "Both CONTRADICTED verdicts reproduced independently. The article origin city is 「イラン第2の都市マシュハド」 and タブリーズ appears nowhere in the record; the arrest count is 「過激なスローガン」を繰り返していたと、52人が逮捕された, not 72.",
+   "Faithfulness 22 is below the 40 threshold, so the automatic-revise rule for a CONTRADICTED claim is not engaged. A heavy charge for a lead-sentence entity substitution plus a wrong figure is proportionate against the FACTUAL_ERROR precedent of 26 of 50 for one contradicted figure.",
+   "Terminal check performed and declined: the central event survives, namely unusual anti-government protests spreading across Iran, at least seven cities on the 29th, the largest anti-government movement since 2009, widening to criticism of Rouhani and Khamenei. The wrong origin city is a secondary-entity substitution and 72 a peripheral figure, so GROUNDED_PERIPHERAL_DEFECT governs and soft scoring is correct.",
+   "Arithmetic verified: 22 + 21 + 15 + 5 = 63, and 63 falls in the MIXED band 50-64."
+  ],
+  "suggested_dimensions": null,
+  "terminal_result": null
+ }
+}
