@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net" modified="2026-08-20T00:00:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="pipeline" name="Pipeline">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root><mxCell id="0"/><mxCell id="1" parent="0"/>
+        <mxCell id="article" value="Article + candidate summary\n(runtime input only)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16" vertex="1" parent="1"><mxGeometry x="40" y="250" width="190" height="70" as="geometry"/></mxCell>
+        <mxCell id="hard" value="1. Physical hard gate\ncopy / empty / unusable truncation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14" vertex="1" parent="1"><mxGeometry x="290" y="220" width="210" height="90" as="geometry"/></mxCell>
+        <mxCell id="embed" value="2. Assigned-article embedding\nadvisory suspect only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14" vertex="1" parent="1"><mxGeometry x="560" y="220" width="210" height="90" as="geometry"/></mxCell>
+        <mxCell id="ground" value="3. Grounding Gate + independent Reviewer\noff-topic / reversal terminal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14" vertex="1" parent="1"><mxGeometry x="830" y="220" width="230" height="90" as="geometry"/></mxCell>
+        <mxCell id="score" value="4. Scorer + Reviewer\nanchor, dimensions, revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14" vertex="1" parent="1"><mxGeometry x="1120" y="220" width="210" height="90" as="geometry"/></mxCell>
+        <mxCell id="out" value="Rank five candidates\nscore.jsonl + evidence + report" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16" vertex="1" parent="1"><mxGeometry x="1390" y="220" width="210" height="90" as="geometry"/></mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block" edge="1" parent="1" source="article" target="hard"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block" edge="1" parent="1" source="hard" target="embed"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block" edge="1" parent="1" source="embed" target="ground"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block" edge="1" parent="1" source="ground" target="score"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block" edge="1" parent="1" source="score" target="out"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

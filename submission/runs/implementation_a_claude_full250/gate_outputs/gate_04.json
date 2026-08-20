@@ -1,0 +1,142 @@
+{
+ "42520667_df2a70ac": {
+  "verdict": "NOT_GROUNDED",
+  "category": "OFF_TOPIC",
+  "article_span": "北東部マシュハドでは28日、物価上昇に抗議するデモが「過激なスローガン」を繰り返していたと、52人が逮捕された。",
+  "candidate_span": "米女優・監督のアンジェリーナ・ジョリーさん（41）が、夫で俳優・プロデューサーのブラッド・ピットさん（52）との離婚を申し立てた。",
+  "note": "原文はイランの反政府デモだが、候補はハリウッド俳優の離婚申し立てという全く別の主題を述べている。"
+ },
+ "42520667_e8e02131": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "マシュハド発の異例の反政府デモが29日に各都市へ拡大したという中心事実が原文どおりで、逸脱はない。"
+ },
+ "42520667_ece25a42": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "逮捕者52人、7都市への飛び火、2009年以来最大規模という記述がいずれも原文に対応している。"
+ },
+ "42520667_f33c4810": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "都市名がタブリーズ、逮捕者が72人と誤っているが、28日にイランで物価抗議デモが起き各地へ拡大したという中心事実は保たれており、副次的実体と数値の誤りは採点側の忠実性で扱うべき範囲。"
+ },
+ "43284438_4ebb7ef8": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "シェイプ・オブ・ウォーターが作品賞と監督賞を含む4部門を受賞した中心事実は原文どおりで、開催地や13部門候補などの付加は周辺的。"
+ },
+ "43284438_60078c2b": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "4部門受賞、マクドーマンド氏の主演女優賞、オールドマン氏の主演男優賞、包摂の訴えがすべて原文に対応している。"
+ },
+ "43284438_ab76c193": {
+  "verdict": "NOT_GROUNDED",
+  "category": "OFF_TOPIC",
+  "article_span": "「シェイプ・オブ・ウォーター」は、作品賞と監督賞のほか、美術賞と音楽賞を獲得した。",
+  "candidate_span": "ヨーグルトというと健康的な食べ物と思われがちだが、実は多くの場合、砂糖が豊富に含まれている。",
+  "note": "原文は米アカデミー賞授賞式だが、候補はヨーグルトの糖分に関する健康警告という別の主題を述べている。"
+ },
+ "43284438_b42ea322": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "受賞部門数を5部門と誤り、アカデミー協会の新ポリシー発表という無根拠な一文を加えているが、作品賞・監督賞受賞と主演2賞という中心事実は原文どおりで、いずれも周辺的欠陥。"
+ },
+ "43411421_1a29c02f": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "事件1カ月後のウォークアウト、17分の黙とう、ホワイトハウス対策案の内容がいずれも原文に対応している。"
+ },
+ "43411421_82b9d51b": {
+  "verdict": "NOT_GROUNDED",
+  "category": "OFF_TOPIC",
+  "article_span": "デモ隊は行進中、マージョリー・ストーンマン・ダグラス高校で亡くなった17人の犠牲者をしのび、17分のあいだ歩みを止めて黙とうをささげた。",
+  "candidate_span": "パリ北部の18区で26日、集合住宅の4階ベランダからぶら下がった幼児を22歳の移民男性が救助した。",
+  "note": "原文は全米の高校生ウォークアウトだが、候補はパリでの幼児救助という全く別の出来事を述べている。"
+ },
+ "43411421_bc8ba950": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "原文中のブラックマンさんの挿話をそのまま扱っており、主事件の網羅が乏しいのは採点側の被覆度の問題で接地の欠陥ではない。"
+ },
+ "43411421_d0c5a134": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "事件から1カ月の14日に全米でウォークアウトが行われたという中心事実が原文どおり。"
+ },
+ "43985653_48644c97": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "1ドルでの和解、20万ドルの寄付、8000店舗の一斉閉店がいずれも原文に対応している。"
+ },
+ "43985653_48c93690": {
+  "verdict": "NOT_GROUNDED",
+  "category": "OFF_TOPIC",
+  "article_span": "フィラデルフィアのジム・ケニー市長の報道官が2日、BBCニュースの取材に和解成立を確認した。",
+  "candidate_span": "シリア全土で30日午前零時（日本時間午前7時）に発効した政府軍と反政府勢力の停戦合意は、散発的な衝突のほかは終日ほぼ継続したもようだ。",
+  "note": "原文は米スターバックス逮捕事件の和解だが、候補はシリア停戦という別の主題を述べている。"
+ },
+ "43985653_8617611f": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "黒人男性2人の逮捕と市による象徴的な1ドルの和解という中心事実が原文どおり。"
+ },
+ "43985653_cf337693": {
+  "verdict": "NOT_GROUNDED",
+  "category": "FACTUAL_REVERSAL",
+  "article_span": "フィラデルフィアのジム・ケニー市長の報道官が2日、BBCニュースの取材に和解成立を確認した。／スターバックスは、従業員たちに人種差別を防ぐ研修の受講を義務付けると表明している。",
+  "candidate_span": "市は和解要求を拒否し、裁判で争う姿勢を示した。スターバックスも人種差別研修の実施要求を退け、店舗運営を通常通り継続する方針だ。",
+  "note": "和解成立と研修義務付けという記事の中心的決定を、和解拒否・研修拒否へと正反対に反転させている。"
+ },
+ "44026917_0884546b": {
+  "verdict": "NOT_GROUNDED",
+  "category": "FACTUAL_REVERSAL",
+  "article_span": "「エールフランスが存続できるかは五分五分だ」と述べた一方、フランス政府は同社の負債のバックネット役にはならないとしている。",
+  "candidate_span": "仏ル・メール経済相は「経営危機は解消された」として存続に強い自信を示した。",
+  "note": "経済相が存続を五分五分と警告した記事の中心的発言を、危機解消・存続に自信という正反対の内容に反転させている。"
+ },
+ "44026917_27f86779": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "経済相が存続への懸念を示したという中心事実は原文どおりで、5.1％という賃上げ要求率の記述は周辺的な数値の誤り。"
+ },
+ "44026917_68047f05": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "存続への懸念と会長兼CEOの辞任という中心事実は原文どおりで、5.1％や10日という細部の誤りは周辺的。"
+ },
+ "44026917_d7618f85": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "五分五分という経済相の警告とスト継続という中心事実が原文どおり。"
+ }
+}

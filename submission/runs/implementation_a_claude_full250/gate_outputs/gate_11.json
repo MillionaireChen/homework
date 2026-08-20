@@ -1,0 +1,16 @@
+{
+ "34991666_7b3a10b0": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "中心事実(サンバーナディーノの福祉施設での乱射で14人死亡、銃撃犯は黒いSUVで逃走)は原文と一致しており、負傷者17人と日付2日は原文に記載のない周辺的な要素なので採点に回す。"
+ },
+ "46669858_5fcda3e1": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "22日の津波で少なくとも281人死亡・1016人負傷、行方不明者あり、人気バンド「セヴンティーン」への言及はいずれも原文に対応があり、末尾が切れている点は接地の問題ではない。"
+ }
+}

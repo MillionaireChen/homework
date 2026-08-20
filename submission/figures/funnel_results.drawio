@@ -1,0 +1,116 @@
+<mxfile host="app.diagrams.net" modified="2026-08-20T12:00:00.000Z" agent="claude-code" version="24.0.0">
+  <diagram id="funnel-results" name="Funnel Results 250">
+    <mxGraphModel dx="1100" dy="850" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="t" value="Funnel outcomes on the same 250 pairs — two independent implementations" style="text;html=1;fontSize=17;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="16" width="1070" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="st" value="50 articles x 5 candidates. Neither implementation used a reference summary at runtime, and neither saw the other's output." style="text;html=1;fontSize=11;align=center;fontColor=#5A6C7D;" vertex="1" parent="1">
+          <mxGeometry x="40" y="42" width="1070" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hdrA" value="IMPLEMENTATION A — Claude plugin (two-layer hard constraints + grounding gate)" style="text;html=1;fontSize=12;fontStyle=1;align=left;fontColor=#1A4480;" vertex="1" parent="1">
+          <mxGeometry x="50" y="76" width="520" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a0" value="INPUT   250" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6E4FF;strokeColor=#4A76D4;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="102" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" value="passed string gates   199" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C2D7FF;strokeColor=#4A76D4;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="98" y="152" width="384" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="passed grounding gate   170" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#AECBFF;strokeColor=#4A76D4;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="146" y="202" width="288" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="SOFT-SCORED   165" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#8FB8FF;strokeColor=#4A76D4;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="252" width="240" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ax1" value="- 51 terminal&#xa;50 VERBATIM_SOURCE_COPY&#xa;1 OBVIOUS_TRUNCATION" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBE3E3;strokeColor=#C0392B;fontSize=9;align=left;spacingLeft=6;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="548" y="146" width="196" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ax2" value="- 29 terminal&#xa;16 OFF_TOPIC&#xa;13 FACTUAL_REVERSAL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBE3E3;strokeColor=#C0392B;fontSize=9;align=left;spacingLeft=6;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="548" y="196" width="196" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="ax3" value="- 5 terminal (reviewer backstop)&#xa;4 OBVIOUS_TRUNCATION stubs&#xa;1 FABRICATED_CONTENT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBE3E3;strokeColor=#C0392B;fontSize=9;align=left;spacingLeft=6;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="548" y="246" width="196" height="46" as="geometry" />
+        </mxCell>
+
+        <mxCell id="aband" value="scores 35-98, median 79   |   EXCELLENT 28  GOOD 66  FINE 34  MIXED 25  POOR 12" style="text;html=1;fontSize=10;align=left;fontColor=#1A4480;" vertex="1" parent="1">
+          <mxGeometry x="50" y="298" width="700" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hdrB" value="IMPLEMENTATION B — GPT/Codex plugin (deterministic gates + relevance review, no grounding-gate agent)" style="text;html=1;fontSize=12;fontStyle=1;align=left;fontColor=#8A4B00;" vertex="1" parent="1">
+          <mxGeometry x="50" y="336" width="700" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b0" value="INPUT   250" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDE7CC;strokeColor=#D98C3F;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="362" width="480" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="passed deterministic gates   197" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBD9AE;strokeColor=#D98C3F;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="98" y="412" width="384" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="passed relevance review   181" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8C98A;strokeColor=#D98C3F;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="146" y="462" width="288" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="SOFT-SCORED   168" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5B75F;strokeColor=#D98C3F;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="512" width="240" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bx1" value="- 53 proposed, 66 terminal in total&#xa;50 VERBATIM_SOURCE_COPY&#xa;16 OBVIOUS_TRUNCATION" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBE3E3;strokeColor=#C0392B;fontSize=9;align=left;spacingLeft=6;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="548" y="406" width="196" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="bx2" value="- 16 terminal&#xa;16 OFF_TOPIC&#xa;(19 suspects, 3 rejected)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBE3E3;strokeColor=#C0392B;fontSize=9;align=left;spacingLeft=6;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="548" y="456" width="196" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="bx3" value="13 hard failures recovered&#xa;downstream by review" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#C8A415;fontSize=9;align=left;spacingLeft=6;fontColor=#7A5C00;" vertex="1" parent="1">
+          <mxGeometry x="548" y="506" width="196" height="46" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bband" value="scores 32-100, median 85   |   EXCELLENT 65  GOOD 49  MIXED 42  POOR 12   (four bands, no FINE tier)" style="text;html=1;fontSize=10;align=left;fontColor=#8A4B00;" vertex="1" parent="1">
+          <mxGeometry x="50" y="558" width="700" height="18" as="geometry" />
+        </mxCell>
+
+        <mxCell id="xhdr" value="CROSS-VALIDATION — the two implementations against each other" style="text;html=1;fontSize=13;fontStyle=1;align=left;fontColor=#1F5B2E;" vertex="1" parent="1">
+          <mxGeometry x="50" y="600" width="600" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="x1" value="ROUTING AGREEMENT&#xa;&lt;b&gt;90.0%&lt;/b&gt;&#xa;225 of 250 pairs routed the same way&#xa;71 both terminal | 154 both scored" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E9F6EC;strokeColor=#4C9A5E;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="628" width="250" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="x2" value="TERMINAL CATEGORY AGREEMENT&#xa;&lt;b&gt;71 / 71 = 100%&lt;/b&gt;&#xa;where both terminated, both chose&#xa;the same category. Zero mismatches." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E9F6EC;strokeColor=#4C9A5E;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="316" y="628" width="250" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="x3" value="SCORE AGREEMENT&#xa;&lt;b&gt;Spearman 0.897&lt;/b&gt;&#xa;on the 154 pairs both scored&#xa;mean |diff| 7.2 of 100" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E9F6EC;strokeColor=#4C9A5E;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="582" y="628" width="250" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="x4" value="ORDERING&#xa;&lt;b&gt;0 inversions / 50 articles&lt;/b&gt;&#xa;no planted bad summary ranked&#xa;above a reference-grade one" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E9F6EC;strokeColor=#4C9A5E;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="848" y="628" width="250" height="86" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dis" value="ALL 25 DISAGREEMENTS ATTRIBUTE TO ONE RULE DIFFERENCE — the two sets do not overlap" style="text;html=1;fontSize=11;fontStyle=1;align=left;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="50" y="726" width="800" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" value="14 terminal in A only — all FACTUAL_REVERSAL (13) or FABRICATED_CONTENT (1)&#xa;weak label: 14 / 14 are GENERATED candidates&#xa;B has no grounding-gate agent, so it cannot reach this class at all. B scored them 60-94." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEF3FF;strokeColor=#4A76D4;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="750" width="520" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" value="11 terminal in B only — all OBVIOUS_TRUNCATION&#xa;weak label: 11 / 11 are REF_TRUNCATED fragments&#xa;A changed truncation to a scaled penalty, so it scored them 39-70 instead of zero." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF6EC;strokeColor=#D98C3F;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="586" y="750" width="512" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" value="Reading: the implementations disagree about SEVERITY, never about WHICH candidates are defective. Each disagreement set maps onto exactly one planted category and one documented rule choice." style="text;html=1;fontSize=10;align=left;fontColor=#5A6C7D;" vertex="1" parent="1">
+          <mxGeometry x="50" y="816" width="1048" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ea1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C0392B;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="a0" target="ax1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C0392B;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="a1" target="ax2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C0392B;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="a2" target="ax3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eb1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C0392B;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="b0" target="bx1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eb2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C0392B;endArrow=block;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="b1" target="bx2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="eb3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C8A415;endArrow=open;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="b2" target="bx3"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

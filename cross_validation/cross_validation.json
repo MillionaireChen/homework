@@ -1,0 +1,120 @@
+{
+ "provenance": {
+  "claude_run": "evaluation_runs_claude/run_0820_1858/score_ranked.jsonl",
+  "gpt_run": "evaluation_runs_GPT/full250_codex/score.jsonl",
+  "reference_used_at_runtime_by_either": false,
+  "weak_labels_derived_at": "cross-validation stage, after both runs were final",
+  "implementations_saw_each_other": false
+ },
+ "coverage": {
+  "comparable_pairs": 250,
+  "claude_rows": 250,
+  "gpt_rows": 250
+ },
+ "routing_agreement": {
+  "both_terminal": 71,
+  "both_scored": 154,
+  "claude_only_terminal": 14,
+  "gpt_only_terminal": 11,
+  "rate": 0.9,
+  "terminal_category_agreement": {
+   "compared": 71,
+   "identical": 71,
+   "rate": 1.0,
+   "mismatches": {}
+  }
+ },
+ "score_agreement": {
+  "compared": 154,
+  "spearman": 0.8973,
+  "mean_absolute_difference": 7.25,
+  "claude_mean": 77.32,
+  "gpt_mean": 83.55
+ },
+ "disagreement_attribution": {
+  "claude_only_terminal": {
+   "count": 14,
+   "by_terminal_type": {
+    "FACTUAL_REVERSAL": 13,
+    "FABRICATED_CONTENT": 1
+   },
+   "by_weak_label": {
+    "GENERATED": 14
+   },
+   "gpt_scores_for_these": {
+    "min": 32,
+    "max": 71
+   }
+  },
+  "gpt_only_terminal": {
+   "count": 11,
+   "by_terminal_type": {
+    "OBVIOUS_TRUNCATION": 11
+   },
+   "by_weak_label": {
+    "REF_TRUNCATED": 11
+   },
+   "claude_scores_for_these": {
+    "min": 39,
+    "max": 69
+   }
+  }
+ },
+ "by_weak_label": {
+  "REF_VERBATIM": {
+   "count": 58,
+   "claude": {
+    "terminated": 0,
+    "mean_score": 78.64
+   },
+   "gpt": {
+    "terminated": 0,
+    "mean_score": 83.29
+   }
+  },
+  "GENERATED": {
+   "count": 108,
+   "claude": {
+    "terminated": 14,
+    "mean_score": 66.75
+   },
+   "gpt": {
+    "terminated": 0,
+    "mean_score": 79.01
+   }
+  },
+  "REF_TRUNCATED": {
+   "count": 17,
+   "claude": {
+    "terminated": 5,
+    "mean_score": 41.94
+   },
+   "gpt": {
+    "terminated": 16,
+    "mean_score": 4.35
+   }
+  },
+  "ARTICLE_COPY": {
+   "count": 51,
+   "claude": {
+    "terminated": 50,
+    "mean_score": 1.33
+   },
+   "gpt": {
+    "terminated": 50,
+    "mean_score": 1.45
+   }
+  },
+  "OFF_TOPIC": {
+   "count": 16,
+   "claude": {
+    "terminated": 16,
+    "mean_score": 0.0
+   },
+   "gpt": {
+    "terminated": 16,
+    "mean_score": 0.0
+   }
+  }
+ }
+}

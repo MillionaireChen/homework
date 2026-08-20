@@ -1,0 +1,114 @@
+{
+  "provenance": {
+    "reference_summary_used_at_runtime": false,
+    "reference_summary_read_at_report_stage": true,
+    "labelling_inputs": "articles and summaries corpus only",
+    "near_reference_ratio": 0.9
+  },
+  "corpus": {
+    "scored_records": 250,
+    "labelled_records": 250,
+    "gradable_records": 141,
+    "unlabelled_records": 109
+  },
+  "categories": {
+    "REFERENCE_VERBATIM": {
+      "description": "reference summary reproduced verbatim",
+      "count": 58,
+      "expected_outcome": "surviving soft score",
+      "rejected_with_zero": 0,
+      "surviving_soft_scores": {
+        "count": 58,
+        "mean": 83.29,
+        "median": 86.0,
+        "minimum": 44.0,
+        "maximum": 98.0
+      },
+      "labels": {
+        "GOOD": 31,
+        "MIXED": 9,
+        "EXCELLENT": 17,
+        "POOR": 1
+      },
+      "correct": 58,
+      "detection_rate": 1.0,
+      "disagreements": []
+    },
+    "COPY_OF_ARTICLE": {
+      "description": "continuous copy of the source article",
+      "count": 50,
+      "expected_outcome": "terminal",
+      "rejected_with_zero": 50,
+      "surviving_soft_scores": null,
+      "labels": {},
+      "correct": 50,
+      "detection_rate": 1.0,
+      "disagreements": []
+    },
+    "TRUNCATED_REFERENCE": {
+      "description": "leading fragment of the reference summary",
+      "count": 17,
+      "expected_outcome": "terminal",
+      "rejected_with_zero": 16,
+      "surviving_soft_scores": {
+        "count": 1,
+        "mean": 74.0,
+        "median": 74.0,
+        "minimum": 74.0,
+        "maximum": 74.0
+      },
+      "labels": {
+        "MIXED": 1
+      },
+      "correct": 16,
+      "detection_rate": 0.9412,
+      "disagreements": [
+        {
+          "summary_id": "51395937_e409196f",
+          "score": 74.0,
+          "quality_label": "MIXED"
+        }
+      ]
+    },
+    "OFF_TOPIC": {
+      "description": "unrelated to its assigned article",
+      "count": 16,
+      "expected_outcome": "terminal",
+      "rejected_with_zero": 16,
+      "surviving_soft_scores": null,
+      "labels": {},
+      "correct": 16,
+      "detection_rate": 1.0,
+      "disagreements": []
+    },
+    "GENERATED_UNKNOWN": {
+      "description": "generated candidate with no derivable label",
+      "count": 109,
+      "expected_outcome": "not labelled",
+      "rejected_with_zero": 0,
+      "surviving_soft_scores": {
+        "count": 109,
+        "mean": 78.96,
+        "median": 80.0,
+        "minimum": 32.0,
+        "maximum": 100.0
+      },
+      "labels": {
+        "GOOD": 18,
+        "MIXED": 32,
+        "POOR": 11,
+        "EXCELLENT": 48
+      }
+    }
+  },
+  "accuracy": {
+    "gradable_records": 141,
+    "correct": 140,
+    "rate": 0.9929
+  },
+  "within_article_ordering": {
+    "comparable_articles": 50,
+    "articles_with_planted_bad_at_or_above_reference": 0,
+    "inverted_articles": []
+  }
+}
