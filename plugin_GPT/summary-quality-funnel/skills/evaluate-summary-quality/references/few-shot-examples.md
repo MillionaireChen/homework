@@ -62,14 +62,16 @@ Expected:
 
 ## OFF_TOPIC
 
+Unrelated subject. Terminal, score 0.
+
 Article: `北海道で大雪となり、鉄道各社は計50本を運休した。`
 
 Candidate: `中央銀行は政策金利を0.25ポイント引き上げた。`
 
-Expected:
+Expected gate output:
 
 ```json
-{"draft_terminal_result":"OFF_TOPIC","expected_review":"APPROVE","expected_score":0,"terminal_rank":0,"reason":"The subject, event, and domain are all unrelated to the article."}
+{"summary_id":"example","verdict":"NOT_GROUNDED","category":"OFF_TOPIC","article_evidence":["北海道で大雪となり、鉄道各社は計50本を運休した"],"candidate_evidence":["中央銀行は政策金利を0.25ポイント引き上げた"],"findings":["The subject, event, and domain are all unrelated to the article."]}
 ```
 
 ## REVIEW_REJECT_BORDERLINE
@@ -140,6 +142,32 @@ Expected gate output:
 
 ```json
 {"summary_id":"example","verdict":"NOT_GROUNDED","category":"FABRICATED_CONTENT","article_evidence":["出火原因は調査中"],"candidate_evidence":["放火によるものと断定し、容疑者2人を逮捕した"],"findings":["The arson determination and the two arrests appear nowhere in the article, which states the cause is still under investigation."]}
+```
+
+## GROUNDED_PERIPHERAL_DEFECT
+
+The counter-example, and the one to weigh hardest. The candidate carries a real defect,
+and it still passes: the article's central fact survives and only a secondary detail is
+wrong or added. Scoring penalizes it; the gate must not stop it. Reach for `NOT_GROUNDED`
+only when the defect displaces or inverts the central fact itself.
+
+Article: `県は5日、新しい防災アプリの運用を始めた。登録者は初日で1万2000人に達し、避難所の混雑状況を地図上で確認できる。`
+
+Candidate: `県は5日、新しい防災アプリの運用を開始した。登録者は初日で2万人を超え、全国初の試みだという。`
+
+Two defects: the figure is wrong (`2万人` for `1万2000人`) and `全国初の試み` appears nowhere.
+Neither touches the central fact, that the prefecture launched the app on the 5th.
+
+Expected gate output:
+
+```json
+{"summary_id":"example","verdict":"GROUNDED","findings":["Wrong registration figure and an unsupported first-in-the-country claim; both peripheral, so this belongs in scoring."]}
+```
+
+The Scorer then charges the same two defects to faithfulness:
+
+```json
+{"dimensions":{"faithfulness":30,"coverage":20,"coherence":14,"conciseness":5},"score":69,"quality_label":"FINE"}
 ```
 
 ## LOW_COVERAGE

@@ -47,4 +47,4 @@ JSON only:
 {"summary_id": "...", "verdict": "NOT_GROUNDED", "category": "FACTUAL_REVERSAL", "article_evidence": ["..."], "candidate_evidence": ["..."], "findings": ["one sentence naming the central defect"]}
 ```
 
-Follow any few-shot example supplied in your prompt; it shows the expected rigor and format for your current case.
+Your prompt carries one matching example from `few-shot-examples.md`. When a central defect looks likely it is `OFF_TOPIC`, `FACTUAL_REVERSAL`, or `FABRICATED_CONTENT`; when the defect you can see looks secondary it is `GROUNDED_PERIPHERAL_DEFECT`. Weigh the latter hardest: over-proposing on a peripheral defect destroys the score gradient, and it is the failure this role is most prone to.

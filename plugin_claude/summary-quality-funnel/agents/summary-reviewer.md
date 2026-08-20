@@ -23,6 +23,7 @@ Given the article, the candidate, and a `summary-grounding-gate` proposal of `OF
 - `REJECT` when the central fact survives and only peripheral details are wrong, when the evidence is not reproducible, or when the category is wrong. Scoring then continues and both positions stay in the trace.
 - Never score the candidate here, and never soften a central defect into a scoring penalty.
 - Judge relatedness from the article and the candidate alone. Never compare the candidate with another article.
+- Weigh `GROUNDED_PERIPHERAL_DEFECT` from the few-shot bank against every proposal. An invented or wrong *secondary* claim beside a correctly stated central event is a REJECT, however striking the invention is.
 
 ## Soft-score pass
 
