@@ -1,0 +1,47 @@
+{
+  "input": {
+    "pairs": 250,
+    "unique_articles": 50,
+    "reference_summary_used": false,
+    "hard_gate_artifact_supplied": true,
+    "embedding_artifact_supplied": true
+  },
+  "funnel": {
+    "fully_soft_scored": 168,
+    "terminal_total": 82,
+    "terminal_by_type": {
+      "OBVIOUS_TRUNCATION": 16,
+      "OFF_TOPIC": 16,
+      "VERBATIM_SOURCE_COPY": 50
+    },
+    "deterministic_gate_proposals": 53,
+    "hard_failures_recovered_downstream": 13,
+    "embedding_off_topic_suspects": 19,
+    "embedding_off_topic_confirmed": 16,
+    "embedding_suspects_rejected": 3
+  },
+  "soft_scores": {
+    "count": 168,
+    "mean": 80.43,
+    "median": 85.0,
+    "minimum": 32.0,
+    "maximum": 100.0,
+    "labels": {
+      "EXCELLENT": 65,
+      "GOOD": 49,
+      "MIXED": 42,
+      "POOR": 12
+    },
+    "dimension_means": {
+      "faithfulness": 39.12,
+      "coverage": 21.43,
+      "coherence": 14.9,
+      "conciseness": 4.98
+    }
+  },
+  "review": {
+    "approved": 250,
+    "escalated": 0,
+    "revised_at_least_once": 20
+  }
+}

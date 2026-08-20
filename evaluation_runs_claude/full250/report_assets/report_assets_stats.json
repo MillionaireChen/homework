@@ -1,0 +1,29 @@
+{
+ "total": 250,
+ "hard_gate_intercepted": 85,
+ "off_topic_intercepted": 16,
+ "reviewer_rerouted": 0,
+ "soft_scored": 165,
+ "terminals": {
+  "OBVIOUS_TRUNCATION": 3,
+  "VERBATIM_SOURCE_COPY": 50,
+  "FACTUAL_REVERSAL": 13,
+  "OFF_TOPIC": 16,
+  "FABRICATED_CONTENT": 3
+ },
+ "soft_labels": {
+  "GOOD": 63,
+  "MIXED": 27,
+  "POOR": 10,
+  "EXCELLENT": 33,
+  "FINE": 32
+ },
+ "soft_score_min": 34,
+ "soft_score_max": 99,
+ "articles": 50,
+ "charts": [
+  "funnel.png",
+  "scores_by_article.png",
+  "categories.png"
+ ]
+}

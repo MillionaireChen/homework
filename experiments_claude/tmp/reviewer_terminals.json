@@ -1,0 +1,66 @@
+{
+  "39776572_9264a945": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "score": 0,
+    "terminal_rank": 1,
+    "evidence": "重算确认: 归一化后摘要全文177字连续出现在原文归一化文本 offset 0 处 (full_containment=true, 覆盖率100%), 远超普通实体/数字重合",
+    "continue_at": null
+  },
+  "41396293_d942de59": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "score": 0,
+    "terminal_rank": 1,
+    "evidence": "重算确认: 归一化后摘要全文125字连续出现在原文归一化文本 offset 0 处 (full_containment=true, 覆盖率100%)",
+    "continue_at": null
+  },
+  "42520667_91b3153d": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "score": 0,
+    "terminal_rank": 1,
+    "evidence": "重算确认: 归一化后摘要全文178字连续出现在原文归一化文本 offset 0 处 (full_containment=true, 覆盖率100%)",
+    "continue_at": null
+  },
+  "44708203_daf3b32b": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "score": 0,
+    "terminal_rank": 1,
+    "evidence": "重算确认: 归一化后摘要全文185字(含英文题注)连续出现在原文归一化文本 offset 0 处 (full_containment=true, 覆盖率100%)",
+    "continue_at": null
+  },
+  "46669858_c2275577": {
+    "decision": "APPROVE",
+    "terminal_result": "VERBATIM_SOURCE_COPY",
+    "score": 0,
+    "terminal_rank": 1,
+    "evidence": "重算确认: 归一化后摘要全文181字连续出现在原文归一化文本 offset 0 处 (full_containment=true, 覆盖率100%)",
+    "continue_at": null
+  },
+  "46669858_5fcda3e1": {
+    "decision": "APPROVE",
+    "terminal_result": "OBVIOUS_TRUNCATION",
+    "score": 0,
+    "terminal_rank": 2,
+    "evidence": "摘要以「セヴンティ 结尾: 左引号「未闭合, 且在词中间截断 (原文乐队名为「セヴンティーン」), 属物理性明确截断而非助词结尾嫌疑",
+    "continue_at": null
+  },
+  "42520667_df2a70ac": {
+    "decision": "APPROVE",
+    "terminal_result": "OFF_TOPIC",
+    "score": 0,
+    "terminal_rank": 0,
+    "evidence": "摘要讲 Angelina Jolie 向 Brad Pitt 提出离婚, 所属文章 42520667 是伊朗多地反政府物价抗议示威, 主体/事件/领域完全无关; 内容与检索 top1 文章 37426493 (ジョリー离婚申立て) 逐项吻合 (sim=0.218, assigned_rank=45)",
+    "continue_at": null
+  },
+  "44708203_6d931562": {
+    "decision": "APPROVE",
+    "terminal_result": "OFF_TOPIC",
+    "score": 0,
+    "terminal_rank": 0,
+    "evidence": "摘要讲英国男子出售父亲每年生日所赠18年物威士忌收藏以付购房首付, 所属文章 44708203 是泰国洞窟被困少年公开视频, 完全无关; 内容与检索 top1 文章 54083932 (28年生日威士忌价值550万円) 吻合 (sim=0.319, assigned_rank=14)",
+    "continue_at": null
+  }
+}

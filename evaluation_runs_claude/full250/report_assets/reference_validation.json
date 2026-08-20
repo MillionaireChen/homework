@@ -1,0 +1,181 @@
+{
+  "provenance": {
+    "reference_summary_used_at_runtime": false,
+    "reference_summary_read_at_report_stage": true,
+    "labelling_inputs": "articles and summaries corpus only",
+    "near_reference_ratio": 0.9
+  },
+  "corpus": {
+    "scored_records": 250,
+    "labelled_records": 250,
+    "gradable_records": 141,
+    "unlabelled_records": 109
+  },
+  "categories": {
+    "REFERENCE_VERBATIM": {
+      "description": "reference summary reproduced verbatim",
+      "count": 58,
+      "expected_outcome": "surviving soft score",
+      "rejected_with_zero": 0,
+      "surviving_soft_scores": {
+        "count": 58,
+        "mean": 79.1,
+        "median": 81.5,
+        "minimum": 54.0,
+        "maximum": 89.0
+      },
+      "labels": {
+        "GOOD": 41,
+        "MIXED": 4,
+        "FINE": 13
+      },
+      "correct": 58,
+      "detection_rate": 1.0,
+      "disagreements": []
+    },
+    "COPY_OF_ARTICLE": {
+      "description": "continuous copy of the source article",
+      "count": 50,
+      "expected_outcome": "terminal",
+      "rejected_with_zero": 50,
+      "surviving_soft_scores": null,
+      "labels": {},
+      "correct": 50,
+      "detection_rate": 1.0,
+      "disagreements": []
+    },
+    "TRUNCATED_REFERENCE": {
+      "description": "leading fragment of the reference summary",
+      "count": 17,
+      "expected_outcome": "terminal",
+      "rejected_with_zero": 3,
+      "surviving_soft_scores": {
+        "count": 14,
+        "mean": 54.5,
+        "median": 54.5,
+        "minimum": 39.0,
+        "maximum": 66.0
+      },
+      "labels": {
+        "POOR": 4,
+        "MIXED": 9,
+        "FINE": 1
+      },
+      "correct": 3,
+      "detection_rate": 0.1765,
+      "disagreements": [
+        {
+          "summary_id": "35278497_f64d7d4c",
+          "score": 49.0,
+          "quality_label": "POOR"
+        },
+        {
+          "summary_id": "36881141_86804cfb",
+          "score": 47.0,
+          "quality_label": "POOR"
+        },
+        {
+          "summary_id": "39776572_7682c3a7",
+          "score": 39.0,
+          "quality_label": "POOR"
+        },
+        {
+          "summary_id": "44026917_27f86779",
+          "score": 53.0,
+          "quality_label": "MIXED"
+        },
+        {
+          "summary_id": "44285473_b6028e64",
+          "score": 58.0,
+          "quality_label": "MIXED"
+        },
+        {
+          "summary_id": "45001963_18f10be4",
+          "score": 53.0,
+          "quality_label": "MIXED"
+        },
+        {
+          "summary_id": "45583472_ca389798",
+          "score": 62.0,
+          "quality_label": "MIXED"
+        },
+        {
+          "summary_id": "50469832_20573acb",
+          "score": 46.0,
+          "quality_label": "POOR"
+        },
+        {
+          "summary_id": "51395937_e409196f",
+          "score": 63.0,
+          "quality_label": "MIXED"
+        },
+        {
+          "summary_id": "52000333_a8b27666",
+          "score": 66.0,
+          "quality_label": "FINE"
+        },
+        {
+          "summary_id": "52407075_d055d6a0",
+          "score": 55.0,
+          "quality_label": "MIXED"
+        },
+        {
+          "summary_id": "52451669_ce30cbb2",
+          "score": 54.0,
+          "quality_label": "MIXED"
+        },
+        {
+          "summary_id": "53732134_f51d084f",
+          "score": 61.0,
+          "quality_label": "MIXED"
+        },
+        {
+          "summary_id": "features-and-analysis-40566272_23a0176c",
+          "score": 57.0,
+          "quality_label": "MIXED"
+        }
+      ]
+    },
+    "OFF_TOPIC": {
+      "description": "unrelated to its assigned article",
+      "count": 16,
+      "expected_outcome": "terminal",
+      "rejected_with_zero": 16,
+      "surviving_soft_scores": null,
+      "labels": {},
+      "correct": 16,
+      "detection_rate": 1.0,
+      "disagreements": []
+    },
+    "GENERATED_UNKNOWN": {
+      "description": "generated candidate with no derivable label",
+      "count": 109,
+      "expected_outcome": "not labelled",
+      "rejected_with_zero": 16,
+      "surviving_soft_scores": {
+        "count": 93,
+        "mean": 79.03,
+        "median": 81.0,
+        "minimum": 34.0,
+        "maximum": 99.0
+      },
+      "labels": {
+        "GOOD": 22,
+        "MIXED": 14,
+        "EXCELLENT": 33,
+        "FINE": 18,
+        "POOR": 6
+      }
+    }
+  },
+  "accuracy": {
+    "gradable_records": 141,
+    "correct": 127,
+    "rate": 0.9007
+  },
+  "within_article_ordering": {
+    "comparable_articles": 50,
+    "articles_with_planted_bad_at_or_above_reference": 0,
+    "inverted_articles": []
+  }
+}

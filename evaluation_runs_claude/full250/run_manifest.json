@@ -1,0 +1,16 @@
+{
+  "run_id": "claude_full250_no_embedding",
+  "pairs": 250,
+  "articles": 50,
+  "plugin": "summary-quality-funnel@local 0.2.0 (Claude side)",
+  "reference_summary_used_at_runtime": false,
+  "stages": {
+    "physical_hard_gates": "run (scripts/hard_gate.py)",
+    "hard_gate_review": "run (summary-reviewer, 53/53 APPROVE)",
+    "embedding_relevance": "NOT RUN - no local Ollama server was available at run time",
+    "grounding_gate": "run (semantic hard constraint on all 197 survivors)",
+    "grounding_review": "pending",
+    "soft_scoring": "pending"
+  },
+  "embedding_note": "The embedding stage is an optional cost-saving hint and is never terminal, so its absence cannot change any verdict. It only means the Grounding Gate received no similarity prior and judged all 197 survivors unaided. A paired run with the embedding stage enabled is planned on the same 250 pairs for comparison."
+}

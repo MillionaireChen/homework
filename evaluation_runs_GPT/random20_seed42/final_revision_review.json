@@ -1,0 +1,26 @@
+[
+  {
+    "summary_id": "52000333_a8b27666",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "已准确改为 OBVIOUS_TRUNCATION：eligible_for_soft_scoring=false、score=0、terminal_rank=2、dimensions=null。evaluation_trace 含 early_stop，并列明跳过 relevance_check 与 soft_scoring。"
+    ]
+  },
+  {
+    "summary_id": "37426493_6baeebc9",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "维度已准确改为 faithfulness 20、coverage 20、coherence 15、conciseness 5；合计 60，正确对应 MIXED 标签。"
+    ]
+  },
+  {
+    "summary_id": "55155049_a6c5b888",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "维度已准确改为 faithfulness 28、coverage 22、coherence 15、conciseness 5；合计 70，正确对应 MIXED 标签。"
+    ]
+  }
+]

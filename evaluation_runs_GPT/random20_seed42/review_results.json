@@ -1,0 +1,159 @@
+[
+  {
+    "summary_id": "50162696_6b12766c",
+    "review_type": "SOFT_SCORE",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "LOW_COVERAGE",
+    "review_example_used": "REVIEW_APPROVE",
+    "findings": []
+  },
+  {
+    "summary_id": "35278497_5a694519",
+    "review_type": "SOFT_SCORE",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "FACTUAL_ERROR",
+    "review_example_used": "REVIEW_APPROVE",
+    "findings": []
+  },
+  {
+    "summary_id": "35278497_af8a0e59",
+    "review_type": "SOFT_SCORE",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "FACTUAL_ERROR",
+    "review_example_used": "REVIEW_APPROVE",
+    "findings": []
+  },
+  {
+    "summary_id": "52000333_a8b27666",
+    "review_type": "SOFT_SCORE",
+    "decision": "REVISE",
+    "confidence": "HIGH",
+    "few_shot_used": "TRUNCATED",
+    "review_example_used": "REVIEW_REVISE",
+    "findings": [
+      "候補は完全な第1文の後に孤立した「2」を残して終わっており、通常の低コヒーレンスではなく物理的な生成切断と判断できる。ハードゲート通過とソフト採点は取り消すべきである。"
+    ],
+    "suggested_dimensions": null,
+    "suggested_score": 0,
+    "suggested_label": "OBVIOUS_TRUNCATION",
+    "suggested_terminal_rank": 2,
+    "suggested_hard_fail": true
+  },
+  {
+    "summary_id": "52000333_8c3c9670",
+    "review_type": "SOFT_SCORE",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "FACTUAL_ERROR",
+    "review_example_used": "REVIEW_APPROVE",
+    "findings": []
+  },
+  {
+    "summary_id": "41875333_06c27e30",
+    "review_type": "SOFT_SCORE",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "EXCELLENT",
+    "review_example_used": "REVIEW_APPROVE",
+    "findings": []
+  },
+  {
+    "summary_id": "40490051_5d9feeef",
+    "review_type": "SOFT_SCORE",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "FACTUAL_ERROR",
+    "review_example_used": "REVIEW_APPROVE",
+    "findings": []
+  },
+  {
+    "summary_id": "40490051_08737554",
+    "review_type": "SOFT_SCORE",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "EXCELLENT",
+    "review_example_used": "REVIEW_APPROVE",
+    "findings": []
+  },
+  {
+    "summary_id": "37426493_6baeebc9",
+    "review_type": "SOFT_SCORE",
+    "decision": "REVISE",
+    "confidence": "HIGH",
+    "few_shot_used": "FACTUAL_ERROR",
+    "review_example_used": "REVIEW_REVISE",
+    "findings": [
+      "coverage 25/30 is too high because three essential details are not merely omitted but wrong: the filing date is 19日 rather than 15日, separation began 9月15日 rather than 9月1日, and the couple has 6 children rather than 4. The candidate accurately covers the filing, stated reason, custody request, and visitation request, supporting coverage 20/30."
+    ],
+    "suggested_dimensions": {
+      "faithfulness": 20,
+      "coverage": 20,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "suggested_score": 60,
+    "suggested_label": "MIXED"
+  },
+  {
+    "summary_id": "50469832_9a5ac32c",
+    "review_type": "SOFT_SCORE",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "EXCELLENT",
+    "review_example_used": "REVIEW_APPROVE",
+    "findings": []
+  },
+  {
+    "summary_id": "55155049_a6c5b888",
+    "review_type": "SOFT_SCORE",
+    "decision": "REVISE",
+    "confidence": "HIGH",
+    "few_shot_used": "FACTUAL_ERROR",
+    "review_example_used": "REVIEW_REVISE",
+    "findings": [
+      "coverage 26/30 credits details that are not valid coverage: the AP interview is misstated as a press conference, and the article's continuing investigation is replaced by an unsupported claim that individual fraud was confirmed. The supported main finding and the two political reactions justify coverage 22/30."
+    ],
+    "suggested_dimensions": {
+      "faithfulness": 28,
+      "coverage": 22,
+      "coherence": 15,
+      "conciseness": 5
+    },
+    "suggested_score": 70,
+    "suggested_label": "MIXED"
+  },
+  {
+    "summary_id": "45715110_c95cebb3",
+    "review_type": "SOFT_SCORE",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "LOW_COVERAGE",
+    "review_example_used": "REVIEW_APPROVE",
+    "findings": []
+  },
+  {
+    "summary_id": "36881141_86804cfb",
+    "review_type": "TERMINAL_RESULT",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "TRUNCATED",
+    "findings": [
+      "候補は「北京のサファリパークで女性2人が車」で終了し、主語に対応する述語も事件結果もない。原文は女性らが降車後にトラに襲われたと続くため、高信頼の物理的切断である。"
+    ],
+    "final_terminal_result": "OBVIOUS_TRUNCATION",
+    "score": 0,
+    "terminal_rank": 2
+  },
+  {
+    "summary_id": "48116477_4d229e3c",
+    "review_type": "SOFT_SCORE",
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "few_shot_used": "LOW_COVERAGE",
+    "review_example_used": "REVIEW_APPROVE",
+    "findings": []
+  }
+]
