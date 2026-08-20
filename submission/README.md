@@ -89,13 +89,21 @@ but deliberately not used in this run (see Limitations).
 
 ### Implementation B — Codex plugin
 
-Manifest at `plugin_GPT/summary-quality-funnel/.codex-plugin/plugin.json`, installed the same way
-Codex installs any local plugin. It exposes two skills rather than a slash command,
-`evaluate-summary-quality` and `generate-summary-report`, and Codex selects them from the request:
+Manifest at `plugin_GPT/summary-quality-funnel/.codex-plugin/plugin.json`, installed the way Codex
+installs a local plugin. Once installed it appears in the command list as two entries you invoke
+directly:
+
+- **Summary Quality Funnel** — hard gates, reviewed scoring, report agent, and audit trails
+- **Summary Report Agent** — run fixed report code and author only the conclusion
+
+Pick the funnel entry and give it the batch:
 
 ```
 Evaluate and rank all 250 article-summary pairs in data/, then generate the chart report.
 ```
+
+Same shape as implementation A: one invocation, and the plugin spawns its own Scorer, Reviewer and
+Report subagents for the whole cascade.
 
 ### Environment the agents rely on
 
