@@ -1,0 +1,1637 @@
+{
+ "34991666_52f88088": {
+  "claude": {
+   "summary_id": "34991666_52f88088",
+   "faithfulness": 42,
+   "coverage": 24,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 86,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Injury count of 17 is not stated anywhere in the source text."
+  },
+  "codex_score": 79,
+  "codex_label": "GOOD"
+ },
+ "34991666_f6f8e339": {
+  "claude": {
+   "summary_id": "34991666_f6f8e339",
+   "faithfulness": 8,
+   "coverage": 15,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 43,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Contradicts the source: it claims the two attackers escaped to another state and are still at large, while the article states they died."
+  },
+  "codex_score": 53,
+  "codex_label": "MIXED"
+ },
+ "35278497_1fd162f1": {
+  "claude": {
+   "summary_id": "35278497_1fd162f1",
+   "faithfulness": 5,
+   "coverage": 12,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 37,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Reverses the source: reports a downward revision to about 100 cases when the article reports more than 500."
+  },
+  "codex_score": 42,
+  "codex_label": "POOR"
+ },
+ "35278497_af8a0e59": {
+  "claude": {
+   "summary_id": "35278497_af8a0e59",
+   "faithfulness": 40,
+   "coverage": 18,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 78,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "The 40 percent sexual-assault share is not stated in the source text."
+  },
+  "codex_score": 69,
+  "codex_label": "MIXED"
+ },
+ "35647760_06a21c1e": {
+  "claude": {
+   "summary_id": "35647760_06a21c1e",
+   "faithfulness": 12,
+   "coverage": 16,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 48,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Fabricates a Miami, Florida federal prison as the designated transfer site, which contradicts the article's statement that no US facility was specified."
+  },
+  "codex_score": 71,
+  "codex_label": "MIXED"
+ },
+ "35647760_1ab002c6": {
+  "claude": {
+   "summary_id": "35647760_1ab002c6",
+   "faithfulness": 48,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 96,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 97,
+  "codex_label": "EXCELLENT"
+ },
+ "36285464_01d58baf": {
+  "claude": {
+   "summary_id": "36285464_01d58baf",
+   "faithfulness": 44,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 92,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "Calling it the first demonstration overstates the article's 'clearest so far' wording."
+  },
+  "codex_score": 94,
+  "codex_label": "EXCELLENT"
+ },
+ "36285464_8f59ee9a": {
+  "claude": {
+   "summary_id": "36285464_8f59ee9a",
+   "faithfulness": 42,
+   "coverage": 5,
+   "coherence": 14,
+   "conciseness": 2,
+   "score": 63,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Summarizes only the optogenetics background and omits the main finding that blocking REM activity prevents memory formation."
+  },
+  "codex_score": 65,
+  "codex_label": "MIXED"
+ },
+ "36881141_08f52631": {
+  "claude": {
+   "summary_id": "36881141_08f52631",
+   "faithfulness": 36,
+   "coverage": 22,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 78,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Swaps the roles: the article says the woman who got out to help was the one killed, not the first woman."
+  },
+  "codex_score": 64,
+  "codex_label": "MIXED"
+ },
+ "36881141_298ec463": {
+  "claude": {
+   "summary_id": "36881141_298ec463",
+   "faithfulness": 10,
+   "coverage": 16,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 46,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Fabricates a licence revocation and suspension orders for three other parks, contradicting the article's account of a closure blamed on rain."
+  },
+  "codex_score": 46,
+  "codex_label": "POOR"
+ },
+ "37426493_6baeebc9": {
+  "claude": {
+   "summary_id": "37426493_6baeebc9",
+   "faithfulness": 5,
+   "coverage": 16,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 41,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Three numbers contradict the source: filing date, separation date, and number of children."
+  },
+  "codex_score": 60,
+  "codex_label": "MIXED"
+ },
+ "37426493_9d69dc21": {
+  "claude": {
+   "summary_id": "37426493_9d69dc21",
+   "faithfulness": 46,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 94,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 95,
+  "codex_label": "EXCELLENT"
+ },
+ "37426493_f0038832": {
+  "claude": {
+   "summary_id": "37426493_f0038832",
+   "faithfulness": 20,
+   "coverage": 12,
+   "coherence": 8,
+   "conciseness": 3,
+   "score": 43,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Attributes an 'irreconcilable differences' reason and a 20th-of-the-month statement to the lawyer, which the article contradicts, and buries the main event last."
+  },
+  "codex_score": 61,
+  "codex_label": "MIXED"
+ },
+ "37712268_a5a160b4": {
+  "claude": {
+   "summary_id": "37712268_a5a160b4",
+   "faithfulness": 8,
+   "coverage": 12,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 40,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Reverses the main event: claims Peshmerga halted its offensive when the article reports a large-scale offensive being launched."
+  },
+  "codex_score": 58,
+  "codex_label": "MIXED"
+ },
+ "37712268_c6edc467": {
+  "claude": {
+   "summary_id": "37712268_c6edc467",
+   "faithfulness": 42,
+   "coverage": 26,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 88,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Claims the offensive came from the east and north, a direction detail not in the article (which says three fronts)."
+  },
+  "codex_score": 94,
+  "codex_label": "EXCELLENT"
+ },
+ "37868736_dbbb3ebf": {
+  "claude": {
+   "summary_id": "37868736_dbbb3ebf",
+   "faithfulness": 50,
+   "coverage": 9,
+   "coherence": 13,
+   "conciseness": 2,
+   "score": 74,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Factually clean but omits the main event entirely: the High Court ruling that parliamentary approval is required."
+  },
+  "codex_score": 80,
+  "codex_label": "GOOD"
+ },
+ "37868736_f0795d77": {
+  "claude": {
+   "summary_id": "37868736_f0795d77",
+   "faithfulness": 48,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 96,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 99,
+  "codex_label": "EXCELLENT"
+ },
+ "38476572_420b873d": {
+  "claude": {
+   "summary_id": "38476572_420b873d",
+   "faithfulness": 48,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 96,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 97,
+  "codex_label": "EXCELLENT"
+ },
+ "38476572_65056524": {
+  "claude": {
+   "summary_id": "38476572_65056524",
+   "faithfulness": 20,
+   "coverage": 18,
+   "coherence": 14,
+   "conciseness": 5,
+   "score": 57,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricates a UN Secretary-General statement calling the first day of the ceasefire historic progress, with an invented quote."
+  },
+  "codex_score": 70,
+  "codex_label": "MIXED"
+ },
+ "38476572_d43bbf3d": {
+  "claude": {
+   "summary_id": "38476572_d43bbf3d",
+   "faithfulness": 46,
+   "coverage": 24,
+   "coherence": 14,
+   "conciseness": 5,
+   "score": 89,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Adds a Japan-time conversion absent from the source and drops the Russia-Turkey mediation."
+  },
+  "codex_score": 93,
+  "codex_label": "EXCELLENT"
+ },
+ "39776572_0c5e76b4": {
+  "claude": {
+   "summary_id": "39776572_0c5e76b4",
+   "faithfulness": 48,
+   "coverage": 21,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 89,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Accurate but thin: a single sentence carrying almost none of the article's key facts."
+  },
+  "codex_score": 95,
+  "codex_label": "EXCELLENT"
+ },
+ "39776572_dff757fb": {
+  "claude": {
+   "summary_id": "39776572_dff757fb",
+   "faithfulness": 15,
+   "coverage": 16,
+   "coherence": 14,
+   "conciseness": 4,
+   "score": 49,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Misstates the baby's age at surgery (three days, not past one week) and fabricates Trump reconsidering repeal."
+  },
+  "codex_score": 60,
+  "codex_label": "MIXED"
+ },
+ "39932207_26b95c4d": {
+  "claude": {
+   "summary_id": "39932207_26b95c4d",
+   "faithfulness": 48,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 96,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 99,
+  "codex_label": "EXCELLENT"
+ },
+ "39932207_de47b954": {
+  "claude": {
+   "summary_id": "39932207_de47b954",
+   "faithfulness": 15,
+   "coverage": 19,
+   "coherence": 14,
+   "conciseness": 4,
+   "score": 52,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricates the identification and dismissal of two staff, contradicting the article's statement that no culprit was identified."
+  },
+  "codex_score": 74,
+  "codex_label": "MIXED"
+ },
+ "40490051_08737554": {
+  "claude": {
+   "summary_id": "40490051_08737554",
+   "faithfulness": 48,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 96,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 98,
+  "codex_label": "EXCELLENT"
+ },
+ "40490051_5d9feeef": {
+  "claude": {
+   "summary_id": "40490051_5d9feeef",
+   "faithfulness": 3,
+   "coverage": 6,
+   "coherence": 13,
+   "conciseness": 4,
+   "score": 26,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Five contradictions: Syria for Iraq, male for female bombers, 30s for teenage, 8000 for 6000, and 500 for 300 fighters."
+  },
+  "codex_score": 47,
+  "codex_label": "POOR"
+ },
+ "40504740_93d0066d": {
+  "claude": {
+   "summary_id": "40504740_93d0066d",
+   "faithfulness": 50,
+   "coverage": 4,
+   "coherence": 13,
+   "conciseness": 2,
+   "score": 69,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Reports only background territorial-dispute context and omits the main event, Vietnam starting oil drilling."
+  },
+  "codex_score": 77,
+  "codex_label": "GOOD"
+ },
+ "40504740_f0e7e3f5": {
+  "claude": {
+   "summary_id": "40504740_f0e7e3f5",
+   "faithfulness": 49,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 97,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 100,
+  "codex_label": "EXCELLENT"
+ },
+ "41396293_0c954428": {
+  "claude": {
+   "summary_id": "41396293_0c954428",
+   "faithfulness": 3,
+   "coverage": 2,
+   "coherence": 12,
+   "conciseness": 5,
+   "score": 22,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Reverses the main event: claims Abe announced he would NOT dissolve the lower house, and adds an unsupported 'political stability' rationale."
+  },
+  "codex_score": 37,
+  "codex_label": "POOR"
+ },
+ "41396293_964415be": {
+  "claude": {
+   "summary_id": "41396293_964415be",
+   "faithfulness": 42,
+   "coverage": 21,
+   "coherence": 8,
+   "conciseness": 5,
+   "score": 76,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Elaboration is placed before the main event, breaking logical order; 'opening of this week's extraordinary Diet session' is not in the source."
+  },
+  "codex_score": 89,
+  "codex_label": "GOOD"
+ },
+ "41396293_a3eb7364": {
+  "claude": {
+   "summary_id": "41396293_a3eb7364",
+   "faithfulness": 45,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 92,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "Minor unsupported detail (dissolution at the opening of this week's extraordinary Diet session) not stated in the article."
+  },
+  "codex_score": 97,
+  "codex_label": "EXCELLENT"
+ },
+ "41875333_06c27e30": {
+  "claude": {
+   "summary_id": "41875333_06c27e30",
+   "faithfulness": 48,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 95,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 99,
+  "codex_label": "EXCELLENT"
+ },
+ "41875333_aa36a21a": {
+  "claude": {
+   "summary_id": "41875333_aa36a21a",
+   "faithfulness": 15,
+   "coverage": 18,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 53,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricated quotation ('the US is no longer the world's policeman') reverses the article's central message of US resolve."
+  },
+  "codex_score": 71,
+  "codex_label": "MIXED"
+ },
+ "42520667_ece25a42": {
+  "claude": {
+   "summary_id": "42520667_ece25a42",
+   "faithfulness": 49,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 97,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 100,
+  "codex_label": "EXCELLENT"
+ },
+ "42520667_f33c4810": {
+  "claude": {
+   "summary_id": "42520667_f33c4810",
+   "faithfulness": 17,
+   "coverage": 18,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 55,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Wrong city (Tabriz instead of Mashhad) and wrong arrest count (72 instead of 52) in the lead sentence."
+  },
+  "codex_score": 71,
+  "codex_label": "MIXED"
+ },
+ "43284438_60078c2b": {
+  "claude": {
+   "summary_id": "43284438_60078c2b",
+   "faithfulness": 46,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 93,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "Ceremony date (the 4th) is not stated in the article text; otherwise fully supported."
+  },
+  "codex_score": 95,
+  "codex_label": "EXCELLENT"
+ },
+ "43284438_b42ea322": {
+  "claude": {
+   "summary_id": "43284438_b42ea322",
+   "faithfulness": 20,
+   "coverage": 18,
+   "coherence": 15,
+   "conciseness": 4,
+   "score": 57,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Award count inflated to five (article says four) and the closing sentence fabricates an Academy diversity policy announcement."
+  },
+  "codex_score": 63,
+  "codex_label": "MIXED"
+ },
+ "43411421_1a29c02f": {
+  "claude": {
+   "summary_id": "43411421_1a29c02f",
+   "faithfulness": 48,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 96,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 99,
+  "codex_label": "EXCELLENT"
+ },
+ "43411421_bc8ba950": {
+  "claude": {
+   "summary_id": "43411421_bc8ba950",
+   "faithfulness": 45,
+   "coverage": 2,
+   "coherence": 8,
+   "conciseness": 4,
+   "score": 59,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Accurate but covers only a peripheral anecdote, omitting the nationwide walkout, the anniversary, and the 17 victims."
+  },
+  "codex_score": 77,
+  "codex_label": "GOOD"
+ },
+ "43985653_48644c97": {
+  "claude": {
+   "summary_id": "43985653_48644c97",
+   "faithfulness": 49,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 97,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 98,
+  "codex_label": "EXCELLENT"
+ },
+ "43985653_cf337693": {
+  "claude": {
+   "summary_id": "43985653_cf337693",
+   "faithfulness": 2,
+   "coverage": 1,
+   "coherence": 12,
+   "conciseness": 5,
+   "score": 20,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Fully inverts the outcome: claims the city rejected settlement and Starbucks refused anti-bias training."
+  },
+  "codex_score": 37,
+  "codex_label": "POOR"
+ },
+ "44026917_0884546b": {
+  "claude": {
+   "summary_id": "44026917_0884546b",
+   "faithfulness": 2,
+   "coverage": 2,
+   "coherence": 12,
+   "conciseness": 5,
+   "score": 21,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Contradicts the minister, who put Air France's survival at 'fifty-fifty', by asserting the crisis is over."
+  },
+  "codex_score": 35,
+  "codex_label": "POOR"
+ },
+ "44026917_d7618f85": {
+  "claude": {
+   "summary_id": "44026917_d7618f85",
+   "faithfulness": 50,
+   "coverage": 18,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 88,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Faithful but thin: only the minister's 50-50 remark, omitting the CEO resignation, rejected 7% offer and financial losses."
+  },
+  "codex_score": 90,
+  "codex_label": "EXCELLENT"
+ },
+ "44285473_21f569f1": {
+  "claude": {
+   "summary_id": "44285473_21f569f1",
+   "faithfulness": 38,
+   "coverage": 24,
+   "coherence": 13,
+   "conciseness": 5,
+   "score": 80,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Fabricates Gassama's age as 22, which the article never states."
+  },
+  "codex_score": 91,
+  "codex_label": "EXCELLENT"
+ },
+ "44285473_410bd04f": {
+  "claude": {
+   "summary_id": "44285473_410bd04f",
+   "faithfulness": 48,
+   "coverage": 3,
+   "coherence": 14,
+   "conciseness": 1,
+   "score": 66,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Summarizes only the peripheral 2015 Bathily background and omits the article's main event, Gassama's rescue."
+  },
+  "codex_score": 76,
+  "codex_label": "GOOD"
+ },
+ "44708203_437c2afb": {
+  "claude": {
+   "summary_id": "44708203_437c2afb",
+   "faithfulness": 6,
+   "coverage": 8,
+   "coherence": 14,
+   "conciseness": 5,
+   "score": 33,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Reverses the core fact: the video showed the boys in good health, not gravely weakened and unresponsive."
+  },
+  "codex_score": 53,
+  "codex_label": "MIXED"
+ },
+ "44708203_47560d9c": {
+  "claude": {
+   "summary_id": "44708203_47560d9c",
+   "faithfulness": 50,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 98,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 100,
+  "codex_label": "EXCELLENT"
+ },
+ "44708557_98f476ef": {
+  "claude": {
+   "summary_id": "44708557_98f476ef",
+   "faithfulness": 48,
+   "coverage": 3,
+   "coherence": 14,
+   "conciseness": 2,
+   "score": 67,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Reports only background ratings and player numbers, omitting the alleged in-game assault that is the article's main event."
+  },
+  "codex_score": 74,
+  "codex_label": "MIXED"
+ },
+ "44708557_d4388690": {
+  "claude": {
+   "summary_id": "44708557_d4388690",
+   "faithfulness": 46,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 94,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "Minor unsupported detail: the mother's US nationality is not stated in the article."
+  },
+  "codex_score": 99,
+  "codex_label": "EXCELLENT"
+ },
+ "45001963_58e21cc6": {
+  "claude": {
+   "summary_id": "45001963_58e21cc6",
+   "faithfulness": 50,
+   "coverage": 19,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 89,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Faithful but covers only the core warning, omitting the 20th meeting, the NYT statement and Trump's specific tweets."
+  },
+  "codex_score": 95,
+  "codex_label": "EXCELLENT"
+ },
+ "45001963_d8eb76f4": {
+  "claude": {
+   "summary_id": "45001963_d8eb76f4",
+   "faithfulness": 10,
+   "coverage": 12,
+   "coherence": 14,
+   "conciseness": 4,
+   "score": 40,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Fabricates a demand for a formal apology and a threat of legal action, contradicting the NYT statement."
+  },
+  "codex_score": 60,
+  "codex_label": "MIXED"
+ },
+ "45318822_562bec48": {
+  "claude": {
+   "summary_id": "45318822_562bec48",
+   "faithfulness": 50,
+   "coverage": 29,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 99,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 100,
+  "codex_label": "EXCELLENT"
+ },
+ "45318822_f89d9420": {
+  "claude": {
+   "summary_id": "45318822_f89d9420",
+   "faithfulness": 32,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 80,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Wrong attribution: the CEO spoke to the Financial Times, not the Wall Street Journal."
+  },
+  "codex_score": 91,
+  "codex_label": "EXCELLENT"
+ },
+ "45392795_321915ee": {
+  "claude": {
+   "summary_id": "45392795_321915ee",
+   "faithfulness": 5,
+   "coverage": 15,
+   "coherence": 14,
+   "conciseness": 4,
+   "score": 38,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Fabricates an arson finding and two arrests although the article says the cause is unknown."
+  },
+  "codex_score": 68,
+  "codex_label": "MIXED"
+ },
+ "45392795_74c007a5": {
+  "claude": {
+   "summary_id": "45392795_74c007a5",
+   "faithfulness": 40,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 87,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Adds unsourced details (Rio location, oldest scientific institution, the date) not present in the article."
+  },
+  "codex_score": 89,
+  "codex_label": "GOOD"
+ },
+ "45583472_86972732": {
+  "claude": {
+   "summary_id": "45583472_86972732",
+   "faithfulness": 8,
+   "coverage": 12,
+   "coherence": 14,
+   "conciseness": 4,
+   "score": 38,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Fabricates an NHS mandate for calorie warning labels on all yoghurt products."
+  },
+  "codex_score": 63,
+  "codex_label": "MIXED"
+ },
+ "45583472_a1f7946d": {
+  "claude": {
+   "summary_id": "45583472_a1f7946d",
+   "faithfulness": 50,
+   "coverage": 24,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 94,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 93,
+  "codex_label": "EXCELLENT"
+ },
+ "45715110_61cc91cf": {
+  "claude": {
+   "summary_id": "45715110_61cc91cf",
+   "faithfulness": 12,
+   "coverage": 26,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 58,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Wrong affiliation (Harvard instead of Texas) and wrong prize amount (5m instead of 9m SEK)."
+  },
+  "codex_score": 76,
+  "codex_label": "GOOD"
+ },
+ "45715110_91fa05a1": {
+  "claude": {
+   "summary_id": "45715110_91fa05a1",
+   "faithfulness": 50,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 97,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 99,
+  "codex_label": "EXCELLENT"
+ },
+ "46601033_bbab625f": {
+  "claude": {
+   "summary_id": "46601033_bbab625f",
+   "faithfulness": 20,
+   "coverage": 21,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 61,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricated claim that the city council suspended the Royal Hotel's business licence."
+  },
+  "codex_score": 69,
+  "codex_label": "MIXED"
+ },
+ "46601033_e8bfdc85": {
+  "claude": {
+   "summary_id": "46601033_e8bfdc85",
+   "faithfulness": 50,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 98,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 99,
+  "codex_label": "EXCELLENT"
+ },
+ "46669858_040576b7": {
+  "claude": {
+   "summary_id": "46669858_040576b7",
+   "faithfulness": 50,
+   "coverage": 19,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 89,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Accurate but thin: omits the surviving vocalist's reports and the wider tsunami toll/cause."
+  },
+  "codex_score": 94,
+  "codex_label": "EXCELLENT"
+ },
+ "46669858_592c0e2f": {
+  "claude": {
+   "summary_id": "46669858_592c0e2f",
+   "faithfulness": 5,
+   "coverage": 8,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 33,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Contradicts the article by killing all five members, and fabricates a national state of emergency and military relief operation."
+  },
+  "codex_score": 42,
+  "codex_label": "POOR"
+ },
+ "48116477_833a6901": {
+  "claude": {
+   "summary_id": "48116477_833a6901",
+   "faithfulness": 50,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 98,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 99,
+  "codex_label": "EXCELLENT"
+ },
+ "48116477_f5fe4b35": {
+  "claude": {
+   "summary_id": "48116477_f5fe4b35",
+   "faithfulness": 22,
+   "coverage": 24,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 66,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricates a phase-3 trial of a LATE drug, contradicting the article's account of failed trials."
+  },
+  "codex_score": 73,
+  "codex_label": "MIXED"
+ },
+ "48493511_709039c3": {
+  "claude": {
+   "summary_id": "48493511_709039c3",
+   "faithfulness": 20,
+   "coverage": 22,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 62,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricates a US State Department statement of concern that appears nowhere in the article."
+  },
+  "codex_score": 75,
+  "codex_label": "GOOD"
+ },
+ "48493511_7696c89d": {
+  "claude": {
+   "summary_id": "48493511_7696c89d",
+   "faithfulness": 44,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 91,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "Minor unsourced additions: the '2nd' date and the 'taboo' characterisation are not in the source."
+  },
+  "codex_score": 97,
+  "codex_label": "EXCELLENT"
+ },
+ "50162696_0b167fb3": {
+  "claude": {
+   "summary_id": "50162696_0b167fb3",
+   "faithfulness": 47,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 94,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 96,
+  "codex_label": "EXCELLENT"
+ },
+ "50162696_1c8404bf": {
+  "claude": {
+   "summary_id": "50162696_1c8404bf",
+   "faithfulness": 22,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 69,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Names Iran instead of Russia as Turkey's counterparty in the 22nd safe-zone agreement."
+  },
+  "codex_score": 73,
+  "codex_label": "MIXED"
+ },
+ "50285251_20443446": {
+  "claude": {
+   "summary_id": "50285251_20443446",
+   "faithfulness": 48,
+   "coverage": 15,
+   "coherence": 12,
+   "conciseness": 5,
+   "score": 80,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Severely under-covers the article and states the general background after the specific measures."
+  },
+  "codex_score": 88,
+  "codex_label": "GOOD"
+ },
+ "50285251_3c0e057d": {
+  "claude": {
+   "summary_id": "50285251_3c0e057d",
+   "faithfulness": 20,
+   "coverage": 18,
+   "coherence": 14,
+   "conciseness": 3,
+   "score": 55,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricates a hospital statistic (respiratory emergency transports tripled year-on-year) that appears nowhere in the article."
+  },
+  "codex_score": 78,
+  "codex_label": "GOOD"
+ },
+ "50285251_f372dd94": {
+  "claude": {
+   "summary_id": "50285251_f372dd94",
+   "faithfulness": 50,
+   "coverage": 29,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 99,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 100,
+  "codex_label": "EXCELLENT"
+ },
+ "50469832_8a6e1840": {
+  "claude": {
+   "summary_id": "50469832_8a6e1840",
+   "faithfulness": 20,
+   "coverage": 17,
+   "coherence": 14,
+   "conciseness": 3,
+   "score": 54,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricates a UN Security Council emergency session and unanimous resolution condemning the US, which the article never mentions."
+  },
+  "codex_score": 70,
+  "codex_label": "MIXED"
+ },
+ "50469832_9a5ac32c": {
+  "claude": {
+   "summary_id": "50469832_9a5ac32c",
+   "faithfulness": 50,
+   "coverage": 25,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 95,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 99,
+  "codex_label": "EXCELLENT"
+ },
+ "51145805_0a1b1dc6": {
+  "claude": {
+   "summary_id": "51145805_0a1b1dc6",
+   "faithfulness": 50,
+   "coverage": 24,
+   "coherence": 7,
+   "conciseness": 5,
+   "score": 86,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Sentences are inverted so the pronoun reference precedes the subject, plus a typo, making it read incoherently despite accurate facts."
+  },
+  "codex_score": 87,
+  "codex_label": "GOOD"
+ },
+ "51145805_1639e27b": {
+  "claude": {
+   "summary_id": "51145805_1639e27b",
+   "faithfulness": 50,
+   "coverage": 29,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 99,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 98,
+  "codex_label": "EXCELLENT"
+ },
+ "51145805_3f3f4b05": {
+  "claude": {
+   "summary_id": "51145805_3f3f4b05",
+   "faithfulness": 15,
+   "coverage": 15,
+   "coherence": 14,
+   "conciseness": 4,
+   "score": 48,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Reverses the airline's response: the article reports immediate suspension and an apology, the summary says the tests will continue."
+  },
+  "codex_score": 67,
+  "codex_label": "MIXED"
+ },
+ "51395937_a52c97e0": {
+  "claude": {
+   "summary_id": "51395937_a52c97e0",
+   "faithfulness": 45,
+   "coverage": 3,
+   "coherence": 9,
+   "conciseness": 2,
+   "score": 59,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Summarizes only a peripheral detail about female party leaders and omits the article's main event, the parental-leave reform."
+  },
+  "codex_score": 73,
+  "codex_label": "MIXED"
+ },
+ "51395937_a797a32c": {
+  "claude": {
+   "summary_id": "51395937_a797a32c",
+   "faithfulness": 44,
+   "coverage": 25,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 89,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Adds an unsupported announcement date (5th) that the article never gives."
+  },
+  "codex_score": 93,
+  "codex_label": "EXCELLENT"
+ },
+ "52000333_4f9df41b": {
+  "claude": {
+   "summary_id": "52000333_4f9df41b",
+   "faithfulness": 5,
+   "coverage": 3,
+   "coherence": 13,
+   "conciseness": 4,
+   "score": 25,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Reverses the main event: the article reports pubs, clubs and cinemas being closed, the summary says closures were called off and restaurants stay open."
+  },
+  "codex_score": 37,
+  "codex_label": "POOR"
+ },
+ "52000333_5681117f": {
+  "claude": {
+   "summary_id": "52000333_5681117f",
+   "faithfulness": 38,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 85,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Several specifics are not in the source: the noon start time, places of worship, and takeaway-only restaurant operation."
+  },
+  "codex_score": 70,
+  "codex_label": "MIXED"
+ },
+ "52407075_57a0965e": {
+  "claude": {
+   "summary_id": "52407075_57a0965e",
+   "faithfulness": 36,
+   "coverage": 25,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 81,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Calls the trial double-blind although the article states doctors know the assignment, and adds an unsupported date."
+  },
+  "codex_score": 80,
+  "codex_label": "GOOD"
+ },
+ "52407075_c77fb4c9": {
+  "claude": {
+   "summary_id": "52407075_c77fb4c9",
+   "faithfulness": 10,
+   "coverage": 12,
+   "coherence": 14,
+   "conciseness": 5,
+   "score": 41,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Two severe entity errors: Cambridge instead of Oxford, and an influenza comparison vaccine instead of meningitis."
+  },
+  "codex_score": 57,
+  "codex_label": "MIXED"
+ },
+ "52451669_cc85ecfb": {
+  "claude": {
+   "summary_id": "52451669_cc85ecfb",
+   "faithfulness": 46,
+   "coverage": 19,
+   "coherence": 13,
+   "conciseness": 5,
+   "score": 83,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Says she died while on duty although the article places her death at her family's home in Virginia after she had been sent home; coverage is also thin."
+  },
+  "codex_score": 79,
+  "codex_label": "GOOD"
+ },
+ "52451669_f83659c4": {
+  "claude": {
+   "summary_id": "52451669_f83659c4",
+   "faithfulness": 10,
+   "coverage": 14,
+   "coherence": 13,
+   "conciseness": 5,
+   "score": 42,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Fabricates the location and hospital (Boston/Massachusetts General instead of Manhattan/NewYork-Presbyterian Allen) and implies she died on duty."
+  },
+  "codex_score": 58,
+  "codex_label": "MIXED"
+ },
+ "52873099_07d482c6": {
+  "claude": {
+   "summary_id": "52873099_07d482c6",
+   "faithfulness": 45,
+   "coverage": 22,
+   "coherence": 12,
+   "conciseness": 5,
+   "score": 84,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Leads with the blame framing instead of the main event, and '白人警官' is not stated in this article."
+  },
+  "codex_score": 92,
+  "codex_label": "EXCELLENT"
+ },
+ "52873099_63d03540": {
+  "claude": {
+   "summary_id": "52873099_63d03540",
+   "faithfulness": 48,
+   "coverage": 29,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 97,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 100,
+  "codex_label": "EXCELLENT"
+ },
+ "52873099_fa255e70": {
+  "claude": {
+   "summary_id": "52873099_fa255e70",
+   "faithfulness": 45,
+   "coverage": 5,
+   "coherence": 14,
+   "conciseness": 4,
+   "score": 68,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Summarises only the background explainer on Antifa and omits the main event, Trump's terror-group designation."
+  },
+  "codex_score": 74,
+  "codex_label": "MIXED"
+ },
+ "53174534_48335d13": {
+  "claude": {
+   "summary_id": "53174534_48335d13",
+   "faithfulness": 2,
+   "coverage": 3,
+   "coherence": 14,
+   "conciseness": 5,
+   "score": 24,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Reverses the main event: the grand jury indicted the three men, but the summary says charges were declined for insufficient evidence."
+  },
+  "codex_score": 32,
+  "codex_label": "POOR"
+ },
+ "53174534_81348040": {
+  "claude": {
+   "summary_id": "53174534_81348040",
+   "faithfulness": 38,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 85,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Core event is right but adds unsourced specifics (Glynn County grand jury, the 24th, February)."
+  },
+  "codex_score": 92,
+  "codex_label": "EXCELLENT"
+ },
+ "53274336_27788032": {
+  "claude": {
+   "summary_id": "53274336_27788032",
+   "faithfulness": 20,
+   "coverage": 18,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 58,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricates the dismissal of four coaches and a statement by President Moon Jae-in, neither of which appears in the article."
+  },
+  "codex_score": 69,
+  "codex_label": "MIXED"
+ },
+ "53274336_a9156728": {
+  "claude": {
+   "summary_id": "53274336_a9156728",
+   "faithfulness": 44,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 92,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "Only the athlete's age and the 'last month' timing are not stated in the article."
+  },
+  "codex_score": 90,
+  "codex_label": "EXCELLENT"
+ },
+ "53274336_be2a4e06": {
+  "claude": {
+   "summary_id": "53274336_be2a4e06",
+   "faithfulness": 44,
+   "coverage": 15,
+   "coherence": 8,
+   "conciseness": 4,
+   "score": 71,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Opens with a dangling '複数メディアが報じた。' fragment and covers only the bare fact of the death."
+  },
+  "codex_score": 84,
+  "codex_label": "GOOD"
+ },
+ "53732134_2cd93f53": {
+  "claude": {
+   "summary_id": "53732134_2cd93f53",
+   "faithfulness": 2,
+   "coverage": 3,
+   "coherence": 14,
+   "conciseness": 5,
+   "score": 24,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Reverses the main event: the cabinet resigned, but the summary says Diab announced it would stay on, with an invented quote."
+  },
+  "codex_score": 37,
+  "codex_label": "POOR"
+ },
+ "53732134_632d0cac": {
+  "claude": {
+   "summary_id": "53732134_632d0cac",
+   "faithfulness": 44,
+   "coverage": 19,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 83,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Accurate but thin: omits the casualty toll, the ammonium nitrate cause and the scale of displacement; the blast date is not in the source."
+  },
+  "codex_score": 91,
+  "codex_label": "EXCELLENT"
+ },
+ "54083932_011d6de7": {
+  "claude": {
+   "summary_id": "54083932_011d6de7",
+   "faithfulness": 47,
+   "coverage": 29,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 96,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 100,
+  "codex_label": "EXCELLENT"
+ },
+ "54083932_438d80a5": {
+  "claude": {
+   "summary_id": "54083932_438d80a5",
+   "faithfulness": 5,
+   "coverage": 8,
+   "coherence": 14,
+   "conciseness": 5,
+   "score": 32,
+   "label": "POOR",
+   "terminal_result": null,
+   "key_issue": "Contradicts the article on both key results: the collection is now worth over GBP 40,000 and buyer interest is strong, not flat."
+  },
+  "codex_score": 45,
+  "codex_label": "POOR"
+ },
+ "54083932_91d615a7": {
+  "claude": {
+   "summary_id": "54083932_91d615a7",
+   "faithfulness": 46,
+   "coverage": 21,
+   "coherence": 9,
+   "conciseness": 5,
+   "score": 81,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Inverted sentence order refers to '男性' before introducing him, and the concrete valuation figures are dropped."
+  },
+  "codex_score": 98,
+  "codex_label": "EXCELLENT"
+ },
+ "55155049_9be24c04": {
+  "claude": {
+   "summary_id": "55155049_9be24c04",
+   "faithfulness": 45,
+   "coverage": 27,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 92,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "Adds the unsourced date \"1日\" for Barr's AP interview, otherwise faithful and well covered."
+  },
+  "codex_score": 96,
+  "codex_label": "EXCELLENT"
+ },
+ "55155049_a6c5b888": {
+  "claude": {
+   "summary_id": "55155049_a6c5b888",
+   "faithfulness": 18,
+   "coverage": 22,
+   "coherence": 14,
+   "conciseness": 5,
+   "score": 59,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricates that smaller-scale individual fraud was confirmed and misattributes the remarks to a press conference instead of an AP interview."
+  },
+  "codex_score": 70,
+  "codex_label": "MIXED"
+ },
+ "features-and-analysis-40566272_1e919583": {
+  "claude": {
+   "summary_id": "features-and-analysis-40566272_1e919583",
+   "faithfulness": 16,
+   "coverage": 20,
+   "coherence": 14,
+   "conciseness": 5,
+   "score": 55,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Two factual errors: says Medicare instead of Medicaid and 90% instead of 80% of county voters backing Trump."
+  },
+  "codex_score": 62,
+  "codex_label": "MIXED"
+ },
+ "features-and-analysis-40566272_964b4aa4": {
+  "claude": {
+   "summary_id": "features-and-analysis-40566272_964b4aa4",
+   "faithfulness": 45,
+   "coverage": 24,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 89,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Accurate but attributes the \"lifeline\" and alarm framing to Dr. Breeding more directly than the article does, and omits the opioid-treatment funding thread."
+  },
+  "codex_score": 94,
+  "codex_label": "EXCELLENT"
+ },
+ "features-and-analysis-42940954_9e82620f": {
+  "claude": {
+   "summary_id": "features-and-analysis-42940954_9e82620f",
+   "faithfulness": 48,
+   "coverage": 6,
+   "coherence": 9,
+   "conciseness": 4,
+   "score": 67,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Reports only two peripheral expert quotes and never states the survey or its main finding, leaving the summary contextless."
+  },
+  "codex_score": 77,
+  "codex_label": "GOOD"
+ },
+ "features-and-analysis-42940954_b9c4ae98": {
+  "claude": {
+   "summary_id": "features-and-analysis-42940954_b9c4ae98",
+   "faithfulness": 49,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 97,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 98,
+  "codex_label": "EXCELLENT"
+ },
+ "features-and-analysis-46478194_83f0bbbb": {
+  "claude": {
+   "summary_id": "features-and-analysis-46478194_83f0bbbb",
+   "faithfulness": 42,
+   "coverage": 20,
+   "coherence": 11,
+   "conciseness": 5,
+   "score": 78,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Invents the town \"スワントン\" and leads with the debate before the event, so the opening reference has no antecedent."
+  },
+  "codex_score": 90,
+  "codex_label": "EXCELLENT"
+ },
+ "features-and-analysis-46478194_d84463e5": {
+  "claude": {
+   "summary_id": "features-and-analysis-46478194_d84463e5",
+   "faithfulness": 50,
+   "coverage": 28,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 98,
+   "label": "EXCELLENT",
+   "terminal_result": null,
+   "key_issue": "none"
+  },
+  "codex_score": 99,
+  "codex_label": "EXCELLENT"
+ },
+ "features-and-analysis-46478194_fc95363c": {
+  "claude": {
+   "summary_id": "features-and-analysis-46478194_fc95363c",
+   "faithfulness": 22,
+   "coverage": 24,
+   "coherence": 14,
+   "conciseness": 4,
+   "score": 64,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Fabricates a TV appearance in which the father says the school praised his discipline; the article has no such claim."
+  },
+  "codex_score": 75,
+  "codex_label": "GOOD"
+ },
+ "features-and-analysis-46643494_1d91c9fd": {
+  "claude": {
+   "summary_id": "features-and-analysis-46643494_1d91c9fd",
+   "faithfulness": 50,
+   "coverage": 19,
+   "coherence": 15,
+   "conciseness": 5,
+   "score": 89,
+   "label": "GOOD",
+   "terminal_result": null,
+   "key_issue": "Faithful but single-sentence coverage omits the identity and stereotype controversy that is a major part of the article."
+  },
+  "codex_score": 92,
+  "codex_label": "EXCELLENT"
+ },
+ "features-and-analysis-46643494_78994701": {
+  "claude": {
+   "summary_id": "features-and-analysis-46643494_78994701",
+   "faithfulness": 47,
+   "coverage": 4,
+   "coherence": 10,
+   "conciseness": 4,
+   "score": 65,
+   "label": "MIXED",
+   "terminal_result": null,
+   "key_issue": "Focuses on a trivial bubble-tea aside and never states the main event of the group becoming a near-million-member phenomenon."
+  },
+  "codex_score": 77,
+  "codex_label": "GOOD"
+ }
+}

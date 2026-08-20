@@ -1,0 +1,20 @@
+# The evaluator itself needs only the Python standard library plus a local
+# Ollama server for embeddings. Everything below is for the exploration probes
+# and the report build, not for producing scores.jsonl.
+
+# --- required to run the plugins -------------------------------------------
+#   Python >= 3.9   (standard library only)
+#   Ollama serving  qwen3-embedding:0.6b     https://ollama.com
+#   Claude Code     (primary plugin)   /   Codex (secondary plugin)
+
+# --- exploration probes only ------------------------------------------------
+requests>=2.31          # explore/offtopic_probe_embedding.py -> Ollama HTTP API
+sentence-transformers>=2.6   # explore/offtopic_probe_reranker.py (REJECTED approach)
+torch>=2.0                   #   ... its backend
+
+# --- chart generation inside the report skills ------------------------------
+matplotlib>=3.7
+
+# --- report build (not pip) --------------------------------------------------
+#   TeX Live with IEEEtran, pgfplots, xeCJK, and a CJK font (Noto Sans CJK JP)
+#   build with:  xelatex report.tex && xelatex report.tex

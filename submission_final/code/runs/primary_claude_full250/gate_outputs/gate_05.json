@@ -1,0 +1,142 @@
+{
+  "44285473_21f569f1": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "中心事実（ガッサマさんが4階までよじ登り4歳男児を救助、マクロン大統領が勲章と帰化市民権の見通しを示した）は原文どおりで、22歳という年齢のみ無根拠な周辺細部。"
+  },
+  "44285473_410bd04f": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "記事の解説部分にあるバシリーさんの事例のみを要約しており、主事件を落としているが記述自体は原文に根拠があり、被覆不足として採点で扱うべき。"
+  },
+  "44285473_70fe2837": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "パリ北部18区で26日に幼児を救助し市民権が与えられる見込みという中心事実は原文と一致し、22歳という年齢のみ無根拠な周辺細部。"
+  },
+  "44285473_b6028e64": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "文が途中で切れているが、述べている救助の中心事実は原文に根拠があり、打ち切りは接地の問題ではない。"
+  },
+  "44708203_437c2afb": {
+    "verdict": "NOT_GROUNDED",
+    "category": "FACTUAL_REVERSAL",
+    "article_span": "少年たちは笑顔を見せ、時には笑い声を上げながら、1人ずつ自己紹介した。／その他2つの動画には、軽いかすり傷を負った少年たちが軍の医師に治療を受ける様子が映っている。",
+    "candidate_span": "深刻な健康状態が、タイ海軍特殊部隊（SEAL）の公開動画で明らかになった。少年たちは衰弱が著しく、まともに受け答えできない様子が映し出された。",
+    "note": "公開動画が示した中心的な事実（少年らが元気で自己紹介できる状態）を、深刻な衰弱で受け答えもできないと正反対に反転させている。"
+  },
+  "44708203_47560d9c": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "公開動画で少年らの元気な姿が確認され、ワイの挨拶、救出に数カ月の可能性まで原文どおり。"
+  },
+  "44708203_584d8d23": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "4日のSEAL動画公開という中心事実は正しく、健康状態が良好だと少年が語ったという言い回しは原文の元気な姿の描写からの軽い脚色にとどまる。"
+  },
+  "44708203_6d931562": {
+    "verdict": "NOT_GROUNDED",
+    "category": "OFF_TOPIC",
+    "article_span": "少年と監督は、洞窟の深部にいたところ、水位の上昇で抜け出せなくなり、9日間にわたり行方不明となっていたが、2日に発見された。",
+    "candidate_span": "赤ちゃんのころから誕生日を迎えるたび、18年物のスコッチウイスキーを父親からプレゼントされ続けてきたイギリス人男性（28）が、そのコレクションを売却しようとしている。",
+    "note": "タイ洞窟の少年救出とは無関係な英国人男性のウイスキー売却の話で、主題も事件も領域も一致しない。"
+  },
+  "44708557_8b01c940": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "娘のアバターが集団レイプを受けたと母親がフェイスブックに投稿したという中心事実は原文どおりで、6月29日という日付のみ原文にない周辺細部。"
+  },
+  "44708557_98f476ef": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "格付け、月間6400万人、安全機能の指南はいずれも原文に明記されており、主事件を落としている点は被覆不足として採点で扱うべき。"
+  },
+  "44708557_ba0df854": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "中心事実は原文どおりで、6月29日という日付のみ原文にない周辺細部。"
+  },
+  "44708557_d4388690": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "母親の告発、ロブロックス社の接続禁止と許容の余地はないという表明、月間6400万人まで原文に根拠がある。"
+  },
+  "45001963_18f10be4": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "文が途中で切れているが、社主がトランプ大統領と会談したという中心事実は原文に根拠があり、打ち切りは接地の問題ではない。"
+  },
+  "45001963_58e21cc6": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "社主が国民の敵という言葉が暴力につながると直接警告し、その後大統領がツイートで応酬した経緯は原文どおり。"
+  },
+  "45001963_a542985b": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "警告の内容という中心事実は原文どおりで、会談日（20日）と大統領のツイート日（29日）の混同は周辺的な日付の誤り。"
+  },
+  "45001963_d8eb76f4": {
+    "verdict": "NOT_GROUNDED",
+    "category": "FABRICATED_CONTENT",
+    "article_span": "サルツバーガー氏はトランプ大統領に、ニューヨーク・タイムズの報道内容の批判をやめるよう求めたわけではなく、「ジャーナリズム全般への攻撃を考え直して」ほしいと求めたのだと書いている。",
+    "candidate_span": "同社主は会談の中で大統領に対し公式謝罪を要求しており、拒否された場合には法的措置も辞さないと表明した。",
+    "note": "公式謝罪の要求と法的措置の警告という、摘要の半分を占める行為表明が原文のどこにも存在せず、社主が何を求めたかという記事の核心を置き換えている。"
+  },
+  "45318822_32e158ee": {
+    "verdict": "NOT_GROUNDED",
+    "category": "OFF_TOPIC",
+    "article_span": "コスロシャヒCEOは、自転車やキックボードなど1人で移動できる乗り物の方が都市内の移動には適していると述べた。",
+    "candidate_span": "イランの第2都市マシュハドで28日に異例の反政府デモが起きたのを皮切りに、29日には複数の都市で物価上昇やハッサン・ロウハニ大統領に抗議するデモが相次いだ。",
+    "note": "ウーバーの事業方針転換とは無関係なイランの反政府デモを述べており、主題も事件も領域も一致しない。"
+  },
+  "45318822_3e18c9a9": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "自動車から自転車とキックボードへ比重を移す方針をフィナンシャル・タイムズに語ったという中心事実は原文どおりで、26日という日付のみ原文にない周辺細部。"
+  },
+  "45318822_562bec48": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "方針転換、短期の収益性を長期の利用頻度で補う説明、45億ドルの損失と上場前の財政改善圧力まで原文に一致する。"
+  },
+  "45318822_f89d9420": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "方針転換という中心事実は原文どおりで、取材媒体をウォール・ストリート・ジャーナルとした点はフィナンシャル・タイムズの取り違えという二次的な実体の誤り。"
+  }
+}

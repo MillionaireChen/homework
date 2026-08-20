@@ -1,0 +1,22 @@
+[
+ {
+  "article_id": "34991666",
+  "candidates": [
+   {
+    "summary_id": "34991666_7b3a10b0",
+    "embedding_hint": null,
+    "low_similarity_hint": null
+   }
+  ]
+ },
+ {
+  "article_id": "46669858",
+  "candidates": [
+   {
+    "summary_id": "46669858_5fcda3e1",
+    "embedding_hint": null,
+    "low_similarity_hint": null
+   }
+  ]
+ }
+]

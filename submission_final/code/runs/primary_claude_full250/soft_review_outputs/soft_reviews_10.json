@@ -1,0 +1,163 @@
+{
+  "51395937_6e674cea": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "All five claim verdicts rechecked against the article. The central policy claim is supported twice over by the title 「フィンランド、育休期間を父母同じに」 and by 「新制度では、両親にそれぞれ、6.6カ月の育休取得が認められる」; the purpose claim by the title 「父子一緒の時間を増やす」 and by 「幼少期の子供と一緒に過ごす父親が少なすぎると不満を漏らしていた」.",
+      "The article carries no date anywhere, so 5日 is correctly NOT_IN_SOURCE. 昨年12月 occurs only in 「昨年12月以降、フィンランドの中道左派連立5党の党首は全員女性」, which does not date the formation of the Marin government, so NOT_IN_SOURCE rather than CONTRADICTED is the right verdict.",
+      "The attributed phrase 「幸福（ウェルビーイング）や男女共同参画を促進」 is correctly NOT_IN_SOURCE: 男女共同参画 exists at 「男女共同参画の実現のために努力が必要」, but 幸福／ウェルビーイング appears nowhere and no such quotation is attributed to anyone. No ESCALATE, because this is an invented secondary purpose gloss beside a correctly stated central event, the GROUNDED_PERIPHERAL_DEFECT pattern.",
+      "No CONTRADICTED verdict exists, so the automatic-revise trigger does not apply. Faithfulness 34 for three unsupported additions, one of them a fabricated attributed quotation, is consistent with the reference bank, which prices a wrong figure plus one invention at 30.",
+      "Arithmetic verified: 34 + 22 + 15 + 5 = 76, GOOD band 75-89."
+    ]
+  },
+  "51395937_a52c97e0": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Both facts reproduced verbatim: 「昨年12月以降、フィンランドの中道左派連立5党の党首は全員女性」 and 「マリン首相（34）」. Nothing asserted is false.",
+      "The quotation-boundary point is real and correctly priced. The article quotes only 「たいした問題ではない」 inside 「フィンランドで女性が政権を握ることは『たいした問題ではない』としている」, while the candidate quotes the whole clause. Content matches, so a 2-point deduction to 48 is right and CONTRADICTED would have been wrong.",
+      "Coverage 4/30 is correct and not harsh: the candidate reports background only and omits the entire main event, the ペコネン statement, the 6.6カ月 equalization, the 1億ユーロ cost, and the 4人に1人 uptake. It sits alongside the LOW_COVERAGE reference, which gives 5/30 for the same shape of failure.",
+      "Arithmetic verified: 48 + 4 + 14 + 5 = 71, FINE band 65-74."
+    ]
+  },
+  "51395937_a797a32c": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Four supported claims reproduced: 「新制度では、両親にそれぞれ、6.6カ月の育休取得が認められる」, 「最初から両親の関わりを強化することを目的とした」, and 「認められている期間を実際に取得している父親は、平均4人に1人だけだという」. No entity or number substitution: 6.6カ月 and 4人に1人 both match the source exactly.",
+      "5日 is correctly NOT_IN_SOURCE; the article contains no date.",
+      "Faithfulness 42 for a single unsupported date is internally consistent with the 40 given to 51395937_e409196f, which carries two such additions, and with the 46 given to 52407075_4c3606dd for one.",
+      "Coverage 26/30 is justified: main event, the equal 6.6 months, the purpose, and the uptake statistic are present; the 1億ユーロ（約120億円）cost and the one-month maternity extension are the remaining gaps.",
+      "Arithmetic verified: 42 + 26 + 15 + 5 = 88, GOOD band 75-89."
+    ]
+  },
+  "51395937_e409196f": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "Truncation ruling: NOT terminal, so keeping it in soft scoring is correct. The candidate ends at 「…母親と同じにする方針を発表」, where 発表 is a verbal noun closing the clause, so the whole proposition of who announced what is delivered and the candidate reports what the article is about. It is not the rubric stub that names a subject and stops before saying anything, and it matches the line this run drew in batches 01, 05, 06 and 08.",
+      "Same two unsupported specifics as 51395937_6e674cea, both correctly NOT_IN_SOURCE and neither contradicted by the source.",
+      "Coherence 8/15 is at the strict end for a defect that amounts to a missing sentence-final inflection, but it stays inside the proportionality rule and is ordered correctly against the more damaged 52000333_a8b27666 at 7. MEDIUM confidence records that reservation; even at coherence 10 the total would be 72 and the FINE label would be unchanged, so no revision is warranted.",
+      "Arithmetic verified: 40 + 17 + 8 + 5 = 70, FINE band 65-74."
+    ]
+  },
+  "52000333_5681117f": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "The 22日 verdict is sound and I reproduced the inference the article licenses: 「今回の措置の発表前日の21日」 places the announcement on the 22nd, and 「モリソン首相は22日、660億豪ドル（約4兆1900億円）規模の、2度目の景気刺激策を発表した」 confirms the date. SUPPORTED is right, not NOT_IN_SOURCE.",
+      "1315人 is verbatim at 「感染者数が過去数日間で急増し、1315人に上った」, and the closure of clubs and cinemas is carried by the title 「オーストラリア、クラブや映画館を閉鎖」.",
+      "The three absent operational specifics are correctly NOT_IN_SOURCE rather than CONTRADICTED. The body lists only 「スーパーマーケットやガソリンスタンド、薬局、宅配サービスについては、引き続き営業は続けられる」 and says 「これからしばらく外食できなくなる」, which neither states nor denies a 23日正午 start, パブ and 礼拝所 as targets, or takeaway-only dining.",
+      "Faithfulness 36 for four unsupported specifics with no contradiction is proportionate, and coverage 21/30 correctly reflects that the deaths, the school policy, and the 660億豪ドル stimulus are missing.",
+      "Arithmetic verified: 36 + 21 + 15 + 5 = 77, GOOD band 75-89."
+    ]
+  },
+  "52000333_8c3c9670": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "I searched the article for each enumerated item: 閣議 appears nowhere, 体育館 appears nowhere, パブ and 礼拝所 appear nowhere, and there is no 23日正午 and no takeaway-only rule. All are correctly NOT_IN_SOURCE.",
+      "必要不可欠ではないサービスを停止する is also correctly NOT_IN_SOURCE and not CONTRADICTED: the body states only which services keep operating, so it is silent rather than opposed on the non-essential framing.",
+      "One small generosity I record without revising: the given name スコット is not in the supplied article, which says only モリソン首相, so that claim is an added detail rather than a supported one. It is worth about a point and does not move the band.",
+      "Faithfulness 34 against the 36 given to 52000333_5681117f orders the pair correctly: this candidate adds 閣議後, 体育館 and the non-essential-services framing while dropping the supported 1315人. Conciseness 4 for dense unverifiable enumeration is fair.",
+      "Arithmetic verified: 34 + 19 + 15 + 4 = 72, FINE band 65-74."
+    ]
+  },
+  "52000333_a8b27666": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Truncation ruling: NOT terminal. The first sentence is complete and delivers a full proposition, that the prime minister announced on the 22nd a suspension of services in response to the surge in cases, and only a stray digit 2 follows it. Usable content survives, so the rubric keeps it in soft scoring.",
+      "Both unsupported elements verified as absent from the article (閣議, and the non-essential-services framing); no claim is contradicted, so the automatic-revise trigger does not apply.",
+      "Coherence 7/15 is proportionate to a dangling numeral that opens a second sentence which never arrives, and it is correctly ordered below the milder cut in 51395937_e409196f. Coverage 14/30 rightly withholds credit for what was actually closed, the case count, and the stimulus.",
+      "Arithmetic verified: 38 + 14 + 7 + 5 = 64, which is the top of the MIXED band 50-64, so the label is correct against the band rather than rounded up to FINE."
+    ]
+  },
+  "52407075_4c3606dd": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Both supported claims reproduced: the title 「欧州初のワクチン臨床試験、英オックスフォード大で始まる」 and 「全体の半数にCOVID-19（新型ウイルスの感染症）のワクチンを接種し」. Institution and the Europe-first framing are correct.",
+      "23日 is correctly NOT_IN_SOURCE: the article says only 「この日、最初の志願被験者2人に注射した」 and gives no calendar date anywhere.",
+      "Coverage 15/30 fits a one-sentence lead that captures the main event but no key fact: 800人以上, the two first volunteers, the 髄膜炎 comparator, and the ギルバート and ポラード comments are all missing.",
+      "Arithmetic verified: 46 + 15 + 15 + 5 = 81, GOOD band 75-89."
+    ]
+  },
+  "52407075_57a0965e": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "The CONTRADICTED verdict on 二重盲検 is reproducible and correctly assigned: 「被験者はどちらを接種されたのかわからないが、医師は把握する」 describes a single-blind design, so calling the trial double-blind is a genuine contradiction, not an absence.",
+      "Everything else checked out with no substitution: 英オックスフォード大学 matches the title, 800人以上 matches 「臨床試験は800人以上を対象に実施される」, and the comparator matches 「残りの半数には新型ウイルスではなく髄膜炎のワクチンを比較のため接種する」.",
+      "Faithfulness 34 is at or below the 40 threshold, so the automatic-revise rule for a CONTRADICTED claim is not triggered; 34 for one design mischaracterization plus the unsupported 23日 is proportionate.",
+      "No ESCALATE: the blinding design is a secondary characterization of a central event that the candidate states correctly, so it stays in soft scoring.",
+      "Arithmetic verified: 34 + 24 + 15 + 5 = 78, GOOD band 75-89."
+    ]
+  },
+  "52407075_c77fb4c9": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "Definitive ruling on the flagged borderline: no escalation, the draft routing to soft scoring is correct. I reproduced all three contradictions myself. ケンブリッジ appears nowhere in the article, which names the host at the title 「欧州初のワクチン臨床試験、英オックスフォード大で始まる」 and again at 「接種されたのは、オックスフォード大学のチームが3カ月かけて開発したワクチン」. The comparator is 「残りの半数には新型ウイルスではなく髄膜炎のワクチンを比較のため接種する」, so インフルエンザ is invented. The blinding claim is contradicted as in the sibling candidate.",
+      "Centrality test: the event carrying the summary message, namely that Europe first COVID-19 vaccine clinical trial has begun with 800-plus participants split between the COVID vaccine and a comparator, exists in the source, so FABRICATED_CONTENT is unavailable, and nothing is inverted, so FACTUAL_REVERSAL is unavailable. A substituted host institution is a wrong entity beside a real central event, which the rubric and the GROUNDED_PERIPHERAL_DEFECT counter-example keep inside soft scoring as a faithfulness penalty.",
+      "Penalty adequacy, the question I was asked to settle: faithfulness 8/50 is appropriate and not lenient. Against the 34 given to 52407075_57a0965e, which shares only the blinding error, the two entity substitutions are charged 26 points, driving the candidate to 42 and into POOR, below every accurate candidate on this article. A lower value would leave no room to distinguish this from a candidate that also inverts the central event.",
+      "Coverage 14 against the 24 given to the same structure with correct entities is the right way to withhold credit for facts delivered under a wrong institution and a wrong comparator. Coherence 15 and conciseness 5 are correct: the defect is truth, not readability, and the rubric prices fluent danger in faithfulness.",
+      "Arithmetic verified: 8 + 14 + 15 + 5 = 42, POOR band 0-49. Confidence is MEDIUM only because the misattributed university is the article main actor and a reasonable reviewer could argue centrality; the rubric centrality test resolves it to scoring, and the disagreement is recorded here."
+    ]
+  },
+  "52407075_d055d6a0": {
+    "decision": "ESCALATE",
+    "confidence": "MEDIUM",
+    "terminal_result": "OBVIOUS_TRUNCATION",
+    "findings": [
+      "Candidate in full: 「新型コロナウイルスのワクチン開発で、欧州初の臨床試験」. It is a topic frame plus a bare noun phrase with no predicate of any kind. It never says the trial began, where, when, or with whom, so no proposition about the article is delivered.",
+      "The rubric terminates only a fragment that carries no usable content at all, its stated example being a stub that names a subject and stops before saying anything about it. This is exactly that shape. The article news is the title 「欧州初のワクチン臨床試験、英オックスフォード大で始まる」 together with 「この日、最初の志願被験者2人に注射した」, and the fragment stops before asserting any of it; the nominalized 欧州初の臨床試験 identifies a topic, not an event that happened.",
+      "Consistent with this run own line. Batch 02 terminated 「中国中央電視台（CCTV）によると、北京のサファリパークで女性2人が車」 and batch 09 terminated 「アメリカ政府は18日、パレスチナ自治区ヨルダン川西岸でイスラエル政府が建設してきた入植地」, both of which carry more than this candidate because they at least supply a marked subject, while every cut candidate that delivers one complete proposition stayed in soft scoring, including 51395937_e409196f and 52000333_a8b27666 in this batch.",
+      "The draft numbers concede the point: coverage 5/30 and coherence 3/15 amount to a finding that essentially no content survives, which is incompatible with a 59/MIXED placement inside the soft gradient.",
+      "Terminal result OBVIOUS_TRUNCATION, score 0, terminal_rank 2, dimensions null. The draft contrary position is preserved for the trace: it read the nominalized topic as sufficient usable content and scored faithfulness 46 / coverage 5 / coherence 3 / conciseness 5 = 59 MIXED. Confidence MEDIUM."
+    ]
+  },
+  "52451669_8c0732af": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Both claims verified against the title 「米ニューヨーク市の医師が自殺 新型ウイルスの最前線で勤務」, the police statement 「警察によると、26日に自傷行為により死亡した」, and the father remark 「彼女は本当に最前線の塹壕にいた」. Faithfulness 50 is correct; nothing is asserted beyond what the source supports, and there is no negation flip.",
+      "Coverage 14/30 correctly prices a true but sparse lead: the name ローナ・ブリーン, the age 49, the hospital and her role, the date 26日, and her own infection and return to work are all absent.",
+      "Coherence 15 and conciseness 5 are right for a single clean sentence.",
+      "Arithmetic verified: 50 + 14 + 15 + 5 = 84, GOOD band 75-89."
+    ]
+  },
+  "52451669_cc85ecfb": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "Identity facts reproduced verbatim: 「同市マンハッタンにあるニューヨーク・プレズビティリアン・アレン病院の救急部門の責任者だった、ローナ・ブリーン医師（49）」. No entity or number substitution.",
+      "The CONTRADICTED verdict on 勤務中に is reproducible: 「勤務先の病院は家族がシャーロッツヴィルに連れ戻そうとする前に彼女を帰宅させた」 and 「ブリーンさんは、家族と過ごしていたヴァージニア州シャーロッツヴィルで死去した」 place her death away from work, so she did not die on duty.",
+      "Faithfulness is exactly 40, so the automatic-revise rule, which applies above 40 with a CONTRADICTED claim, is not triggered. I checked the number itself rather than the boundary: 40 is the ceiling this defect allows and it is defensible, because the phrasing closely tracks the article own headline pairing of 自殺 with 最前線で勤務 and the misleading element is the single word 勤務中に. MEDIUM confidence records that it sits at the ceiling.",
+      "No ESCALATE: the central event, that Dr Breen died by suicide, is stated correctly, and only the circumstance of death is wrong.",
+      "Arithmetic verified: 40 + 22 + 15 + 5 = 82, GOOD band 75-89, and coverage 22 correctly reflects the missing 26日, her own infection, the father comment, and the 英雄 statements."
+    ]
+  },
+  "52451669_ce30cbb2": {
+    "decision": "ESCALATE",
+    "confidence": "MEDIUM",
+    "terminal_result": "OBVIOUS_TRUNCATION",
+    "findings": [
+      "Candidate in full: 「米ニューヨーク市で新型コロナウイルスとの戦い」. There is no predicate and not even a complete noun phrase for the article subject. It names a city and a pandemic backdrop and stops, so it asserts no proposition at all.",
+      "The article central event, the suicide of the emergency-department chief ローナ・ブリーン医師（49） reported at 「警察によると、26日に自傷行為により死亡した」 and in the title 「米ニューヨーク市の医師が自殺」, is never begun. What the fragment does name is scene-setting rather than the news, so it does not report what the article is about. This is the rubric narrow terminal carve-out for a stub that names a subject and stops before saying anything about it, and it matches the rulings this run made in batches 02 and 09.",
+      "The draft text concedes the substance while resisting the conclusion: it records that the central event is never stated and that the content value is close to zero, then still places the candidate at 56 with a MIXED label. A MIXED band position for a fragment carrying no proposition is not supportable, and faithfulness 45/50 rewards saying nothing.",
+      "Terminal result OBVIOUS_TRUNCATION, score 0, terminal_rank 2, dimensions null. The draft contrary position is preserved for the trace: faithfulness 45 / coverage 3 / coherence 3 / conciseness 5 = 56 MIXED. Confidence MEDIUM."
+    ]
+  },
+  "52451669_f83659c4": {
+    "decision": "APPROVE",
+    "confidence": "MEDIUM",
+    "findings": [
+      "Definitive ruling on the flagged borderline: no escalation, the draft routing to soft scoring is correct. I verified both substitutions myself. ボストン and マサチューセッツ総合病院 appear nowhere in the article, which gives 「米ニューヨーク市の医師が自殺」 and 「同市マンハッタンにあるニューヨーク・プレズビティリアン・アレン病院の救急部門の責任者だった、ローナ・ブリーン医師（49）」. The 勤務中に contradiction is reproduced as for the sibling candidate, at 「ブリーンさんは、家族と過ごしていたヴァージニア州シャーロッツヴィルで死去した」.",
+      "Centrality test: the person is correctly identified by name, age and role, and the central event, that she died by suicide after working the COVID frontline, is real and correctly reported. Only the city and the employer are substituted. That is the wrong-secondary-entity pattern, not an invented or inverted central event, so neither FABRICATED_CONTENT nor FACTUAL_REVERSAL applies.",
+      "Penalty adequacy, the question I was asked to settle: faithfulness 12/50 is appropriate. Against the 40 given to 52451669_cc85ecfb, which is the same sentence with the correct city and hospital, the relocation is charged 28 points and drives the candidate to 46, inside POOR and below every accurate candidate on this article. Coverage 14 against cc85ecfb 22 correctly withholds the credit that the workplace facts earn only when they are right.",
+      "Coherence 15 and conciseness 5 are correct: the text is fluent and tight, which is what makes it dangerous to a reader without the source, and the rubric prices that in faithfulness rather than in the reading dimensions.",
+      "Arithmetic verified: 12 + 14 + 15 + 5 = 46, POOR band 0-49. Cross-check against 52407075_c77fb4c9 at 42: this candidate keeps a correct central actor while that one misattributes the acting institution, so the small ordering gap between them is right. Confidence MEDIUM for the same centrality reason recorded there."
+    ]
+  }
+}

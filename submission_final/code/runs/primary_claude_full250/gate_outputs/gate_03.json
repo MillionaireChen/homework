@@ -1,0 +1,142 @@
+{
+ "39932207_24c86782": {
+  "verdict": "NOT_GROUNDED",
+  "category": "OFF_TOPIC",
+  "article_span": "巡査は、ロンドン中心部のベルグレービア警察署で、警官のシャツを来た黒いサルのぬいぐるみを見つけたと話した。",
+  "candidate_span": "子供が目指す将来の職業について、途上国の子供は英国男子よりも、高等教育を経た専門職を希望していることが、最近の国際的な調査で分かった。",
+  "note": "候補は途上国の子供の職業志望に関する国際調査の話で、警察内の人種差別的ぬいぐるみと巡査の調査という記事の主題とまったく別件である。"
+ },
+ "39932207_26b95c4d": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "苦情を出したインド系巡査が逆に調査対象となり、聴聞会で疑念を晴らし約35000ポンドで和解したという主事実がいずれも原文に対応している。"
+ },
+ "39932207_c5be3217": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "巡査の出身表記がアジア系となっているが原文も同巡査をアジア系と呼ぶ箇所があり、苦情提起者が逆に調査されたという中心事実は保たれている。"
+ },
+ "39932207_de47b954": {
+  "verdict": "NOT_GROUNDED",
+  "category": "FABRICATED_CONTENT",
+  "article_span": "しかし調査では、警察署内にサルのぬいぐるみを置いた人物を特定できなかった。",
+  "candidate_span": "同警視庁はその後、ぬいぐるみを置いた人物として職員2人を特定し、懲戒解雇処分を下した。",
+  "note": "原文が特定できなかったと明記する加害者について、職員2人の特定と懲戒解雇という存在しない処分結果を新たな一事件として創作し、事件の決着を偽って提示している。"
+ },
+ "40490051_08737554": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "モスル旧市街の攻勢、女性による自爆攻撃の増加、戦闘員6000人から300人程度への減少、勝利に近づいたとの発言がすべて原文に対応している。"
+ },
+ "40490051_5d9feeef": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "シリア北部という地理表記、自爆犯の性別と年代、戦闘員数8000人や500人は原文と食い違うが、モスル旧市街での掃討作戦の激化とIS側の自爆攻撃による抵抗という中心事実は残っており、いずれも属性レベルの誤りで採点側の忠実性で扱うべき範囲。"
+ },
+ "40490051_e1edb2c8": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "有志連合の支援下でモスル奪還作戦が進みIS側が自爆攻撃で抵抗しているという内容は原文の主事実そのままである。"
+ },
+ "40490051_f31ff526": {
+  "verdict": "NOT_GROUNDED",
+  "category": "OFF_TOPIC",
+  "article_span": "ISが立てこもるモスルの旧市街には、空爆や迫撃砲の一斉発射による攻撃が行われており、イラクの司令官たちはモスル制圧は近いと語った。",
+  "candidate_span": "英国の欧州連合（EU）離脱について、英高等法院は3日、離脱手続きを開始するリスボン条約第50条を政府が発動するには、議会承認が必要だとの判断を示した。",
+  "note": "候補は英国のEU離脱手続きに関する高等法院の判断であり、モスルの戦闘という記事とは主題も地域もまったく異なる。"
+ },
+ "40504740_0a7f4dfb": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "ベトナムが中国と領有権を争う海域で石油掘削を開始したという原文の中心事実を業界関係者の情報として正しく述べている。"
+ },
+ "40504740_93d0066d": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "南シナ海の領有権争いと2014年の沿岸警備隊を含む船の衝突はいずれも原文に記載があり、掘削開始の記述を欠く点は網羅性の問題で扎根性の欠陥ではない。"
+ },
+ "40504740_d912de2c": {
+  "verdict": "NOT_GROUNDED",
+  "category": "OFF_TOPIC",
+  "article_span": "業界コンサルタントがBBCに語ったところによると、国際企業タリスマン・ベトナム社と契約した掘削船がベトナム南東部沖で掘削を行っているという。",
+  "candidate_span": "シリア全土で30日午前零時（日本時間午前7時）に発効した政府軍と反政府勢力の停戦合意は、散発的な衝突のほかは終日ほぼ継続したもようだ。",
+  "note": "候補はシリアの停戦合意と国連安保理決議案の話であり、南シナ海でのベトナムの石油掘削という記事と無関係である。"
+ },
+ "40504740_f0e7e3f5": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "掘削開始、タリスマン・ベトナム社の掘削船、沿岸約400キロ、先月21日開始、范長竜氏の早期帰国との関連可能性まですべて原文に裏付けがある。"
+ },
+ "41396293_0c954428": {
+  "verdict": "NOT_GROUNDED",
+  "category": "FACTUAL_REVERSAL",
+  "article_span": "アナリストらは、安倍首相が任期満了前の解散を決断した背景には、支持率の回復や野党の混乱があると指摘する。",
+  "candidate_span": "今秋の衆議院解散・総選挙は行わず任期満了までの残り期間に注力する方針を表明した",
+  "note": "原文の中心的決定である衆議院の解散・総選挙表明を、解散を行わないという正反対の方針表明に反転させている。"
+ },
+ "41396293_54b8e9a4": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "臨時国会冒頭での解散・総選挙表明と国難突破を掲げた説明という中心事実が原文および見出しに対応している。"
+ },
+ "41396293_964415be": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "文の順序が逆転して読みにくいが、述べている解散・総選挙表明と国難突破の説明はいずれも原文に扎根しており、構成の問題は採点側で扱う。"
+ },
+ "41396293_a3eb7364": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "解散・総選挙の表明、国難突破を理由とする説明、支持率回復と野党混乱という背景がいずれも原文に対応している。"
+ },
+ "41875333_06c27e30": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "5日の訪日、在日米軍での演説内容、北朝鮮情勢という文脈、安倍首相との昼食とゴルフ、2泊3日の日程がすべて原文に対応している。"
+ },
+ "41875333_398f4a38": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "アジア5カ国歴訪の皮切りとしての訪日と米国の決意を軽視してはならないという趣旨は原文の中心事実そのままである。"
+ },
+ "41875333_aa36a21a": {
+  "verdict": "NOT_GROUNDED",
+  "category": "FABRICATED_CONTENT",
+  "article_span": "在日米軍と自衛隊の歓迎に出迎えられたトランプ氏は、「それが誰だろうと、どの独裁者もどの独裁政権も、米国の決意のほどを軽視してはならない」と演説した。",
+  "candidate_span": "在日米軍に対し「米国はもはや世界の警察ではない」と演説した",
+  "note": "摘要の中心である演説の引用が原文のどこにも存在せず、米国の決意を強調したという記事の要点と逆の内容を大統領の発言として捏造している。"
+ },
+ "41875333_beaac925": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "訪日と米国の決意を軽視してはならないという強調はいずれも原文に裏付けがあり、記述量が少ない点は網羅性の問題にとどまる。"
+ }
+}

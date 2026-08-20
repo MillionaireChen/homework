@@ -1,0 +1,142 @@
+{
+ "52873099_07d482c6": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "中心事実であるトランプ氏のアンティファ・テロ組織指定発言と暴動非難が原文どおりで、白人警官という補足や日付のずれは周辺的。"
+ },
+ "52873099_2b6a2491": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "テロ組織指定の発言とアンティファ非難という中心事実が原文に一致している。"
+ },
+ "52873099_63d03540": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "指定表明、法的権限への疑問、当局者見解の不一致まですべて原文に対応する記述がある。"
+ },
+ "52873099_fa255e70": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "アンティファとは何かという原文の背景節のみを取り出しており、主事件が欠けるのは網羅性の問題で別主題ではない。"
+ },
+ "53174534_3c6e0621": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "3人が殺人罪などで起訴されたという中心事実が原文と一致し、郡名や日付など付加情報は周辺的。"
+ },
+ "53174534_48335d13": {
+  "verdict": "NOT_GROUNDED",
+  "category": "FACTUAL_REVERSAL",
+  "article_span": "悪意のある重罪謀殺の罪などで起訴されたのは、トラヴィス・マクマイケル被告と父親のグレゴリー・マクマイケル被告、ウィリアム・ブライアン被告の3人。",
+  "candidate_span": "白人男性3人に対する起訴を見送る決定を下した。検察は証拠不十分との説明を行い、アーベリーさんの家族は失望を表明した。",
+  "note": "原文の中心的な司法判断である起訴を、起訴見送りへと反転させている。"
+ },
+ "53174534_81348040": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "起訴、追跡の理由、動画流出後の抗議拡大まで原文に裏付けがある。"
+ },
+ "53174534_cff3d43b": {
+  "verdict": "NOT_GROUNDED",
+  "category": "OFF_TOPIC",
+  "article_span": "ジョギング中に射殺されたアフマド・アーベリーさん 悪意のある重罪謀殺の罪などで起訴されたのは……3人。",
+  "candidate_span": "これまでにアルツハイマー型認知症と診断されていた人の中には、実は新たに発見された種類の認知症だった人が多く含まれていると、国際研究チームが発表した。",
+  "note": "米ジョージア州の射殺事件の起訴を扱う記事に対し、候補は認知症研究という完全に別の主題を述べている。"
+ },
+ "53274336_27788032": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "選手の自殺と長年の暴行告発という中心事実は原文どおりで、コーチ4人解任や大統領声明は原文にない付加的サブ主張にとどまるため忠実性減点で扱う。"
+ },
+ "53274336_624e6dab": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "暴行を訴えていた選手が自殺したという中心事実が原文と一致している。"
+ },
+ "53274336_a9156728": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "自殺、訴えが無視された経緯、音声テープ公開、他競技での告発いずれも原文に対応がある。"
+ },
+ "53274336_be2a4e06": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "文順が乱れているだけで、自殺という中心事実の記述は原文に裏付けられる。"
+ },
+ "53732134_2cd93f53": {
+  "verdict": "NOT_GROUNDED",
+  "category": "FACTUAL_REVERSAL",
+  "article_span": "内閣総辞職を受け、国会は新しい首相を決める。",
+  "candidate_span": "内閣の続投を表明し「改革を完遂する」と決意を示した。",
+  "note": "原文の中心的決定である内閣総辞職を、続投表明へと正反対に述べている。"
+ },
+ "53732134_632d0cac": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "爆発を受けた内閣総辞職の発表という中心事実が原文と一致している。"
+ },
+ "53732134_e705b192": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "総辞職の発表とテレビ演説での改革妨害の主張がいずれも原文に裏付けられる。"
+ },
+ "53732134_f51d084f": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "文が途中で切れているが、述べられている総辞職の発表は原文どおりで、切断は扎根性の欠陥ではない。"
+ },
+ "54083932_011d6de7": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "28年分のマッカランと5000ポンドから4万ポンドへの価値上昇という中心事実が原文と一致し、住宅頭金も原文末尾の英語記事見出しに対応がある。"
+ },
+ "54083932_438d80a5": {
+  "verdict": "NOT_GROUNDED",
+  "category": "FACTUAL_REVERSAL",
+  "article_span": "このコレクションの価値は現在、4万ポンド（約550万円）以上に膨らんでいるとみられている。……リトラーさんによると、「すでに多くの引き合い」があり",
+  "candidate_span": "購入価格総額5000ポンドのまま売却する予定だ。バイヤーからの引き合いは少なく、思ったような収益は見込めないという。",
+  "note": "価値が550万円超に高騰し多くの引き合いがあるという原文の中心的結末を、値上がりなし・引き合い少と反転させている。"
+ },
+ "54083932_91d615a7": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "文順が入れ替わっているだけで、コレクション売却と高値見込みという中心事実は原文に裏付けられる。"
+ },
+ "54083932_9e7163bb": {
+  "verdict": "GROUNDED",
+  "category": null,
+  "article_span": null,
+  "candidate_span": null,
+  "note": "28年間贈られたウイスキーの売却と高値取引の見込みが原文と一致している。"
+ }
+}

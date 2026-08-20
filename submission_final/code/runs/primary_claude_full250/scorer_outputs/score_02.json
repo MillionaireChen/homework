@@ -1,0 +1,751 @@
+{
+  "36881141": {
+    "anchor": {
+      "main_event": "北京のサファリパーク「八達嶺野生動物世界」で、車を降りた女性がトラに襲われ、助けようと降車したもう1人の女性が別のトラに襲われて死亡した",
+      "key_facts": [
+        "CCTVが放送した現場映像に、1人の女性が車を降りたところでトラに襲われ引きずられる様子が映っている",
+        "助けようと車を降りたもう1人の女性が別のトラに襲われて死亡した",
+        "一部報道によると、最初の女性が車を降りたのは車内での口論が原因だという",
+        "車内にはもう1人男性がいて、助けようとしたが無事だった",
+        "施設は放し飼い区域では車から降りないよう注意を促している",
+        "動物管理官が車両でただちに駆け付けたが、死亡した女性は助けられなかった",
+        "北京市延慶区の担当者によると、負傷した女性は手当てを受けている",
+        "園は休園中で、関係者はコメントせず、休園理由は豪雨の予報だと説明している"
+      ],
+      "anchor_summary": "北京のサファリパーク「八達嶺野生動物世界」で、車を降りた女性がトラに襲われ、助けようと降車したもう1人の女性が別のトラに襲われて死亡した。施設は放し飼い区域では車から降りないよう注意を促しており、動物管理官が駆け付けたが死亡した女性は助けられなかった。園は休園しており、関係者は休園理由を豪雨の予報だと説明している。"
+    },
+    "candidates": {
+      "36881141_08f52631": {
+        "claim_checks": [
+          {
+            "claim": "現場は北京のサファリパーク「八達嶺野生動物世界」である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「八達嶺野生動物世界」では来園者が、自家用車で自由に園内を移動できる／北京市延慶区の担当者によると"
+          },
+          {
+            "claim": "車を降りた女性がトラに襲われて死亡した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "（タイトル）車を降りた女性をトラが殺害／もう1人の女性が助けようと車を降りると、別のトラに襲われて死亡した"
+          },
+          {
+            "claim": "助けに入ったもう1人の女性は負傷した",
+            "verdict": "CONTRADICTED",
+            "source_evidence": "もう1人の女性が助けようと車を降りると、別のトラに襲われて死亡した／北京市延慶区の担当者によると、負傷した女性は手当てを受けている"
+          },
+          {
+            "claim": "最初の女性が降車したのは車内での口論が原因との報道がある",
+            "verdict": "SUPPORTED",
+            "source_evidence": "一部報道によると、最初の女性が車を降りたのは、車内での口論が原因だったという"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 30,
+          "coverage": 23,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 73,
+        "quality_label": "FINE",
+        "issues": [
+          "Swaps the outcomes of the two women: the article says the rescuer died and the first woman who left the car is the one being treated for injuries.",
+          "Not a terminal defect. The central outcome, one woman killed and one injured by tigers after leaving the car, survives, so the role swap is charged to faithfulness.",
+          "Omits the park warning against leaving vehicles, the unharmed man in the car, and the closure."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      },
+      "36881141_298ec463": {
+        "claim_checks": [
+          {
+            "claim": "現場は北京のサファリパーク「八達嶺野生動物世界」である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「八達嶺野生動物世界」では来園者が、自家用車で自由に園内を移動できる"
+          },
+          {
+            "claim": "車を降りた女性がトラに襲われて死亡した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "（タイトル）車を降りた女性をトラが殺害／別のトラに襲われて死亡した"
+          },
+          {
+            "claim": "助けに入ったもう1人の女性は負傷した",
+            "verdict": "CONTRADICTED",
+            "source_evidence": "もう1人の女性が助けようと車を降りると、別のトラに襲われて死亡した"
+          },
+          {
+            "claim": "北京市当局が同パークの運営ライセンスを剥奪した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "「八達嶺野生動物世界」は休園しているが、関係者はコメントせず、休園理由は豪雨の予報だと説明している"
+          },
+          {
+            "claim": "市内の類似施設3カ所にも営業停止命令が出された",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "原文に他施設や営業停止命令への言及はない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 10,
+          "coverage": 18,
+          "coherence": 15,
+          "conciseness": 3
+        },
+        "score": 46,
+        "quality_label": "POOR",
+        "issues": [
+          "The entire second sentence, a licence revocation plus suspension orders on three other facilities, has no basis in the article and carries an invented figure.",
+          "That invention also sits against the article, which says the park is closed with the stated reason being a heavy-rain forecast and that officials declined to comment.",
+          "No terminal proposed: the first sentence still reports the anchor main_event, so the fabrication is an added aftermath rather than a displaced central fact. This is a borderline FABRICATED_CONTENT case because the invention occupies half the summary; the Reviewer may escalate if it reads the fabricated outcome as load-bearing.",
+          "The two women's outcomes are also swapped."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      },
+      "36881141_86804cfb": {
+        "claim_checks": [
+          {
+            "claim": "情報源は中国中央電視台（CCTV）である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "中国中央電視台が放送した現場映像より"
+          },
+          {
+            "claim": "現場は北京のサファリパークである",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「八達嶺野生動物世界」では来園者が、自家用車で自由に園内を移動できる／北京市延慶区の担当者によると"
+          },
+          {
+            "claim": "女性2人が関与している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "1人の女性が車を降りたところでトラに襲われ／さらに、もう1人の女性が助けようと車を降りると"
+          },
+          {
+            "claim": "女性2人が車…（述部がなく命題として成立していない）",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "候補は 車 で切れており、原文と照合できる主張になっていない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 48,
+          "coverage": 4,
+          "coherence": 2,
+          "conciseness": 5
+        },
+        "score": 59,
+        "quality_label": "MIXED",
+        "issues": [
+          "Cut mid-sentence: it ends on the bare noun 車 with no predicate and never states the attack, the death, or the injury.",
+          "Scored on what it actually says. Nothing stated is false, so faithfulness stays high with a small deduction for the dangling clause that asserts no checkable proposition.",
+          "Coherence is heavily penalized for the break, and coverage is near zero because the main event is missing."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      },
+      "36881141_e92770b8": {
+        "claim_checks": [
+          {
+            "claim": "情報源は中国中央電視台（CCTV）である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "中国中央電視台が放送した現場映像より"
+          },
+          {
+            "claim": "現場は北京のサファリパークである",
+            "verdict": "SUPPORTED",
+            "source_evidence": "北京市延慶区の担当者によると／「八達嶺野生動物世界」"
+          },
+          {
+            "claim": "女性2人が車を降りた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "1人の女性が車を降りたところで／もう1人の女性が助けようと車を降りると"
+          },
+          {
+            "claim": "複数のトラが襲った",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トラに襲われ、引きずられていく様子が映っている／別のトラに襲われて"
+          },
+          {
+            "claim": "1人が死亡し、1人が負傷した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "別のトラに襲われて死亡した／負傷した女性は手当てを受けている"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 49,
+          "coverage": 20,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 89,
+        "quality_label": "GOOD",
+        "issues": [
+          "Avoids the role-swap error by not assigning which woman died; nothing stated contradicts the article.",
+          "The CCTV attribution stretches slightly over the injury status, which the article attributes to a Yanqing district official.",
+          "Single sentence: omits the park name, the reported argument, the no-exit warning, and the closure."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      }
+    }
+  },
+  "37426493": {
+    "anchor": {
+      "main_event": "アンジェリーナ・ジョリーさんが19日、ブラッド・ピットさんとの結婚解消（離婚）をロサンゼルス郡地裁に申し立てた",
+      "key_facts": [
+        "ロバート・オファー弁護士によると、申し立ては19日に提出され、家族の健康のための判断だと説明された",
+        "オファー弁護士は、ジョリーさんはコメントせず家族のプライバシーを尊重するよう求める声明を出した",
+        "米芸能サイトTMZによると、離婚申請の書類には9月15日に別居開始と記載されている",
+        "6人の子供についてジョリーさんは自ら親権を求め、ピットさんには面会権を認めるよう裁判所に要請している",
+        "6人の子供のうち3人は養子、3人は夫妻の間に生まれた",
+        "2人は2004年にカップルとなり、正式な結婚は2014年8月でフランスで挙式した",
+        "ピットさんは2度目の結婚、ジョリーさんは3度目の結婚",
+        "ジョリーさん側はローラ・ワッサー弁護士が担当する見通し"
+      ],
+      "anchor_summary": "ロバート・オファー弁護士によると、アンジェリーナ・ジョリーさんは19日、ブラッド・ピットさんとの結婚解消をロサンゼルス郡地裁に申し立て、家族の健康のための判断だと説明した。米芸能サイトTMZによると、申請書類には9月15日に別居を開始したと記載されている。夫妻の6人の子供について、ジョリーさんは自ら親権を求め、ピットさんには面会権を認めるよう裁判所に要請している。"
+    },
+    "candidates": {
+      "37426493_12ba3116": {
+        "claim_checks": [
+          {
+            "claim": "ジョリーさんがピットさんとの離婚を申し立てた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ジョリーさんは19日に「結婚解消」の申し立てを提出し"
+          },
+          {
+            "claim": "ジョリーさんは41歳、ピットさんは52歳",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "原文に両者の年齢の記載はない"
+          },
+          {
+            "claim": "ピットさんは俳優・プロデューサーである",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "原文はピットさんを俳優として扱い、プロデューサーとの記載はない"
+          },
+          {
+            "claim": "離婚の理由は「乗り越えがたい相違」だと弁護士が明らかにした",
+            "verdict": "CONTRADICTED",
+            "source_evidence": "「家族の健康のための判断だ」と説明したという"
+          },
+          {
+            "claim": "弁護士が明らかにしたのは20日である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "ジョリーさんは19日に「結婚解消」の申し立てを提出し（20日という日付は原文にない）"
+          },
+          {
+            "claim": "夫妻は「ブランジェリーナ」と呼ばれるスター・カップルだった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「ブランジェリーナ」離婚へ"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 20,
+          "coverage": 12,
+          "coherence": 15,
+          "conciseness": 4
+        },
+        "score": 51,
+        "quality_label": "MIXED",
+        "issues": [
+          "The quoted reason for the divorce is invented and conflicts with the reason the article records, which is a decision for the health of the family.",
+          "The ages, the producer credit, and the 20th as the announcement date are all unsupported by the article.",
+          "No terminal proposed: the central event, Jolie filing for divorce from Pitt, is correct, and the fabrication attaches to the stated reason rather than to the event itself.",
+          "Misses the filing date, the Los Angeles County court, the September 15 separation, and the custody and visitation requests.",
+          "The third sentence is background filler with low information density."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      },
+      "37426493_6baeebc9": {
+        "claim_checks": [
+          {
+            "claim": "ジョリーさんがピットさんとの離婚をロサンゼルス郡地裁に申し立てた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ジョリーさんがロサンゼルス郡地裁に提出した離婚の申し立て"
+          },
+          {
+            "claim": "申し立ては15日である",
+            "verdict": "CONTRADICTED",
+            "source_evidence": "ジョリーさんは19日に「結婚解消」の申し立てを提出し"
+          },
+          {
+            "claim": "ジョリーさんは41歳、ピットさんは52歳",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "原文に両者の年齢の記載はない"
+          },
+          {
+            "claim": "弁護士は家族の健康のための判断だと説明した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「家族の健康のための判断だ」と説明したという"
+          },
+          {
+            "claim": "書類によると9月1日に別居が始まった",
+            "verdict": "CONTRADICTED",
+            "source_evidence": "離婚申請の書類には、9月15日に別居開始と記載されている"
+          },
+          {
+            "claim": "ジョリーさんは4人の子どもの親権を求めている",
+            "verdict": "CONTRADICTED",
+            "source_evidence": "夫妻の6人の子供について、ジョリーさんは自ら親権を求め"
+          },
+          {
+            "claim": "ピットさんには面会権を認めるよう要請している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ピットさんには面会権を認めるよう裁判所に要請しているという"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 18,
+          "coverage": 25,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 63,
+        "quality_label": "MIXED",
+        "issues": [
+          "Wrong filing date: the article says the 19th, not the 15th.",
+          "Wrong separation date: the article says September 15, not September 1.",
+          "Wrong number of children: the article says six, not four.",
+          "The ages are unsupported by the article.",
+          "No terminal proposed: the central event survives and the three errors are peripheral dates and counts, so they are faithfulness penalties.",
+          "Structurally the summary covers filing, court, stated reason, separation, custody, and visitation, so coverage stays high even though the figures are wrong."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      },
+      "37426493_9d69dc21": {
+        "claim_checks": [
+          {
+            "claim": "ジョリーさんが19日に離婚をロサンゼルス郡地裁に申し立てた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ジョリーさんは19日に「結婚解消」の申し立てを提出し／ジョリーさんがロサンゼルス郡地裁に提出した離婚の申し立て"
+          },
+          {
+            "claim": "ジョリーさんは41歳、ピットさんは52歳",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "原文に両者の年齢の記載はない"
+          },
+          {
+            "claim": "弁護士は家族の健康のための判断だと説明した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「家族の健康のための判断だ」と説明したという"
+          },
+          {
+            "claim": "書類によると9月15日に別居が始まった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "離婚申請の書類には、9月15日に別居開始と記載されている"
+          },
+          {
+            "claim": "ジョリーさんは6人の子どもの親権を求めている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "夫妻の6人の子供について、ジョリーさんは自ら親権を求め"
+          },
+          {
+            "claim": "ピットさんには面会権を認めるよう要請している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ピットさんには面会権を認めるよう裁判所に要請しているという"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 44,
+          "coverage": 28,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 92,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "The two ages are the only content with no basis in the article.",
+          "Generalizes the TMZ attribution to 書類によると, but the content matches the article.",
+          "Drops background such as the marriage year and the expected lawyer, while covering the main facts."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      },
+      "37426493_f0038832": {
+        "claim_checks": [
+          {
+            "claim": "夫妻は「ブランジェリーナ」と呼ばれるスター・カップルだった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「ブランジェリーナ」離婚へ"
+          },
+          {
+            "claim": "離婚の理由は「乗り越えがたい相違」だと弁護士が明らかにした",
+            "verdict": "CONTRADICTED",
+            "source_evidence": "「家族の健康のための判断だ」と説明したという"
+          },
+          {
+            "claim": "弁護士が明らかにしたのは20日である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "ジョリーさんは19日に「結婚解消」の申し立てを提出し（20日という日付は原文にない）"
+          },
+          {
+            "claim": "ジョリーさんは41歳、ピットさんは52歳",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "原文に両者の年齢の記載はない"
+          },
+          {
+            "claim": "ジョリーさんがピットさんとの離婚を申し立てた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ジョリーさんは19日に「結婚解消」の申し立てを提出し"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 20,
+          "coverage": 12,
+          "coherence": 6,
+          "conciseness": 4
+        },
+        "score": 42,
+        "quality_label": "POOR",
+        "issues": [
+          "Sentence order is inverted: background first, then the reason, then the central event last. 夫妻 and the reason appear before the people and the event they depend on, so the references dangle until the final sentence.",
+          "Same content defects as the other reordered variant: the quoted reason is invented and conflicts with the article's stated reason.",
+          "The ages and the 20th are unsupported.",
+          "No terminal proposed: the central event is stated correctly, only late and out of order.",
+          "Misses the filing date, the court, the separation date, and the custody requests."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      }
+    }
+  },
+  "37712268": {
+    "anchor": {
+      "main_event": "クルド人自治政府の治安部隊ペシュメルガがモスル周辺で3つの前線に及ぶ大攻勢を開始し、近隣の村からISを掃討して戦略的地域を掌握することが目的だと説明した",
+      "key_facts": [
+        "ペシュメルガは3つの前線で戦っているとし、ISILの行動をさらに制限するのが狙いだと説明",
+        "BBCのオルラ・ゲリン記者は20の村奪還が目的だとツイートした",
+        "米軍第101空挺師団のボレスキー司令官は指導者たちがモスルを出た様子だと発言したが、人物や行先は特定していない",
+        "ISのバグダディ指導者の居場所は不明",
+        "モスルにはまだIS戦闘員5000人が残っているとみられる",
+        "セーブ・ザ・チルドレンによると過去10日で5000人がシリア領内へ避難し、1000人が国境で待機している",
+        "国連は今後少なくとも20万人が避難するとみている",
+        "最大150万人の市民がモスル市内にいるとされ、ISが脱出を阻止している",
+        "モスルはイラク第2の都市で2014年6月からISに支配され、奪還作戦は17日に始まった"
+      ],
+      "anchor_summary": "クルド人自治政府の治安部隊ペシュメルガは、モスル周辺の3つの前線で戦っていると明らかにし、近隣の村からISを掃討して戦略的な地域を掌握するのが目的だと説明した。BBCのオルラ・ゲリン記者は、20の村奪還が目的だとツイートしている。モスルにはまだIS戦闘員5000人が残るとみられ、最大150万人の市民が市内にいるとされ、国連は今後少なくとも20万人が避難するとみている。"
+    },
+    "candidates": {
+      "37712268_04ceca32": {
+        "claim_checks": [
+          {
+            "claim": "モスルはイラクの主要都市である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "モスルはイラク第2の都市で"
+          },
+          {
+            "claim": "モスルはイラク北部にある",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "原文はモスルの所在を北部とは記していない"
+          },
+          {
+            "claim": "クルド人部隊はISを掃討する作戦に参加している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "近隣の村からISを掃討し戦略的な地域を掌握することが目的"
+          },
+          {
+            "claim": "クルド人部隊が大攻勢を開始したと明らかにした",
+            "verdict": "SUPPORTED",
+            "source_evidence": "（タイトル）イラクのクルド人部隊、モスルに「大攻勢」／自分たちは3つの前線で戦っていると明らかにし"
+          },
+          {
+            "claim": "攻勢はモスルの東と北からである",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "自分たちは3つの前線で戦っている（東と北という方角の特定はない）"
+          },
+          {
+            "claim": "イラク軍は南からモスルに向かっている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "モスルへ進軍するイラク軍とクルド人部隊の位置／カイヤラはモスルから約30キロ南"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 38,
+          "coverage": 18,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 76,
+        "quality_label": "GOOD",
+        "issues": [
+          "The east-and-north direction of the offensive is not in the article, which says only that the Peshmerga are fighting on three fronts.",
+          "Placing Mosul in northern Iraq is also an unsupported geographic gloss.",
+          "Nothing is contradicted, but the summary omits the 20-village objective, the 5,000 IS fighters, the up-to-1.5-million civilians, and the operation's start on the 17th."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      },
+      "37712268_c6edc467": {
+        "claim_checks": [
+          {
+            "claim": "ペシュメルガはイラクのクルド人自治政府の治安部隊である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "クルド人自治政府の治安部隊ペシュメルガは"
+          },
+          {
+            "claim": "モスルはISに占領されている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "モスルはイラク第2の都市で、2014年6月からISに支配されていた"
+          },
+          {
+            "claim": "ペシュメルガが大攻勢を開始したと明らかにした",
+            "verdict": "SUPPORTED",
+            "source_evidence": "（タイトル）イラクのクルド人部隊、モスルに「大攻勢」／自分たちは3つの前線で戦っていると明らかにし"
+          },
+          {
+            "claim": "攻勢はモスルの東と北からである",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "自分たちは3つの前線で戦っている（東と北という方角の特定はない）"
+          },
+          {
+            "claim": "作戦目的は周辺20の村からIS戦闘員を掃討し戦略的地域を掌握することである",
+            "verdict": "SUPPORTED",
+            "source_evidence": "近隣の村からISを掃討し戦略的な地域を掌握することが目的／「20の村奪還」が目的だとツイートした"
+          },
+          {
+            "claim": "市内にはまだIS戦闘員5000人がいる",
+            "verdict": "SUPPORTED",
+            "source_evidence": "モスルにはまだIS戦闘員5000人が残っているとみられている"
+          },
+          {
+            "claim": "最大150万人の市民が閉じ込められている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "最大150万人の市民がモスル市内にいるとされる。ISが市民の脱出を阻止しており"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 45,
+          "coverage": 27,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 92,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "Only the east-and-north direction lacks support; the article says three fronts.",
+          "The 20-village figure comes from the BBC reporter's tweet and is presented here as the operation's stated aim, a slight attribution merge that still matches the article's description of the objective.",
+          "Omits the operation's start on the 17th, the UN estimate of 200,000 displaced, and the US commander's remarks."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      }
+    }
+  },
+  "37868736": {
+    "anchor": {
+      "main_event": "英高等法院が、EU離脱を通告する第50条の発動には議会の承認が必要で、政府に国王大権に基づく権限はないとの判断を示した",
+      "key_facts": [
+        "首席裁判官トマス卿は、第50条にもとづき欧州連合離脱を通告するための国王大権にもとづく権限は政府にはないと判断した",
+        "判事3人は、第50条の発動は英国民の権利を根本的に変更するもので、議会承認なしに政府が権利を変更・撤廃することは認められないと裁定した",
+        "裁判所の判断は純粋な法律の問題に対するもので、離脱の利点については意見を表明しないとした",
+        "原告は投資ファンドマネージャーのジーナ・ミラーさんで、政府に上訴しないよう求めた",
+        "メイ内閣は上訴する方針で、最高裁での審理は来月にも予定されている",
+        "首相報道官は来年3月末までに第50条を発動する方針に変わりはないとした",
+        "デイビス担当相は貴族院と下院の両方の承認が必要という意味だろうと指摘した",
+        "6月23日の国民投票の結果は52%が離脱賛成、48%が反対だった",
+        "EUの他の加盟国は、離脱交渉は英国が第50条を発動するまで開始できないと表明している"
+      ],
+      "anchor_summary": "英高等法院は3日、EU離脱を通告する第50条を発動する国王大権に基づく権限は政府にはなく、議会の承認が必要だとの判断を示した。判事3人は、第50条の発動は英国民の権利を根本的に変更するものであり、議会承認なしに政府が国民の権利を変更・撤廃することは認められないと裁定した。メイ内閣は上訴する方針で、最高裁での審理は来月にも予定されている。"
+    },
+    "candidates": {
+      "37868736_939d5a23": {
+        "claim_checks": [
+          {
+            "claim": "英高等法院が3日に判断を示した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "原告ジーナ・ミラーさんが判決を説明（3日、高等法院前）"
+          },
+          {
+            "claim": "第50条を政府が発動するには議会承認が必要である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「第50条にもとづき欧州連合離脱を通告するための、国王大権にもとづく権限は、政府にはない」／（タイトル）手続き開始には議会承認必要 英高等法院"
+          },
+          {
+            "claim": "第50条はリスボン条約の条項である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "原文は第50条とのみ記し、リスボン条約という名称は用いていない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 46,
+          "coverage": 20,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 86,
+        "quality_label": "GOOD",
+        "issues": [
+          "The Lisbon Treaty label is outside knowledge the article never supplies.",
+          "A single sentence that states the central ruling accurately but omits the court's reasoning, the rejection of the royal prerogative argument, the planned appeal, and the referendum result."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      },
+      "37868736_dbbb3ebf": {
+        "claim_checks": [
+          {
+            "claim": "メイ内閣は高等法院判断に上訴する方針である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "メイ内閣は上訴する方針"
+          },
+          {
+            "claim": "最高裁での審理は来月にも予定されている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "最高裁での審理は来月にも予定されている"
+          },
+          {
+            "claim": "6月23日の国民投票では52%が離脱賛成、48%が反対だった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "6月23日の国民投票の結果は、52%が離脱賛成、48％が反対だった"
+          },
+          {
+            "claim": "EU他加盟国は離脱交渉は英国が第50条を発動するまで開始できないとの立場である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "EUの他の加盟国は、開始から2年かかる離脱交渉は、英国が第50条を発動するまで開始できないと表明している"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 7,
+          "coherence": 11,
+          "conciseness": 5
+        },
+        "score": 73,
+        "quality_label": "FINE",
+        "issues": [
+          "Every stated fact is supported by the article; there are no errors.",
+          "It never states the central event, that the High Court ruled parliamentary approval is required to trigger Article 50, and spends all three sentences on peripheral facts. Coverage is therefore very low.",
+          "The opening reference to 高等法院判断 is never explained, so read on its own the summary leaves the ruling's content undefined."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      },
+      "37868736_ec4ae30e": {
+        "claim_checks": [
+          {
+            "claim": "英高等法院が3日に判断を示した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "原告ジーナ・ミラーさんが判決を説明（3日、高等法院前）"
+          },
+          {
+            "claim": "第50条を政府が発動するには議会承認が必要である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「第50条にもとづき欧州連合離脱を通告するための、国王大権にもとづく権限は、政府にはない」／（タイトル）手続き開始には議会承認必要 英高等法院"
+          },
+          {
+            "claim": "第50条はリスボン条約の条項である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "原文は第50条とのみ記し、リスボン条約という名称は用いていない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 46,
+          "coverage": 20,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 86,
+        "quality_label": "GOOD",
+        "issues": [
+          "The candidate text is character-for-character identical to 37868736_939d5a23, so the identical evaluation is applied.",
+          "The Lisbon Treaty label is outside knowledge the article never supplies.",
+          "A single sentence that states the central ruling accurately but omits the court's reasoning, the planned appeal, and the referendum result."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      },
+      "37868736_f0795d77": {
+        "claim_checks": [
+          {
+            "claim": "英高等法院が3日に判断を示した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "原告ジーナ・ミラーさんが判決を説明（3日、高等法院前）"
+          },
+          {
+            "claim": "第50条の発動には議会承認が必要である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「第50条にもとづき欧州連合離脱を通告するための、国王大権にもとづく権限は、政府にはない」／（タイトル）手続き開始には議会承認必要"
+          },
+          {
+            "claim": "第50条はリスボン条約の条項である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "原文は第50条とのみ記し、リスボン条約という名称は用いていない"
+          },
+          {
+            "claim": "判決は国王大権に基づき単独で発動できるとの政府主張を退けた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "裁判で政府側の弁護団は、「民意」を形にするにあたって、政府の大権行使は正当な方法だと主張していた。しかしこれに対し…国王大権にもとづく権限は、政府にはない"
+          },
+          {
+            "claim": "第50条発動は国民の権利を根本的に変更する行為だと指摘した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "第50条の発動は、英国民の権利を根本的に変更するもので"
+          },
+          {
+            "claim": "メイ内閣は上訴する方針である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "メイ内閣は上訴する方針"
+          },
+          {
+            "claim": "来月にも最高裁での審理が予定されている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "最高裁での審理は来月にも予定されている"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 47,
+          "coverage": 28,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 95,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "The Lisbon Treaty label is outside knowledge the article never supplies.",
+          "Attributes the prerogative argument to the prime minister, while the article frames it as the government's legal team and ministers exercising the prerogative; a narrow attribution drift.",
+          "Leaves out claimant Gina Miller, the 52-to-48 referendum result, and the end-of-March trigger plan, but captures the ruling, its reasoning, and what happens next."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "evaluation_trace": ["draft_scoring"]
+      }
+    }
+  }
+}

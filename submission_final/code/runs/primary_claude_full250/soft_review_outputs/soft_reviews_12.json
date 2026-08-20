@@ -1,0 +1,135 @@
+{
+  "54083932_011d6de7": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Re-verified every claim from the body: 総額5000ポンド（約68万円）, 4万ポンド（約550万円）以上, 1992年に生まれてから誕生日が来るごとに, and 「絶対に開けるなという厳しい指示」 all reproduce; マッカラン18年物 reproduces from the caption line, which is part of the article record, so it is source-supported.",
+      "The 初めての住宅購入の頭金 detail is correctly labelled NOT_IN_SOURCE: only 家の購入 appears, and only inside the English-headline line （英語記事 Son sells 28 years of birthday whisky to buy house）. The deviation is peripheral, so a faithfulness deduction rather than a terminal is right.",
+      "No negation flip and no entity or number substitution found; nothing marked SUPPORTED in error.",
+      "Arithmetic 44+27+15+5=91 checks out and EXCELLENT matches the 90-100 band; 3 top-level sentences."
+    ]
+  },
+  "54083932_91d615a7": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Same propositional content as 9e7163bb with the two sentences reversed, so the identical faithfulness 45 and coverage 22 are internally consistent.",
+      "The opening 高値での取引が見込まれており、男性は… introduces 男性 with no antecedent, a real dangling-reference defect; coherence 7/15 is proportionate and correctly the only dimension charged for the inversion.",
+      "The 初の住宅購入の頭金 detail is peripheral and unsupported by the body, matching the treatment given to the sibling candidates.",
+      "Arithmetic 45+22+7+5=79 checks out and GOOD matches the 75-89 band."
+    ]
+  },
+  "54083932_9e7163bb": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "All three supported claims reproduce from the article; the 初の住宅購入の頭金 detail is genuinely absent from the body and peripheral.",
+      "Coverage 22/30 sits at the top of its defensible range: both figures that carry the article title, 総額5000ポンド and 4万ポンド（約550万円）以上, are omitted and survive only as 高値. A value near 18 would also be defensible, but the GOOD band is unchanged either way, so no revision is warranted.",
+      "Arithmetic 45+22+15+5=87 checks out and GOOD matches the 75-89 band."
+    ]
+  },
+  "55155049_0166e910": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "The central event is reproduced in the correct polarity: 司法省と国土安全保障省が調べたが、「これまでのところ、そうした主張を証明するものは何も見つかっていない」. No reversal.",
+      "The 1日 date is correctly NOT_IN_SOURCE rather than CONTRADICTED: the article attaches 1日 only to ジョージア州選管幹部ゲイブリエル・スターリング氏, and gives 先月30日 and 29日 to other actors, but no date at all to Barr.",
+      "Coverage 19/30 fairly reflects a single sentence that carries the main event but omits the two-department review, the spokesman note that the investigation is not closed, and both reactions.",
+      "Arithmetic 47+19+15+5=86 checks out and GOOD matches the 75-89 band."
+    ]
+  },
+  "55155049_9be24c04": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Every substantive claim reproduces: バー氏は、米AP通信の取材で, 何も見つかっていない, トランプ氏に特に近い側近の1人とみられている, 大統領選での敗北を受け入れていない…大きな打撃, the ジュリアーニ・エリス共同声明, and the シューマー remark.",
+      "The candidate keeps 「」 around 次にクビにされるのは彼だろう while dropping the hedge おそらく. This is a quotation-precision defect that does not invert meaning, so SUPPORTED plus a faithfulness deduction is the correct handling and not CONTRADICTED.",
+      "The 1日 date is again unsupported rather than contradicted; charged correctly.",
+      "Arithmetic 45+27+15+5=92 checks out and EXCELLENT matches the 90-100 band; 3 top-level sentences."
+    ]
+  },
+  "55155049_a6c5b888": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Reproduced both cited spans myself. The article states 「これまでのところ、そうした主張を証明するものは何も見つかっていない」 and 「選挙結果を変えるほどの規模の不正は、現在まで確認できていない」, and it nowhere reports any 追加捜査 or any confirmed 個別不正. The candidate sentence 2, これまでの追加捜査で選挙結果を左右しない規模の個別不正は確認されている, is an invented positive finding attributed to Barr; CONTRADICTED is the correct verdict.",
+      "The channel error also reproduces: the source is 米AP通信の取材, not a 記者会見. CONTRADICTED is correct and the defect is a peripheral attribution error.",
+      "Centrality ruling, definitive: no ESCALATE. Sentence 1 states the article's central event and its title in the same polarity as the source, 大規模な不正の証拠は発見できていない, so the summary's message is neither reversed nor invented. The fabricated sentence is explicitly hedged as 選挙結果を左右しない規模, so it neither inverts nor displaces the central finding; it is an invented sub-claim standing beside an intact central event. Under the rubric boundary that a reversed or invented minor sub-claim stays inside soft scoring, and under the GROUNDED_PERIPHERAL_DEFECT counter-example, this is a heavy faithfulness penalty, not FACTUAL_REVERSAL and not FABRICATED_CONTENT.",
+      "Automatic-revise rule is not triggered: two CONTRADICTED claims with faithfulness 20, which is at or below the 40 threshold, and 20/50 is proportionate to one fabricated attributed statement plus one wrong channel plus one unsupported date against three supported claims.",
+      "Coverage 24/30 sits at the top of its defensible range, since the candidate delivers only the main event plus the two reactions and spends its middle sentence on fabrication while getting the channel wrong; roughly 20-24 is defensible and the MIXED band holds either way, so no revision.",
+      "Trace note only: the おそらく-dropping quotation was listed as an issue for 9be24c04 but not here. Dimensions are unaffected.",
+      "Arithmetic 20+24+14+5=63 checks out and MIXED matches the 50-64 band."
+    ]
+  },
+  "features-and-analysis-40566272_1e919583": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Both contradictions reproduce from the source: the article says オバマ政権時代に拡大されたメディケイド（低所得者向け公的医療保険） while the candidate says メディケア, and the article says レッチャー郡では８割の有権者が同氏を選び while the candidate says 9割.",
+      "Both are peripheral. The programme is disambiguated by the candidate's own オバマケアの下で拡大された framing, and the vote share is a secondary figure, so the central picture, that Breeding's patients depend on the expanded programme and that the Republican cuts alarm him, survives. Soft scoring is the correct route.",
+      "Automatic-revise rule is not triggered: faithfulness 28 is at or below 40 with the CONTRADICTED claims, and 28/50 is proportionate to two wrong details among four claims.",
+      "The 1-point coherence gap against the otherwise structurally identical 964b4aa4 is defensible as the internal inconsistency of naming メディケア while describing the メディケイド expansion, not a material double count.",
+      "Arithmetic 28+20+14+5=67 checks out and FINE matches the 65-74 band."
+    ]
+  },
+  "features-and-analysis-40566272_23a0176c": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Confirmed the candidate breaks mid-word at しかしそ. This is not terminal under the truncation rule: the delivered first sentence is complete and reports the region, its poverty, and its ardent Trump support, so the fragment carries usable content and is not a stub that names a subject and stops.",
+      "Coherence 3/15 is proportionate to the broken reading, and coverage 6/30 correctly records that the candidate never reaches 医療, メディケイド, ブリーディング医師, or the Republican cuts.",
+      "Faithfulness 46 judged on what the candidate actually says is defensible: ８割の有権者が同氏を選び supports 熱心な支持者, while 特に貧しく is supported only indirectly by ほとんどの炭鉱が閉山 and 1回診療を受けるのに家賃1カ月分.",
+      "Arithmetic 46+6+3+4=59 checks out and MIXED matches the 50-64 band; the candidate correctly ranks below the coherent low-coverage sibling 7e05ff60."
+    ]
+  },
+  "features-and-analysis-40566272_7e05ff60": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Verified 何百キロも離れた首都ワシントン against ここから800キロ離れたワシントンで下される決定が、重大な影響を及ぼすかもしれない; supported. 今後数週間 is genuinely absent from the article, so NOT_IN_SOURCE is correct.",
+      "Coverage 10/30 is the load-bearing judgement and it is right: the candidate is a scene-setting lede that never names healthcare, メディケイド, or the Republican cuts, which are the article's subject.",
+      "Score 74 sits at the top of FINE, which is consistent with the LOW_COVERAGE calibration example where a fully faithful but nearly contentless candidate lands at 73 FINE.",
+      "Arithmetic 44+10+15+5=74 checks out and FINE matches the 65-74 band."
+    ]
+  },
+  "features-and-analysis-40566272_964b4aa4": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "All four claims reproduce, including the two that the sibling 1e919583 gets wrong: メディケイド and ８割の有権者.",
+      "The lifeline attribution compression is correctly charged as a mild deduction, since the article carries that judgement through クロード・ルーカスさん saying メディケイドのおかげで命拾いした and through the 患者のうち半数近く figure rather than through Breeding's own words.",
+      "Coverage 21/30 fairly reflects the omitted opioid crisis, the worst-in-the-nation health indicators, and the residents' cry that titles the article.",
+      "Arithmetic 46+21+15+5=87 checks out and GOOD matches the 75-89 band."
+    ]
+  },
+  "features-and-analysis-42940954_519dda6a": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "Both claims reproduce: 英国の男の子がサッカー選手やYouTubeスターになりたがるのに対し、ウガンダやザンビアでは医師や教師になりたいという子が多い, plus the English-headline line about poorer countries, and 研究チームは世界20カ国で7歳から11歳の小学生に…質問し.",
+      "The narrowing of the comparison to 英国男子 is correctly logged as a narrowing rather than an error, since the boys are the article's own illustration of the finding.",
+      "Coverage 15/30 fairly reflects a single sentence that omits the 2万人 / 20カ国 / 7歳から11歳 scale, the gender-stereotype finding, and the UK job rankings.",
+      "Arithmetic 48+15+15+5=83 checks out and GOOD matches the 75-89 band."
+    ]
+  },
+  "features-and-analysis-42940954_9e82620f": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "All three claims verified word for word: 英デロイトのグローバル会長のデイビッド・クリュックシャンク氏, 同氏は、調査を実施した慈善団体「Education and Employers」の理事長でもある, 社会的流動性を高めたい私たち全員にとって、意味のある結果だ, and the Schleicher remark that 職業カウンセリングを中高で始めるのは、あまりにも遅すぎる. Faithfulness 50 is justified.",
+      "Coverage 6/30 is correct: the candidate is built entirely from secondary commentary and never states the survey finding, its scale, or the country and gender differences.",
+      "Coherence 13 for the three stacked titles ahead of the name and conciseness 4 for the resulting padding are both proportionate.",
+      "Arithmetic 50+6+13+4=73 checks out and FINE matches the 65-74 band."
+    ]
+  },
+  "features-and-analysis-42940954_b9c4ae98": {
+    "decision": "APPROVE",
+    "confidence": "HIGH",
+    "findings": [
+      "All six claims reproduce: 2万人の子供を対象に調査を実施した, 世界20カ国で7歳から11歳の小学生, the poorer-countries versus UK aspiration contrast, サッカー選手やYouTubeスター for UK boys, 看護師、ダンサー、美容師 among the UK girls top ten, 子供がまだ小さい頃からいかに性別による役割のステレオタイプが固まってしまうか, and 幼少期から多様な職種に触れさせる必要があること.",
+      "高等教育を要する専門職 is a mild rephrasing of 学業での成功を重視する職種 and 高い志; the 2-point deduction is proportionate and no claim is marked SUPPORTED in error.",
+      "Coverage 27/30 fairly reflects the omitted poorer-versus-wealthier-district contrast and the job-market mismatch.",
+      "Arithmetic 48+27+15+5=95 checks out and EXCELLENT matches the 90-100 band; 3 top-level sentences."
+    ]
+  }
+}

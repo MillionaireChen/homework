@@ -1,0 +1,4 @@
+interface:
+  display_name: "Summary Quality Funnel"
+  short_description: "Hard gates, reviewed scoring, report agent, and audit trails"
+  default_prompt: "Use $evaluate-summary-quality to score, review, rank, and report this summary batch."

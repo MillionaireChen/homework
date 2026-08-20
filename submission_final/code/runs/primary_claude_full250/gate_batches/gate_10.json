@@ -1,0 +1,122 @@
+[
+ {
+  "article_id": "55155049",
+  "candidates": [
+   {
+    "summary_id": "55155049_0166e910",
+    "embedding_hint": 0.8059,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "55155049_9be24c04",
+    "embedding_hint": 0.871,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "55155049_a6c5b888",
+    "embedding_hint": 0.8628,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "55155049_bbe6c482",
+    "embedding_hint": 0.4813,
+    "low_similarity_hint": true
+   }
+  ]
+ },
+ {
+  "article_id": "features-and-analysis-40566272",
+  "candidates": [
+   {
+    "summary_id": "features-and-analysis-40566272_1e919583",
+    "embedding_hint": 0.7484,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "features-and-analysis-40566272_23a0176c",
+    "embedding_hint": 0.4034,
+    "low_similarity_hint": true
+   },
+   {
+    "summary_id": "features-and-analysis-40566272_7e05ff60",
+    "embedding_hint": 0.4585,
+    "low_similarity_hint": true
+   },
+   {
+    "summary_id": "features-and-analysis-40566272_964b4aa4",
+    "embedding_hint": 0.7496,
+    "low_similarity_hint": false
+   }
+  ]
+ },
+ {
+  "article_id": "features-and-analysis-42940954",
+  "candidates": [
+   {
+    "summary_id": "features-and-analysis-42940954_31b57567",
+    "embedding_hint": 0.1303,
+    "low_similarity_hint": true
+   },
+   {
+    "summary_id": "features-and-analysis-42940954_519dda6a",
+    "embedding_hint": 0.7128,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "features-and-analysis-42940954_9e82620f",
+    "embedding_hint": 0.5674,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "features-and-analysis-42940954_b9c4ae98",
+    "embedding_hint": 0.7664,
+    "low_similarity_hint": false
+   }
+  ]
+ },
+ {
+  "article_id": "features-and-analysis-46478194",
+  "candidates": [
+   {
+    "summary_id": "features-and-analysis-46478194_381886c7",
+    "embedding_hint": 0.7131,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "features-and-analysis-46478194_83f0bbbb",
+    "embedding_hint": 0.7528,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "features-and-analysis-46478194_d84463e5",
+    "embedding_hint": 0.76,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "features-and-analysis-46478194_fc95363c",
+    "embedding_hint": 0.7223,
+    "low_similarity_hint": false
+   }
+  ]
+ },
+ {
+  "article_id": "features-and-analysis-46643494",
+  "candidates": [
+   {
+    "summary_id": "features-and-analysis-46643494_1d91c9fd",
+    "embedding_hint": 0.8146,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "features-and-analysis-46643494_78994701",
+    "embedding_hint": 0.6955,
+    "low_similarity_hint": false
+   },
+   {
+    "summary_id": "features-and-analysis-46643494_94201a11",
+    "embedding_hint": 0.6737,
+    "low_similarity_hint": false
+   }
+  ]
+ }
+]
