@@ -8,7 +8,7 @@ This led to a funnel rather than a single similarity score. A copied article can
 
 ## 2. Evaluation design
 
-The runtime receives only an article and its candidate summary. Reference summaries are withheld. The article title and body are the source of truth.
+The runtime receives only an article and its candidate summary. Reference summaries are withheld. The article title and body are the source of truth. This design was implemented and executed as the Codex `summary-quality-funnel` plugin through `/summary-quality-funnel:evaluate-summary-quality`, not as a standalone scoring script.
 
 The pipeline is:
 
@@ -48,7 +48,7 @@ The experiment establishes that the implementation is operationally complete and
 
 ## 4. Cross-validation with the independent Claude implementation
 
-To test whether the result depended on one model or one prompt interpretation, the same 250 pairs were evaluated independently by the Claude implementation. Neither implementation saw the other’s outputs, and neither received reference summaries at runtime. The comparison was performed only after both score files were final.
+To test whether the result depended on one model or one prompt interpretation, the same 250 pairs were evaluated independently by the Claude `summary-quality-funnel` plugin through `/summary-quality-funnel:evaluate-summaries`. Neither implementation saw the other’s outputs, and neither received reference summaries at runtime. The comparison was performed only after both plugin runs and score files were final.
 
 The two implementations agreed on the routing of **236/250 pairs (94.4%)**: 74 were terminal in both runs and 162 were soft-scored in both. Among the 74 jointly terminal cases, terminal-category agreement was **74/74 (100%)**. On the 162 pairs both systems scored, the Spearman correlation was **0.8907** and the mean absolute score difference was **6.85 points** (Claude mean 76.27, Codex mean 78.23).
 

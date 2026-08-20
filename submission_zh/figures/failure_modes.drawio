@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net" modified="2026-08-20T12:00:00.000Z" agent="claude-code" version="24.0.0">
+  <diagram id="failure-modes" name="Failure Modes and Detectors">
+    <mxGraphModel dx="1100" dy="820" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1150" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="t" value="What we found in the data, and which detector each failure needs" style="text;html=1;fontSize=17;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="16" width="1070" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="st" value="Discovered by reading all 250 candidates against their articles. Counts in the left column are what the corpus actually contains, established by exact string comparison offline." style="text;html=1;fontSize=11;align=center;fontColor=#5A6C7D;" vertex="1" parent="1">
+          <mxGeometry x="40" y="42" width="1070" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="c1" value="CHEAP AND CERTAIN&#xa;a string test proves it" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#4A76D4;verticalAlign=top;align=center;spacingTop=8;fontStyle=1;fontSize=11;fontColor=#1A4480;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="330" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="CHEAP AND DIRECTIONAL&#xa;an embedding hints, never decides" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDF0E6;strokeColor=#D98C3F;verticalAlign=top;align=center;spacingTop=8;fontStyle=1;fontSize=11;fontColor=#8A4B00;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="330" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="EXPENSIVE AND NECESSARY&#xa;only reading the article decides" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBE9E9;strokeColor=#C0392B;verticalAlign=top;align=center;spacingTop=8;fontStyle=1;fontSize=11;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="750" y="80" width="350" height="330" as="geometry" />
+        </mxCell>
+
+        <mxCell id="f1" value="Verbatim copy of the article&#xa;&lt;b&gt;51 in corpus&lt;/b&gt;&#xa;The candidate is the article's own opening block, caption and byline included. One even reproduces a typo from the source.&#xa;&#xa;Detector: normalized containment + shingle coverage" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4A76D4;fontSize=9;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="66" y="118" width="298" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" value="Truncated fragment&#xa;&lt;b&gt;17 in corpus&lt;/b&gt;&#xa;A reference summary cut mid-sentence. Two sub-kinds behave differently:&#xa;• amputated mid-token — visibly broken&#xa;• 体言止め ending — reads as headline register&#xa;&#xa;Detector: final character + unclosed delimiter" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4A76D4;fontSize=9;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="66" y="232" width="298" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" value="Over three sentences — 0 in this corpus, kept in the design for production traffic." style="text;html=1;fontSize=9;align=left;fontColor=#5A6C7D;" vertex="1" parent="1">
+          <mxGeometry x="66" y="352" width="298" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="f4" value="Wrong article entirely&#xa;&lt;b&gt;16 in corpus&lt;/b&gt;&#xa;Each one is another article's reference summary filed under this article. No shared actor, place, event or domain.&#xa;&#xa;Embedding separation measured offline:&#xa;matched 0.71-0.87 (mean 0.80)&#xa;mismatched 0.16-0.40 (mean 0.27)&#xa;a 0.31 gap, reproduced on two disjoint samples&#xa;&#xa;The embedding NOMINATES. A semantic reviewer confirms. 19 nominated, 16 confirmed, 3 correctly released." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D98C3F;fontSize=9;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="416" y="118" width="298" height="226" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" value="Similarity cannot grade quality: a copy, a hallucination and a reversal all stay highly similar to their article." style="text;html=1;fontSize=9;align=left;fontColor=#8A4B00;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="416" y="352" width="298" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="f6" value="Factual reversal&#xa;The candidate asserts the opposite of the article's central event: 実施 → 見送り, 和解 → 拒否, 元気 → 衰弱, 存続 → 消滅.&#xa;Fluent, on topic, correct length, no copying.&#xa;&#xa;Detector: grounding-gate agent, confirmed by an independent reviewer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C0392B;fontSize=9;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="766" y="118" width="318" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" value="Fabricated content&#xa;An invented event, quotation or figure. Almost always ATTACHED to a correctly stated main event, which is why it is the hardest category to adjudicate.&#xa;&#xa;Entity and number substitution&#xa;マシュハド→タブリーズ, 52→72人, ロシア→イラン, オックスフォード→ケンブリッジ, メディケイド→メディケア.&#xa;&#xa;Detector: atomic claim checks with cited source spans" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C0392B;fontSize=9;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="766" y="242" width="318" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bhdr" value="THE LINE THAT DECIDES SEVERITY — centrality, not conspicuousness" style="text;html=1;fontSize=13;fontStyle=1;align=left;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="50" y="428" width="700" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="b1" value="CENTRAL DEFECT → terminal, score 0&#xa;the main event is negated, the outcome inverted, the decision reversed,&#xa;or the invented text DISPLACES what the article says.&#xa;&#xa;Worked example — 41875333_aa36a21a&#xa;The article's headline is 米国の決意強調 and its body reads&#xa;「どの独裁者も、米国の決意のほどを軽視してはならない」.&#xa;The candidate quotes 「米国はもはや世界の警察ではない」, which appears&#xa;nowhere and means the opposite. Terminal.&#xa;A sibling candidate that compressed the real sentence scored 95." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBE3E3;strokeColor=#C0392B;fontSize=9;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="50" y="456" width="520" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="PERIPHERAL DEFECT → stays in scoring, heavy faithfulness penalty&#xa;a wrong secondary entity or figure, or one invented claim standing BESIDE&#xa;a correctly stated central event.&#xa;&#xa;Worked example — 50469832_8a6e1840&#xa;Sentence 1 states the real policy shift correctly. Sentence 2 invents an&#xa;emergency UN Security Council session and a unanimous condemnation,&#xa;chained on with 「これを受けて」.&#xa;Not terminal: faithfulness 12 of 50, total 50, MIXED.&#xa;&#xa;Deletion test: if removing the invented sentence leaves the summary standing, the defect is peripheral." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF6EC;strokeColor=#D98C3F;fontSize=9;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;fontColor=#8A4B00;" vertex="1" parent="1">
+          <mxGeometry x="586" y="456" width="512" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ev" value="WHAT THE RUN SHOWED ABOUT THIS LINE" style="text;html=1;fontSize=12;fontStyle=1;align=left;fontColor=#1F5B2E;" vertex="1" parent="1">
+          <mxGeometry x="50" y="640" width="600" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ev1" value="All 8 FABRICATED_CONTENT proposals from the gate were released at grounding review.&#xa;The scorer's claim audit then re-proposed 4 of them, every one a candidate the gate layer had let go, and 1 was confirmed terminal.&#xa;Reversal and off-topic behaved oppositely: 13 and 16 proposals, 100% confirmed.&#xa;&#xa;Reading: reversal and off-topic ARE central by construction. Fabrication usually is not, so the fabrication rubric at gate level is tuned conservatively and the claim-level backstop is what actually catches the central cases." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E9F6EC;strokeColor=#4C9A5E;fontSize=9;align=left;spacingLeft=10;verticalAlign=top;spacingTop=8;fontColor=#1F5B2E;" vertex="1" parent="1">
+          <mxGeometry x="50" y="664" width="1048" height="112" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

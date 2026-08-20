@@ -14,8 +14,8 @@ submission/
 ├── scores.jsonl               250 rows, one per summary_id, both implementations per row
 ├── cross_validation.json      machine-readable agreement statistics between the two
 ├── figures/
-│   ├── *.drawio               editable diagrams (diagrams.net / VS Code Draw.io extension)
-│   └── *.png                  generated charts (deterministic, produced by script)
+│   ├── *.png / *.svg         diagrams and charts embedded by the report (script-generated)
+│   └── *.drawio              editable source of the three diagrams (diagrams.net)
 ├── code/
 │   ├── implementation_a_claude/   Claude Code plugin: skill, 4 agents, scripts
 │   ├── implementation_b_gpt/      GPT/Codex plugin: skill, agents, scripts
@@ -144,40 +144,69 @@ both after scoring was final: the weak-label check and this cross-validation.
 
 ## How AI tools were used
 
-AI assistance was heavy on execution and analysis. The judgment calls that shaped the design were
-mine, and several of them were corrections of the assistant's direction.
+The assistant did the implementation, the runs, and the drafting. **The architecture is mine**, and
+so is the record of what I tried and discarded on the way to it.
 
-**My decisions, including corrections I had to make:**
+### The design decisions were mine
 
+- **The cascade itself.** I proposed the funnel: cheap deterministic checks first, embeddings second,
+  model judgment last, each stage handling only what the previous one left. The reasons were mine
+  too — cost, latency, and that a deterministic rejection is explainable while a probabilistic one
+  is not. Early exit is a direct consequence: 80 of 250 pairs never reached the two most expensive
+  stages.
+- **Hard versus soft constraints.** My framing. A violation of a hard constraint settles the verdict;
+  soft constraints only grade what survives. The two-tier output — terminal categories with rank
+  tiers, plus a 0–100 score — follows from it.
 - **Reference summaries must not enter the evaluation path.** The assistant's first design used them
   as a coverage comparator and ranking anchor. I rejected it: a production request has no reference.
-  This changed the architecture from a reference-based ensemble into a reference-free funnel, and it
-  is the single most consequential decision in the project.
-- **The assistant then misframed the field itself**, describing `reference_summary` as a
-  "summary-like passage inside the article" and dragging the discussion into whether copying it
-  counted as plagiarism. It is the reference answer. I corrected this and had the error recorded in
-  `processing.md` rather than quietly fixed.
-- **Hard versus soft constraints, and cheap-before-expensive ordering.** Mine. String tests first,
-  embeddings second, model judgment last, each stage only handling what the previous one left — for
-  cost, latency, and because a deterministic rejection is explainable and a probabilistic one is not.
+  This turned a reference-based ensemble into the reference-free funnel and is the single most
+  consequential decision here.
 - **Copy detection belongs to string matching, not embeddings** — embeddings score a verbatim copy
-  highest of all.
-- **Reference reachability.** After the full run I observed that the reviewer, the last line of
-  defence, could still have opened the corpus file containing reference summaries. The guarantee was
-  a convention, not a property. I asked for a corpus-blind reviewer and, rather than let the work run
-  on indefinitely, deferred exercising it to the next version with a defined measurement attached.
-- **Scope and stopping.** Which experiments to run, when a result was good enough, and when to stop.
-- Direction to build the design twice and cross-validate, which produced the strongest evidence here.
+  highest of all, so using them there rewards the failure.
+- **Build it twice and cross-validate.** Mine, and it produced the strongest evidence in this
+  submission.
+- **Reference reachability.** After the full run I noticed the reviewer could still have opened the
+  corpus file containing reference summaries: the guarantee was a convention, not a property. I asked
+  for a corpus-blind reviewer and then deliberately deferred exercising it, with a defined
+  measurement attached, rather than let development run on.
+- **Scope and stopping.** Which experiments to run, when a result was good enough, when to stop.
 
-**AI-assisted:** implementing the scripts and agent prompts; running the 250-pair evaluations;
-translating the corpus for my own reading; computing statistics and drawing charts; drafting this
-report and README from results I had reviewed.
+### Approaches I proposed and then did not adopt
 
-**Interactions that materially shaped the result:** the reference-summary correction and its
-follow-on misframing; the hard/soft constraint framing; the decision to keep truncation as a scaled
-penalty rather than a terminal, which is the origin of the single documented divergence between the
-two implementations; and the reference-reachability observation, recorded as an open limitation
-rather than presented as solved.
+Recorded because the rejections shaped the design as much as the acceptances. All are in
+`processing.md` with the reasoning at the time.
+
+- **A weighted ensemble of four evaluators** — human 0.4, expert agent 0.2, claim-level check 0.2,
+  rule layer 0.2. Dropped: a score containing a human term cannot run on new data, and treating the
+  rule layer as a 0.1 voter throws away the one thing it is good for, which is deciding.
+- **Full human annotation of all 250 pairs**, split into dev and held-out halves, to distil expert
+  rules and then transplant them into a judge prompt. Dropped on cost once the deterministic layers
+  turned out to settle 84 pairs on their own, and because a human term in the score defeats the
+  reference-free goal in the same way a reference does.
+- **Using the reference answers as ground truth to build a golden set cheaply.** Attractive, and
+  explicitly warned against by the brief. Kept only as an offline weak-label check after scoring was
+  final.
+- **A cross-encoder reranker (BGE).** I asked for it to be tried. It was, on all 250: it agreed with
+  the embedding gate 16/16 on the off-topic set and added nothing, at a 2GB model and much slower
+  inference. Kept as cross-validation evidence, dropped from the pipeline.
+- **Embedding the candidate against the generated anchor** as a scoring feature. Measured, mixed
+  result, dropped.
+
+### AI-assisted
+
+Implementing the scripts and agent prompts; executing the 250-pair runs; translating the corpus so I
+could read it; computing statistics and drawing figures; drafting this README and the report from
+results I had reviewed.
+
+### Interactions that materially shaped the result
+
+The reference-summary correction, and a follow-on error where the assistant misdescribed
+`reference_summary` as a "summary-like passage inside the article" and pulled the discussion into
+whether copying it counted as plagiarism — I corrected that and had the mistake written into
+`processing.md` rather than quietly fixed. The hard/soft framing. The decision to make truncation a
+scaled penalty instead of a terminal, which is the origin of the single documented divergence
+between the two implementations. And the reference-reachability observation, recorded as an open
+limitation rather than presented as solved.
 
 ## Honest summary of what this establishes
 

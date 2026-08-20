@@ -1,0 +1,28 @@
+{
+  "run_id": "claude_full250_with_embedding",
+  "pairs": 250,
+  "articles": 50,
+  "plugin": "summary-quality-funnel@local 0.2.0 (installed via .claude/settings.json)",
+  "reference_summary_used_at_runtime": false,
+  "reference_summary_read_at_report_stage": true,
+  "stages": {
+    "physical_hard_gates": "run (scripts/hard_gate.py): 53 proposals",
+    "hard_gate_review": "run (summary-reviewer, 3 batches): 51 APPROVE / 2 REJECT",
+    "embedding_relevance": "run (qwen3-embedding:0.6b, own-article only): 197 scored, 19 below threshold, never terminal",
+    "grounding_gate": "run (summary-grounding-gate, 11 batches): 199 candidates, 37 NOT_GROUNDED proposals",
+    "grounding_review": "run (summary-reviewer, 4 batches): 29 APPROVE / 8 REJECT",
+    "soft_scoring": "run (summary-scorer, 13 batches): 170 candidates, 50 anchors, 4 terminal proposals",
+    "soft_review": "run (summary-reviewer, 13 batches): 157 APPROVE / 5 REVISE / 4 ESCALATE / 1 APPROVE_TERMINAL / 3 REJECT_TERMINAL",
+    "validation": "scripts/validate_result.py PASS",
+    "ranking": "scripts/rank_results.py, 250 rows",
+    "charts": "scripts/make_report_charts.py, 3 charts + stats",
+    "reference_cross_check": "scripts/reference_validation.py, offline, report stage only",
+    "report": "summary-reporter, 755 words"
+  },
+  "outcome": {
+    "terminals": 85,
+    "soft_scored": 165,
+    "accuracy_vs_weak_labels": 0.9149,
+    "within_article_ordering_inversions": 0
+  }
+}

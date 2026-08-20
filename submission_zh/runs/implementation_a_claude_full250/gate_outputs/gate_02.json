@@ -1,0 +1,142 @@
+{
+  "37426493_12ba3116": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "中心事実である離婚申し立てと弁護士の発表は原文どおりで、理由の表現・日付・年齢のずれは周辺的な瑕疵にとどまる。"
+  },
+  "37426493_6baeebc9": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "申し立て日15日・別居9月1日・子ども4人はいずれも誤りだが、ジョリーさんが離婚を申し立てたという中心事実は保持されており周辺的数値誤り。"
+  },
+  "37426493_9d69dc21": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "申し立て日、別居開始日、子ども6人の親権請求、面会権要請まで原文と一致している。"
+  },
+  "37426493_f0038832": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "文の順序が入れ替わっているだけで、離婚申し立てという中心事実は原文に支えられている。"
+  },
+  "37712268_04ceca32": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "クルド人部隊がモスルへ大攻勢を開始したという中心事実と、南から進むイラク軍の記述は原文に対応がある。"
+  },
+  "37712268_a5a160b4": {
+    "verdict": "NOT_GROUNDED",
+    "category": "FACTUAL_REVERSAL",
+    "article_span": "クルド・ペシュメルガ部隊がモスル付近のIS拠点へ進攻開始。20の村奪還が目的",
+    "candidate_span": "モスルの東と北からの攻勢を中止し、当面はIS支配地域への直接攻撃を見送る方針に転換したと発表した",
+    "note": "原文の中心事象である大攻勢の開始を、攻勢中止・直接攻撃見送りへの方針転換と正反対に述べている。"
+  },
+  "37712268_c6edc467": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "大攻勢開始、20の村の掃討目的、IS戦闘員5000人、市民最大150万人がいずれも原文に一致する。"
+  },
+  "37712268_dbc28b65": {
+    "verdict": "NOT_GROUNDED",
+    "category": "OFF_TOPIC",
+    "article_span": "イラク政府軍などによる奪還作戦は17日に始まったが、ISは随所で激しく抗戦している模様",
+    "candidate_span": "昨年12月に発足したフィンランドのサンナ・マリン政権は5日、父親が取得できる育児休暇の期間を拡大し、母親と同じにする方針を発表した",
+    "note": "モスル奪還作戦の記事に対し、フィンランドの育児休暇政策という完全に別の主題を述べている。"
+  },
+  "37868736_939d5a23": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "高等法院が第50条発動に議会承認を要すると判断したという中心事実が原文どおりである。"
+  },
+  "37868736_dbbb3ebf": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "上訴方針、国民投票の52対48、EU側の立場はいずれも原文に記載があり、判決本体の省略は網羅性の問題にとどまる。"
+  },
+  "37868736_ec4ae30e": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "議会承認が必要との高等法院判断という中心事実が原文に完全に支持されている。"
+  },
+  "37868736_f0795d77": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "判決内容、国王大権に関する政府主張の否定、メイ内閣の上訴方針まで原文に対応がある。"
+  },
+  "38476572_420b873d": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "30日発効の停戦がほぼ維持されたこと、ロシア提出決議案の採決、IS除外と旧ヌスラ戦線の扱いの錯綜が原文に一致する。"
+  },
+  "38476572_65056524": {
+    "verdict": "NOT_GROUNDED",
+    "category": "FABRICATED_CONTENT",
+    "article_span": "ロシア作成の安保理決議案は、シリア全土に人道援助を速やかに届けるよう求めるほか、ロシアとトルコが仲介し来月カザフスタンで予定される和平協議を支持し",
+    "candidate_span": "国連事務総長は同日夜、初日の停戦継続を「歴史的進展」と評価する声明を発表した",
+    "note": "見出しの柱である安保理採決を、原文のどこにも存在しない国連事務総長の引用付き声明に置き換えて捏造している。"
+  },
+  "38476572_d43bbf3d": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "30日午前零時発効の停戦がほぼ継続した点と安保理の採決見通しという中心事実が原文に支えられている。"
+  },
+  "38476572_fa7ad300": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "停戦のほぼ継続と安保理での採決見通しの双方が原文に対応する記述をもつ。"
+  },
+  "39776572_0c5e76b4": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "息子の先天性心臓疾患の手術と回復、オバマケアの重要性を訴えたという中心事実が原文どおりである。"
+  },
+  "39776572_5c0bde1d": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "キメルさんが番組で息子の重篤な心臓疾患を語りオバマケアの重要性を訴えたという中心事実が原文に一致する。"
+  },
+  "39776572_7682c3a7": {
+    "verdict": "GROUNDED",
+    "category": null,
+    "article_span": null,
+    "candidate_span": null,
+    "note": "途中で切れているが、述べられている範囲の内容は原文に支持されており、切断は扎根性の欠陥ではない。"
+  },
+  "39776572_dff757fb": {
+    "verdict": "NOT_GROUNDED",
+    "category": "FABRICATED_CONTENT",
+    "article_span": "トランプ氏は選挙中から、オバマケアを「大惨事」と呼び、その廃止は目玉公約のひとつだった。3月に成立させようとしたオバマケア改廃法案は…廃案となったが、共和党は引き続き、制度廃止を目指している",
+    "candidate_span": "大統領のトランプ氏はキメル氏の訴えを受け、同制度の撤廃計画を再検討する意向を示したと伝えられている",
+    "note": "摘要の半分を占めるトランプ大統領の撤廃計画再検討という重大な政治的展開は原文に存在せず、廃止追求を続けるという記述にも反する捏造である。"
+  }
+}

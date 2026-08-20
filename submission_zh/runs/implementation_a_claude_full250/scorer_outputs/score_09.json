@@ -1,0 +1,810 @@
+{
+  "50162696": {
+    "anchor": {
+      "main_event": "トランプ米大統領がトルコへの経済制裁を解除し、シリア北部での恒久停戦を歓迎した",
+      "key_facts": [
+        "トルコのエルドアン大統領とロシアのプーチン大統領が22日、シリア北部の国境付近からクルド人武装勢力を遠ざけ「安全地帯」を設置することで合意",
+        "トランプ大統領はこの合意を「大きな成果」だと歓迎した",
+        "米財務省は14日に発動したトルコ国防省・エネルギー天然資源省や関係閣僚への経済制裁を解除したと認めた",
+        "トランプ氏によるとトルコは恒久的な停戦を約束してきた",
+        "石油施設を守るため今後もシリアの一部地域に「少数」の米兵を駐留させる方針",
+        "トルコはシリア国境から約30キロの一帯を「安全地帯」として確保し、YPG戦闘員を完全に排除したい考え",
+        "トランプ大統領は6日に駐留米軍の撤退を発表し、トルコは9日にシリア北部への進攻を開始した",
+        "ペンス副大統領は17日にエルドアン大統領と会談し、軍事作戦を22日まで一時停止することで合意していた",
+        "シリア人権監視団によると死者は民間人120人、クルド人戦闘員259人、トルコ支援のシリア人戦闘員196人、トルコ軍人7人",
+        "国連によると過去2週間に17万6000人以上が避難を余儀なくされた"
+      ],
+      "anchor_summary": "トランプ米大統領は、トルコとロシアがシリア北部に「安全地帯」を設置することで合意したことを「大きな成果」だと歓迎し、トルコへの経済制裁を解除した。米財務省は14日に発動したトルコの省庁と閣僚に対する経済制裁を解除したと認めた。トランプ氏は制裁解除の一方で、石油施設を守るため今後もシリアの一部地域に「少数」の米兵を駐留させる方針を示した。"
+    },
+    "candidates": {
+      "50162696_0b167fb3": {
+        "claim_checks": [
+          {
+            "claim": "トランプ米大統領がトルコへの経済制裁を解除したと発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "米財務省はその後、14日に発動した、トルコ国防省やエネルギー天然資源省…に対する経済制裁を解除したと認めた"
+          },
+          {
+            "claim": "解除の発表は23日である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事はトランプ氏の制裁解除表明の日付を示しておらず、23日はロシアの部隊配備と合同パトロール開始の日付として出てくるのみ"
+          },
+          {
+            "claim": "トルコはシリア北部に進攻した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トルコは9日、クルド人民兵組織「人民防衛部隊（YPG）」が支配するシリア北部への進攻を開始した"
+          },
+          {
+            "claim": "トルコとロシアが22日に合意した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "エルドアン大統領と…プーチン大統領は22日、…「安全地帯」を設置することで合意"
+          },
+          {
+            "claim": "安全地帯はシリア北部国境から約30キロの範囲である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トルコは、シリア国境から約30キロにわたる一帯を「安全地帯」として確保し"
+          },
+          {
+            "claim": "合意はクルド武装勢力を安全地帯から排除する内容である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "シリア北部のトルコとの国境付近からクルド人武装勢力を遠ざけ、「安全地帯」を設置することで合意"
+          },
+          {
+            "claim": "トランプ氏はこれを恒久停戦として歓迎した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "この合意について、トランプ大統領は「大きな成果」だと歓迎した／トランプ氏によると、トルコは恒久的な停戦を約束してきたという（見出しにも「恒久停戦」を歓迎とある）"
+          },
+          {
+            "claim": "米軍の一部は石油施設保護のためシリアに残留する",
+            "verdict": "SUPPORTED",
+            "source_evidence": "石油施設を守るため、今後もシリアの一部地域に「少数」の米兵を駐留させる方針という"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 43,
+          "coverage": 26,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 89,
+        "quality_label": "GOOD",
+        "issues": [
+          "Asserts a specific announcement date (23日) that the article never gives for Trump; peripheral unsupported detail, not a contradiction.",
+          "Omits the casualty and displacement figures and the 14日 imposition date of the sanctions.",
+          "Slightly conflates Turkey's own 30-kilometre safe-zone goal with the content of the Turkey-Russia agreement, though both spans exist in the article."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "50162696_1c8404bf": {
+        "claim_checks": [
+          {
+            "claim": "トランプ米大統領がトルコへの経済制裁を解除したと発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "米財務省はその後、14日に発動した…経済制裁を解除したと認めた"
+          },
+          {
+            "claim": "解除の発表は23日である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事にトランプ氏の制裁解除表明の日付はない"
+          },
+          {
+            "claim": "トルコとイランが22日に安全地帯設置で合意した",
+            "verdict": "CONTRADICTED",
+            "source_evidence": "トルコのレジェプ・タイイップ・エルドアン大統領と、シリアに影響力をもつロシアのウラジーミル・プーチン大統領は22日、…合意（合意相手はロシアであり、イランは記事に一切登場しない）"
+          },
+          {
+            "claim": "安全地帯はシリア北部国境から約30キロの範囲でクルド武装勢力を排除する",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トルコは、シリア国境から約30キロにわたる一帯を「安全地帯」として確保し、YPGの戦闘員を完全に排除したい考え"
+          },
+          {
+            "claim": "トランプ氏はこれを恒久停戦として歓迎した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "この合意について、トランプ大統領は「大きな成果」だと歓迎した／トルコは恒久的な停戦を約束してきたという"
+          },
+          {
+            "claim": "米軍の一部は石油施設保護のためシリアに残留する",
+            "verdict": "SUPPORTED",
+            "source_evidence": "石油施設を守るため、今後もシリアの一部地域に「少数」の米兵を駐留させる方針という"
+          },
+          {
+            "claim": "トルコはシリア北部に進攻した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トルコは9日、…シリア北部への進攻を開始した"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 20,
+          "coverage": 23,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 63,
+        "quality_label": "MIXED",
+        "issues": [
+          "Names イラン as Turkey's counterpart in the 22日 agreement; the article says ロシア (プーチン大統領). A named-state substitution in a diplomatic accord is a severe faithfulness defect.",
+          "Considered but rejected as terminal: the summary's central event (Trump lifting sanctions and welcoming the ceasefire) is stated correctly, so the wrong counterpart is a secondary-entity error inside soft scoring.",
+          "Also asserts an unsupported announcement date (23日)."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "50162696_62ac6926": {
+        "claim_checks": [
+          {
+            "claim": "トランプ大統領がトルコへの経済制裁を解除すると発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "米財務省はその後、14日に発動した…経済制裁を解除したと認めた（見出し「トランプ氏、対トルコ制裁を解除」）"
+          },
+          {
+            "claim": "発表は23日である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事はトランプ氏の発言日を明示していない"
+          },
+          {
+            "claim": "トランプ氏はテレビ演説を行った",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事にテレビ演説の記述はなく、発言の形式は特定されていない"
+          },
+          {
+            "claim": "制裁はシリア北部に軍事進攻したトルコに対して発動されたものである",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トルコは9日、…シリア北部への進攻を開始した／米財務省はその後、14日に発動した…経済制裁を解除した"
+          },
+          {
+            "claim": "トランプ氏は「我々が喜べないようなことが起きない限り」解除すると述べた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「我々が喜べないようなことが起きない限り、制裁は解除されるだろう」"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 38,
+          "coverage": 14,
+          "coherence": 14,
+          "conciseness": 5
+        },
+        "score": 71,
+        "quality_label": "FINE",
+        "issues": [
+          "Adds an unsupported setting (テレビ演説) and an unsupported date (23日); both peripheral.",
+          "Coverage is thin: a single sentence that omits the Turkey-Russia safe-zone agreement, the permanent-ceasefire framing, the remaining US troops, and the human cost.",
+          "One very long sentence; readable but dense."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "50162696_6b12766c": {
+        "claim_checks": [
+          {
+            "claim": "トランプ大統領がトルコへの経済制裁を解除すると発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "米財務省はその後、14日に発動した…経済制裁を解除したと認めた（見出し「トランプ氏、対トルコ制裁を解除」）"
+          },
+          {
+            "claim": "発表は23日である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事はトランプ氏の発言日を明示していない"
+          },
+          {
+            "claim": "トランプ氏はテレビ演説を行った",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事にテレビ演説の記述はない"
+          },
+          {
+            "claim": "制裁はシリア北部に軍事進攻したトルコに対して発動されたものである",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トルコは9日、…シリア北部への進攻を開始した／14日に発動した…経済制裁"
+          },
+          {
+            "claim": "トランプ氏は「我々が喜べないようなことが起きない限り」解除すると述べた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「我々が喜べないようなことが起きない限り、制裁は解除されるだろう」"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 38,
+          "coverage": 14,
+          "coherence": 14,
+          "conciseness": 5
+        },
+        "score": 71,
+        "quality_label": "FINE",
+        "issues": [
+          "Text is identical to 50162696_62ac6926 and receives the same claim checks and dimensions.",
+          "Adds an unsupported setting (テレビ演説) and an unsupported date (23日).",
+          "Single-sentence scope leaves the safe-zone agreement, the remaining US troops, and the casualties uncovered."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      }
+    }
+  },
+  "50285251": {
+    "anchor": {
+      "main_event": "インド・デリー首都圏で大気汚染が「耐えられない水準」に達し、当局が外出自粛や車両の通行制限などの緊急措置を取った",
+      "key_facts": [
+        "デリー首都圏のケジリワル首相が「大気汚染が耐えられない水準まで達した」と警告",
+        "PM2.5の濃度が急上昇し呼吸器疾患の恐れがある「有害」レベルに達した",
+        "3日には視界不良で航空便30便以上が欠航",
+        "4日から15日まで、ナンバープレート末尾の偶数・奇数による日替わりの通行制限を発動",
+        "学校は5日まで休校、建築工事も中止",
+        "ジャイン保健相が屋外運動の回避、マスク着用、扉と窓を閉めることなどを呼びかけ",
+        "主な原因は焼き畑とわら焼き、1週間前のディワリの花火、自動車の排気ガス、工事現場や工場の排出ガス",
+        "7日まで雨は見込めない",
+        "PM2.5濃度は北京の7倍で、測定器は最大値999を多く検出",
+        "1日に公共衛生非常事態が宣言され、学校で計500万枚のマスクを配布",
+        "3日にデリーの若者が抗議活動を行った"
+      ],
+      "anchor_summary": "インド・デリー首都圏で大気汚染が「耐えられない水準」に達したとケジリワル首相が警告し、当局は4日から15日までナンバープレートによる車両の通行制限を発動した。学校は5日まで休校となり、建築工事も中止された。PM2.5濃度は北京の7倍に達しており、焼き畑やディワリの花火、自動車の排気ガスなどが主な原因とされる。"
+    },
+    "candidates": {
+      "50285251_20443446": {
+        "claim_checks": [
+          {
+            "claim": "デリー首都圏の当局が市民に外出の自粛を要請した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出し「インド・デリー大気汚染、『耐えられないレベル』 外出自粛求める」／ジャイン保健相は「午前中や夜遅い時間には屋外での運動を避ける」よう呼びかけ、汚染地域に立ち入らないことなどを指示"
+          },
+          {
+            "claim": "当局が車両の通行制限に乗り出した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "汚染を軽減するため、自動車の通行を制限する規制が発動された"
+          },
+          {
+            "claim": "インド北部で大気汚染が悪化している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「大気汚染が耐えられない水準まで達した」と警告した（対象はインド北部のデリー首都圏）"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 13,
+          "coherence": 12,
+          "conciseness": 5
+        },
+        "score": 80,
+        "quality_label": "GOOD",
+        "issues": [
+          "Every claim is supported, but coverage is thin: no severity marker (耐えられない水準, PM2.5 が北京の7倍), no school closures or construction halt, no causes, no public-health emergency.",
+          "Sentence order is inverted: the measures are stated before the situation that caused them, which weakens the logical flow."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "50285251_3c0e057d": {
+        "claim_checks": [
+          {
+            "claim": "デリー首都圏で大気汚染が「耐えられない水準」まで悪化した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「大気汚染が耐えられない水準まで達した」と警告した"
+          },
+          {
+            "claim": "当局は外出の自粛を呼びかけた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出し「外出自粛求める」／屋外での運動を避けるよう呼びかけ、汚染地域に立ち入らないことなどを指示"
+          },
+          {
+            "claim": "現地の病院で呼吸器疾患の救急搬送が前年同期比で3倍に増加した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事は「呼吸器疾患を引き起こす恐れのある『有害』レベル」と述べるのみで、病院の搬送件数も前年同期比の倍率も一切示していない"
+          },
+          {
+            "claim": "医療体制が逼迫している",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事に医療体制の逼迫に関する記述はない"
+          },
+          {
+            "claim": "車両の通行制限、学校の休校、建設工事の中止などの措置が取られた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "自動車の通行を制限する規制が発動された／デリーの学校は5日まで休校となったほか、建築工事も中止されている"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 18,
+          "coverage": 25,
+          "coherence": 14,
+          "conciseness": 4
+        },
+        "score": 61,
+        "quality_label": "MIXED",
+        "issues": [
+          "An entire sentence is invented: the hospital respiratory-admission surge and the 前年同期比で3倍 figure appear nowhere in the article, and neither does any claim about strained medical capacity.",
+          "Considered but rejected as terminal FABRICATED_CONTENT: the summary's central message (pollution at unbearable levels plus the vehicle, school, and construction measures) is fully supported, so the invented statistic is charged to faithfulness instead.",
+          "The fabricated middle sentence displaces the real quantitative fact (PM2.5 が北京の7倍) and costs conciseness."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "50285251_d5d3d3b5": {
+        "claim_checks": [
+          {
+            "claim": "インド北部で大気汚染が悪化している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「大気汚染が耐えられない水準まで達した」と警告した（対象はインド北部のデリー首都圏）"
+          },
+          {
+            "claim": "デリー首都圏の当局が市民に外出の自粛を要請した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出し「外出自粛求める」／屋外での運動を避けるよう呼びかけ、汚染地域に立ち入らないことなどを指示"
+          },
+          {
+            "claim": "当局が車両の通行制限に乗り出した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "汚染を軽減するため、自動車の通行を制限する規制が発動された"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 13,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 83,
+        "quality_label": "GOOD",
+        "issues": [
+          "Fully supported and well ordered (situation first, then measures), but coverage is thin: no severity marker, no school closures or construction halt, no causes, no PM2.5 comparison."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "50285251_f372dd94": {
+        "claim_checks": [
+          {
+            "claim": "デリー首都圏で大気汚染が「耐えられない水準」まで悪化した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「大気汚染が耐えられない水準まで達した」と警告した"
+          },
+          {
+            "claim": "当局は外出の自粛を呼びかけた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出し「外出自粛求める」／屋外での運動を避けるよう呼びかけ、汚染地域に立ち入らないことなどを指示"
+          },
+          {
+            "claim": "PM2.5の濃度は北京の7倍に達している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "微小粒子状物質PM2.5の濃度は現在、同じく大気汚染が問題となっている中国・北京の7倍に達している"
+          },
+          {
+            "claim": "車両の通行制限や学校の休校、建設工事の中止などの緊急措置が取られている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "自動車の通行を制限する規制が発動された／デリーの学校は5日まで休校となったほか、建築工事も中止されている"
+          },
+          {
+            "claim": "この時期の焼き畑やディワリの花火、自動車排気ガスなどが主因とされる",
+            "verdict": "SUPPORTED",
+            "source_evidence": "焼き畑や麦の収穫後のわら焼きが行われており、高い大気汚染レベルの主な原因となっている／ヒンドゥー教の祭典「ディワリ」の花火でも…有害な物質が排出された／これらに自動車の排気ガス…が加わり"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 28,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 98,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "Every claim is supported and the severity, the measures, and the causes are all captured.",
+          "Minor omissions only: the 1日 public-health emergency with 500万枚 of masks and the 30-plus cancelled flights."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      }
+    }
+  },
+  "50469832": {
+    "anchor": {
+      "main_event": "米政府が方針を転換し、ヨルダン川西岸のイスラエル入植地の建設をただちに国際法違反とはみなさないと表明した",
+      "key_facts": [
+        "ポンペオ国務長官が記者会見で、イスラエル民間人によるヨルダン川西岸の入植地建設はただちに国際法に則っていないというわけではないとの結論に達したと表明",
+        "ポンペオ氏はヨルダン川西岸の地位はイスラエルとパレスチナが交渉すべきものとの見解を示した",
+        "イスラエルは方針転換を歓迎し、ネタニヤフ首相は「歴史の過ちを正す」ものだと評価",
+        "PLOのエレカット氏は決定を世界の安定と安全、平和を危険にさらすものと批判",
+        "ヨルダン川西岸には現在約140の入植地があり、計約60万人のユダヤ人が居住",
+        "イスラエルは1967年の第3次中東戦争後に入植地を建設してきた",
+        "入植地は一般的に国際法に照らして違法と考えられているが、イスラエルは異を唱えている",
+        "アメリカは1978年カーター政権で違法と結論づけ、1981年にレーガン大統領が不同意を表明",
+        "2016年末にオバマ政権は国連決議案の採択で拒否権を発動しなかった"
+      ],
+      "anchor_summary": "ポンペオ米国務長官は記者会見で、イスラエル民間人によるヨルダン川西岸の入植地建設はただちに国際法に則っていないというわけではないとの結論に達したと表明し、米政府の方針転換を示した。イスラエルのネタニヤフ首相はこれを「歴史の過ちを正す」ものだと歓迎した一方、PLOのエレカット氏は世界の安定と安全、平和を危険にさらすものだと批判した。ヨルダン川西岸には約140の入植地があり、計約60万人のユダヤ人が居住している。"
+    },
+    "candidates": {
+      "50469832_20573acb": {
+        "claim_checks": [
+          {
+            "claim": "アメリカ政府が18日に何らかの発表を行った",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事に日付の記載はなく、ポンペオ氏の記者会見が18日だったとは書かれていない。加えて候補は述語を欠き、発表の内容を述べていない"
+          },
+          {
+            "claim": "ヨルダン川西岸はパレスチナ自治区である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "イスラエルによるパレスチナ自治区での入植地建設は長年、同国と国際社会、パレスチナの間における論争の原因となっている"
+          },
+          {
+            "claim": "イスラエルがヨルダン川西岸に入植地を建設してきた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "イスラエルは東エルサレムを含むヨルダン川西岸に、100カ所以上のユダヤ人入植地を建設してきた"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 34,
+          "coverage": 3,
+          "coherence": 2,
+          "conciseness": 3
+        },
+        "score": 42,
+        "quality_label": "POOR",
+        "issues": [
+          "Severely truncated: the text stops on the bare noun 入植地 with no predicate, so the article's central fact (that the US no longer regards the settlements as illegal) is never stated.",
+          "Scored on what it actually asserts per the truncation policy; coherence is charged almost in full because the sentence cannot be read as a statement.",
+          "The date 18日 is unsupported by the article.",
+          "Borderline against the terminal bar for a content-free stub; kept in soft scoring because it does identify the actor, the location, and the settlement subject."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "50469832_8a6e1840": {
+        "claim_checks": [
+          {
+            "claim": "ポンペオ米国務長官がヨルダン川西岸のイスラエル入植地を国際法違反とみなさない方針を発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「アメリカは法的論争をすべての面から慎重に検討した結果、イスラエル民間人によるヨルダン川西岸の入植地建設はただちに、国際法に則っていないというわけではないとの結論に達した」"
+          },
+          {
+            "claim": "これを受けて国連安全保障理事会が緊急会合を開いた",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事に国連安全保障理事会の緊急会合の記述はない。国連への言及は、2016年末にオバマ政権が決議案の採択で拒否権を発動しなかったという過去の経緯のみ"
+          },
+          {
+            "claim": "国連安保理が米国の立場を非難する決議を全会一致で採択した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事に今回の方針転換に対する安保理決議の記述は一切なく、非難決議の採択も全会一致という事実も存在しない"
+          },
+          {
+            "claim": "ヨルダン川西岸には約140の入植地があり、約60万人が居住している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "現在、約140の入植地があり、計約60万人のユダヤ人が居住している"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 12,
+          "coverage": 20,
+          "coherence": 14,
+          "conciseness": 4
+        },
+        "score": 50,
+        "quality_label": "MIXED",
+        "issues": [
+          "The second sentence invents a UN Security Council emergency session and a unanimously adopted resolution condemning the United States; neither the body action nor the 全会一致 qualifier exists anywhere in the article.",
+          "The invented event is chained to the real one with これを受けて, presenting a false causal consequence, which makes this the most damaging defect in the batch that still stays inside soft scoring.",
+          "Considered for terminal FABRICATED_CONTENT and left eligible: the opening sentence states the article's actual main event correctly and the closing figures are accurate, so the summary's central content is not the fabrication. Flagged for Reviewer attention.",
+          "Drops ユダヤ人 from the 60万人 figure and omits the Israeli welcome and the Palestinian criticism, which the fabricated sentence displaces."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "50469832_9a5ac32c": {
+        "claim_checks": [
+          {
+            "claim": "米国のポンペオ国務長官がヨルダン川西岸のイスラエル入植地を国際法違反とみなさない方針を発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「…イスラエル民間人によるヨルダン川西岸の入植地建設はただちに、国際法に則っていないというわけではないとの結論に達した」"
+          },
+          {
+            "claim": "これは従来の米国の立場からの転換である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出し「イスラエル入植地『違法ではない』 米政府が方針転換」／以来、アメリカは入植地を「違法」ではなく「非合法」と表現してきた"
+          },
+          {
+            "claim": "イスラエルは歓迎している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "イスラエルは、アメリカによるこの方針転換を歓迎した／ネタニヤフ首相は…「歴史の過ちを正す」ものだと評価"
+          },
+          {
+            "claim": "パレスチナ側は強く反発している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "パレスチナ解放機構（PLO）の交渉担当者サエブ・エレカット氏は、アメリカの決定を「世界の安定と安全、平和」を危険にさらすものと批判"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 25,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 95,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "All claims supported, with the policy shift and both sides' reactions captured.",
+          "Omits the scale of the settlements (約140カ所, 約60万人) and Pompeo's stated reasoning that the West Bank's status is for the parties to negotiate."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "50469832_d35cd9c2": {
+        "claim_checks": [
+          {
+            "claim": "アメリカ政府がヨルダン川西岸の入植地を国際法違反とみなさないと発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「…ヨルダン川西岸の入植地建設はただちに、国際法に則っていないというわけではないとの結論に達した」"
+          },
+          {
+            "claim": "発表は18日である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事に日付の記載はない"
+          },
+          {
+            "claim": "対象はパレスチナ自治区ヨルダン川西岸でイスラエル政府が建設してきた入植地である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "イスラエルは東エルサレムを含むヨルダン川西岸に、100カ所以上のユダヤ人入植地を建設してきた／イスラエルによるパレスチナ自治区での入植地建設"
+          },
+          {
+            "claim": "これは米政府にとって方針転換となる",
+            "verdict": "SUPPORTED",
+            "source_evidence": "見出し「米政府が方針転換」／イスラエルは、アメリカによるこの方針転換を歓迎した"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 44,
+          "coverage": 22,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 86,
+        "quality_label": "GOOD",
+        "issues": [
+          "States an announcement date (18日) that the article never gives; peripheral unsupported detail.",
+          "Omits the Israeli welcome, the Palestinian criticism, and the scale of the settlements."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      }
+    }
+  },
+  "51145805": {
+    "anchor": {
+      "main_event": "香港エクスプレスがサイパン行き便に搭乗しようとした日本人女性に妊娠検査を受けさせていたことが明らかになり、同社が謝罪して対応を即時中断した",
+      "key_facts": [
+        "サイパン育ちで東京在住の西田みどりさん（25）が昨年11月、香港発サイパン行きの便で妊娠検査を求められた",
+        "西田さんは事前の申告書で妊娠していないと伝えていたが、職員に付き添われてトイレに行った",
+        "尿検査の結果が陰性だとわかると搭乗が認められた",
+        "西田さんは「非常に屈辱的で腹立たしい」体験だったとし、苦情に航空会社から返答はなかったと述べた",
+        "米自治領のサイパン島は米市民権取得を目的とした出産旅行の目的地として人気",
+        "2018年の北マリアナ諸島では地元の人よりも多くの観光客が子供を出産し、その多くは中国人",
+        "香港エクスプレスは妊娠検査は「米移民法が損なわれないようにする」ための対応だったと説明",
+        "同社はNBCニュースへの声明で謝罪し、2019年2月以降こうした対応を取っていたと説明",
+        "同社は北マリアナ諸島当局の懸念に基づき行動したとし、対応を即時中断して見直していると述べた"
+      ],
+      "anchor_summary": "香港の格安航空会社・香港エクスプレスが、サイパン行きの便に搭乗しようとした東京在住の日本人女性に妊娠検査を受けさせていたことが明らかになった。女性は申告書で妊娠していないと伝えていたが、職員に付き添われて尿検査を受け、陰性とわかってから搭乗を認められ、「非常に屈辱的で腹立たしい」体験だったと語った。同社は米市民権目的の出産旅行に絡み米移民法が損なわれないようにするための対応だったと説明し、謝罪した上で対応を即時中断して見直しているとしている。"
+    },
+    "candidates": {
+      "51145805_0a1b1dc6": {
+        "claim_checks": [
+          {
+            "claim": "同社は米市民権目的の「出産旅行」対策だったと釈明している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "香港エクスプレスは、妊娠検査は「米移民法が損なわれないようにする」ための対応だったとしている／外国籍の女性が、生まれてくる子供に米市民権を取得させるための、出産旅行の目的地として人気がある"
+          },
+          {
+            "claim": "香港の格安航空会社（LCC）香港エクスプレスが日本人女性に妊娠検査を受けさせていたことが明らかになった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "しかし、香港エクスプレスの職員から、妊娠検査を受けるよう求められた（見出し「香港の航空会社、日本人女性に妊娠検査」）"
+          },
+          {
+            "claim": "対象便は米自治領・北マリアナ諸島のサイパン島行きだった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "香港発サイパン行きの便に搭乗する際／米自治領のサイパン島は…／北マリアナ諸島のデータによると"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 20,
+          "coherence": 8,
+          "conciseness": 5
+        },
+        "score": 83,
+        "quality_label": "GOOD",
+        "issues": [
+          "Sentence order is inverted: 同社は opens the summary before 香港エクスプレス is introduced, leaving the pronoun without an antecedent on first reading.",
+          "Contains the typo だっだ for だった.",
+          "Omits the airline's apology and immediate suspension of the practice, and the woman's own account of the incident."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "51145805_1639e27b": {
+        "claim_checks": [
+          {
+            "claim": "香港エクスプレスがサイパン行き便に搭乗しようとした日本人女性に妊娠検査を求めていたことが明らかになった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "香港エクスプレスの職員から、妊娠検査を受けるよう求められた"
+          },
+          {
+            "claim": "同社は米市民権取得を目的とする「出産旅行」対策だったと釈明した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "香港エクスプレスは、妊娠検査は「米移民法が損なわれないようにする」ための対応だったとしている／米市民権を取得させるための、出産旅行の目的地"
+          },
+          {
+            "claim": "同社は対応の即時中断と謝罪を表明した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「我々は、このような対応で影響を受けた人に、率直にお詫び申し上げたい」／「我々は、この対応を即時中断し、見直しを行っている」"
+          },
+          {
+            "claim": "サイパン島は米自治領で、出産旅行の目的地として知られている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "米自治領のサイパン島は、外国籍の女性が…出産旅行の目的地として人気がある"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 27,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 97,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "All claims supported, and the incident, the airline's explanation, the apology, the suspension, and the Saipan context are all captured.",
+          "Minor omissions only: the woman's name and age, the negative urine test that let her board, and her 非常に屈辱的で腹立たしい reaction."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      },
+      "51145805_1b36aaa6": {
+        "claim_checks": [
+          {
+            "claim": "香港の格安航空会社（LCC）香港エクスプレスが日本人女性に妊娠検査を受けさせていたことが明らかになった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "香港エクスプレスの職員から、妊娠検査を受けるよう求められた（見出し「香港の航空会社、日本人女性に妊娠検査」）"
+          },
+          {
+            "claim": "対象便は米自治領・北マリアナ諸島のサイパン島行きだった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "香港発サイパン行きの便に搭乗する際／米自治領のサイパン島／北マリアナ諸島のデータによると"
+          },
+          {
+            "claim": "同社は米市民権目的の「出産旅行」対策だったと釈明している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "香港エクスプレスは、妊娠検査は「米移民法が損なわれないようにする」ための対応だったとしている／米市民権を取得させるための、出産旅行の目的地"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 50,
+          "coverage": 20,
+          "coherence": 14,
+          "conciseness": 5
+        },
+        "score": 89,
+        "quality_label": "GOOD",
+        "issues": [
+          "Fully supported and correctly ordered, but contains the typo だっだ for だった.",
+          "Omits the airline's apology and immediate suspension of the practice, which is a substantive part of the article's outcome."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "review_status": "DRAFT",
+        "trace": [
+          {
+            "event": "draft_scoring",
+            "by": "summary-scorer"
+          }
+        ]
+      }
+    }
+  }
+}

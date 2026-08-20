@@ -1,0 +1,21 @@
+{
+  "name": "summary-quality-funnel",
+  "version": "0.1.0",
+  "description": "Reference-free summary scoring with hard gates, Scorer/Reviewer/Report Agents, charts, and auditable traces.",
+  "author": {
+    "name": "Chen Jinhua"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Summary Quality Funnel",
+    "shortDescription": "Hard gates, three-agent review, charts, and audit trails",
+    "longDescription": "Evaluate article-summary pairs with deterministic hard gates and local embedding relevance screening, then launch genuine Codex Scorer, Reviewer, and Report subagents to produce scores, labels, evidence, fixed charts, a concise English Markdown report, and a complete audit trail. Local generative models are prohibited and runtime scoring does not require reference summaries.",
+    "developerName": "Chen Jinhua",
+    "category": "Productivity",
+    "capabilities": ["Analyze", "Write"],
+    "defaultPrompt": [
+      "Evaluate this article-summary pair and return a score, label, evidence, and complete review trace.",
+      "Evaluate and rank this summary batch, then generate an English chart report under 800 words."
+    ]
+  }
+}

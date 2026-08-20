@@ -1,0 +1,128 @@
+<mxfile host="app.diagrams.net" modified="2026-08-20T12:00:00.000Z" agent="claude-code" version="24.0.0">
+  <diagram id="funnel-arch" name="Funnel Architecture">
+    <mxGraphModel dx="1100" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1500" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="不依赖参考答案的摘要质量漏斗 —— 任何终止判定都必须经复核者确认" style="text;html=1;fontSize=17;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="60" y="20" width="980" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="输入是一组(文章, 候选摘要)。运行时任何阶段都不使用参考答案。" style="text;html=1;fontSize=12;align=center;fontColor=#5A6C7D;" vertex="1" parent="1">
+          <mxGeometry x="60" y="48" width="980" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lane1" value="第一层 —— 物理硬约束(确定性,不用模型)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#4A76D4;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontStyle=1;fontSize=11;fontColor=#1A4480;" vertex="1" parent="1">
+          <mxGeometry x="60" y="90" width="980" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="lane2" value="第二层 —— 语义硬约束(agent 判断,同样可终止)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDF0E6;strokeColor=#D98C3F;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontStyle=1;fontSize=11;fontColor=#8A4B00;" vertex="1" parent="1">
+          <mxGeometry x="60" y="290" width="980" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="lane3" value="第三层 —— 软评分(梯度质量,仅限幸存者)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E9F6EC;strokeColor=#4C9A5E;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontStyle=1;fontSize=11;fontColor=#1F5B2E;" vertex="1" parent="1">
+          <mxGeometry x="60" y="560" width="980" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="lane4" value="输出 —— 校验、排序、报告" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F0EDF7;strokeColor=#7B61A8;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontStyle=1;fontSize=11;fontColor=#4A3373;" vertex="1" parent="1">
+          <mxGeometry x="60" y="870" width="980" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="input" value="(文章, 候选摘要)&#xa;250 组 = 50 篇 × 5 条" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#333333;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="125" width="180" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hardgate" value="hard_gate.py —— 只做字符串检测&#xa;空输出 / 超过3句 / 连续照抄 /&#xa;结尾逗号或未闭合括号引号&#xa;&lt;i&gt;只提议,从不定夺&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4A76D4;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="320" y="118" width="240" height="64" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rev1" value="summary-reviewer&#xa;终止判定环节&#xa;&lt;i&gt;自己重新复现证据&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#C8A415;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="600" y="118" width="160" height="64" as="geometry" />
+        </mxCell>
+
+        <mxCell id="term1" value="终止&#xa;VERBATIM_SOURCE_COPY 第1档&#xa;OBVIOUS_TRUNCATION 第2档&#xa;OVER_SENTENCE_LIMIT 第3档" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBE3E3;strokeColor=#C0392B;fontSize=10;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="800" y="112" width="210" height="76" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note1" value="普通的实体 / 数字 / 引语重合不算抄袭。助词结尾只是嫌疑,不是证明。&#xa;复核者 REJECT 意味着候选继续往下走,而不是就此终结。" style="text;html=1;fontSize=9;fontColor=#5A6C7D;align=left;" vertex="1" parent="1">
+          <mxGeometry x="100" y="195" width="900" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="emb" value="embedding_gate.py(可选提示)&#xa;qwen3-embedding:0.6b,候选只与它自己的文章比&#xa;不做跨文章排名、不算 margin —— 生产请求里只有一篇文章&#xa;&lt;b&gt;永不构成终止&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7F8C8D;dashed=1;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="100" y="318" width="360" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="gate2" value="summary-grounding-gate(agent)&#xa;只回答一个问题:候选是否扎根于它的文章?&#xa;OFF_TOPIC / FACTUAL_REVERSAL / FABRICATED_CONTENT&#xa;看不到锚点、评分细则或任何别的文章;从不打分" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D98C3F;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="318" width="330" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rev2" value="summary-reviewer&#xa;扎根性复核环节&#xa;亲自复现两段引用证据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#C8A415;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="500" y="420" width="330" height="52" as="geometry" />
+        </mxCell>
+
+        <mxCell id="term2" value="终止 第0档&#xa;OFF_TOPIC&#xa;FACTUAL_REVERSAL&#xa;FABRICATED_CONTENT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBE3E3;strokeColor=#C0392B;fontSize=10;fontColor=#7B241C;" vertex="1" parent="1">
+          <mxGeometry x="870" y="405" width="140" height="82" as="geometry" />
+        </mxCell>
+
+        <mxCell id="centrality" value="中心性边界&#xa;只有缺陷位于中心时才终止:主事件被否定、结论被颠倒、核心主张是编造的。&#xa;外围数字错、次要实体错、或多加一条无据细节 → 判 GROUNDED,&#xa;在评分阶段扣忠实性分。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#D98C3F;dashed=1;fontSize=10;align=left;spacingLeft=10;fontColor=#8A4B00;" vertex="1" parent="1">
+          <mxGeometry x="100" y="405" width="360" height="82" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note2" value="为什么要单独一个 agent:最危险的候选流畅、话题正确、长度合规、没有抄袭 —— 却断言了与原文相反的内容。&#xa;字符串规则看不见它,而嵌入相似度恰恰因为话题正确而保持在高位。" style="text;html=1;fontSize=9;fontColor=#5A6C7D;align=left;" vertex="1" parent="1">
+          <mxGeometry x="100" y="497" width="910" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="anchor" value="锚点环节(只看文章)&#xa;main_event + key_facts + anchor_summary&#xa;每篇一个、缓存复用、在看到候选之前生成&#xa;&lt;i&gt;仅作覆盖度参照,绝非 ground truth&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4C9A5E;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="100" y="595" width="300" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="scorer" value="summary-scorer&#xa;原子 claim 核查,逐条引用原文片段&#xa;SUPPORTED / CONTRADICTED / NOT_IN_SOURCE&#xa;忠实性 50 | 覆盖度 30 | 连贯性 15 | 简洁性 5" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4C9A5E;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="440" y="595" width="330" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rev3" value="summary-reviewer&#xa;软评分复核环节&#xa;重核每条 claim、&#xa;加和与标签区间" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#C8A415;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="810" y="592" width="200" height="76" as="geometry" />
+        </mxCell>
+
+        <mxCell id="backstop" value="语义后备防线&#xa;逐条 claim 审计能暴露门禁漏掉的东西。Scorer 可以提议&#xa;FACTUAL_REVERSAL 或 FABRICATED_CONTENT;Reviewer 可以升级为终止。&#xa;本次运行后备防线触发 4 次,全部命中 grounding 层放行过的条目,其中 1 条被确认终止。" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#C8A415;dashed=1;fontSize=10;align=left;spacingLeft=10;fontColor=#7A5C00;" vertex="1" parent="1">
+          <mxGeometry x="100" y="690" width="670" height="72" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bands" value="EXCELLENT 90-100&#xa;GOOD 75-89&#xa;FINE 65-74&#xa;MIXED 50-64&#xa;POOR 0-49" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E9F6EC;strokeColor=#4C9A5E;fontSize=10;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="810" y="690" width="200" height="86" as="geometry" />
+        </mxCell>
+
+        <mxCell id="revise" value="REVISE —— Scorer 修订一次,再复核一次。未能弥合的分歧保留为 LOW_CONFIDENCE,绝不悄悄取平均。" style="text;html=1;fontSize=9;fontColor=#5A6C7D;align=left;" vertex="1" parent="1">
+          <mxGeometry x="100" y="790" width="910" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="validate" value="validate_result.py&#xa;schema、取值范围、&#xa;维度加和、轨迹" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B61A8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="100" y="905" width="180" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="rank" value="rank_results.py&#xa;篇内排序:&#xa;先按终止层级,再按分数" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B61A8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="905" width="200" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="charts" value="make_report_charts.py&#xa;确定性统计 + 图表" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#7B61A8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="905" width="190" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="reporter" value="summary-reporter&#xa;只撰写结论部分,&#xa;绝不编造任何数字" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#C8A415;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="790" y="905" width="220" height="58" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;endArrow=block;" edge="1" parent="1" source="input" target="hardgate"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;endArrow=block;" edge="1" parent="1" source="hardgate" target="rev1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="APPROVE(确认)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C0392B;endArrow=block;fontSize=9;fontColor=#C0392B;" edge="1" parent="1" source="rev1" target="term1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="REJECT / 通过" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;endArrow=block;fontSize=9;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="rev1" target="gate2"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="680" y="240" /><mxPoint x="665" y="240" /></Array></mxGeometry></mxCell>
+        <mxCell id="e5" value="提示" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#7F8C8D;dashed=1;endArrow=open;fontSize=9;" edge="1" parent="1" source="emb" target="gate2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;endArrow=block;" edge="1" parent="1" source="gate2" target="rev2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="APPROVE(确认)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C0392B;endArrow=block;fontSize=9;fontColor=#C0392B;" edge="1" parent="1" source="rev2" target="term2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="GROUNDED / REJECT(放行)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;endArrow=block;fontSize=9;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="rev2" target="anchor"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="665" y="545" /><mxPoint x="250" y="545" /></Array></mxGeometry></mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;endArrow=block;" edge="1" parent="1" source="anchor" target="scorer"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#333333;endArrow=block;" edge="1" parent="1" source="scorer" target="rev3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" value="ESCALATE(升级)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C0392B;endArrow=block;dashed=1;fontSize=9;fontColor=#C0392B;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="rev3" target="term2"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1050" y="592" /><mxPoint x="1050" y="446" /></Array></mxGeometry></mxCell>
+        <mxCell id="e12" value="APPROVE(确认)" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#4C9A5E;endArrow=block;fontSize=9;fontColor=#1F5B2E;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="rev3" target="validate"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="910" y="840" /><mxPoint x="190" y="840" /></Array></mxGeometry></mxCell>
+        <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#7B61A8;endArrow=block;" edge="1" parent="1" source="validate" target="rank"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#7B61A8;endArrow=block;" edge="1" parent="1" source="rank" target="charts"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e15" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#7B61A8;endArrow=block;" edge="1" parent="1" source="charts" target="reporter"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e16" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#C0392B;endArrow=block;dashed=1;" edge="1" parent="1" source="term1" target="validate"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1060" y="150" /><mxPoint x="1060" y="880" /><mxPoint x="60" y="880" /><mxPoint x="60" y="934" /></Array></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

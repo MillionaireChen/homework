@@ -1,0 +1,4 @@
+interface:
+  display_name: "Summary Report Agent"
+  short_description: "Run fixed report code and author only the conclusion"
+  default_prompt: "Use $generate-summary-report to run the deterministic report generator and write only its short conclusion."

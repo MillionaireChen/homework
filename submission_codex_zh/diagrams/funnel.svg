@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="520" viewBox="0 0 1500 520">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 Z" fill="#52606d"/></marker></defs>
+<rect width="1500" height="520" fill="#ffffff"/>
+<text x="750" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="#1f2933">完整 250 条运行的漏斗数量</text>
+<g font-family="Arial,sans-serif" font-size="16" text-anchor="middle">
+<rect x="50" y="190" width="270" height="105" rx="12" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/><text x="185" y="230"><tspan x="185">250 条数据对</tspan><tspan x="185" dy="24">50 篇文章 × 5</tspan></text>
+<rect x="400" y="80" width="270" height="105" rx="12" fill="#f8cecc" stroke="#b85450" stroke-width="2"/><text x="535" y="120"><tspan x="535">53 条确定性提议</tspan><tspan x="535" dy="24">50 条复制 + 3 条截断</tspan></text>
+<rect x="400" y="300" width="270" height="105" rx="12" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/><text x="535" y="340"><tspan x="535">197 条幸存者</tspan><tspan x="535" dy="24">embedding + grounding</tspan></text>
+<rect x="790" y="180" width="270" height="105" rx="12" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/><text x="925" y="220"><tspan x="925">24 条语义终止</tspan><tspan x="925" dy="24">17 条无关 + 7 条颠倒事实</tspan></text>
+<rect x="790" y="350" width="270" height="105" rx="12" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/><text x="925" y="390"><tspan x="925">173 条软评分</tspan><tspan x="925" dy="24">平均 76.15 · 中位数 82</tspan></text>
+<rect x="1170" y="215" width="270" height="105" rx="12" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/><text x="1305" y="255"><tspan x="1305">250 条最终记录</tspan><tspan x="1305" dy="24">0 条升级 · 155 条修订</tspan></text></g>
+<g stroke="#52606d" stroke-width="2.5" fill="none" marker-end="url(#arrow)"><path d="M320 220 L400 132"/><path d="M320 265 L400 352"/><path d="M670 352 L790 402"/><path d="M670 352 L790 232"/><path d="M1060 232 L1170 265"/><path d="M1060 402 L1170 285"/></g>
+</svg>

@@ -1,0 +1,407 @@
+{
+  "38476572": {
+    "anchor": {
+      "main_event": "ロシアとトルコが仲介したシリアの停戦合意が30日午前零時に発効し、散発的な衝突はあったもののほぼ持続しており、国連安保理はロシア作成の決議案を採決する見通し",
+      "key_facts": [
+        "ロシア作成の安保理決議案は、シリア全土への人道援助の迅速な提供、来月カザフスタンで予定される和平協議の支持、政治的交渉による紛争終結を求めている",
+        "アサド政権を支持するロシアは、アサド大統領退陣を前提とする米英仏の決議案に拒否権を繰り返してきた",
+        "共同仲介役のトルコはアサド大統領退陣を支持してきた",
+        "シリア人権監視団によると、30日午前零時の発効後に北部ハマ県で政府軍と反政府勢力の衝突があり、ワディ・バラダではジャブハト・ファタハ・アル・シャムが空爆されたという",
+        "シリア軍はこれを否定し、反政府側が合意が守られていないという誤った印象を与えようとしていると批判した",
+        "国連は29日、ダマスカス周辺住民約400万人に飲料水を供給する水源が意図的に攻撃されていると指摘した",
+        "トルコ軍関係者によると、ロシア空軍機が北部アル・バブ周辺のIS拠点を3回爆撃し、トルコ軍主導の作戦をロシアが支援するのは初めて",
+        "シリア政府軍によると停戦合意にISと関連組織は含まれず、ジャブハト・ファタハ・アル・シャムが含まれるかは情報が錯綜している",
+        "合意には7勢力が参加し、アフラル・アル・シャムも含まれ、同勢力は合意内容に一部懸念があるとしている"
+      ],
+      "anchor_summary": "ロシアとトルコが仲介したシリアの停戦合意は30日午前零時に発効し、北部ハマ県などでの衝突はあったもののほぼ持続している。国連安保理は、人道援助の提供と来月カザフスタンでの和平協議の支持を盛り込んだロシア作成の決議案を採決する見通しである。停戦合意にISと関連組織は含まれず、ジャブハト・ファタハ・アル・シャムの扱いについては情報が錯綜している。"
+    },
+    "candidates": {
+      "38476572_420b873d": {
+        "claim_checks": [
+          {"claim": "停戦合意はロシアとトルコが仲介した", "verdict": "SUPPORTED", "source_evidence": "今回の停戦合意をロシアと共に仲介しているトルコは"},
+          {"claim": "停戦合意はシリア全土を対象とする", "verdict": "SUPPORTED", "source_evidence": "タイトル シリア停戦合意、ほぼ持続 と 決議案は シリア全土に人道援助を速やかに届けるよう求める"},
+          {"claim": "停戦合意は30日に発効した", "verdict": "SUPPORTED", "source_evidence": "30日午前零時に停戦合意が発効した後"},
+          {"claim": "散発的な衝突を除きほぼ維持された", "verdict": "SUPPORTED", "source_evidence": "タイトル ほぼ持続 と 北部ハマ県で政府軍と反政府勢力の衝突があった"},
+          {"claim": "国連安保理が近く決議案を採決する見通し", "verdict": "SUPPORTED", "source_evidence": "タイトル 国連安保理は投票へ"},
+          {"claim": "決議案はロシア提出で停戦を支持する内容", "verdict": "SUPPORTED", "source_evidence": "ロシア作成の安保理決議案は…和平協議を支持し"},
+          {"claim": "合意にISなどの過激派は含まれない", "verdict": "SUPPORTED", "source_evidence": "ISと「関連組織」は停戦合意に含まれていない"},
+          {"claim": "ジャブハト・ファタハ・アル・シャムの扱いは情報が錯綜している", "verdict": "SUPPORTED", "source_evidence": "含まれているかどうかについては、情報が錯綜している"}
+        ],
+        "dimensions": {"faithfulness": 50, "coverage": 27, "coherence": 15, "conciseness": 5},
+        "score": 97,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "Every claim maps to an explicit source span, including the contested status of ジャブハト・ファタハ・アル・シャム.",
+          "Minor coverage gap: the Kazakhstan peace talks and the humanitarian-aid content of the resolution are not mentioned."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "All eight atomic claims SUPPORTED; no terminal proposal."}]
+      },
+      "38476572_65056524": {
+        "claim_checks": [
+          {"claim": "ロシアとトルコが仲介したシリア全土の停戦合意は30日に発効した", "verdict": "SUPPORTED", "source_evidence": "30日午前零時に停戦合意が発効した後"},
+          {"claim": "散発的な衝突を除きほぼ維持された", "verdict": "SUPPORTED", "source_evidence": "タイトル シリア停戦合意、ほぼ持続 と 北部ハマ県で政府軍と反政府勢力の衝突があった"},
+          {"claim": "国連事務総長が同日夜に声明を発表した", "verdict": "NOT_IN_SOURCE", "source_evidence": "国連は29日、ワジ・バラダでの戦闘に懸念を表明 のみで、事務総長の声明への言及は本文中に存在しない"},
+          {"claim": "国連事務総長が初日の停戦継続を「歴史的進展」と評価した", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文に「歴史的進展」という語も、事務総長の評価も一切現れない"},
+          {"claim": "合意にISなどの過激派は含まれない", "verdict": "SUPPORTED", "source_evidence": "ISと「関連組織」は停戦合意に含まれていない"},
+          {"claim": "ジャブハト・ファタハ・アル・シャムの扱いは情報が錯綜している", "verdict": "SUPPORTED", "source_evidence": "含まれているかどうかについては、情報が錯綜している"}
+        ],
+        "dimensions": {"faithfulness": 18, "coverage": 17, "coherence": 15, "conciseness": 4},
+        "score": 54,
+        "quality_label": "MIXED",
+        "issues": [
+          "Sentence 2 invents an attributed statement: a UN Secretary-General evening statement calling the first day of the ceasefire 歴史的進展 appears nowhere in the article, and the quoted phrase is fabricated.",
+          "Considered for terminal FABRICATED_CONTENT and rejected on centrality: sentence 1 states the anchor main_event correctly, so the fabricated quotation is an added secondary claim rather than the content the summary rests on. Charged as a severe faithfulness penalty instead.",
+          "The fabricated sentence displaces the article's real second key fact, the upcoming UN Security Council vote, which is in the title.",
+          "Fluent and well ordered, but one of three sentences carries no source content."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "Fabricated attributed quotation detected; kept in soft scoring because the central event survives. Reviewer may escalate."}]
+      },
+      "38476572_d43bbf3d": {
+        "claim_checks": [
+          {"claim": "国連安全保障理事会は近く決議案を採決する見通し", "verdict": "SUPPORTED", "source_evidence": "タイトル 国連安保理は投票へ"},
+          {"claim": "決議案は停戦合意を支持する内容でロシアが提出した", "verdict": "SUPPORTED", "source_evidence": "ロシア作成の安保理決議案は…和平協議を支持し"},
+          {"claim": "停戦合意はシリア全土で30日午前零時に発効した", "verdict": "SUPPORTED", "source_evidence": "30日午前零時に停戦合意が発効した後"},
+          {"claim": "発効時刻は日本時間午前7時にあたる", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文は 30日午前零時 とだけ記し、日本時間への換算は記載していない"},
+          {"claim": "停戦合意は政府軍と反政府勢力の間のもの", "verdict": "SUPPORTED", "source_evidence": "政府と反政府勢力の間の政治的交渉による紛争の終結を求めている"},
+          {"claim": "散発的な衝突のほかは終日ほぼ継続した", "verdict": "SUPPORTED", "source_evidence": "タイトル ほぼ持続 と 北部ハマ県で政府軍と反政府勢力の衝突があった"}
+        ],
+        "dimensions": {"faithfulness": 43, "coverage": 24, "coherence": 14, "conciseness": 5},
+        "score": 86,
+        "quality_label": "GOOD",
+        "issues": [
+          "One added peripheral detail not in the source: the parenthetical 日本時間午前7時 time conversion.",
+          "Leads with the Security Council vote before establishing the ceasefire itself, so the causal order reads slightly inverted.",
+          "Omits the Russia and Turkey brokerage role and the exclusion of IS from the agreement."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "One NOT_IN_SOURCE peripheral detail; no contradictions."}]
+      },
+      "38476572_fa7ad300": {
+        "claim_checks": [
+          {"claim": "停戦合意はシリア全土で30日午前零時に発効した", "verdict": "SUPPORTED", "source_evidence": "30日午前零時に停戦合意が発効した後"},
+          {"claim": "発効時刻は日本時間午前7時にあたる", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文は 30日午前零時 とだけ記し、日本時間への換算は記載していない"},
+          {"claim": "停戦合意は政府軍と反政府勢力の間のもの", "verdict": "SUPPORTED", "source_evidence": "政府と反政府勢力の間の政治的交渉による紛争の終結を求めている"},
+          {"claim": "散発的な衝突のほかは終日ほぼ継続した", "verdict": "SUPPORTED", "source_evidence": "タイトル シリア停戦合意、ほぼ持続 と 北部ハマ県で政府軍と反政府勢力の衝突があった"},
+          {"claim": "国連安全保障理事会は近く決議案を採決する見通し", "verdict": "SUPPORTED", "source_evidence": "タイトル 国連安保理は投票へ"},
+          {"claim": "決議案は停戦合意を支持する内容でロシアが提出した", "verdict": "SUPPORTED", "source_evidence": "ロシア作成の安保理決議案は…和平協議を支持し"}
+        ],
+        "dimensions": {"faithfulness": 43, "coverage": 24, "coherence": 15, "conciseness": 5},
+        "score": 87,
+        "quality_label": "GOOD",
+        "issues": [
+          "One added peripheral detail not in the source: the parenthetical 日本時間午前7時 time conversion.",
+          "Omits the Russia and Turkey brokerage role and the exclusion of IS from the agreement.",
+          "Same two sentences as 38476572_d43bbf3d but in the natural event-then-consequence order, which reads better."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "One NOT_IN_SOURCE peripheral detail; no contradictions."}]
+      }
+    }
+  },
+  "39776572": {
+    "anchor": {
+      "main_event": "米人気コメディアンのジミー・キメルさんが番組で、生後まもない息子ビリーちゃんが先天性の心臓疾患で手術を受け一命を取り留めたと涙ながらに語り、オバマケアの重要性を訴えた",
+      "key_facts": [
+        "息子ビリーちゃんは4月21日にロサンゼルスの病院で安産で生まれたが、誕生から3時間後に紫色になり看護師が異常に気づき、心臓疾患が判明した",
+        "ビリーちゃんは生後3日で心臓手術を受け、ロサンゼルス小児病院のスタッフの尽力で助かった",
+        "手術から6日後に帰宅し、元気にしているとキメルさんは語った",
+        "キメルさんは症状は深刻で 無神論の人たちも僕たちのために祈ってくれた と述べた",
+        "キメルさんはトランプ大統領が国立衛生研究所の予算大幅削減を提案したのに対し、連邦議会が受け入れず増額したことに ありがたい と述べた",
+        "キメルさんは2014年より前なら既往症を理由に医療保険に入れない可能性が高かったとして、オバマケアの重要性を強調した",
+        "オバマケア策定に参加したアンディ・スレイビット元所長がモノローグを見るようツイートした",
+        "トランプ氏はオバマケアを 大惨事 と呼び廃止が目玉公約で、3月の改廃法案は廃案となったが共和党は引き続き制度廃止を目指している",
+        "オバマケア実施により2000万人の米国人が医療保険を受けられるようになった一方、保険料高騰などの課題もある"
+      ],
+      "anchor_summary": "米人気コメディアンのジミー・キメルさんが番組で、4月21日に生まれた息子ビリーちゃんが先天性の心臓疾患で生後3日に手術を受け、一命を取り留めたと声を詰まらせながら語った。キメルさんは既往症による保険加入拒否の禁止などを挙げてオバマケアの重要性を強調し、国立衛生研究所の予算増額にも謝意を示した。トランプ氏と共和党はオバマケアの廃止を目指しており、3月の改廃法案は廃案となっている。"
+    },
+    "candidates": {
+      "39776572_0c5e76b4": {
+        "claim_checks": [
+          {"claim": "ジミー・キメル氏は米コメディアン", "verdict": "SUPPORTED", "source_evidence": "タイトル 米人気コメディアン、息子が九死に一生を得たと"},
+          {"claim": "生後間もない息子が先天性心臓疾患だった", "verdict": "SUPPORTED", "source_evidence": "うちの息子みたいに先天性の心臓疾患をもって生まれてきたら と 調べたところ心臓疾患があると分かった"},
+          {"claim": "息子は緊急手術を受けた", "verdict": "SUPPORTED", "source_evidence": "ビリーちゃんは生後3日で心臓手術を受けることになり"},
+          {"claim": "息子は一命を取り留めた", "verdict": "SUPPORTED", "source_evidence": "ロサンゼルス小児病院のスタッフの尽力のおかげで助かったという"},
+          {"claim": "キメル氏は涙ながらに番組で語った", "verdict": "SUPPORTED", "source_evidence": "声を詰まらせながら自分の経験を語った"},
+          {"claim": "キメル氏はオバマケアの意義を訴えた", "verdict": "SUPPORTED", "source_evidence": "と、オバマケアの重要性を強調した"}
+        ],
+        "dimensions": {"faithfulness": 48, "coverage": 24, "coherence": 15, "conciseness": 5},
+        "score": 92,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "緊急手術 slightly intensifies the source, which says only that surgery took place at three days old after a serious diagnosis; a small unsupported characterization.",
+          "Single sentence, so the NIH budget remark and the Republican repeal context are omitted."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "All claims SUPPORTED; one minor intensifier noted."}]
+      },
+      "39776572_5c0bde1d": {
+        "claim_checks": [
+          {"claim": "ジミー・キメルさんはアカデミー賞授賞式の司会で人気のコメディアン", "verdict": "SUPPORTED", "source_evidence": "今年2月のアカデミー賞授賞式を司会したジミー・キメルさん"},
+          {"claim": "キメルさんは米トーク番組の司会者である", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文は 番組冒頭で とだけ記し、トーク番組という種別は記載していない"},
+          {"claim": "番組は1日夜に放送された", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文に放送日時の記載はない"},
+          {"claim": "生まれたばかりの息子が先天性の心臓疾患だった", "verdict": "SUPPORTED", "source_evidence": "調べたところ心臓疾患があると分かった と 先天性の心臓疾患をもって生まれてきたら"},
+          {"claim": "息子は死にかけた", "verdict": "SUPPORTED", "source_evidence": "自分の赤ちゃんが死にかけている時に と タイトル 息子が九死に一生を得たと"},
+          {"claim": "キメルさんは涙ながらに語った", "verdict": "SUPPORTED", "source_evidence": "声を詰まらせながら自分の経験を語った"},
+          {"claim": "キメルさんはオバマケア（医療保険改革）の重要性を訴えた", "verdict": "SUPPORTED", "source_evidence": "と、オバマケアの重要性を強調した"}
+        ],
+        "dimensions": {"faithfulness": 43, "coverage": 23, "coherence": 15, "conciseness": 4},
+        "score": 85,
+        "quality_label": "GOOD",
+        "issues": [
+          "Two added peripheral details absent from the source: the broadcast date 1日夜 and the トーク番組 programme type.",
+          "States that the son nearly died but never states the outcome the article stresses, that surgery saved him.",
+          "A long lead-in about the host's fame consumes much of the single sentence."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "Two NOT_IN_SOURCE peripheral details; no contradictions."}]
+      },
+      "39776572_7682c3a7": {
+        "claim_checks": [
+          {"claim": "ジミー・キメルさんはアカデミー賞授賞式の司会で人気のコメディアン", "verdict": "SUPPORTED", "source_evidence": "今年2月のアカデミー賞授賞式を司会したジミー・キメルさん"},
+          {"claim": "キメルさんは米トーク番組の司会者である", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文は 番組冒頭で とだけ記し、トーク番組という種別は記載していない"},
+          {"claim": "番組は1日夜に放送された", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文に放送日時の記載はない"},
+          {"claim": "生まれたばかり…（述部を欠き、主張が完結していない）", "verdict": "NOT_IN_SOURCE", "source_evidence": "候補は 生まれたばかり で切れており、対応させるべき命題が存在しない"}
+        ],
+        "dimensions": {"faithfulness": 40, "coverage": 4, "coherence": 2, "conciseness": 3},
+        "score": 49,
+        "quality_label": "POOR",
+        "issues": [
+          "Truncated candidate: it stops mid-phrase at 生まれたばかり with no predicate, so the sentence never states what happened.",
+          "Scored on what it actually says, per the truncation rule. Nothing is contradicted, so faithfulness is only reduced by the two unsupported details 1日夜放送 and トーク番組.",
+          "Coverage is near zero: the son's heart condition, the surgery, the survival, and the Obamacare appeal are all absent.",
+          "Coherence heavily penalized for the broken reading; the surviving text is almost entirely background about the host rather than the event."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "Truncation handled as a scaled coherence and coverage penalty, not a terminal."}]
+      },
+      "39776572_dff757fb": {
+        "claim_checks": [
+          {"claim": "ジミー・キメル氏は米コメディアン", "verdict": "SUPPORTED", "source_evidence": "タイトル 米人気コメディアン、息子が九死に一生を得たと"},
+          {"claim": "息子は生後1週間を過ぎてから手術を受けた", "verdict": "CONTRADICTED", "source_evidence": "ビリーちゃんは生後3日で心臓手術を受けることになり"},
+          {"claim": "息子は先天性心臓疾患だった", "verdict": "SUPPORTED", "source_evidence": "先天性の心臓疾患をもって生まれてきたら と 心臓疾患があると分かった"},
+          {"claim": "息子は一命を取り留めた", "verdict": "SUPPORTED", "source_evidence": "ロサンゼルス小児病院のスタッフの尽力のおかげで助かったという"},
+          {"claim": "キメル氏は涙ながらに番組で語りオバマケアの意義を訴えた", "verdict": "SUPPORTED", "source_evidence": "声を詰まらせながら自分の経験を語った と オバマケアの重要性を強調した"},
+          {"claim": "トランプ氏がキメル氏の訴えを受けオバマケア撤廃計画の再検討の意向を示した", "verdict": "CONTRADICTED", "source_evidence": "共和党は引き続き、制度廃止を目指している と トランプ氏は選挙中から、オバマケアを「大惨事」と呼び、その廃止は目玉公約のひとつだった"},
+          {"claim": "その意向は報じられている（伝聞として帰属）", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文にトランプ氏の反応やその報道への言及は一切ない"}
+        ],
+        "dimensions": {"faithfulness": 12, "coverage": 22, "coherence": 14, "conciseness": 4},
+        "score": 52,
+        "quality_label": "MIXED",
+        "issues": [
+          "Sentence 2 invents a presidential policy reversal that the article directly denies: the source says 共和党は引き続き、制度廃止を目指している.",
+          "生後1週間を過ぎた contradicts the source figure 生後3日; a peripheral number error charged to faithfulness.",
+          "Considered for terminal FABRICATED_CONTENT and rejected on centrality: sentence 1 alone reproduces the anchor main_event accurately, so the invented Trump development is an added claim rather than the summary's load-bearing content. Flagged so the Reviewer can escalate if it reads the fabricated outcome as central.",
+          "The false second sentence would seriously mislead a reader who cannot check the source, hence the severe faithfulness score."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "One contradicted figure plus one fabricated and contradicting secondary sentence; central event intact."}]
+      }
+    }
+  },
+  "39932207": {
+    "anchor": {
+      "main_event": "ロンドン警視庁で、警察署に置かれた人種差別的な黒いサルのぬいぐるみについて懸念を申し立てたインド出身の巡査が、逆に虚偽かつ扇動的な可能性のあるコメントを投稿した疑いで調査対象とされ、その後聴聞会で疑念を晴らして損害賠償を受け和解した",
+      "key_facts": [
+        "2013年9月、インド出身の巡査がベルグレービア警察署の事件管理課の事務所で巨大なサルのぬいぐるみを見かけたと主張して事態が始まった",
+        "黒いぬいぐるみには 夜勤ERO と書かれた名札の付いた警察官のシャツが着せられており、当時の証拠審査官の1人は黒人警察官だった",
+        "巡査は署内ウェブサイトの 長官のフォーラム のライブ・チャットで相談し、すぐに調査すると伝えられた",
+        "しかし1カ月後、虚偽かつ扇動的な可能性のあるコメントを投稿した疑いで巡査自身が調査対象となった",
+        "2015年6月、重大な不正行為に関する聴聞会で 証拠不十分で閉廷 と判断され、巡査への疑念が晴れた",
+        "職員組合代表のポール・ターピン氏は、聴聞会に付託された時は驚いたが証拠不十分とされた時は驚かなかったと述べた",
+        "調査では警察署内にサルのぬいぐるみを置いた人物を特定できなかった",
+        "巡査は労働裁判所で法的措置を開始したが、審理前に警察側が和解を申し出て2016年3月に和解が成立し、補償額は35000ポンド前後（約510万円）とみられる",
+        "リチャード・マーティン副警視監は苦情対応の改善にかなりの投資をし、新たな内部通報制度も導入したと述べた",
+        "黒人警察官協会のジャネット・ヒルズ会長は、時代遅れの文化を守る人たちが警察内に残っており道のりはまだ長いと述べた",
+        "別件として、テムズバレー警察でモトウ巡査部長が黒人同僚のデスクにサルの人形を置いた出来事があり、不正行為委員会が4月に結論を出した"
+      ],
+      "anchor_summary": "ロンドン警視庁のベルグレービア警察署で人種差別的な黒いサルのぬいぐるみについて懸念を申し立てたインド出身の巡査が、1カ月後に虚偽かつ扇動的な可能性のあるコメントを投稿した疑いで逆に調査対象とされた。巡査は2015年6月の聴聞会で証拠不十分とされて疑念を晴らし、労働裁判所での手続きの後に警察側と和解して35000ポンド前後の補償を受けたとみられる。警視庁は苦情対応の改善を強調したが、黒人警察官協会の会長は時代遅れの文化がなお残っていると指摘した。"
+    },
+    "candidates": {
+      "39932207_26b95c4d": {
+        "claim_checks": [
+          {"claim": "ロンドン警視庁で職場に置かれた人種差別的なサルのぬいぐるみについてインド系の巡査が懸念を提起した", "verdict": "SUPPORTED", "source_evidence": "インド出身の巡査がベルグレービア警察署の事件管理課の事務所で巨大なサルのぬいぐるみを見かけたと主張 と ぬいぐるみの使用が人種差別主義的で…懸念していた"},
+          {"claim": "巡査は逆に虚偽の可能性がある投稿として調査対象とされた", "verdict": "SUPPORTED", "source_evidence": "「虚偽かつ扇動的な可能性のあるコメント」を投稿した疑いで、巡査自身が調査対象となった"},
+          {"claim": "巡査は内部聴聞会で疑念を晴らした", "verdict": "SUPPORTED", "source_evidence": "「証拠不十分で閉廷」と判断が下され、巡査への疑念が晴らされた"},
+          {"claim": "巡査は警察を相手取った訴訟で約35000ポンドの損害賠償を得て和解した", "verdict": "SUPPORTED", "source_evidence": "警察側が和解を申し出、損害賠償の支払に同意した と 補償額は35000ポンド前後（約510万円）と考えられている"},
+          {"claim": "警視庁側は苦情対応を改善したとしている", "verdict": "SUPPORTED", "source_evidence": "苦情の対処方法を改善するため、警察側が「かなりの投資」をしており、新たな「内部通報」制度も導入した"},
+          {"claim": "黒人警察官協会は時代遅れの文化がなお残ると指摘している", "verdict": "SUPPORTED", "source_evidence": "そうした文化を未だに守っている警察内の時代遅れの人たちを排除しようと今も努力している"}
+        ],
+        "dimensions": {"faithfulness": 48, "coverage": 28, "coherence": 15, "conciseness": 5},
+        "score": 96,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "The settlement figure is stated as fact, while the source hedges it as 35000ポンド前後…と考えられている; a small loss of hedging.",
+          "Omits the dates 2013年9月 and 2015年6月 and the fact that no one was ever identified as having placed the toy, but covers the main event, the outcome, and both institutional reactions."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "All six claims SUPPORTED; only a hedging loss noted."}]
+      },
+      "39932207_c5be3217": {
+        "claim_checks": [
+          {"claim": "職場の人種差別的なサルのぬいぐるみについて巡査が懸念を提起した", "verdict": "SUPPORTED", "source_evidence": "ぬいぐるみの使用が人種差別主義的で、きちんと経緯を調べられていなかったかったと懸念していた"},
+          {"claim": "その巡査はアジア系である", "verdict": "SUPPORTED", "source_evidence": "アジア系巡査の扱いから察するに と インド出身の巡査"},
+          {"claim": "巡査は重大な不正行為があったとして逆に調査された", "verdict": "SUPPORTED", "source_evidence": "巡査自身が調査対象となった と 重大な不正行為に関する聴聞会に出席"},
+          {"claim": "この事実はBBCニュースの取材で明らかになった", "verdict": "SUPPORTED", "source_evidence": "ダニー・ショウ内政担当記者、BBCニュース と 本人の希望によりBBCでは巡査の名前を公表していない"}
+        ],
+        "dimensions": {"faithfulness": 50, "coverage": 18, "coherence": 15, "conciseness": 5},
+        "score": 88,
+        "quality_label": "GOOD",
+        "issues": [
+          "Every claim is supported and the role reversal at the heart of the article is stated accurately.",
+          "Coverage is the clear weakness: it stops at the lede and omits the resolution, that the officer was cleared in 2015 and settled for around 35000 pounds, plus the Met response and the Black Police Association criticism."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "Fully faithful but single-sentence lede coverage."}]
+      },
+      "39932207_de47b954": {
+        "claim_checks": [
+          {"claim": "ロンドン警視庁でインド系の巡査が人種差別的なサルのぬいぐるみについて懸念を提起した", "verdict": "SUPPORTED", "source_evidence": "インド出身の巡査が…巨大なサルのぬいぐるみを見かけたと主張 と ぬいぐるみの使用が人種差別主義的で…懸念していた"},
+          {"claim": "巡査は逆に調査対象とされた", "verdict": "SUPPORTED", "source_evidence": "話をでっち上げたとしてこの巡査本人が逆に調査されることになった"},
+          {"claim": "警視庁はぬいぐるみを置いた人物として職員2人を特定した", "verdict": "CONTRADICTED", "source_evidence": "しかし調査では、警察署内にサルのぬいぐるみを置いた人物を特定できなかった"},
+          {"claim": "特定された職員2人は懲戒解雇処分を受けた", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文に加害者側への懲戒処分の記載は一切ない"},
+          {"claim": "巡査は内部聴聞会で疑念を晴らした", "verdict": "SUPPORTED", "source_evidence": "「証拠不十分で閉廷」と判断が下され、巡査への疑念が晴らされた"},
+          {"claim": "巡査は損害賠償約35000ポンドで和解した", "verdict": "SUPPORTED", "source_evidence": "補償額は35000ポンド前後（約510万円）と考えられている"}
+        ],
+        "dimensions": {"faithfulness": 15, "coverage": 22, "coherence": 14, "conciseness": 4},
+        "score": 55,
+        "quality_label": "MIXED",
+        "issues": [
+          "Sentence 2 is a negation flip of an explicit source statement: the article says the inquiry could not identify who placed the toy, while the candidate says two staff were identified and dismissed.",
+          "The dismissal of two employees is additionally an invented outcome with no basis anywhere in the article.",
+          "Considered for terminal FACTUAL_REVERSAL or FABRICATED_CONTENT and rejected on centrality: sentences 1 and 3 carry the anchor main_event and its real outcome correctly, so the reversed sub-claim is secondary. Charged as a severe faithfulness penalty; flagged for Reviewer attention because it is a negation flip.",
+          "Inverting the accountability outcome is the most misleading element of this summary."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "Negation flip on a secondary outcome plus one invented disciplinary action; central event intact."}]
+      }
+    }
+  },
+  "40490051": {
+    "anchor": {
+      "main_event": "イラク・モスルの旧市街でIS掃討の激しい戦闘が続き、イラクの司令官たちは制圧が近いと語る一方、ISは女性による自爆攻撃を増やして抵抗している",
+      "key_facts": [
+        "ISが立てこもる旧市街には空爆や迫撃砲の一斉発射による攻撃が行われている",
+        "モスル奪還作戦は昨年10月に始まり、数千人規模のイラク軍にクルド人部隊ペシュメルガ、スンニ派アラブ人部族、シーア派民兵が加わり、米主導の有志連合の軍機や軍事顧問が支援している",
+        "イラク政府は今年1月に東部の解放を発表したが、市西部は狭く曲がりくねった道に阻まれ戦闘が困難になっている",
+        "対テロ部隊のアサディ中将は 旧市街の性質上、戦闘は日ごとに困難になってきている と語った",
+        "アルディ中将は 敵は過去3日間、一部の地区で特に女性による自爆攻撃を行っている と述べた",
+        "一部では10代の女性が自爆攻撃を行っているという",
+        "AP通信によると3日には女性による自爆攻撃が2回起き、ほかに7人の女性が自爆装置を身に着けて接近しようとして阻止された",
+        "イラク軍は避難してきた女性にベールを外すよう、男性にはシャツを脱ぐよう求めている",
+        "国連はISが10万人以上のモスル住民を人間の盾にしている可能性を指摘した",
+        "イラク軍は市内に残るIS戦闘員を300人以下とみており、10月の作戦開始時には6000人近くいたとみられる",
+        "ラスール准将は 勝利にかなり近づいた と述べ、別の司令官は戦闘は5日から1週間で終わるとの見通しを示した",
+        "モスルは2014年6月にISが占領した"
+      ],
+      "anchor_summary": "ISが立てこもるイラク・モスルの旧市街では空爆や迫撃砲による攻撃が続き、イラクの司令官たちは制圧が近いと語っている。一方でISは特に女性による自爆攻撃を増やして抵抗しており、10代の女性による攻撃も伝えられている。イラク軍は市内に残るIS戦闘員を300人以下とみており、昨年10月の作戦開始時の6000人近くから大きく減ったとしている。"
+    },
+    "candidates": {
+      "40490051_08737554": {
+        "claim_checks": [
+          {"claim": "モスルはイラク北部にある", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文はタイトルの イラク・モスル と記すのみで、北部という位置づけは記載していない"},
+          {"claim": "モスル旧市街で空爆や迫撃砲攻撃が激化している", "verdict": "SUPPORTED", "source_evidence": "ISが立てこもるモスルの旧市街には、空爆や迫撃砲の一斉発射による攻撃が行われており"},
+          {"claim": "作戦にはイラク対テロ部隊と米主導の有志連合が関与している", "verdict": "SUPPORTED", "source_evidence": "イラク精鋭の対テロ部隊 と 米主導の有志連合の軍機や軍事顧問らの支援を受けて作戦に参加している"},
+          {"claim": "IS側は女性による自爆攻撃を増やして抵抗している", "verdict": "SUPPORTED", "source_evidence": "ISは一部女性による自爆攻撃を増やして抵抗している"},
+          {"claim": "10代の少女による攻撃も報告された", "verdict": "SUPPORTED", "source_evidence": "一部では10代の女性が自爆攻撃を行っているという"},
+          {"claim": "作戦開始当初のIS戦闘員は6000人近くだった", "verdict": "SUPPORTED", "source_evidence": "10月の作戦開始時には6000人近くいたとみられている"},
+          {"claim": "現在のIS戦闘員は300人程度と推定される", "verdict": "SUPPORTED", "source_evidence": "イラク軍はモスル市内に残っているIS戦闘員は300人を超えないと考えている"},
+          {"claim": "司令官が勝利に近づいたと述べた", "verdict": "SUPPORTED", "source_evidence": "ヤハヤ・ラスール准将は…「勝利にかなり近づいた」と述べた"}
+        ],
+        "dimensions": {"faithfulness": 48, "coverage": 28, "coherence": 15, "conciseness": 5},
+        "score": 96,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "北部 is a correct real-world descriptor but is not stated in the article; 300人程度 also softens the source wording 300人を超えない.",
+          "Omits the UN human-shield estimate and the 2014年6月 occupation background, but covers the main event, the resistance tactic, the force numbers, and the commander assessment."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "All substantive claims SUPPORTED; one unstated geographic descriptor."}]
+      },
+      "40490051_5d9feeef": {
+        "claim_checks": [
+          {"claim": "モスルはシリア北部にある", "verdict": "CONTRADICTED", "source_evidence": "タイトル イラク・モスルで激しい戦闘 と イラクの司令官たちはモスル制圧は近いと語った"},
+          {"claim": "モスル旧市街で空爆や迫撃砲攻撃が激化している", "verdict": "SUPPORTED", "source_evidence": "旧市街には、空爆や迫撃砲の一斉発射による攻撃が行われており"},
+          {"claim": "作戦にはイラク対テロ部隊と米主導の有志連合が関与している", "verdict": "SUPPORTED", "source_evidence": "イラク精鋭の対テロ部隊 と 米主導の有志連合の軍機や軍事顧問らの支援"},
+          {"claim": "IS側は男性による自爆攻撃を増やして抵抗している", "verdict": "CONTRADICTED", "source_evidence": "ISは一部女性による自爆攻撃を増やして抵抗している"},
+          {"claim": "30代の男性による自爆攻撃が報告された", "verdict": "CONTRADICTED", "source_evidence": "一部では10代の女性が自爆攻撃を行っているという"},
+          {"claim": "作戦開始当初のIS戦闘員は8000人近くだった", "verdict": "CONTRADICTED", "source_evidence": "10月の作戦開始時には6000人近くいたとみられている"},
+          {"claim": "現在のIS戦闘員は500人程度と推定される", "verdict": "CONTRADICTED", "source_evidence": "モスル市内に残っているIS戦闘員は300人を超えないと考えている"},
+          {"claim": "司令官が勝利に近づいたと述べた", "verdict": "SUPPORTED", "source_evidence": "ヤハヤ・ラスール准将は…「勝利にかなり近づいた」と述べた"}
+        ],
+        "dimensions": {"faithfulness": 4, "coverage": 15, "coherence": 11, "conciseness": 5},
+        "score": 35,
+        "quality_label": "POOR",
+        "issues": [
+          "Five separate contradictions: the country （シリア for イラク）, the bombers' gender （男性 for 女性）, their age （30代 for 10代）, the initial fighter count （8000 for 6000）, and the current count （500 for 300）.",
+          "Considered for a terminal proposal and rejected: the central event, a fierce IS-clearing battle in Mosul's old city with IS resisting through suicide attacks and commanders declaring victory near, is neither inverted nor absent. Under the rubric these remain wrong entities and wrong peripheral numbers, so they are charged to faithfulness, which is near zero here.",
+          "Internally inconsistent: it places Mosul in Syria while crediting イラク対テロ部隊, which damages coherence.",
+          "Coverage credit is reduced because most of the key-fact slots it addresses carry wrong values."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "Accumulated peripheral contradictions, no central reversal; faithfulness collapsed to 4."}]
+      },
+      "40490051_e1edb2c8": {
+        "claim_checks": [
+          {"claim": "モスルはイラク北部にある", "verdict": "NOT_IN_SOURCE", "source_evidence": "本文はタイトルの イラク・モスル と記すのみで、北部という位置づけは記載していない"},
+          {"claim": "モスルはISからの奪還を目指す作戦の対象である", "verdict": "SUPPORTED", "source_evidence": "モスル奪還作戦は昨年10月に始まった"},
+          {"claim": "米国主導の有志連合が攻勢をかけている", "verdict": "SUPPORTED", "source_evidence": "米主導の有志連合の軍機や軍事顧問らの支援を受けて作戦に参加している"},
+          {"claim": "ISは自爆攻撃をより頻繁に実行して抵抗している", "verdict": "SUPPORTED", "source_evidence": "ISは一部女性による自爆攻撃を増やして抵抗している"}
+        ],
+        "dimensions": {"faithfulness": 46, "coverage": 19, "coherence": 15, "conciseness": 5},
+        "score": 85,
+        "quality_label": "GOOD",
+        "issues": [
+          "Attribution shift: the article has Iraqi forces, Peshmerga, Sunni tribes and Shia militias conducting the operation with coalition air and advisory support, whereas the candidate makes the coalition itself the attacking force.",
+          "北部 is not stated in the article.",
+          "Omits the specific resistance tactic the article stresses, suicide attacks by women including teenagers, and omits the fighter-count collapse and the commanders' near-victory assessment."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "evaluation_trace": [{"stage": "draft_scoring", "agent": "summary-scorer", "outcome": "soft_scored", "note": "No contradictions; one attribution shift and moderate coverage."}]
+      }
+    }
+  }
+}

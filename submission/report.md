@@ -16,7 +16,9 @@ The remaining 166 are where the problem actually lives. Reading them surfaced a 
 
 **What survived** is a severity distinction that turned out to be the design's hinge. `50469832_8a6e1840` invents a Security Council resolution but states its main event correctly — delete the invented sentence and the summary still stands. `41875333_aa36a21a` replaces a real quotation with an invented one of opposite meaning — nothing correct is left to stand on. Both are fabrication; only one destroys the output. Conspicuousness is not severity. Centrality is.
 
-![Failure modes](figures/failure_modes.drawio) — *open in diagrams.net; PNG equivalents in the same folder*
+![Failure modes and the detector each one needs](figures/failure_modes.png)
+
+*[editable source: `figures/failure_modes.drawio`]*
 
 ## 2. Design
 
@@ -32,7 +34,9 @@ Three layers, cheapest first, and nothing terminates without an independent revi
 
 **Rejected alternatives.** A cross-encoder reranker: it answers relevance, and our question was a coarse relevant/unrelated split that a 0.6B embedding already separated by 0.31 in cosine, so it added a 2GB dependency and no information. BM25: character-level copy ratio covers the same ground deterministically. Anchor embeddings as a scoring feature: measured, mixed, dropped. A flat 25% copy penalty: unsupported by the brief and withdrawn.
 
-![Funnel architecture](figures/funnel_architecture.drawio)
+![The three-layer funnel](figures/funnel_architecture.png)
+
+*[editable source: `figures/funnel_architecture.drawio`]*
 
 ## 3. Validation
 
@@ -48,7 +52,9 @@ The 25 disagreements are the most informative result in this report, because the
 
 **Internal reliability.** The corpus contains six byte-identical candidate pairs. Scored independently by different agents, all **6/6 produced identical scores** — an unplanned test-retest check. Separately, 170 draft scores had zero arithmetic errors, and 250 final records passed schema validation.
 
-![Funnel results and cross-validation](figures/funnel_results.drawio)
+![Funnel outcomes and cross-validation](figures/funnel_results.png)
+
+*[editable source: `figures/funnel_results.drawio`]*
 
 ## 4. Limitations
 

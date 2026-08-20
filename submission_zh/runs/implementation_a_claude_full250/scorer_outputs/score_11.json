@@ -1,0 +1,730 @@
+{
+  "52873099": {
+    "anchor": {
+      "main_event": "トランプ大統領が、アメリカ合衆国はアンティファをテロ組織に指定することになるとツイートした",
+      "key_facts": [
+        "ミネアポリスで25日、武器を持たない黒人男性ジョージ・フロイドさん（46）がチョーヴィン警官（44、29日に殺人罪で起訴）に膝で首を9分近く押さえつけられて死亡した",
+        "抗議活動では暴力行為が多発し、大都市で夜間外出禁止令、15州で州兵が投入された",
+        "トランプ氏は指定の時期や方法については説明しなかった",
+        "元司法省高官のメアリー・マコード氏は、国内組織をテロ組織に指定できる法的権限は現在存在しないと説明した",
+        "バー司法長官はトランプ氏に同調し、ポンペオ国務長官は暴力化の経緯はまだ分からないと慎重な姿勢を示した",
+        "暴動の原因について米政府や州の当局者の見解は大きく異なっている",
+        "ミネソタ州当局は前日の逮捕者のうち州外から来た人は20％ほどだったと発表した",
+        "アンティファは反ファシスト活動の略称で、指導者のいないゆるやかに連携する活動家の集まりとされる"
+      ],
+      "anchor_summary": "トランプ大統領は、アメリカ合衆国はアンティファをテロ組織に指定することになるとツイートしたが、時期や方法は説明しなかった。法曹関係者からは、国内組織をテロ組織に指定する法的権限は存在しないとの指摘が出ている。フロイドさんの死を受けた抗議活動が暴動に発展した原因について、当局者の見解は一致していない。"
+    },
+    "candidates": {
+      "52873099_07d482c6": {
+        "claim_checks": [
+          {
+            "claim": "トランプ氏は抗議活動がアンティファのせいで暴動に発展したと非難している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トランプ大統領は30日に、「アンティファと極左のしわざだ。それ以外の人を責めないように！」とツイートした"
+          },
+          {
+            "claim": "抗議活動のきっかけは黒人男性が警官に殺害された事件である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ジョージ･フロイドさん（46）が…膝で首を9分近く押さえつけられて亡くなった。この事件を受け、アメリカ各地で…怒りの声が上がっている"
+          },
+          {
+            "claim": "その警官は白人だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "デレック･チョーヴィン警官（44、29日に殺人罪で起訴）（人種の記載なし）"
+          },
+          {
+            "claim": "トランプ米大統領がアンティファをテロ組織に指定すると発言した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トランプ氏は、「アメリカ合衆国はアンティファをテロ組織に指定することになる」とツイートした"
+          },
+          {
+            "claim": "その発言は5月31日だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "該当ツイートに日付の記載はない（記事内の日付は30日のツイートとバー長官の5月31日の発言）"
+          },
+          {
+            "claim": "アンティファは反ファシズム運動を展開する組織である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "アンティファは「Anti-Fascist Action（反ファシスト活動）」の略語で"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 42,
+          "coverage": 21,
+          "coherence": 11,
+          "conciseness": 5
+        },
+        "score": 79,
+        "quality_label": "GOOD",
+        "issues": [
+          "The designation date 5月31日 is not stated anywhere in the article for that tweet.",
+          "Describes the officer as 白人警官, a detail the article does not carry.",
+          "Sentence order is inverted: the background accusation leads and the main event trails, and トランプ氏 is referenced before the full name is introduced.",
+          "Omits the legal-authority doubts and the fact that no timing or method was given."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      },
+      "52873099_2b6a2491": {
+        "claim_checks": [
+          {
+            "claim": "トランプ米大統領がアンティファをテロ組織に指定すると発言した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トランプ氏は、「アメリカ合衆国はアンティファをテロ組織に指定することになる」とツイートした"
+          },
+          {
+            "claim": "その発言は5月31日だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "該当ツイートに日付の記載はない（記事内の日付は30日のツイートとバー長官の5月31日の発言）"
+          },
+          {
+            "claim": "アンティファは反ファシズム運動を展開している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "アンティファは「Anti-Fascist Action（反ファシスト活動）」の略語で"
+          },
+          {
+            "claim": "トランプ氏は抗議活動がアンティファのせいで暴動に発展したと非難している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トランプ大統領は繰り返し、アンティファが暴動を扇動していると非難している"
+          },
+          {
+            "claim": "抗議活動は黒人男性が白人警官に殺害された事件を受けたものである",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "事件自体は記載があるが、警官が白人であるとの記述はない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 42,
+          "coverage": 21,
+          "coherence": 14,
+          "conciseness": 5
+        },
+        "score": 82,
+        "quality_label": "GOOD",
+        "issues": [
+          "Attaches the date 5月31日 to the designation tweet, which the article leaves undated.",
+          "Adds 白人警官, a detail absent from the article.",
+          "Omits the legal-authority objection and the absence of any timing or method for the designation."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      },
+      "52873099_63d03540": {
+        "claim_checks": [
+          {
+            "claim": "トランプ米大統領がアンティファをテロ組織に指定すると表明した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "トランプ氏は、「アメリカ合衆国はアンティファをテロ組織に指定することになる」とツイートした"
+          },
+          {
+            "claim": "表明は5月31日だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "該当ツイートに日付の記載はない"
+          },
+          {
+            "claim": "フロイド氏死亡を受けた全米の抗議行動が一部暴動化した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "この事件を受け、アメリカ各地で…怒りの声が上がっている／その怒りが加速して暴動に発展した"
+          },
+          {
+            "claim": "トランプ氏はその責任をアンティファに帰している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "「アンティファと極左のしわざだ。それ以外の人を責めないように！」とツイートした"
+          },
+          {
+            "claim": "法律専門家からは国内組織をテロ指定する法的権限は存在しないとの指摘が出ている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "元司法省高官のメアリー・マコード氏は、「国内組織をテロ組織に指定できる法的権限は現在、存在しない」と説明した"
+          },
+          {
+            "claim": "州当局者の説明は一致せず、実際の暴動の原因は明確でない",
+            "verdict": "SUPPORTED",
+            "source_evidence": "米政府当局者は大幅に異なる見解をそれぞれ示している／その原因ははっきりしていない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 46,
+          "coverage": 28,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 94,
+        "quality_label": "EXCELLENT",
+        "issues": [
+          "Only defect: the date 5月31日 is attached to a tweet the article leaves undated."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      },
+      "52873099_fa255e70": {
+        "claim_checks": [
+          {
+            "claim": "アンティファはAnti-Fascist Action（反ファシスト活動）の略語である",
+            "verdict": "SUPPORTED",
+            "source_evidence": "アンティファは「Anti-Fascist Action（反ファシスト活動）」の略語で"
+          },
+          {
+            "claim": "ネオナチやファシズム、白人至上主義者、差別主義に強く反対する活動を指す",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ネオナチやファシズム、白人至上主義者、差別主義などに強く反対する抗議活動を指す"
+          },
+          {
+            "claim": "指導者のいないゆるやかに連携する活動家集団とされる",
+            "verdict": "SUPPORTED",
+            "source_evidence": "指導者などはなく、ゆるやかに連携する活動家たちの集まりだと考えられている"
+          },
+          {
+            "claim": "メンバーの大半は反政府主義・反資本主義でもある",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "一方で反政府主義かつ反資本主義であるため（記事は大半という限定を人種差別・性差別への反対にのみ付している）"
+          },
+          {
+            "claim": "無政府主義に近いと見なされることが多い",
+            "verdict": "SUPPORTED",
+            "source_evidence": "アンティファのメンバーは主流左派よりも、無政府主義に近いとみなされることが多い"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 46,
+          "coverage": 4,
+          "coherence": 14,
+          "conciseness": 4
+        },
+        "score": 68,
+        "quality_label": "FINE",
+        "issues": [
+          "Reproduces only the background explainer on what Antifa is; the article's main event, Trump saying Antifa will be designated a terror organization, is entirely absent.",
+          "Transfers the quantifier 大半 from the article's racism/sexism clause to the anti-government and anti-capitalist clause.",
+          "Long enumeration of background attributes with no news value relative to the article's lead."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      }
+    }
+  },
+  "53174534": {
+    "anchor": {
+      "main_event": "ジョギング中に射殺されたアフマド・アーベリーさんの事件で、男3人が悪意のある重罪謀殺の罪などで起訴された",
+      "key_facts": [
+        "起訴されたのはトラヴィス・マクマイケル被告、父親のグレゴリー・マクマイケル被告、ウィリアム・ブライアン被告の3人",
+        "ジョイエット・ホームズ検事は、正義の追求でまた一歩、大きな一歩だと述べた",
+        "母のワンダ・クーパー＝ジョーンズさんは、正しい方向に向かっている、戦いの第一歩にすぎないと述べた",
+        "ブライアン被告の弁護人は、同被告は単なる目撃者に過ぎないと主張している",
+        "アーベリーさん（当時25）は、拳銃と散弾銃を所持しピックアップトラックに乗ったマクマイケル親子にジョージア州サティーラ・ショアーズで追われた",
+        "グレゴリー被告は、地元の一連の強盗事件の容疑者にアーベリーさんが似ていると思ったと警察に述べた",
+        "5月5日にブライアン被告が撮影した36秒の動画が流出し、全米で怒りが広がり3人が逮捕された",
+        "3人は殺害から2カ月以上訴追されず、州警察は動画の拡散を受けて捜査を開始した",
+        "各地ではジョージ・フロイドさんの死をめぐる人種差別への抗議デモが続いている"
+      ],
+      "anchor_summary": "ジョギング中に射殺されたアフマド・アーベリーさんの事件で、トラヴィス・マクマイケル被告と父グレゴリー・マクマイケル被告、ウィリアム・ブライアン被告の3人が悪意のある重罪謀殺の罪などで起訴された。ホームズ検事は正義の追求で大きな一歩だと述べ、母のクーパー＝ジョーンズさんは戦いの第一歩にすぎないと語った。3人は殺害から2カ月以上訴追されず、5月5日の動画流出後に逮捕されていた。"
+    },
+    "candidates": {
+      "53174534_3c6e0621": {
+        "claim_checks": [
+          {
+            "claim": "米ジョージア州で黒人男性アフマド・アーベリーさんがジョギング中に射殺された",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ジョギング中に射殺されたアフマド・アーベリーさん／ジョージア州サティーラ・ショアーズでアーベリーさんを追いかけた"
+          },
+          {
+            "claim": "射殺は今年2月だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "3人はアーベリーさんが殺害されてから2カ月以上もの間、訴追されずにいた（2月との明示はない）"
+          },
+          {
+            "claim": "同州グリン郡の大陪審が24日に起訴した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "悪意のある重罪謀殺の罪などで起訴されたのは…3人（起訴主体・郡・日付の記載はない）"
+          },
+          {
+            "claim": "起訴されたのは白人の男3人である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "被告3人の人種は記載されていない"
+          },
+          {
+            "claim": "3人が殺人罪などで起訴された",
+            "verdict": "SUPPORTED",
+            "source_evidence": "悪意のある重罪謀殺の罪などで起訴されたのは、トラヴィス・マクマイケル被告と父親のグレゴリー・マクマイケル被告、ウィリアム・ブライアン被告の3人"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 36,
+          "coverage": 17,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 73,
+        "quality_label": "FINE",
+        "issues": [
+          "Four framing specifics are not in the supplied article: 今年2月, グリン郡, 大陪審, and 24日.",
+          "Calls the three defendants 白人の男, a characterization the article never makes.",
+          "Single sentence: omits the defendants' names, the prosecutor's and the mother's comments, the leaked video, and the chase."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      },
+      "53174534_81348040": {
+        "claim_checks": [
+          {
+            "claim": "米ジョージア州でアーベリーさんがジョギング中に射殺された事件で3人が殺人罪などで起訴された",
+            "verdict": "SUPPORTED",
+            "source_evidence": "悪意のある重罪謀殺の罪などで起訴されたのは…3人"
+          },
+          {
+            "claim": "射殺は今年2月だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "殺害時期の明示はなく、殺害から2カ月以上訴追されずとあるのみ"
+          },
+          {
+            "claim": "同州グリン郡の大陪審が24日に起訴した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "起訴の主体、郡、日付の記載はない"
+          },
+          {
+            "claim": "起訴されたのは白人男性3人である",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "被告3人の人種は記載されていない"
+          },
+          {
+            "claim": "マクマイケル親子は地元の強盗容疑者に類似していたとしてアーベリー氏を追跡したと説明している",
+            "verdict": "SUPPORTED",
+            "source_evidence": "グレゴリー被告は警察に対し、地元で発生した一連の強盗事件の容疑者にアーベリーさんが似ていると思ったと述べた"
+          },
+          {
+            "claim": "事件は当時撮影された動画の流出後に広く知られた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "5月5日、ブライアン被告が当時撮影した36秒の動画がオンライン上に流出。アメリカ全土で激しい怒りの声が上がり"
+          },
+          {
+            "claim": "人種差別への抗議行動が全米で続いている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "人種差別に対する大規模な抗議デモが続いている"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 34,
+          "coverage": 26,
+          "coherence": 14,
+          "conciseness": 5
+        },
+        "score": 79,
+        "quality_label": "GOOD",
+        "issues": [
+          "Same four unsupported framing specifics as the shorter variant: 今年2月, グリン郡, 大陪審, 24日, plus 白人男性.",
+          "Widens the burglary-suspect explanation from グレゴリー被告 alone to マクマイケル親子.",
+          "Otherwise strong coverage of motive, video leak, and protest context."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      }
+    }
+  },
+  "53274336": {
+    "anchor": {
+      "main_event": "韓国の女子トライアスロン選手チェ・スクヒョン選手が自殺し、コーチらから長年暴力を受けていたと訴えられている",
+      "key_facts": [
+        "報道によると、スクヒョン選手は暴行をスポーツ当局に訴えたが無視されていた",
+        "スクヒョン選手は高校生だった2015年にトライアスロンの韓国代表に選ばれた",
+        "両親は、コーチらから叩かれたり暴言やハラスメントを受けたりしていたと訴えている",
+        "YTNテレビが、平手打ちの音などが確認できる複数の音声テープを公開した",
+        "日記に、毎日涙を流した、犬のように殴られて、死んだ方がまし、などと書いていたと報じられている",
+        "今年4月に大韓体育会（KSOC）へ暴行被害を申し立てた",
+        "KSOCは訴えを無視したことを否定し、4月初旬の告発後に女性調査員を任命したと説明した",
+        "韓国トライアスロン連盟は、加害者と疑われる複数の人物に対策をとることを約束した",
+        "韓国スポーツ界ではスケート、テニス、柔道などで女性選手の虐待告発が相次いでいる"
+      ],
+      "anchor_summary": "韓国の女子トライアスロン選手チェ・スクヒョン選手が自殺し、コーチらから長年暴力を受けていたと両親らが訴えている。同選手は今年4月に大韓体育会へ被害を申し立てたが訴えは無視されたと報じられ、KSOCはこれを否定して女性調査員を任命したと説明している。韓国スポーツ界ではここ数年、多数の女性選手が虐待被害を告発している。"
+    },
+    "candidates": {
+      "53274336_27788032": {
+        "claim_checks": [
+          {
+            "claim": "韓国の女子トライアスロン選手チェ・スクヒョン氏が自殺した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か（タイトル）"
+          },
+          {
+            "claim": "同選手はコーチらから長年暴行を受けていたと訴えていた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "スクヒョン選手の両親は、同選手がコーチらから叩かれたり、暴言やハラスメントを受けたりしていたと訴えている"
+          },
+          {
+            "claim": "同選手は22歳だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "年齢の記載はない"
+          },
+          {
+            "claim": "自殺は先月だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "自殺の時期の記載はない"
+          },
+          {
+            "claim": "大韓体育会は事件を受けて4人のコーチを即刻解任した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "KSOCは訴えを無視したことを否定。声明の中で、4月初旬の告発の後に女性調査員を任命していたと説明した（解任の記述は一切ない）"
+          },
+          {
+            "claim": "文在寅大統領がスポーツ界の改革を約束する声明を発表した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "記事に文在寅大統領への言及はない。声明を出したのはKSOCと韓国トライアスロン連盟のみ"
+          },
+          {
+            "claim": "韓国スポーツ界では近年、複数の競技で女性選手による虐待被害の告発が相次いでいる",
+            "verdict": "SUPPORTED",
+            "source_evidence": "韓国スポーツ界ではここ数年間、多数の女性スポーツ選手が虐待被害を告発している"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 14,
+          "coverage": 18,
+          "coherence": 13,
+          "conciseness": 4
+        },
+        "score": 49,
+        "quality_label": "POOR",
+        "issues": [
+          "The entire second sentence is invented. The article contains no dismissal of four coaches and no mention of President Moon Jae-in at all; the only institutional responses are the KSOC denial with a female investigator appointment and the triathlon federation pledge.",
+          "Adds the unsupported age 22 and the unsupported timing 先月.",
+          "Considered for terminal FABRICATED_CONTENT and held inside soft scoring: the central event, the athlete's suicide after alleged long-term abuse, is stated correctly and is not displaced, so the fabrication is an invented aftermath rather than the summary's load-bearing claim. Reviewer should confirm this boundary call.",
+          "The fabricated sentence crowds out real facts such as the ignored complaint and the released audio tapes."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      },
+      "53274336_624e6dab": {
+        "claim_checks": [
+          {
+            "claim": "韓国の女子トライアスロン選手チェ・スクヒョン氏が自殺していたことが明らかになった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か（タイトル）"
+          },
+          {
+            "claim": "同選手はコーチらから長年暴行を受けていたと訴えていた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "スクヒョン選手は暴行についてスポーツ当局に訴えたものの、無視されていたという"
+          },
+          {
+            "claim": "同選手は22歳だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "年齢の記載はない"
+          },
+          {
+            "claim": "自殺は先月だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "自殺の時期の記載はない"
+          },
+          {
+            "claim": "複数メディアが報じた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "YTNテレビが公開／AFP通信によると／聨合通信は知人の話として／サウスチャイナ・モーニングポストは伝えている"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 42,
+          "coverage": 14,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 76,
+        "quality_label": "GOOD",
+        "issues": [
+          "Adds the unsupported age 22 and the unsupported timing 先月.",
+          "Carries the main event only; omits the ignored complaint to the KSOC, the audio tapes, the federation response, and the wider pattern of abuse allegations in Korean sport."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      },
+      "53274336_a9156728": {
+        "claim_checks": [
+          {
+            "claim": "韓国の女子トライアスロン選手チェ・スクヒョン氏が自殺していたことが明らかになった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か（タイトル）"
+          },
+          {
+            "claim": "同選手はコーチらから長年暴行を受けていたと訴えていた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "スクヒョン選手の両親は、同選手がコーチらから叩かれたり、暴言やハラスメントを受けたりしていたと訴えている"
+          },
+          {
+            "claim": "同選手は22歳で、自殺は先月だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "年齢と自殺時期の記載はない"
+          },
+          {
+            "claim": "同選手は大韓体育会などに被害を訴えていた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "スクヒョン選手は今年4月、韓国のスポーツ競技団体を統括する大韓体育会（KSOC）に対し、暴行被害について申し立てた"
+          },
+          {
+            "claim": "訴えは対応されなかった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "多くの公的機関に助けを求めたが、みんな彼女の訴えを無視した（ただし記事はKSOCが無視を否定したことも併記）"
+          },
+          {
+            "claim": "暴行を示唆する音声テープも公開されている",
+            "verdict": "SUPPORTED",
+            "source_evidence": "こうした主張を裏付けるような複数の音声テープを、YTNテレビが公開した"
+          },
+          {
+            "claim": "韓国スポーツ界では近年、複数の競技で女性選手による虐待被害の告発が相次いでいる",
+            "verdict": "SUPPORTED",
+            "source_evidence": "韓国スポーツ界ではここ数年間、多数の女性スポーツ選手が虐待被害を告発している"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 40,
+          "coverage": 26,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 86,
+        "quality_label": "GOOD",
+        "issues": [
+          "Adds the unsupported age 22 and the unsupported timing 先月.",
+          "States 対応されず as established fact while the article frames it as a report and records the KSOC denial plus the appointment of a female investigator."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      },
+      "53274336_be2a4e06": {
+        "claim_checks": [
+          {
+            "claim": "複数メディアが報じた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "YTNテレビが公開／AFP通信によると／聨合通信は知人の話として"
+          },
+          {
+            "claim": "韓国の女子トライアスロン選手チェ・スクヒョン氏が自殺していたことが明らかになった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "韓国のトライアスロン選手が自殺、コーチらが長年暴力か（タイトル）"
+          },
+          {
+            "claim": "同選手はコーチらから長年暴行を受けていたと訴えていた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "スクヒョン選手は暴行についてスポーツ当局に訴えたものの、無視されていたという"
+          },
+          {
+            "claim": "同選手は22歳だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "年齢の記載はない"
+          },
+          {
+            "claim": "自殺は先月だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "自殺の時期の記載はない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 42,
+          "coverage": 14,
+          "coherence": 8,
+          "conciseness": 5
+        },
+        "score": 69,
+        "quality_label": "FINE",
+        "issues": [
+          "Opens with the bare attribution 複数メディアが報じた before anything has been reported, leaving the pronoun-like reference dangling and inverting the natural reading order.",
+          "Adds the unsupported age 22 and the unsupported timing 先月.",
+          "Carries the main event only; omits the ignored complaint, the audio tapes, and the wider pattern in Korean sport."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      }
+    }
+  },
+  "53732134": {
+    "anchor": {
+      "main_event": "ベイルートの大規模爆発を受けた反政府デモが続くなか、レバノンのディアブ内閣が総辞職した",
+      "key_facts": [
+        "アウン大統領は、新たな内閣が組まれるまで職務にとどまるよう現閣僚に求めた",
+        "爆発による死者は220人、行方不明は110人とアブド県知事が語った",
+        "行方不明者には多数の外国人労働者やトラック運転手が含まれる",
+        "被害は現場から半径数キロに及び、20万人以上が住宅を失うなどしている",
+        "多くの市民が政府の怠慢と腐敗を非難し、10日まで3日連続でデモが起き警官隊と衝突した",
+        "爆発の直接原因は、港湾地区の倉庫に長年危険な状況で保管されていた硝酸アンモニウム",
+        "今年1月就任のディアブ首相はテレビ演説で自らを改革者と位置づけ、根強い抵抗に妨害されたと訴えた",
+        "爆発による損失は30億ドル以上、経済への打撃は約150億ドルと当局は推定",
+        "昨年後半の抗議デモでも当時の内閣が総辞職している"
+      ],
+      "anchor_summary": "ベイルートの大規模爆発をめぐる政府批判と3日連続の反政府デモを受け、レバノンのディアブ内閣が総辞職した。アウン大統領は新内閣ができるまでの留任を現閣僚に求め、ディアブ首相はテレビ演説で自らの改革が根強い抵抗に妨害されたと訴えた。爆発では死者220人、行方不明110人が確認され、20万人以上が住まいを失うなどの被害が出ている。"
+    },
+    "candidates": {
+      "53732134_632d0cac": {
+        "claim_checks": [
+          {
+            "claim": "ハサン・ディアブ首相が内閣の総辞職を発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "レバノン内閣総辞職 爆発受け、3日連続で反政府デモ（タイトル）／内閣総辞職を受け、国会は新しい首相を決める"
+          },
+          {
+            "claim": "発表は10日だった",
+            "verdict": "SUPPORTED",
+            "source_evidence": "10日まで3日連続でデモが起こり／ディアブ首相は、この日のテレビ演説で"
+          },
+          {
+            "claim": "発表は10日の夜だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "時刻に関する記載はない"
+          },
+          {
+            "claim": "ベイルートで大規模爆発が発生した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "爆発は、ベイルートの港湾地区の倉庫に長年にわたって危険な状況で保管されていた硝酸アンモニウムが直接の原因となった"
+          },
+          {
+            "claim": "爆発は4日に発生した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "爆発の発生日は記載されていない"
+          },
+          {
+            "claim": "爆発を受けた反政府デモが続いていた",
+            "verdict": "SUPPORTED",
+            "source_evidence": "10日まで3日連続でデモが起こり、警官隊との衝突も発生している"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 44,
+          "coverage": 18,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 82,
+        "quality_label": "GOOD",
+        "issues": [
+          "Two unsupported time specifics: the blast date 4日 and the evening timing 10日夜.",
+          "Single sentence: omits the casualty figures, the ammonium nitrate cause, the president's request that ministers stay on, and the economic damage."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      },
+      "53732134_e705b192": {
+        "claim_checks": [
+          {
+            "claim": "レバノンのハサン・ディアブ首相が国民向けのテレビ演説で内閣の総辞職を発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ディアブ首相は、この日のテレビ演説で／内閣総辞職を受け、国会は新しい首相を決める"
+          },
+          {
+            "claim": "発表は10日の夕方だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "日付は10日と読めるが、夕方という時刻の記載はない"
+          },
+          {
+            "claim": "首都ベイルートの港で大規模爆発が発生した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "爆発は、ベイルートの港湾地区の倉庫に…保管されていた硝酸アンモニウムが直接の原因となった"
+          },
+          {
+            "claim": "爆発は4日に発生した",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "爆発の発生日は記載されていない"
+          },
+          {
+            "claim": "爆発をめぐり国民の政府への怒りが膨らんでいる",
+            "verdict": "SUPPORTED",
+            "source_evidence": "多くの市民らは、政府の怠慢と腐敗が爆発の原因として、同国指導層を非難"
+          },
+          {
+            "claim": "首相は自らの改革が妨害されていたと主張した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "政府は「この国を救うためのロードマップ作成に多大な努力をした」と主張。根強い抵抗で妨害されたと訴えた"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 44,
+          "coverage": 23,
+          "coherence": 15,
+          "conciseness": 5
+        },
+        "score": 87,
+        "quality_label": "GOOD",
+        "issues": [
+          "Two unsupported time specifics: the blast date 4日 and the timing 10日夕.",
+          "Omits the casualty figures and the president's request that ministers remain until a new cabinet is formed."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      },
+      "53732134_f51d084f": {
+        "claim_checks": [
+          {
+            "claim": "レバノンのハサン・ディアブ首相が国民向けのテレビ演説で内閣の総辞職を発表した",
+            "verdict": "SUPPORTED",
+            "source_evidence": "ディアブ首相は、この日のテレビ演説で／内閣総辞職を受け、国会は新しい首相を決める"
+          },
+          {
+            "claim": "発表は10日の夕方だった",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "日付は10日と読めるが、夕方という時刻の記載はない"
+          },
+          {
+            "claim": "首都ベイルートの港で（述語が欠落した断片）",
+            "verdict": "SUPPORTED",
+            "source_evidence": "爆発は、ベイルートの港湾地区の倉庫に…（候補は述語を欠くため主張として完結していない）"
+          },
+          {
+            "claim": "（断片内の）4日",
+            "verdict": "NOT_IN_SOURCE",
+            "source_evidence": "爆発の発生日は記載されていない"
+          }
+        ],
+        "dimensions": {
+          "faithfulness": 44,
+          "coverage": 16,
+          "coherence": 5,
+          "conciseness": 4
+        },
+        "score": 69,
+        "quality_label": "FINE",
+        "issues": [
+          "Truncated: the candidate stops mid-sentence at 首都ベイルートの港で4日に with no predicate, so the second half delivers no information.",
+          "Not terminal, because the first sentence still reports what the article is about, the cabinet resignation; the break is charged to coherence.",
+          "Unsupported time specifics 10日夕 and 4日.",
+          "Coverage limited to the resignation announcement alone."
+        ],
+        "eligible_for_soft_scoring": true,
+        "terminal_result": null,
+        "terminal_rank": null,
+        "status": "DRAFT",
+        "trace": ["draft_scoring"]
+      }
+    }
+  }
+}
