@@ -62,17 +62,44 @@ Prerequisites: Claude Code, Python 3.9+, and Ollama serving
 
 ### Option A — upload `code/plugin-claude-code.zip` (no checkout needed)
 
-Upload the zip directly to Claude and install `summary-quality-funnel` from it.
-Its manifests sit at the paths Claude expects:
+The steps below are the ones that were actually walked through, not a
+description from documentation.
+
+**1. Settings → Plugins → Add → Upload plugin.**
+
+![Plugins panel with the Add menu open](code/install/claude/1-plugins-add.png)
+
+**2. Choose `code/plugin-claude-code.zip` and press Upload.** The dialog shows
+43.2 kB, which is the archive as shipped here. It also warns that uploaded
+plugins are not controlled by Anthropic and cannot be verified — every file the
+plugin runs on is plain text under `code/plugins/a-claude-code/`, so it can be
+read before the upload rather than trusted after it.
+
+![Upload local plugin dialog with the archive selected](code/install/claude/2-upload-zip.png)
+
+The plugin itself is the archive root, so the manifest sits where the installer
+looks for it:
 
 ```
-.claude-plugin/marketplace.json
-summary-quality-funnel/.claude-plugin/plugin.json
+.claude-plugin/plugin.json      ← version 0.2.0
+agents/                         ← 5 agents
+commands/evaluate-summaries.md  ← 1 command
+skills/evaluate-summary-quality/← 1 skill: rubric, few-shot bank, scripts
 ```
+
+After installing, the plugin list shows it as `Personal`, and its `Skills`
+column reads **2** — that column counts the skill directory and the slash
+command together. `claude plugin details` gives the full breakdown instead.
+
+**3. Invoke it.** In the desktop app the command is `/evaluate-summaries`; from
+the CLI it is namespaced as `/summary-quality-funnel:evaluate-summaries`.
+
+![The slash command typed in the composer](code/install/claude/3-slash-command.png)
 
 This is the shortest path for a reader who wants to run the evaluator without
-cloning anything. `code/plugin-codex.zip` is the same thing for the secondary
-plugin; the two are packaged separately so each host gets only what it can use.
+cloning anything. `code/plugin-codex.zip` is the counterpart for the secondary
+plugin, with `.codex-plugin/plugin.json` at its root; the two are packaged
+separately so each host gets only what it can use.
 
 ### Option B — install from this directory
 
@@ -87,7 +114,8 @@ read or modify the agent contracts while running them.
 
 ## Reproduce the submitted run
 
-Either option leaves the same plugin installed. From the repository root:
+Either option leaves the same plugin installed. From the repository root
+(`/evaluate-summaries` in the desktop app):
 
 ```
 /summary-quality-funnel:evaluate-summaries data/articles.jsonl data/summaries.jsonl;
@@ -107,19 +135,39 @@ Verify the install with `claude plugin validate` and `claude plugin details`
 corpus-blind Reviewer discussed in the report's Limitations, shipped but unused
 by the submitted run).
 
-## Run the secondary plugin (Codex)
+## Install and run the secondary plugin (Codex)
 
-Install it from `code/plugin-codex.zip`, or from
-`code/plugins/b-codex/summary-quality-funnel` through Codex's plugin manager,
-then:
+Upload `code/plugin-codex.zip` as a skill. The steps below are the ones that
+were actually walked through, not a description from documentation.
+
+**1. Skills → `+` → Upload from your computer.**
+
+![Skills panel, add menu](code/install/codex/1-upload-menu.png)
+
+**2. Drop `code/plugin-codex.zip` into the upload dialog.** The dialog accepts a
+`.zip`, a `.skill`, or a bare `SKILL.md`; the zip is the whole skill, so use it.
+A green check means the archive was accepted. The dialog also warns that
+third-party skills can reach your data — the plugin's rubric, agent contracts
+and scripts are all plain files under `code/plugins/b-codex/`, so they can be
+read before the upload rather than trusted after it.
+
+![Upload a skill dialog with plugin-codex.zip accepted](code/install/codex/2-upload-zip.png)
+
+**3. Start the run.** Attach the installed skill and drive it end to end:
+
+![Skill attached in a new conversation](code/install/codex/3-attached.png)
 
 ```
 /summary-quality-funnel:evaluate-summary-quality data/articles.jsonl data/summaries.jsonl;
 evaluate the full 250-pair dataset and produce ranked score JSONL and a report
 ```
 
-This is not needed to reproduce `scores.jsonl`. It exists so the design can be
-checked against an implementation that shares no code path with the primary
+The same skill can also be installed from the working tree at
+`code/plugins/b-codex/summary-quality-funnel` when you want to edit the agent
+contracts while running them.
+
+This run is not needed to reproduce `scores.jsonl`. It exists so the design can
+be checked against an implementation that shares no code path with the primary
 one.
 
 ---
