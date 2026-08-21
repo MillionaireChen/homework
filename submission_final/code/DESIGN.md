@@ -170,7 +170,6 @@ Paths below are relative to `code/` inside the assembled submission.
 - `exploration/`: reproducible exploratory probes, their raw outputs, and abandoned prototypes.
 - `validation/cross_validation.json` and `validation/compare_implementations.py`: agreement statistics between the two implementations, computed after both runs were final. `validation/verify_report_numbers.py` re-derives every number the report quotes.
 - `validation/third_read_109_unlabelled/`: the third independent scoring of the block that carries no derivable label.
-- `report/report.tex`: the report source, with the diagrams and charts written inline.
 - `processing.md`, `progressing_GT.md`: the decision and implementation logs for each side.
 
 Japanese text inside datasets, evaluated articles, candidate summaries, evidence spans, and language-specific fixtures is intentionally preserved. All project-facing documentation, prompts, labels, reports, and visualizations are English.

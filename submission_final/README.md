@@ -11,7 +11,6 @@ submission_final/
 ├── README.md          ← you are here
 ├── report.pdf         ← THE REPORT — IEEE two-column, 5 pages
 ├── report-detailed.pdf ← same report, prose left long, 7 pages
-├── report.md          ← plain-text prose, tracks the detailed version
 ├── scores.jsonl       ← 250 rows, one per summary_id
 └── code/
     ├── plugin-claude-code.zip   ← upload this to Claude to install the PRIMARY plugin
@@ -25,7 +24,6 @@ submission_final/
     │   └── secondary_codex_full250/   full audit trail of the second run
     ├── exploration/          probes, their raw outputs, and abandoned prototypes
     ├── validation/           cross-implementation comparison + number verifier
-    ├── report/               report.tex (TikZ/pgfplots sources) + build
     ├── DESIGN.md             the design specification
     ├── processing.md         Claude-side decision log, dated, including reversals
     └── progressing_GT.md     Codex-side implementation log
@@ -55,23 +53,7 @@ Every table and figure appears in both, and the numbers were checked cell by
 cell — the shorter version tightens wording and re-lays out three wide tables
 into two side-by-side blocks, it does not drop data.
 
-Diagrams are native TikZ; the charts are pgfplots drawn from the run data.
-
-`report.md` is plain-text prose that tracks the detailed version, not the
-5-page one, and it predates the Contributions section. Treat the PDFs as
-authoritative.
-
-Rebuild either PDF (needs TeX Live with `IEEEtran`, `pgfplots`, `xeCJK`, and a
-CJK font such as Noto Sans CJK JP — Japanese examples are quoted in the text;
-the preamble falls back to Noto Sans JP, Yu Gothic, then MS Gothic):
-
-```bash
-cd code/report && xelatex report_5p.tex && xelatex report_5p.tex   # -> report.pdf
-```
-
-```bash
-cd code/report && xelatex report.tex && xelatex report.tex         # -> report-detailed.pdf
-```
+The two PDFs are the report; there is no other version of it.
 
 ---
 

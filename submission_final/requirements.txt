@@ -14,7 +14,3 @@ torch>=2.0                   #   ... its backend
 
 # --- chart generation inside the report skills ------------------------------
 matplotlib>=3.7
-
-# --- report build (not pip) --------------------------------------------------
-#   TeX Live with IEEEtran, pgfplots, xeCJK, and a CJK font (Noto Sans CJK JP)
-#   build with:  xelatex report.tex && xelatex report.tex
