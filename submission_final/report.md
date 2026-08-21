@@ -1,4 +1,4 @@
-# A Reference-Free Evaluation Funnel for Japanese News Summaries, Delivered Twice as an Installable Plugin
+# Separating Proof from Judgement in Reference-Free Evaluation of Japanese News Summaries
 
 **Chen Jinhua** — AI Quality Scientist take-home assignment
 50 XL-Sum Japanese articles, 250 candidate summaries

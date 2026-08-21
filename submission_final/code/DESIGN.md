@@ -42,12 +42,12 @@ Hard constraints form two layers. Layer 1 is physical and provable by a script; 
 
 Recommended terminal ordering, from worst to least severe:
 
-1. `FACTUAL_REVERSAL`, `FABRICATED_CONTENT`, `OFF_TOPIC` — rank `0`;
+1. `FACTUAL_REVERSAL`, `FABRICATED_CONTENT`, `OFF_TOPIC`, `EMPTY_OUTPUT` — rank `0`;
 2. `VERBATIM_SOURCE_COPY` — rank `1`;
 3. `OBVIOUS_TRUNCATION` — rank `2`;
 4. `OVER_SENTENCE_LIMIT` — rank `3`.
 
-The three rank-`0` categories share the worst tier because each of them makes the output unusable rather than merely flawed, and a summary that states the opposite of its source, or invents its central content, misleads a reader who cannot check the article.
+The rank-`0` categories share the worst tier because each of them makes the output unusable rather than merely flawed, and a summary that states the opposite of its source, or invents its central content, misleads a reader who cannot check the article. `EMPTY_OUTPUT` sits there for the same reason: it delivers nothing at all.
 
 Local overlap, shared entities, dates, or fixed news phrases are not sufficient evidence of copying. Missing normal final punctuation is a reproducible truncation warning, not an automatic final decision; the Reviewer confirms whether the candidate physically ends mid-thought.
 
@@ -126,6 +126,7 @@ The Report Agent may author only the conclusion, capped at 120 words, and must d
 - **Grounding Gate Agent:** decides only whether a candidate is grounded in its article. No score, no anchor, no other article.
 - **Scorer Agent:** creates the article anchor and drafts the soft score.
 - **Reviewer Agent:** confirms every early exit, including grounding-gate proposals, and audits every score.
+- **Blind Reviewer Agent:** the same adjudication contract with the corpus made unreachable — it holds no file-read tools and receives the article and the candidate inline. It is shipped in both plugins and was *not* used by the submitted run, which is why the run's reference isolation is a guarantee by convention rather than by construction. Re-adjudicating the confirmed terminals with it, and publishing the delta, is the next step.
 - **Report Agent:** writes only a short conclusion from fixed validated statistics; code generates the rest of the report.
 
 Each role uses a fresh context. Grounding Gate, Scorer, and Reviewer calls receive exactly one condition-matched few-shot example. The Report Agent uses its own report example rather than scoring examples.
@@ -152,21 +153,24 @@ Small random runs establish whether the pipeline executes coherently and catches
 - A 50-pair reference-free funnel experiment demonstrated deterministic copy detection and embedding-based off-topic nomination.
 - Two independent 10-article relevance experiments reproduced a large similarity gap between matched and mismatched summaries.
 - A random 20-pair end-to-end run exercised all three roles, terminal routing, soft scoring, revision, validation, charts, and report generation.
-- A full 250-pair run covered all 50 articles: 82 terminal results, 168 reviewed soft scores, 20 one-pass revisions, and no unresolved escalations.
+- The submitted 250-pair run covered all 50 articles: **85 confirmed terminal results, 165 reviewed soft scores** between 35 and 98, 8 drafts sent back for a second review round, and no unresolved escalations. Every record carries a dimension sum equal to its total and a label inside its declared band.
+- The independent 250-pair run on the second host produced 77 terminals and 173 soft scores. The two agree on routing for 94.4 % of candidates and on terminal category for 74 of 74, and each agrees with the corpus-derived weak labels at 0.915 and 0.901.
+- On the 109 candidates for which the corpus can derive no label, a third independent reading agrees with the submitted run at a Spearman correlation of 0.960 and places every terminated candidate at the bottom of the distribution.
 - The current conclusion is: **a functioning audited pipeline with evidence on this dataset, not a production-accuracy guarantee**.
 
 ## 8. Deliverables
 
 The design is delivered as a plugin, twice, so that the same funnel can be installed rather than re-driven by hand.
 
-- `plugin_claude/summary-quality-funnel/`: Claude Code plugin — one command, one skill, four agents, deterministic scripts.
-- `plugin_GPT/summary-quality-funnel/`: Codex plugin — the same funnel with evaluation and report skills.
-- `evaluation_runs_claude/`, `evaluation_runs_GPT/`: audited end-to-end score records, audit trails, and reports for each plugin.
-- `experiments_claude/`, `experiments_GPT/`: reproducible exploratory and ablation outputs.
-- `cross_validation/`: agreement statistics between the two implementations, computed after both runs were final.
-- `processing.md`, `progressing_GT.md`: the decision and implementation logs for each side.
+Paths below are relative to `code/` inside the assembled submission.
 
-In the assembled submission the same material appears as `plugins/a-claude-code/`, `plugins/b-codex/`,
-`runs/`, `code/`, and `cross_validation.json`.
+- `plugins/a-claude-code/summary-quality-funnel/`: Claude Code plugin — one command, one skill, five agents, deterministic scripts. Also packaged as `plugin-claude-code.zip` for upload-and-install without a checkout.
+- `plugins/b-codex/summary-quality-funnel/`: Codex plugin — the same funnel with evaluation and report skills. Also packaged as `plugin-codex.zip`.
+- `runs/primary_claude_full250/`, `runs/secondary_codex_full250/`: audited end-to-end score records, audit trails, and reports for each plugin.
+- `exploration/`: reproducible exploratory probes, their raw outputs, and abandoned prototypes.
+- `validation/cross_validation.json` and `validation/compare_implementations.py`: agreement statistics between the two implementations, computed after both runs were final. `validation/verify_report_numbers.py` re-derives every number the report quotes.
+- `validation/third_read_109_unlabelled/`: the third independent scoring of the block that carries no derivable label.
+- `report/report.tex`: the report source, with the diagrams and charts written inline.
+- `processing.md`, `progressing_GT.md`: the decision and implementation logs for each side.
 
 Japanese text inside datasets, evaluated articles, candidate summaries, evidence spans, and language-specific fixtures is intentionally preserved. All project-facing documentation, prompts, labels, reports, and visualizations are English.

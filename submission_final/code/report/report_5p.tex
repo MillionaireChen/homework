@@ -30,7 +30,7 @@
 \XeTeXlinebreakskip=0pt plus 1pt
 \usepackage{balance}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={[brief] Judge as a Plugin: A Reference-Free Evaluation Funnel for Japanese News Summaries},
+\hypersetup{pdftitle={[brief] Separating Proof from Judgement in Reference-Free Evaluation of Japanese News Summaries},
             pdfauthor={Chen Jinhua}}
 
 \definecolor{navy}{HTML}{16233A}
@@ -53,7 +53,7 @@
 
 \tikzset{
   stage/.style={rounded corners=1.6pt,draw=navy,line width=.35pt,fill=white,align=left,
-                inner xsep=2.2mm,inner ysep=1.5mm,font=\sffamily\fontsize{5.1}{6.0}\selectfont},
+                inner xsep=2.2mm,inner ysep=1.5mm,font=\sffamily\fontsize{6.4}{7.4}\selectfont},
   det/.style={stage,draw=cblue,fill=cbluef},
   emb/.style={stage,draw=cgreen,fill=cgreenf},
   sem/.style={stage,draw=corange,fill=corangef},
@@ -75,7 +75,7 @@
 source of the submitted scores); \textbf{B} $=$ Codex plugin (secondary).}
 \newcommand{\abnote}{\tabnote{\textit{Note.} \abkey}}
 
-\title{Judge as a Plugin: A Reference-Free Evaluation Funnel for Japanese News Summaries}
+\title{Separating Proof from Judgement in Reference-Free Evaluation of Japanese News Summaries}
 
 \author{\IEEEauthorblockN{Chen Jinhua}
 \IEEEauthorblockA{AI Quality Scientist Take-Home Assignment\\
@@ -95,8 +95,8 @@ LLM evaluation, reference-free metrics, summarisation quality, agent isolation, 
 \section{Exploration}
 
 \subsection{First contact: what the 250 candidates actually are}
-The dataset is 50 articles of 483--3664 characters, each with a 41--164
-character human reference and five opaque candidates of 22--302.
+The dataset is 50 articles of 483--3664 characters, each with a human
+reference of 41--164 and five candidates of 22--302.
 
 Reading candidates side by side inside their articles, rather than as a
 flat list, made the structure obvious within the first few articles: the
@@ -142,8 +142,8 @@ than uneven: several references assert facts the article body never
 contains. One reference states a 4割 sexual-assault share, a suspect
 profile and a 379-case figure, none of which appear in the supplied text;
 another is a photo caption opening with \mbox{この写真}, a demonstrative whose
-antecedent exists only in an image nobody is given. Any design scoring a candidate by its distance to the
-reference rewards them.
+antecedent exists only in an image nobody is given. Any design scoring a candidate by its distance to the reference rewards
+them.
 
 \subsection{Hypotheses, and which ones died}
 Five hypotheses were formed before building anything. Two survived
@@ -164,8 +164,8 @@ similarity is the wrong instrument; containment and $n$-gram coverage
 caught 50 of 50. \\
 \addlinespace[1pt]
 Embedding similarity separates topic mismatch &
-\textbf{Survived.} Two 10-article probes: 0.707--0.868 matched,
-0.163--0.398 mismatched. \\
+\textbf{Survived.} Two 10-article probes: 0.707--0.868 matched against
+0.163--0.398. \\
 \addlinespace[1pt]
 Similarity can screen relevance on its own &
 \textbf{Weakened.} On all 250 pairs the bands overlap, off-topic reaching
@@ -224,14 +224,13 @@ notebook and a prompt, we deliver it as an installable plugin whose role
 contracts, rubric and few-shot bank are versioned files and whose records
 carry a replayable trace, so a third party can run and audit the evaluator
 rather than rebuild it---and, being portable, implement it twice, turning
-delivery into a validation instrument (Section~III-F).
+delivery itself into a validation instrument.
 
 \item \emph{Validation by instruments that fail differently.} The two
 implementations agree with corpus-derived weak labels at 0.915 and with
 each other on routing for 94.4\,\% of candidates; on the 109 candidates
-carrying no derivable label a third independent reading agrees with the
-submitted run at $\rho = 0.960$. Every number quoted here is recomputable
-in one command.
+carrying no derivable label a third independent reading agrees with the submitted run at $\rho = 0.960$, and
+every number here is recomputable in one command.
 
 \end{enumerate}
 
@@ -299,8 +298,8 @@ run~A (Claude Code plugin) over its 165 graded survivors.}
 Terminal outcomes all score 0 but keep separate rank tiers, so five
 candidates remain orderable even when several fail. Reversal,
 fabrication and off-topic share the worst tier, because each misleads a
-reader who cannot check the source; copying and truncation rank above
-them, because a copy at least contains true sentences.
+reader who cannot check the source; copying and truncation rank above them, a copy at least containing true
+sentences.
 
 \subsection{Independent review of every stopping decision}
 No stage may stop a candidate on its own authority: every proposal goes to
@@ -313,26 +312,27 @@ preserved as low confidence rather than averaged away.
 
 \begin{figure}[t]
 \centering
+\scalebox{0.80}{%
 \begin{tikzpicture}[node distance=0mm]
-\node[det,text width=52mm] (s1) {%
+\node[det,text width=54mm] (s1) {%
   \textbf{Layer 1 · deterministic script}\\[.4mm]
   empty · $>3$ sentences · verbatim copy \emph{(decided)}\\
   truncation evidence \emph{(measured, not decided)}};
-\node[rev,below=1.4mm of s1] (r1) {Reviewer · 51 confirmed, 2 returned};
-\node[emb,below=1.4mm of r1,text width=52mm] (s2) {%
+\node[rev,below=2.6mm of s1] (r1) {Reviewer · 51 confirmed, 2 returned};
+\node[emb,below=2.6mm of r1,text width=54mm] (s2) {%
   \textbf{Embedding relevance} · \texttt{qwen3-embedding:0.6b}\\[.4mm]
   own article only · required · never terminal · 19 below 0.50};
-\node[sem,below=1.4mm of s2,text width=52mm] (s3) {%
+\node[sem,below=2.6mm of s2,text width=54mm] (s3) {%
   \textbf{Layer 2 · Grounding Gate agent}\\[.4mm]
   off-topic · factual reversal · fabricated content\\
   no score, no rubric, no anchor · 37 proposals};
-\node[rev,below=1.4mm of s3] (r2) {Reviewer · 29 confirmed, 8 returned};
-\node[scr,below=1.4mm of r2,text width=52mm] (s4) {%
+\node[rev,below=2.6mm of s3] (r2) {Reviewer · 29 confirmed, 8 returned};
+\node[scr,below=2.6mm of r2,text width=54mm] (s4) {%
   \textbf{Anchor + claim-grounded scoring}\\[.4mm]
   50 cached anchors · atomic claims · 4 dimensions\\
   semantic backstop: 4 late proposals};
-\node[rev,below=1.4mm of s4] (r3) {Reviewer · 157 approve · 5 revise · 4 escalate};
-\node[scr,below=1.4mm of r3,text width=52mm,align=center] (out) {%
+\node[rev,below=2.6mm of s4] (r3) {Reviewer · 157 approve · 5 revise · 4 escalate};
+\node[scr,below=2.6mm of r3,text width=54mm,align=center] (out) {%
   \textbf{165 graded 35--98} \quad + \quad \textbf{85 terminal at 0}};
 
 \node[cnt,above=1.2mm of s1] {250 pairs in};
@@ -351,7 +351,8 @@ preserved as low confidence rather than averaged away.
 \draw[kill] (r1.east) -- (t1.west);
 \draw[kill] (r2.east) -- (t2.west);
 \draw[kill] (r3.east) -- (t3.west);
-\end{tikzpicture}
+\end{tikzpicture}}
+
 \caption{The funnel, annotated with counts from the submitted 250-pair
 run. Red exits are Reviewer-confirmed terminations. The 51 pairs
 stopped at layer~1 cost one script pass and one confirmation; 80 of 250
@@ -379,8 +380,8 @@ anchor stayed a reasoning aid and never became a number.
 \midrule
 Score against the
 reference &
-Unavailable in production, and wrong here: generated candidates outscored
-45 of 50 references. \\
+Unavailable in production, and wrong here: generated candidates beat 45 of
+50 references. \\
 \addlinespace[1pt]
 Similarity as a quality score &
 A verbatim copy is the most similar text there is. \\
@@ -563,14 +564,15 @@ in Section~IV-B---and in run~A \emph{no} reference reproduction reached
 \textsc{excellent} while 28 generated candidates did, the
 reference-quality problem of Section~I made quantitative. Run~B puts 10
 references in the top band against 42 generated candidates, so the
-ordering survives the difference in temperament.
+ordering survives the difference.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 \centering
+\scalebox{0.80}{%
 \begin{tikzpicture}
 \begin{axis}[
   name=axA,
-  width=\columnwidth, height=26mm,
+  width=\columnwidth, height=36mm,
   xbar stacked, xmin=0, xmax=112,
   bar width=3.6mm,
   ytick=data,
@@ -582,7 +584,7 @@ ordering survives the difference in temperament.
   title style={yshift=-1.2mm},
   xticklabels={},
   legend style={font=\sffamily\fontsize{5.6}{6.4}\selectfont,
-                at={(0.5,1.42)},anchor=north,legend columns=6,
+                at={(0.5,1.62)},anchor=north,legend columns=6,
                 draw=none,/tikz/every even column/.append style={column sep=1.1mm}},
   axis lines*=left,
   xmajorgrids, grid style={draw=black!8},
@@ -598,7 +600,7 @@ ordering survives the difference in temperament.
 \end{axis}
 \begin{axis}[
   at={(axA.below south west)}, anchor=north west, yshift=-2.5mm,
-  width=\columnwidth, height=26mm,
+  width=\columnwidth, height=36mm,
   xbar stacked, xmin=0, xmax=112,
   bar width=3.6mm,
   ytick=data,
@@ -620,7 +622,8 @@ ordering survives the difference in temperament.
 \addplot[fill=cgreen!40,draw=none] coordinates {(0,Foreign) (0,Copy) (0,Fragment) (31,Reference) (18,Generated)};
 \addplot[fill=cgreen!75,draw=none] coordinates {(0,Foreign) (0,Copy) (0,Fragment) (10,Reference) (42,Generated)};
 \end{axis}
-\end{tikzpicture}
+\end{tikzpicture}}
+
 \caption{Outcome by corpus-derived population, both runs. The two
 populations that should never survive never do, in either
 implementation; the fragment population is graded rather than stopped;
@@ -727,17 +730,18 @@ the report; it is a banding artefact, since 96.9\,\% of pairs fall within
 one band, but the bands are a convenience for a reader and the ordering is
 what should be trusted.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 \centering
+\scalebox{0.80}{%
 \begin{tikzpicture}
 \begin{axis}[
   name=sc,
-  width=\columnwidth, height=36mm,
+  width=\columnwidth, height=50mm,
   xmin=25,xmax=102,ymin=25,ymax=102,
   xlabel={run A score (Claude plugin)},
   ylabel={run B score (Codex plugin)},
   tick label style={font=\sffamily\fontsize{6}{7}\selectfont},
-  label style={font=\sffamily\fontsize{5.1}{6.0}\selectfont},
+  label style={font=\sffamily\fontsize{6.4}{7.4}\selectfont},
   xtick={30,40,50,60,70,80,90,100},
   ytick={30,40,50,60,70,80,90,100},
   grid=both, grid style={draw=black!7},
@@ -761,8 +765,8 @@ what should be trusted.
 \addplot[draw=cgray,dashed,line width=.35pt,forget plot] coordinates {(25,25) (102,102)};
 \end{axis}
 \begin{axis}[
-  at={(sc.below south west)}, anchor=north west, yshift=-4mm,
-  width=\columnwidth, height=22mm,
+  at={(sc.below south west)}, anchor=north west, yshift=-6mm,
+  width=\columnwidth, height=32mm,
   ybar, bar width=4.4mm,
   xmin=-1, xmax=11,
   ymin=0, ymax=68,
@@ -770,7 +774,7 @@ what should be trusted.
   xticklabels={$\leq\!-25$,$-25$,$-20$,$-15$,$-10$,$-5$,$5$,$10$,$15$,$20$,$>\!20$},
   x tick label style={font=\sffamily\fontsize{5.4}{6.2}\selectfont,rotate=0},
   y tick label style={font=\sffamily\fontsize{6}{7}\selectfont},
-  label style={font=\sffamily\fontsize{5.1}{6.0}\selectfont},
+  label style={font=\sffamily\fontsize{6.4}{7.4}\selectfont},
   xlabel={$\Delta = $ run A $-$ run B (5-point bins)},
   ylabel={pairs},
   ymajorgrids, grid style={draw=black!8},
@@ -781,7 +785,8 @@ what should be trusted.
 \addplot[fill=cblue!45,draw=none] coordinates
   {(0,1) (1,2) (2,6) (3,19) (4,28) (5,61) (6,18) (7,13) (8,4) (9,7) (10,3)};
 \end{axis}
-\end{tikzpicture}
+\end{tikzpicture}}
+
 \caption{The 162 candidates graded by both implementations.
 $\rho = 0.891$, mean $|\Delta| = 6.85$. Above: the dashed line is
 equality. Below: the signed difference is centred slightly below zero
@@ -798,8 +803,8 @@ carrying the fluent factual errors---have no derivable label, so reporting
 scored a third time by a separate reading with no access to either run's
 output (Table~\ref{tab:third}): on the 94 that all three readings graded
 it agrees with the primary run at $\rho = 0.960$ and the secondary at
-$\rho = 0.936$, both more closely than the two implementations agree with
-each other.
+$\rho = 0.936$, both closer than the two implementations agree with each
+other.
 
 \begin{table}[htbp]
 \caption{Third independent reading of the 109 unlabelled candidates.}
@@ -832,8 +837,7 @@ run~A terminated and 34.2 for B's 8, against 77.0 for the rest---so the
 terminal decisions on the unlabelled block are corroborated by a source
 that did not make them. This does not make the scores correct, since three
 readings of the same rubric can share a bias and none is a human
-judgement, but the signal there is reproducible rather than
-idiosyncratic.
+judgement, but the signal there is reproducible.
 
 \subsection{Reproducing the numbers in this report}
 Every quantity quoted above is re-derived by a checker reading only the
