@@ -105,10 +105,13 @@ They are draws from distinct populations. A string-level scan of the corpus alon
 scoring---confirmed and counted them (Table~\ref{tab:census}): four are
 mechanically derivable, the fifth is the remainder.
 
+\vspace{-0.5cm}
+
 \begin{table}[htbp]
 \caption{Corpus census.}
 \label{tab:census}
-\centering\tiny
+\vspace{-0.3cm}
+\centering
 \begin{tabularx}{\columnwidth}{@{}p{27mm}rY@{}}
 \toprule
 \textbf{Population} & \textbf{$n$} & \textbf{Derivation} \\
@@ -125,6 +128,7 @@ Generated, unlabelled  & 109 & none of the above \\
 \tabnote{\textit{Note.} Categories derived from the corpus by string
 comparison alone, with no evaluator output involved; used as weak labels
 only after both runs were final.}
+\vspace{-0.5cm}
 \end{table}
 
 Three structural facts came out of the same scan.
@@ -153,7 +157,8 @@ data (Table~\ref{tab:hyp}).
 \begin{table}[t]
 \caption{Hypotheses formed during exploration and their fate.}
 \label{tab:hyp}
-\centering\tiny
+\centering
+\vspace{-0.3cm}
 \begin{tabularx}{\columnwidth}{@{}>{\raggedright\arraybackslash\hyphenpenalty=10000\exhyphenpenalty=10000}p{31mm}Y@{}}
 \toprule
 \textbf{Hypothesis} & \textbf{Outcome} \\
@@ -180,6 +185,7 @@ Factual defects form one gradient, so one faithfulness score suffices &
 not two points on a scale but a flawed summary and a false one. \\
 \bottomrule
 \end{tabularx}
+\vspace{-0.5cm}
 \end{table}
 
 The last row is the finding the design turns on. Inspecting the 109
@@ -277,7 +283,8 @@ points because the sentence limit is already a hard constraint.
 \begin{table}[t]
 \caption{Soft rubric.}
 \label{tab:rubric}
-\centering\tiny
+\centering
+\vspace{-0.3cm}
 \begin{tabularx}{\columnwidth}{@{}p{18mm}rYr@{}}
 \toprule
 \textbf{Dimension} & \textbf{Max} & \textbf{Question} & \textbf{Mean} \\
@@ -293,6 +300,7 @@ Conciseness  &  5 & Compact, without repetition? & 4.8 \\
 \tabnote{\textit{Note.} Scored only for candidates surviving both hard
 layers; the four dimensions sum to the total exactly. \textbf{Mean} is
 run~A (Claude Code plugin) over its 165 graded survivors.}
+\vspace{-0.8cm}
 \end{table}
 
 Terminal outcomes all score 0 but keep separate rank tiers, so five
@@ -300,19 +308,11 @@ candidates remain orderable even when several fail. Reversal,
 fabrication and off-topic share the worst tier, because each misleads a
 reader who cannot check the source; copying and truncation rank above them, a copy at least containing true
 sentences.
+\vspace{-0.5cm}
 
-\subsection{Independent review of every stopping decision}
-No stage may stop a candidate on its own authority: every proposal goes to
-a Reviewer in a fresh context that re-derives the evidence from the
-article. The review is not a rubber stamp---it rejected 2 of 53 physical
-proposals, 8 of 37 grounding proposals (including all eight fabrication
-claims) and 3 of 4 late scorer proposals, and escalated four truncations
-the gate had not proposed. Disagreement surviving one revision round is
-preserved as low confidence rather than averaged away.
-
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
-\scalebox{0.80}{%
+\scalebox{0.85}{%
 \begin{tikzpicture}[node distance=0mm]
 \node[det,text width=54mm] (s1) {%
   \textbf{Layer 1 · deterministic script}\\[.4mm]
@@ -360,6 +360,16 @@ never reach anchor generation and scoring, the most expensive stage.}
 \label{fig:funnel}
 \end{figure}
 
+\subsection{Independent review of every stopping decision}
+No stage may stop a candidate on its own authority: every proposal goes to
+a Reviewer in a fresh context that re-derives the evidence from the
+article. The review is not a rubber stamp---it rejected 2 of 53 physical
+proposals, 8 of 37 grounding proposals (including all eight fabrication
+claims) and 3 of 4 late scorer proposals, and escalated four truncations
+the gate had not proposed. Disagreement surviving one revision round is
+preserved as low confidence rather than averaged away.
+
+
 \subsection{Alternatives considered and rejected}
 Table~\ref{tab:rejected} lists the approaches tried and dropped, each with
 the measurement that killed it. Two are worth naming. A cross-encoder
@@ -370,10 +380,13 @@ with coverage yet predicted it worse under leave-one-out---a feature that
 correlates better and predicts worse is fitted to the sample, so the
 anchor stayed a reasoning aid and never became a number.
 
-\begin{table}[t]
+\vspace{-0.5cm}
+
+\begin{table}[htbp]
 \caption{Rejected approaches and the evidence that rejected them.}
 \label{tab:rejected}
-\centering\tiny
+\centering
+\vspace{-0.3cm}
 \begin{tabularx}{\columnwidth}{@{}>{\raggedright\arraybackslash\hyphenpenalty=10000}p{25mm}Y@{}}
 \toprule
 \textbf{Approach} & \textbf{Why it was rejected} \\
@@ -405,6 +418,7 @@ One agent screens \emph{and} scores &
 It trades a central defect for a low score instead of stopping. \\
 \bottomrule
 \end{tabularx}
+\vspace{-0.5cm}
 \end{table}
 
 \subsection{Delivery: the design is a plugin, not a script}
@@ -449,11 +463,13 @@ also sent far more drafts back for a second round, a fact about the hosts
 rather than the design; both runs end with all 250 records approved and
 nothing escalated. Every disagreement below follows from it.
 
-\begin{table}[t]
+\vspace{-0.5cm}
+\begin{table}[htbp]
 \caption{Run-level results.}
 \label{tab:runs}
-\centering\tiny
-\setlength{\tabcolsep}{2.4pt}
+\centering
+\vspace{-0.3cm}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lrr@{\hspace{3.2mm}}lrr@{}}
 \toprule
  & \textbf{A} & \textbf{B} & & \textbf{A} & \textbf{B} \\
@@ -494,21 +510,20 @@ Dimension-sum errors      & 0 & 0
   & Reviewer confidence \textsc{high} & 196 & 250 \\
 Label-band violations     & 0 & 0 & & & \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
+
 \tabnote{\textit{Note.} \abkey\ \emph{Terminal}: stopped by a confirmed
 hard-constraint decision, scored 0. \emph{Graded}: reached the soft
 rubric.}
 \end{table}
 
-\subsection{Internal consistency}
 Across all 500 records, every soft score equals the sum of its four
 dimensions and every label falls inside its band---the last two rows of
 Table~\ref{tab:runs}. This is a floor, not a result.
 
-\subsection{Determinism, and a natural experiment in pair conditioning}
-The corpus supplies two free instruments (Section~I-A).
-
-Eight groups of candidates are byte-identical \emph{and} attached to the
+\subsection{Determinism and a natural experiment in pair conditioning}
+The corpus supplies two free instruments (Section~I-A). Eight groups of candidates are byte-identical \emph{and} attached to the
 same article, each scored independently without either scorer knowing the
 twin existed. All eight received identical totals and identical dimension
 values in both implementations, so run-to-run variance explains none of
@@ -527,11 +542,12 @@ After both runs were final, references were opened for the first time
 and the Table~\ref{tab:census} categories were used as weak labels.
 Table~\ref{tab:pop} and Fig.~\ref{fig:bands} give the per-population
 outcome.
-
+\vspace{-0.5cm}
 \begin{table}[htbp]
 \caption{Outcome by corpus-derived population.}
 \label{tab:pop}
-\centering\tiny
+\centering
+\vspace{-0.3cm}
 \begin{tabular}{@{}lrrrrrr@{}}
 \toprule
  & & \multicolumn{2}{c}{\textbf{Stop}} & \multicolumn{2}{c}{\textbf{Survivor mean}} \\
@@ -553,6 +569,7 @@ Generated             & 109 & 14 & 8  & 76.6 & 77.9 \\
 score columns cover survivors only. \emph{Agreement}: routing matches the
 population's expectation---copies, foreign placements and fragments stop,
 reference reproductions do not.}
+\vspace{-0.35cm}
 \end{table}
 
 Survivor ranges tell more than the means: fragments survive at 39--70 and
@@ -566,9 +583,11 @@ reference-quality problem of Section~I made quantitative. Run~B puts 10
 references in the top band against 42 generated candidates, so the
 ordering survives the difference.
 
-\begin{figure}[t]
+\vspace{-0.5cm}
+
+\begin{figure}[htbp]
 \centering
-\scalebox{0.80}{%
+\scalebox{0.85}{%
 \begin{tikzpicture}
 \begin{axis}[
   name=axA,
@@ -642,11 +661,12 @@ survivors with a wide spread between them, and the reference reproduction
 sits at rank 2 in the large majority and never below rank 3. It is
 consistently near the top without being treated as the ceiling, which is
 what a design that distrusts its references should produce.
-
+\vspace{-0.4cm}
 \begin{table}[htbp]
 \caption{Within-article behaviour over the 50 articles.}
 \label{tab:order}
-\centering\tiny
+\centering
+\vspace{-0.3cm}
 \setlength{\tabcolsep}{2.4pt}
 \begin{tabular}{@{}lrr@{\hspace{3.2mm}}lrr@{}}
 \toprule
@@ -668,6 +688,7 @@ Planted failure $\geq$ ref. & 0 & 0
 \tabnote{\textit{Note.} \abkey\ \emph{Survivors}: candidates that reached
 the soft rubric. \emph{Spread}: best minus worst survivor within one
 article.}
+\vspace{-0.4cm}
 \end{table}
 
 \subsection{Two implementations, two hosts}
@@ -678,11 +699,12 @@ neither implementation saw the other's output.
 Table~\ref{tab:xhost} is the comparison; Fig.~\ref{fig:xhost} is the
 same data as a scatter and a difference distribution.
 
+\vspace{-0.3cm}
 \begin{table}[htbp]
 \caption{Cross-implementation agreement.}
 \label{tab:xhost}
-\centering\tiny
-\setlength{\tabcolsep}{2.4pt}
+\centering
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lrr@{\hspace{2.4mm}}lrr@{}}
 \toprule
  & \textbf{count} & \textbf{rate} & & \textbf{count} & \textbf{rate} \\
@@ -705,7 +727,8 @@ Terminal-category & 74 / 74 & 1.000 & \quad $|\Delta| \leq 10$ & 124 & 0.765 \\
   & Label within one band & 157 & 0.969 \\
 \quad Conciseness \,/5 & \multicolumn{2}{r}{0.243 / 0.25} & & & \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \tabnote{\textit{Note.} \abkey\ Routing rows cover all 250 pairs, score
 rows the 162 both implementations graded. $\Delta =$ A $-$ B; $\rho$ is
 Spearman, $r$ is Pearson.}
@@ -732,7 +755,7 @@ what should be trusted.
 
 \begin{figure}[t]
 \centering
-\scalebox{0.80}{%
+\scalebox{0.9}{%
 \begin{tikzpicture}
 \begin{axis}[
   name=sc,
@@ -786,7 +809,7 @@ what should be trusted.
   {(0,1) (1,2) (2,6) (3,19) (4,28) (5,61) (6,18) (7,13) (8,4) (9,7) (10,3)};
 \end{axis}
 \end{tikzpicture}}
-
+\vspace{-0.3cm}
 \caption{The 162 candidates graded by both implementations.
 $\rho = 0.891$, mean $|\Delta| = 6.85$. Above: the dashed line is
 equality. Below: the signed difference is centred slightly below zero
@@ -805,11 +828,11 @@ output (Table~\ref{tab:third}): on the 94 that all three readings graded
 it agrees with the primary run at $\rho = 0.960$ and the secondary at
 $\rho = 0.936$, both closer than the two implementations agree with each
 other.
-
+\vspace{-0.5cm}
 \begin{table}[htbp]
 \caption{Third independent reading of the 109 unlabelled candidates.}
 \label{tab:third}
-\centering\tiny
+\centering
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
 \textbf{Pair} & \textbf{$n$} & \textbf{$\rho$} & \textbf{$r$} & \textbf{mean $|\Delta|$} \\
@@ -847,14 +870,7 @@ one command.
 \section{Limitations}
 
 \subsection{What the evaluation does not measure}
-No human judgement enters anywhere. Every agreement number in Section~III
-is agreement with a mechanical label or between readings of the same
-rubric, and neither is accuracy: the honest ceiling is
-\emph{reproducible}, not \emph{correct}. The weak-label check also treats
-reference reproductions as acceptable, which is not safe---the worst scores
-42, and there the label is wrong, not the evaluator. Beyond grammatical completeness it has no view on style,
-register, audience fit or newsworthiness---only on whether the facts
-chosen are the article's main ones.
+No human judgement is involved. Agreement therefore reflects reproducibility, not correctness. The weak-label check can also accept flawed references. Beyond grammatical completeness, the evaluation does not assess style, register, audience fit, or newsworthiness; it only checks whether the selected facts are central to the article.
 
 \subsection{What it measures poorly}
 Truncation is the weak point, and structurally so. One candidate is a
@@ -872,13 +888,8 @@ the truncation judgement to the Reviewer makes a fragment consume both
 stages before it is stopped, about six percent of the scoring work.
 
 \subsection{One structural gap, stated plainly}
-The Reviewer in the submitted run held file-read tools while the corpus
-sat on disk with its reference column intact. Its inputs carried no
-reference field and the artifacts show none was used, but that is a
-convention, and a convention is not evidence. A structurally blind
-Reviewer is shipped in both plugins but unused; the next step is to
-re-adjudicate the 85 terminal decisions with it and publish the delta,
-which is the honest measure of how much a reachable reference mattered.
+The Reviewer could technically access the corpus and its reference column, although no reference was provided or recorded as used. This is a procedural safeguard, not structural evidence. The next step is to re-adjudicate the 85 terminal cases with the reference-blind Reviewer and report the resulting delta.
+
 
 \subsection{What I would do next}
 More data, above everything else. The report rests on 250 pairs from 50
