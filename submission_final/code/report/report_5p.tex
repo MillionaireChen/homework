@@ -85,7 +85,7 @@ source of the submitted scores); \textbf{B} $=$ Codex plugin (secondary).}
 \maketitle
 
 \begin{abstract}
-A summariser in production is handed an article and returns a summary; nobody hands it a human reference. This report describes an evaluator built to that contract. Exploration showed the 250 supplied candidates are not a quality gradient but five distinct populations, and that the two most dangerous---fluent text that reverses the article, and fluent text that invents its central claim---are invisible to every cheap signal, because they are on topic by construction. The design separates constraints a script can prove from constraints only a reader can judge, and requires an independent reviewer to confirm every stopping decision. Validation rests on seven checks that do not share a failure mode, including a third independent read of the 109 candidates for which no ground truth can be derived. The evaluator ships as an installable plugin, implemented twice on two agent hosts; the two agree on routing for 94.4\,\% of candidates and on terminal category for 74 of 74.
+A summariser in production is handed an article and returns a summary; nobody hands it a human reference. This report describes an evaluator built to that contract. Exploration showed the 250 supplied candidates are not a quality gradient but five distinct populations, and that the two most dangerous---fluent text that reverses the article, and fluent text that invents its central claim---are invisible to every cheap signal, because they are on topic by construction. The design separates constraints a script can prove from constraints only a reader can judge, and requires an independent reviewer to confirm every stopping decision. Validation rests on seven checks that do not share a failure mode, including a natural experiment in which the same candidate text appears under both its own and a foreign article, and a third independent read of the 109 candidates for which no ground truth can be derived. The evaluator ships as an installable plugin, implemented twice on two agent hosts; the two agree on routing for 94.4\,\% of candidates and on terminal category for 74 of 74.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -98,12 +98,12 @@ LLM evaluation, reference-free metrics, summarisation quality, agent isolation, 
 The dataset is 50 articles of 483--3664 characters, each with a human
 reference of 41--164 and five candidates of 22--302.
 
-Reading candidates side by side inside their articles, rather than as a
-flat list, made the structure obvious within the first few articles: the
-five candidates per article are not five samples from one generator.
-They are draws from distinct populations. A string-level scan of the corpus alone---no model, no
-scoring---confirmed and counted them (Table~\ref{tab:census}): four are
-mechanically derivable, the fifth is the remainder.
+Reading candidates side by side inside their articles rather than as a flat
+list made the structure obvious within a few articles: the five candidates
+per article are not five samples from one generator but draws from distinct
+populations. A string-level scan alone---no model, no scoring---counted them
+(Table~\ref{tab:census}): four are mechanically derivable, the fifth is the
+remainder.
 
 \vspace{-0.5cm}
 
@@ -236,8 +236,8 @@ delivery itself into a validation instrument.
 \item \emph{Validation by instruments that fail differently.} The two
 implementations agree with corpus-derived weak labels at 0.915 and with
 each other on routing for 94.4\,\% of candidates; on the 109 candidates
-carrying no derivable label a third independent reading agrees with the submitted run at $\rho = 0.960$, and
-every number here is recomputable.
+carrying no derivable label a third independent reading agrees with the
+submitted run at $\rho = 0.960$.
 
 \end{enumerate}
 
@@ -363,11 +363,12 @@ never reach anchor generation and scoring, the most expensive stage.}
 \subsection{Independent review of every stopping decision}
 No stage may stop a candidate on its own authority: every proposal goes to
 a Reviewer in a fresh context that re-derives the evidence from the
-article. The review is not a rubber stamp---it rejected 2 of 53 physical
-proposals, 8 of 37 grounding proposals (including all eight fabrication
-claims) and 3 of 4 late scorer proposals, and escalated four truncations
-the gate had not proposed. Disagreement surviving one revision round is
-preserved as low confidence rather than averaged away.
+article. It moves in both directions and is no rubber stamp: it rejected 2 of 53
+physical proposals, 8 of 37 grounding proposals including all eight
+fabrication claims and 3 of 4 late scorer proposals, while escalating four
+truncations no gate had raised. Over-termination and missed detection are caught
+by one mechanism. Disagreement surviving one round is kept
+as low confidence, not averaged away.
 
 
 \subsection{Alternatives considered and rejected}
@@ -519,8 +520,8 @@ rubric.}
 \end{table}
 
 Across all 500 records, every soft score equals the sum of its four
-dimensions and every label falls inside its band---the last two rows of
-Table~\ref{tab:runs}. This is a floor, not a result.
+dimensions and every label falls inside its band: zero arithmetic errors and
+zero banding violations (Table~\ref{tab:runs}).
 
 \subsection{Determinism and a natural experiment in pair conditioning}
 The corpus supplies two free instruments (Section~I-A). Eight groups of candidates are byte-identical \emph{and} attached to the
@@ -580,7 +581,7 @@ than uniformly stopped---a deliberate divergence from the label, discussed
 in Section~IV-B---and in run~A \emph{no} reference reproduction reached
 \textsc{excellent} while 28 generated candidates did, the
 reference-quality problem of Section~I made quantitative. Run~B puts 10
-references in the top band against 42 generated candidates, so the ordering
+references in the top band against 42 generated ones, so the ordering
 survives.
 
 \vspace{-0.5cm}
@@ -748,10 +749,10 @@ Coherence and conciseness correlate far worse, yet differ by a fraction of
 a point, because both runs push almost every survivor to the
 ceiling---range restriction, not disagreement, and a sign that 15 and 5
 points are more than these dimensions earn. Exact agreement
-on the five-band label is only 88 of 162, the least flattering number in
-the report; it is a banding artefact, since 96.9\,\% of pairs fall within
-one band, but the bands are a convenience for a reader and the ordering is
-what should be trusted.
+on the five-band label is 88 of 162, and 96.9\,\% of pairs fall within one
+band: a mean absolute difference of 6.85 straddles boundaries 10 to 15 points
+wide, so the bands are a convenience for a reader while the ordering is what
+carries the decision.
 
 \begin{figure}[t]
 \centering
@@ -826,9 +827,10 @@ carrying the fluent factual errors---have no derivable label, so reporting
 scored a third time by a separate reading with no access to either run's
 output (Table~\ref{tab:third}): on the 94 that all three readings graded
 it agrees with the primary run at $\rho = 0.960$ and the secondary at
-$\rho = 0.936$, both closer than the two implementations agree. Every quantity quoted in
-this report is re-derived by a checker that reads only the corpus and the
-run outputs, and that fails if any of its 199 assertions moves.
+$\rho = 0.936$, both closer than the two implementations agree. Every quantity quoted in this report is
+re-derived by a checker that reads only the corpus and the run outputs and
+fails if any of its 199 assertions moves, so no number here need be taken on
+faith.
 
 
 \vspace{-0.5cm}
@@ -871,28 +873,30 @@ judgement, but the signal there is reproducible.
 No human judgement is involved, so agreement reflects reproducibility rather than correctness, and the weak-label check can itself accept a flawed reference. Beyond grammatical completeness the evaluation does not assess style, register, audience fit or newsworthiness. It asks only whether the facts a candidate selects are the article's central ones.
 
 \subsection{What it measures poorly}
-Truncation is the weak point, and structurally so: a reference cut from
+Truncation is the one place where the contract itself sets the ceiling: a
+reference cut from
 「…\mbox{方針を\mbox{発表}}した。」 to 「…\mbox{方針を\mbox{発表}}」 was judged
 untruncated because \mbox{発表} is a verbal noun discharging the clause, and
 only the deleted した。 distinguishes \mbox{体言止め} from an amputated
 predicate. The fragment population therefore
 splits: mid-token endings are visible and missing them is a recall problem
-worth fixing, while \mbox{体言止め} endings are undecidable under a
-reference-free contract, so the 5-of-17 figure overstates the deficiency.
+worth fixing, while \mbox{体言止め} endings cannot be decided from the
+article and the candidate alone, so 5 of 17 charges a limit of the contract
+to the detector.
 The five-band labels are also less stable than the scores
 (Section~III-E), and cost is uneven, since moving the truncation
 judgement to the Reviewer makes a fragment consume both stages before it
 is stopped.
 
 \subsection{One structural gap, stated plainly}
-The Reviewer could technically access the corpus and its reference column, although no reference was provided or recorded as used. This is a procedural safeguard, not structural evidence. The next step is to re-adjudicate the 85 terminal cases with the reference-blind Reviewer and report the resulting delta.
+The Reviewer could technically reach the corpus and its reference column, though no reference was supplied or recorded as used: a procedural safeguard, not a structural one. The next step is to re-adjudicate the 85 terminal cases with the reference-blind Reviewer and publish the delta.
 
 
 \subsection{What I would do next}
 More data, above everything else: the report rests on 250 pairs from 50
 articles of one publisher in one language, so every threshold here---the
-0.50 similarity cut, the dimension maxima, the band boundaries---should be
-assumed invalid outside that sample. The immediate work is the same funnel
+0.50 cut, the dimension maxima, the band boundaries---should be assumed
+invalid outside that sample. The immediate work is the same funnel
 over a larger Japanese corpus from several publishers, then across
 languages, since constraints built on Japanese sentence segmentation and
 \mbox{体言止め} register are language-specific and must be re-derived from
@@ -902,12 +906,11 @@ worth the spend.
 
 \section{Conclusion}
 The design rests on one claim: each constraint is decided by the evidence
-that can settle it, and no stage stops a candidate on its own authority.
-On this corpus it held---no ordering inversion against a reference, 0.915
-against the weak labels, 94.4\,\% routing agreement with an independent
-twin, and $\rho = 0.960$ from a third reading. And because it installs as
-a plugin with every score carrying its trace, the next corpus is a run,
-not a rebuild.
+that settles it, and no stage stops a candidate alone.
+On this corpus it held: no ordering inversion against a reference, 0.915
+against the weak labels, 94.4\,\% routing agreement with an independent twin,
+$\rho = 0.960$ from a third reading. And because it installs as a plugin
+carrying its own trace, the next corpus is a run, not a rebuild.
 
 \balance
 \end{document}

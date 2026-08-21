@@ -9,8 +9,9 @@ implementation of the same design, used as cross-host validation.
 ```
 submission_final/
 ├── README.md          ← you are here
-├── report.pdf         ← the report (IEEE two-column, 5 pages) — primary artifact
-├── report.md          ← same content as plain text
+├── report.pdf         ← THE REPORT — IEEE two-column, 5 pages
+├── report-detailed.pdf ← same report, prose left long, 7 pages
+├── report.md          ← plain-text prose, tracks the detailed version
 ├── scores.jsonl       ← 250 rows, one per summary_id
 └── code/
     ├── plugin-claude-code.zip   ← upload this to Claude to install the PRIMARY plugin
@@ -42,16 +43,34 @@ provided repository. `data/` is not duplicated here.
 
 ## Read the report
 
-`report.pdf` is the primary artifact: Exploration, Design, Validation,
-Limitations, in IEEE conference format. Diagrams are native TikZ; the charts
-are pgfplots drawn from the run data. `report.md` is the same content as plain
-text for anyone who prefers it.
+The report ships in two lengths. Both carry the same title, the same design and
+the same numbers; they differ in how much prose surrounds them.
 
-Rebuild the PDF (needs TeX Live with `IEEEtran`, `pgfplots`, `xeCJK`, and a
-CJK font such as Noto Sans CJK JP — Japanese examples are quoted in the text):
+| File | Pages | What it is |
+|---|---:|---|
+| **`report.pdf`** | **5** | The report. Exploration, Design, Validation, Limitations, Conclusion, in IEEE conference format, with all nine tables and three figures. Read this one. |
+| `report-detailed.pdf` | 7 | The same report with the prose left long: fuller exploration narrative, per-table commentary, and the un-compressed Limitations. Read it when a claim in the 5-page version needs its full argument. |
+
+Every table and figure appears in both, and the numbers were checked cell by
+cell — the shorter version tightens wording and re-lays out three wide tables
+into two side-by-side blocks, it does not drop data.
+
+Diagrams are native TikZ; the charts are pgfplots drawn from the run data.
+
+`report.md` is plain-text prose that tracks the detailed version, not the
+5-page one, and it predates the Contributions section. Treat the PDFs as
+authoritative.
+
+Rebuild either PDF (needs TeX Live with `IEEEtran`, `pgfplots`, `xeCJK`, and a
+CJK font such as Noto Sans CJK JP — Japanese examples are quoted in the text;
+the preamble falls back to Noto Sans JP, Yu Gothic, then MS Gothic):
 
 ```bash
-cd code/report && xelatex report.tex && xelatex report.tex
+cd code/report && xelatex report_5p.tex && xelatex report_5p.tex   # -> report.pdf
+```
+
+```bash
+cd code/report && xelatex report.tex && xelatex report.tex         # -> report-detailed.pdf
 ```
 
 ---
