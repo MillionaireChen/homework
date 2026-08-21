@@ -30,7 +30,7 @@
 \XeTeXlinebreakskip=0pt plus 1pt
 \usepackage{balance}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={Judge as a Plugin: A Reference-Free Evaluation Funnel for Japanese News Summaries},
+\hypersetup{pdftitle={[5-page] Judge as a Plugin: A Reference-Free Evaluation Funnel for Japanese News Summaries},
             pdfauthor={Chen Jinhua}}
 
 \definecolor{navy}{HTML}{16233A}
@@ -107,7 +107,7 @@ of the corpus alone---no model, no scoring---confirmed and counted them
 (Table~\ref{tab:census}). Four populations are mechanically derivable;
 the fifth is the remainder and is the interesting one.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \caption{Corpus census.}
 \label{tab:census}
 \centering\footnotesize
@@ -163,7 +163,7 @@ Five hypotheses were formed before building anything. Two survived
 unchanged, one survived in weakened form, and two were killed by the
 data (Table~\ref{tab:hyp}).
 
-\begin{table}[t]
+\begin{table}[htbp]
 \caption{Hypotheses formed during exploration and their fate.}
 \label{tab:hyp}
 \centering\footnotesize
@@ -312,7 +312,7 @@ dominant risk in this corpus, and conciseness carries five points
 because the sentence limit is already a hard constraint and almost never
 violated.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \caption{Soft rubric.}
 \label{tab:rubric}
 \centering\footnotesize
@@ -351,7 +351,7 @@ than stopped. It also escalated four truncations the gate had not
 proposed. Disagreement that survives one revision round is preserved as
 low confidence rather than averaged away.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \begin{tikzpicture}[node distance=0mm]
 \node[det,text width=54mm] (s1) {%
@@ -414,7 +414,7 @@ leave-one-out (MAE 4.01 versus 3.62); a feature that correlates better
 and predicts worse is a feature fitted to the sample, so the anchor
 stayed a reasoning aid and never became a number.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \caption{Rejected approaches and the evidence that rejected them.}
 \label{tab:rejected}
 \centering\footnotesize
@@ -481,42 +481,28 @@ Tables~\ref{tab:pop}--\ref{tab:third} give each check's numbers. The
 prose says what each one can and cannot support.
 
 \textbf{Naming used throughout.} \textbf{Run~A is the Claude Code
-plugin}; \textbf{run~B is the Codex plugin}. A is the primary
-implementation and the source of the submitted \texttt{scores.jsonl}; B
-is an independent second implementation of the same design on a
-different host with a different underlying model, used as cross-host
-validation and never as a fallback. Every table with an A and a B column
-repeats this mapping beneath it, so it never has to be recalled from
-here.
+plugin}, the primary implementation and the source of the submitted
+\texttt{scores.jsonl}; \textbf{run~B is the Codex plugin}, an independent
+second implementation of the same design on a different host, used as
+cross-host validation and never as a fallback.
 
 \subsection{Run-level results}
-Table~\ref{tab:runs} is the whole outcome of both runs, side by side.
-Run~A is the submitted one.
-
-Three things are worth naming before any agreement statistic. The two
-implementations land on the \emph{same} count for the failure a script
-can prove---50 verbatim copies, exactly---and within one for the failure
-an embedding can nominate, 16 against 17 off-topic. They diverge on the
-two categories that only a reading can raise: A stops 13 reversals and
-1 fabrication where B stops 7 and 0. And their score distributions
-differ in shape, not in centre: the means are 76.1 and 76.2, but B's
+Table~\ref{tab:runs} is the whole outcome of both runs; A is the
+submitted one. The two implementations land on the \emph{same} count for
+the failure a script can prove---50 verbatim copies---and within one for
+the failure an embedding can nominate, 16 against 17 off-topic; they
+diverge only on the two categories a reading must raise, A stopping 13
+reversals and 1 fabrication against B's 7 and 0. Their distributions
+differ in shape, not centre: the means are 76.1 and 76.2, but B's
 standard deviation is 19.0 against A's 15.1 and it awards 52
-\textsc{excellent} against A's 28. B is the more generous reader at the
-top of the scale and the more permissive one at the boundary; A stops
-eight more candidates and compresses the survivors. Every disagreement
-reported below is a consequence of that single difference in
-temperament.
+\textsc{excellent} against 28, so B is the more generous reader and A
+stops eight more candidates. B's orchestration also sent 155 of 250
+drafts back for a second round against A's 8, which is a fact about the
+hosts rather than the design; both runs end with all 250 records approved
+and nothing escalated. Every disagreement below follows from that
+difference in temperament.
 
-The review-completion block is not symmetric either, and the asymmetry
-is procedural rather than substantive: B's orchestration sent 155 of 250
-drafts back for a second round against A's 8. Both runs end with all 250
-records approved and nothing escalated, so the two arrive at a complete
-audit by different routes---A by drafting closer to what the Reviewer
-would accept, B by revising more. That is a fact about the two hosts,
-not about the design, and it is worth knowing before reading any
-agreement figure between them.
-
-\begin{table}[t]
+\begin{table}[htbp]
 \caption{Run-level results.}
 \label{tab:runs}
 \centering\footnotesize
@@ -608,7 +594,7 @@ and the Table~\ref{tab:census} categories were used as weak labels.
 Table~\ref{tab:pop} is the per-population outcome and
 Fig.~\ref{fig:bands} the same data as distributions.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \caption{Outcome by corpus-derived population.}
 \label{tab:pop}
 \centering\footnotesize
@@ -636,26 +622,20 @@ routing---copies, foreign placements and fragments should stop, reference
 reproductions should not.}
 \end{table}
 
-Survivor ranges tell more than the means. Fragments survive at 39--70 in
-A and 34--63 in B; reference reproductions at 42--89 and 40--99;
-generated candidates at 35--98 and 28--100. The fragment band sits
-strictly below the reference band's upper half in both runs, and no
-surviving fragment reaches \textsc{good} in either. The populations are
-separated even where they are not stopped.
+Survivor ranges tell more than the means: fragments survive at 39--70 in
+A and 34--63 in B, reference reproductions at 42--89 and 40--99,
+generated candidates at 35--98 and 28--100, and no surviving fragment
+reaches \textsc{good} in either run. Two things in Fig.~\ref{fig:bands}
+matter more than the headline figure. The fragment population is graded
+rather than uniformly stopped---a deliberate divergence from the label,
+discussed in Section~IV-B---and in run~A \emph{no} reference reproduction
+reached \textsc{excellent} while 28 generated candidates did, which is
+the reference-quality problem of Section~I made quantitative: the
+evaluator credits only what the article body supports. Run~B places 10
+references in the top band and 42 generated candidates, so the ordering
+survives the difference in temperament.
 
-Two things in Fig.~\ref{fig:bands} matter more than the headline
-agreement figure. First, the fragment population is graded rather than
-uniformly stopped---a deliberate divergence from the label, discussed in
-Section~IV-B, not a detection failure. Second, in run~A \emph{no}
-reference reproduction reached \textsc{excellent} while 28 generated
-candidates did. This is the reference-quality problem of Section~I made
-quantitative: the evaluator credits only what the article body supports,
-and XL-Sum references routinely assert more than that. Run~B, the more
-generous reader, places 10 references in the top band---and 42
-generated candidates, so the ordering survives the difference in
-temperament.
-
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \begin{tikzpicture}
 \begin{axis}[
@@ -723,19 +703,15 @@ population in both.}
 The application needs candidates ordered inside an article, so ordering
 was checked directly rather than inferred from scores
 (Table~\ref{tab:order}). Across all 50 articles, in both runs, zero
-articles placed a planted failure at or above the reference reproduction
-for that article.
+articles placed a planted failure at or above the reference reproduction,
+and the ordering is not degenerate: the median spread between best and
+worst survivor is 26 points in A and 32 in B, every article retained two
+to four survivors, and the reference reproduction sits at rank 2 in 43 of
+50 articles in A and 36 of 50 in B, never below rank 3. It is
+consistently near the top without being treated as the ceiling, which is
+what a design that distrusts its references should produce.
 
-Ordering is also not degenerate. The median spread between the best and
-worst surviving candidate within an article is 26 points in A and 32 in
-B, and every article retained two to four survivors, so no article was
-either wiped out or passed untouched. The reference reproduction sits at
-within-article rank 2 in the large majority of articles---43 of 50 in A,
-36 of 50 in B---and never below rank 3. It is consistently near the top
-without being treated as the ceiling, which is the behaviour a design
-that distrusts its references should produce.
-
-\begin{table}[t]
+\begin{table}[htbp]
 \caption{Within-article behaviour over the 50 articles.}
 \label{tab:order}
 \centering\footnotesize
@@ -775,7 +751,7 @@ underlying model, and neither implementation saw the other's output.
 Table~\ref{tab:xhost} is the comparison; Fig.~\ref{fig:xhost} is the
 same data as a scatter and a difference distribution.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \caption{Cross-implementation agreement.}
 \label{tab:xhost}
 \centering\footnotesize
@@ -816,35 +792,27 @@ Spearman, $r$ is Pearson.}
 \end{table}
 
 The disagreements are more informative than the agreements, and they are
-one-sided in a way that is easy to explain. All 11 pairs stopped only by
-A are severity calls on a defect B also found: 6 reversals, 4 fragments
-and 1 fabrication, which B scored between 28 and 66---low, but not
-stopped. The 3 stopped only by B were scored 58--71 by A. Not one
-disagreement is a case where one implementation saw a defect the other
-missed entirely. The two systems disagree about where the cliff is, not
-about which candidates are near it. Their weak-label composition says
-the same thing: the 11 are 7 generated candidates and 4 fragments, the 3
-are 1 and 2---all of them from the two populations where a judgement
-call is required.
+one-sided. All 11 pairs stopped only by A are severity calls on a defect
+B also found---6 reversals, 4 fragments and 1 fabrication, which B scored
+between 28 and 66---and the 3 stopped only by B were scored 58--71 by A.
+Not one is a case where one implementation saw a defect the other missed
+entirely: the two disagree about where the cliff is, not about which
+candidates are near it, and all 14 come from the two populations where a
+judgement call is required.
 
-The per-dimension block needs a caveat rather than a boast. Faithfulness
-and coverage---the two dimensions that carry 80 of the 100 points and do
-the discriminating---correlate at 0.864 and 0.882 with mean absolute
-differences of 4.25 of 50 and 2.96 of 30. Coherence and conciseness
-correlate far worse, 0.635 and 0.243, but their absolute differences are
-0.70 of 15 and 0.25 of 5: both runs push almost every survivor to the
-ceiling on these two, so the correlation is measuring the rank order of
-near-ties. That is range restriction, not disagreement, and it is also a
-sign that 15 and 5 points are more than these dimensions are earning.
+The per-dimension block needs a caveat. Faithfulness and coverage, which
+carry 80 of the 100 points and do the discriminating, correlate at 0.864
+and 0.882 with mean absolute differences of 4.25 of 50 and 2.96 of 30.
+Coherence and conciseness correlate far worse, 0.635 and 0.243, but
+differ by only 0.70 of 15 and 0.25 of 5 because both runs push almost
+every survivor to the ceiling---range restriction, not disagreement, and
+a sign that 15 and 5 points are more than these dimensions earn. Exact
+agreement on the five-band label is only 88 of 162, the least flattering
+number in the report; it is a banding artefact, since 96.9\,\% of pairs
+fall within one band, but the bands are a convenience for a reader and
+the ordering is what should be trusted.
 
-Exact agreement on the five-band label is only 88 of 162, or 54.3\,\%,
-and that number is here because it is the least flattering result in the
-report. It is a banding artefact---a mean absolute difference of 6.85
-straddles boundaries 10 to 15 points wide, and 96.9\,\% of the pairs are
-within one band---but it is a real caution. The bands are a convenience
-for a reader; the ordering is what should be trusted.
-
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \begin{tikzpicture}
 \begin{axis}[
@@ -924,7 +892,7 @@ $\rho = 0.960$ and 4.09 points, and with the secondary run at
 $\rho = 0.936$ and 5.95---in both cases more closely than the two
 implementations agree with each other on the same 94.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \caption{Third independent reading of the 109 unlabelled candidates.}
 \label{tab:third}
 \centering\footnotesize
@@ -958,90 +926,68 @@ runs stopped candidates the third read scored at the same depth. The
 terminal decisions on the unlabelled block are corroborated by a source
 that did not make them.
 
-This does not make the scores correct---three readings of the same
-rubric can share a bias, and none of them is a human judgement. What it
-does establish is that the signal on the unlabelled block is
-reproducible rather than idiosyncratic, which is the claim that was
-actually missing.
+This does not make the scores correct---three readings of the same rubric
+can share a bias, and none is a human judgement---but it does establish
+that the signal on the unlabelled block is reproducible rather than
+idiosyncratic, which is the claim that was actually missing.
 
 \subsection{Reproducing the numbers in this report}
 Every quantity quoted above is re-derived from the shipped artifacts by
 \texttt{code/valid\-ation/verify\_report\_numbers.py}, which reads only
-\texttt{data/}, the two run files and the third-read file, and asserts
-each claim. It prints 199 checks and exits non-zero if any of them moves.
-A reader who does not trust a number in this report can recompute it in
-one command rather than take it on faith.
+\texttt{data/}, the two run files and the third-read file. It prints 199
+checks and exits non-zero if any of them moves, so a reader who distrusts
+a number can recompute it in one command rather than take it on faith.
 \section{Limitations}
 
 \subsection{What the evaluation does not measure}
 No human judgement enters anywhere. Every agreement number in
-Section~III is either agreement with a mechanically derived label or
-agreement between readings of the same rubric, and neither is accuracy.
-The honest ceiling on all of it is \emph{reproducible}, not
-\emph{correct}.
-
-Reference reproductions are treated as acceptable by the weak-label
-check, which Section~I showed is not safe: the worst of them scores 42
-and the evaluator was right to say so. The label and the evaluator
-disagree there, and the label is wrong.
-
-It also measures nothing a reader would call style, register or audience
-fit: beyond grammatical completeness it has no view on whether a summary
-is well written, nor on the newsworthiness of the facts chosen---only on
-whether they are the article's main ones.
+Section~III is agreement with a mechanically derived label or between
+readings of the same rubric, and neither is accuracy, so the honest
+ceiling is \emph{reproducible}, not \emph{correct}. The weak-label check
+also treats reference reproductions as acceptable, which Section~I showed
+is not safe: the worst scores 42, and there the label rather than the
+evaluator is wrong. Beyond grammatical completeness the evaluation has no
+view on style, register, audience fit or the newsworthiness of the facts
+chosen---only on whether they are the article's main ones.
 
 \subsection{What it measures poorly}
-Truncation is the weak point, and the failure is partly structural. A
-one-record probe made this concrete: candidate
+Truncation is the weak point, and the failure is structural. Candidate
 \texttt{51395937\_e409196f} is the reference cut from 「…\mbox{方針を\mbox{発表}}した。」
-to 「…\mbox{方針を\mbox{発表}}」. The Reviewer declined to call it truncated, arguing
-that \mbox{発表} is a verbal noun discharging the clause and that this is
-ordinary headline register. The argument is sound and the conclusion is
-wrong---the corpus shows the deleted characters were した。 Nothing in
-the article or the candidate distinguishes \mbox{体言止め} from an amputated
-predicate; only the deleted text does, and a reference-free evaluator
-does not have it. The fragment population therefore splits in two:
-endings amputated mid-token (\mbox{しかしそ}, \mbox{女性2人が車}, \mbox{救助し}) are visible
+to 「…\mbox{方針を\mbox{発表}}」; the Reviewer declined to call it truncated because
+\mbox{発表} is a verbal noun discharging the clause, which is ordinary headline
+register. The argument is sound and the conclusion wrong---only the
+deleted した。 distinguishes \mbox{体言止め} from an amputated predicate, and a
+reference-free evaluator does not have it. The fragment population
+therefore splits: mid-token endings (\mbox{しかしそ}, \mbox{女性2人が車}) are visible
 and missing them is a recall problem worth fixing, while \mbox{体言止め} endings
-are undecidable under the contract and should not be counted against the
-evaluator. Reporting both as one category, as the 5-of-17 figure does,
-overstates the deficiency.
-
-The five-band labels are less stable than the scores, as
-Section~III-F showed. Bands are for readers; ordering is for decisions.
-
-Cost is uneven. The funnel settles 51 of 250 pairs with a script and one
-confirmation pass and keeps 80 of 250 out of anchor generation and
-scoring entirely, but the price of moving the truncation judgement from
-the script to the Reviewer is that a fragment now consumes both before
-it is stopped---about six percent of the scoring work in this run.
+are undecidable under the contract, so the 5-of-17 figure overstates the
+deficiency. The five-band labels are also less stable than the scores
+(Section~III-F); bands are for readers, ordering for decisions. Cost is
+uneven too: moving the truncation judgement from the script to the
+Reviewer makes a fragment consume both before it is stopped, about six
+percent of the scoring work.
 
 \subsection{One structural gap, stated plainly}
-The Reviewer in the submitted run held file-read tools and the corpus
+The Reviewer in the submitted run held file-read tools while the corpus
 sat on disk with its reference column intact. Its inputs contained no
 reference field and the artifacts show none was used, but that is a
-guarantee by convention, and a convention is not evidence. A
-structurally blind Reviewer that receives article and candidate inline
-and holds no read tools is written and shipped in both plugins; no run
-has used it yet. The right next step is to re-adjudicate the 85 terminal
-decisions with it and publish the delta, because that number is the
-honest measure of how much the reachability of a reference mattered.
+guarantee by convention, and a convention is not evidence. A structurally
+blind Reviewer is written and shipped in both plugins and no run has used
+it; the right next step is to re-adjudicate the 85 terminal decisions
+with it and publish the delta.
 
 \subsection{What I would do next}
-More data, first and above everything else. The whole report rests on
-250 pairs from 50 articles of one publisher in one language, with a
-median article length of 1587 characters. Every threshold here---the
-0.50 similarity cut, the four dimension maxima, the five band
-boundaries---is calibrated to that sample and should be assumed invalid
-outside it. The immediate work is to run the same funnel over a much
-larger Japanese corpus drawn from several publishers, then across
-languages, because a design whose hard constraints include Japanese
-sentence segmentation and \mbox{体言止め} register has obvious
-language-specific parts that must be re-derived rather than translated.
-Only after that does it make sense to spend on human adjudication of a
-stratified sample, controlled perturbations for numbers, entities,
-negation and causality, and re-calibration of the embedding threshold
-per model and domain.
+More data, above everything else. The report rests on 250 pairs from 50
+articles of one publisher in one language, and every threshold here---the
+0.50 similarity cut, the dimension maxima, the band boundaries---is
+calibrated to that sample and should be assumed invalid outside it. The
+immediate work is the same funnel over a larger Japanese corpus from
+several publishers, then across languages, since hard constraints built
+on Japanese sentence segmentation and \mbox{体言止め} register must be
+re-derived rather than translated. Only then is it worth spending on
+human adjudication of a stratified sample, controlled perturbations for
+numbers, entities, negation and causality, and per-model re-calibration
+of the embedding threshold.
 
 \section{Conclusion}
 This is a working, fully audited prototype with evidence on one corpus:
