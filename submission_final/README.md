@@ -15,6 +15,7 @@ submission_final/
 └── code/
     ├── plugin-claude-code.zip   ← upload this to Claude to install the PRIMARY plugin
     ├── plugin-codex.zip         ← same, for the SECONDARY plugin on Codex
+    ├── install/                 screenshots of both upload flows, as walked through
     ├── plugins/
     │   ├── a-claude-code/    PRIMARY plugin — installable, produced scores.jsonl
     │   └── b-codex/          SECONDARY plugin — same design, different host
