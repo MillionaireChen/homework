@@ -24,6 +24,7 @@ submission_final/
     │   └── secondary_codex_full250/   full audit trail of the second run
     ├── exploration/          probes, their raw outputs, and abandoned prototypes
     ├── validation/           cross-implementation comparison + number verifier
+    ├── report/               report.tex (TikZ/pgfplots sources) + build
     ├── DESIGN.md             the design specification
     ├── processing.md         Claude-side decision log, dated, including reversals
     └── progressing_GT.md     Codex-side implementation log
@@ -52,6 +53,8 @@ the same numbers; they differ in how much prose surrounds them.
 Every table and figure appears in both, and the numbers were checked cell by
 cell — the shorter version tightens wording and re-lays out three wide tables
 into two side-by-side blocks, it does not drop data.
+
+Diagrams are native TikZ; the charts are pgfplots drawn from the run data.
 
 The two PDFs are the report; there is no other version of it.
 
