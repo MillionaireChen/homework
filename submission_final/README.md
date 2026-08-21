@@ -13,6 +13,8 @@ submission_final/
 ├── report.md          ← same content as plain text
 ├── scores.jsonl       ← 250 rows, one per summary_id
 └── code/
+    ├── plugin-claude-code.zip   ← upload this to Claude to install the PRIMARY plugin
+    ├── plugin-codex.zip         ← same, for the SECONDARY plugin on Codex
     ├── plugins/
     │   ├── a-claude-code/    PRIMARY plugin — installable, produced scores.jsonl
     │   └── b-codex/          SECONDARY plugin — same design, different host
@@ -53,19 +55,39 @@ cd code/report && xelatex report.tex && xelatex report.tex
 
 ---
 
-## Run the primary plugin (Claude Code)
+## Install the primary plugin (Claude Code)
 
 Prerequisites: Claude Code, Python 3.9+, and Ollama serving
 `qwen3-embedding:0.6b` locally.
+
+### Option A — upload `code/plugin-claude-code.zip` (no checkout needed)
+
+Upload the zip directly to Claude and install `summary-quality-funnel` from it.
+Its manifests sit at the paths Claude expects:
+
+```
+.claude-plugin/marketplace.json
+summary-quality-funnel/.claude-plugin/plugin.json
+```
+
+This is the shortest path for a reader who wants to run the evaluator without
+cloning anything. `code/plugin-codex.zip` is the same thing for the secondary
+plugin; the two are packaged separately so each host gets only what it can use.
+
+### Option B — install from this directory
 
 ```bash
 claude plugin marketplace add "<abs-path>/submission_final/code/plugins/a-claude-code"
 claude plugin install summary-quality-funnel@local
 ```
 
-The marketplace points at the working tree, so editing a file in this
-directory changes the installed plugin with no sync step. Then, from the
-repository root:
+The marketplace points at the working tree, so editing a file in this directory
+changes the installed plugin with no sync step. Use this option when you want to
+read or modify the agent contracts while running them.
+
+## Reproduce the submitted run
+
+Either option leaves the same plugin installed. From the repository root:
 
 ```
 /summary-quality-funnel:evaluate-summaries data/articles.jsonl data/summaries.jsonl;
@@ -81,12 +103,15 @@ the report. Runtime input is only the assigned article and the candidate;
 after every score is final.
 
 Verify the install with `claude plugin validate` and `claude plugin details`
-(expected: version 0.2.0, 4 agents, 2 skills).
+(expected: version 0.2.0, 5 agents, 1 skill, 1 command — the fifth agent is the
+corpus-blind Reviewer discussed in the report's Limitations, shipped but unused
+by the submitted run).
 
 ## Run the secondary plugin (Codex)
 
-Install `code/plugins/b-codex/summary-quality-funnel` through Codex's plugin
-manager, then:
+Install it from `code/plugin-codex.zip`, or from
+`code/plugins/b-codex/summary-quality-funnel` through Codex's plugin manager,
+then:
 
 ```
 /summary-quality-funnel:evaluate-summary-quality data/articles.jsonl data/summaries.jsonl;
