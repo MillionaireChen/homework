@@ -94,6 +94,14 @@ layout.
 - `third_read_109_unlabelled/` — the third independent scoring of the 109
   candidates with no derivable ground truth (§III-G), with its `agreement.json`.
 
+## `report/`
+
+`report.tex` and its build (`build.sh`). All diagrams are TikZ and all charts
+are pgfplots drawn from the run data; there are no imported images.
+`archive/` holds the first version of the report, whose Validation section
+carried one mixed summary table instead of the five result tables the current
+one uses; it is kept because it is part of how the work went.
+
 ## The logs
 
 - `DESIGN.md` — the design specification as it currently stands.
