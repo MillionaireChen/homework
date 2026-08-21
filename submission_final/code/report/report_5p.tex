@@ -30,7 +30,7 @@
 \XeTeXlinebreakskip=0pt plus 1pt
 \usepackage{balance}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={[5-page] Judge as a Plugin: A Reference-Free Evaluation Funnel for Japanese News Summaries},
+\hypersetup{pdftitle={[brief] Judge as a Plugin: A Reference-Free Evaluation Funnel for Japanese News Summaries},
             pdfauthor={Chen Jinhua}}
 
 \definecolor{navy}{HTML}{16233A}
@@ -48,12 +48,12 @@
 
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}p{9mm}}
-\renewcommand{\arraystretch}{1.05}
-\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.0}
+\setlength{\tabcolsep}{3pt}
 
 \tikzset{
   stage/.style={rounded corners=1.6pt,draw=navy,line width=.35pt,fill=white,align=left,
-                inner xsep=2.2mm,inner ysep=1.5mm,font=\sffamily\fontsize{6.4}{7.4}\selectfont},
+                inner xsep=2.2mm,inner ysep=1.5mm,font=\sffamily\fontsize{5.1}{6.0}\selectfont},
   det/.style={stage,draw=cblue,fill=cbluef},
   emb/.style={stage,draw=cgreen,fill=cgreenf},
   sem/.style={stage,draw=corange,fill=corangef},
@@ -72,7 +72,7 @@
   \par\vspace{2.5pt}%
   \noindent\parbox{\columnwidth}{\raggedright\scriptsize #1\par}}
 \newcommand{\abkey}{\textbf{A} $=$ Claude Code plugin (primary run, the
-source of \texttt{scores.jsonl}); \textbf{B} $=$ Codex plugin (secondary).}
+source of the submitted scores); \textbf{B} $=$ Codex plugin (secondary).}
 \newcommand{\abnote}{\tabnote{\textit{Note.} \abkey}}
 
 \title{Judge as a Plugin: A Reference-Free Evaluation Funnel for Japanese News Summaries}
@@ -85,7 +85,7 @@ source of \texttt{scores.jsonl}); \textbf{B} $=$ Codex plugin (secondary).}
 \maketitle
 
 \begin{abstract}
-A summariser in production is handed an article and returns a summary; nobody hands it a human reference. This report describes an evaluator built to that contract. Exploration showed the 250 supplied candidates are not a quality gradient but five distinct populations, and that the two most dangerous---fluent text that reverses the article, and fluent text that invents its central claim---are invisible to every cheap signal, because they are on topic by construction. The design separates constraints a script can prove from constraints only a reader can judge, and requires an independent reviewer to confirm every stopping decision. Validation rests on seven checks that do not share a failure mode, including a natural experiment in which the same candidate texts appear under both their own and a foreign article, and a third independent read of the 109 candidates for which no ground truth can be derived at all. The evaluator ships as an installable plugin, implemented twice on two agent hosts; the two implementations agree on routing for 94.4\,\% of candidates and on terminal category for 74 of 74.
+A summariser in production is handed an article and returns a summary; nobody hands it a human reference. This report describes an evaluator built to that contract. Exploration showed the 250 supplied candidates are not a quality gradient but five distinct populations, and that the two most dangerous---fluent text that reverses the article, and fluent text that invents its central claim---are invisible to every cheap signal, because they are on topic by construction. The design separates constraints a script can prove from constraints only a reader can judge, and requires an independent reviewer to confirm every stopping decision. Validation rests on seven checks that do not share a failure mode, including a third independent read of the 109 candidates for which no ground truth can be derived. The evaluator ships as an installable plugin, implemented twice on two agent hosts; the two agree on routing for 94.4\,\% of candidates and on terminal category for 74 of 74.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -95,22 +95,20 @@ LLM evaluation, reference-free metrics, summarisation quality, agent isolation, 
 \section{Exploration}
 
 \subsection{First contact: what the 250 candidates actually are}
-The dataset is 50 articles (483--3664 characters, median 1587) with a
-human reference each (41--164 characters, median 93), and five opaque
-candidates per article (22--302 characters, median 125).
+The dataset is 50 articles of 483--3664 characters, each with a 41--164
+character human reference and five opaque candidates of 22--302.
 
 Reading candidates side by side inside their articles, rather than as a
 flat list, made the structure obvious within the first few articles: the
 five candidates per article are not five samples from one generator.
-They are draws from distinct populations. A string-level scan
-of the corpus alone---no model, no scoring---confirmed and counted them
-(Table~\ref{tab:census}). Four populations are mechanically derivable;
-the fifth is the remainder and is the interesting one.
+They are draws from distinct populations. A string-level scan of the corpus alone---no model, no
+scoring---confirmed and counted them (Table~\ref{tab:census}): four are
+mechanically derivable, the fifth is the remainder.
 
 \begin{table}[htbp]
 \caption{Corpus census.}
 \label{tab:census}
-\centering\footnotesize
+\centering\tiny
 \begin{tabularx}{\columnwidth}{@{}p{27mm}rY@{}}
 \toprule
 \textbf{Population} & \textbf{$n$} & \textbf{Derivation} \\
@@ -129,193 +127,158 @@ comparison alone, with no evaluator output involved; used as weak labels
 only after both runs were final.}
 \end{table}
 
-Three structural facts came out of the same scan and shaped everything
-downstream.
-
-\emph{The sentence limit is almost never the problem.} Only three of 250
+Three structural facts came out of the same scan.
+\emph{The sentence limit is almost never the problem}---only three of 250
 candidates exceed three sentences, and all three are article copies that
-would be stopped anyway. A rule that enforces the stated product
-specification is necessary but will almost never fire; treating
-``$\leq 3$ sentences'' as the headline quality dimension would have been
-a serious misallocation of effort.
-
-\emph{The corpus contains an accidental controlled experiment.} Twenty
-groups of candidates share byte-identical text after Unicode
-normalisation. Eight of those groups sit inside a single article---the
-same text scored twice, independently. Fourteen span articles: the same
-text is attached to its own article in one place and to a foreign
-article in another. This is a free reliability instrument and Section~III
-uses it as one.
+would be stopped anyway, so a rule enforcing the product specification is
+necessary but will almost never fire. \emph{The corpus contains an
+accidental controlled experiment}: twenty groups of candidates are
+byte-identical after Unicode normalisation, eight inside a single article
+and fourteen spanning two---a free reliability instrument.
 
 \emph{The references are not ground truth, and the data says so.} The
 assignment warns that XL-Sum reference quality is uneven. It is worse
 than uneven: several references assert facts the article body never
-contains. The reference for article \texttt{35278497} states a 4割
-sexual-assault share, a suspect profile, and a 379-case figure, none of
-which appear in the supplied text; the reference for
-\texttt{features-and-analysis-46643494} is a photo caption that opens
-with \mbox{この写真}, a demonstrative whose antecedent exists only in an image
-nobody is given. Any design that scores a candidate by its distance to
-the reference would reward reproducing these.
+contains. One reference states a 4割 sexual-assault share, a suspect
+profile and a 379-case figure, none of which appear in the supplied text;
+another is a photo caption opening with \mbox{この写真}, a demonstrative whose
+antecedent exists only in an image nobody is given. Any design scoring a candidate by its distance to the
+reference rewards them.
 
 \subsection{Hypotheses, and which ones died}
 Five hypotheses were formed before building anything. Two survived
 unchanged, one survived in weakened form, and two were killed by the
 data (Table~\ref{tab:hyp}).
 
-\begin{table}[htbp]
+\begin{table}[t]
 \caption{Hypotheses formed during exploration and their fate.}
 \label{tab:hyp}
-\centering\footnotesize
+\centering\tiny
 \begin{tabularx}{\columnwidth}{@{}>{\raggedright\arraybackslash\hyphenpenalty=10000\exhyphenpenalty=10000}p{31mm}Y@{}}
 \toprule
 \textbf{Hypothesis} & \textbf{Outcome} \\
 \midrule
 Copying is detectable with string evidence, not embeddings &
 \textbf{Survived.} A copy is maximally similar to its article, so
-similarity is exactly the wrong instrument. Containment and $n$-gram
-coverage caught 50 of 50. \\
+similarity is the wrong instrument; containment and $n$-gram coverage
+caught 50 of 50. \\
 \addlinespace[1pt]
 Embedding similarity separates topic mismatch &
-\textbf{Survived.} Two disjoint 10-article probes: matched 0.707--0.868,
-mismatched 0.163--0.398. \\
+\textbf{Survived.} Two 10-article probes: 0.707--0.868 matched,
+0.163--0.398 mismatched. \\
 \addlinespace[1pt]
 Similarity can screen relevance on its own &
-\textbf{Weakened.} On all 250 pairs the bands overlap: off-topic reaches
-0.4813, on-topic falls to 0.4034. It may nominate; it may not decide. \\
+\textbf{Weakened.} On all 250 pairs the bands overlap, off-topic reaching
+0.4813 and on-topic falling to 0.4034: it may nominate, not decide. \\
 \addlinespace[1pt]
 Missing sentence-final punctuation indicates truncation &
-\textbf{Killed.} \mbox{体言止め}---a verbal noun closing a headline---is
-standard Japanese news register and looks identical to an amputated
-predicate. \\
+\textbf{Killed.} \mbox{体言止め}, a verbal noun closing a headline, is
+standard news register and looks identical to an amputated predicate. \\
 \addlinespace[1pt]
 Factual defects form one gradient, so one faithfulness score suffices &
 \textbf{Killed.} A wrong peripheral number and a reversed main event are
-not two points on a scale; one is a flawed summary, the other is a
-false one. \\
+not two points on a scale but a flawed summary and a false one. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-The last row is the finding the rest of the design turns on. Inspecting
-the 109 unlabelled candidates one by one exposed a failure mode with no
-detector anywhere in the pipeline as it then stood: text that is fluent,
+The last row is the finding the design turns on. Inspecting the 109
+unlabelled candidates one by one exposed a failure mode with no detector
+anywhere in the pipeline as it then stood: text that is fluent,
 within the sentence limit, not a copy, not truncated, on topic, and
-\emph{states the opposite of the article}. Article \texttt{41396293}
-reports the Japanese prime minister announcing a dissolution of the
-lower house; its candidate \texttt{0c954428} reports him announcing that
-he will \emph{not} dissolve it. Article \texttt{34991666} reports two
-attackers dead; candidate \texttt{f6f8e339} reports them fled to another
-state and still at large. Nothing upstream can see this. The string
-evidence is clean. The embedding similarity is \emph{high}, because the
-topic is right---that is precisely why the failure is dangerous. A
-sibling mode invents rather than inverts: candidate
-\texttt{41875333\_aa36a21a} attributes to the US president the quoted
-line 「米国はもはや世界の警察ではない」, which appears nowhere in the
-article and displaces the claim the headline actually makes.
+\emph{states the opposite of the article}. One article reports the
+Japanese prime minister announcing a dissolution of the lower house; its
+candidate reports him announcing he will \emph{not} dissolve it. Nothing upstream can see this: the string evidence is clean and the
+embedding similarity \emph{high}, because the topic is right---which is
+precisely why the failure is dangerous. A sibling mode invents rather than inverts, attributing to the US
+president a line, 「米国はもはや世界の警察ではない」, that appears nowhere
+in the article and displaces the headline's actual claim.
 
-Set against these, a case such as \texttt{40490051\_5d9feeef} is a
-different animal: it substitutes five details (シリア for イラク,
-男性 for 女性, 30代 for 10代, 8000 for 6000, 500 for 300) while the
-central event---a fierce IS-clearing battle in Mosul's old city---is
-correctly reported. It is a bad summary, not a false one, and an
-evaluation that collapses both into ``score zero'' has thrown away the
-ranking the application needs.
+Set against these, one candidate is a different animal: it substitutes
+five details (シリア for イラク, 男性 for 女性, 30代 for 10代, 8000 for
+6000, 500 for 300) while the central event, a fierce IS-clearing battle in
+Mosul's old city, is correctly reported. It is a bad summary, not a false
+one, and collapsing both into ``score zero'' throws the ranking away.
 
 \subsection{Contributions}
 These observations yield one design, implemented twice on two agent
-hosts. This report contributes the following.
+hosts. The contributions are as follows.
 
 \begin{enumerate}
 \setlength{\itemsep}{1.5pt}
 
-\item \emph{Data characterisation.} The 250 candidates form five
-distinct populations rather than a quality gradient, only 141 of which the
-corpus can label, and the references are not ground truth: 45 of 50 are
-outscored by a generated candidate in their own article. The two dominant
-failure modes, reversal and fabrication, are on topic by construction, so
-no cheap signal can detect them.
+\item \emph{Data characterisation.} The 250 candidates form five distinct
+populations rather than a quality gradient, only 141 of them labellable,
+and the references are not ground truth. The two dominant failure modes,
+reversal and fabrication, are on topic by construction, beyond any cheap
+signal.
 
 \item \emph{A stated determinism--judgement boundary.} Hard constraints
-terminate and the rest is graded on a soft rubric, and within the hard
-constraints a script decides only what its measurement proves while a
-Grounding Gate agent blind to the rubric screens grounding before any
-scoring. The split settles 51 of 250 pairs deterministically and keeps 80
-out of the most expensive stage.
+terminate and the rest is graded on a soft rubric; inside the hard tier a
+script decides only what its measurement proves while a Grounding Gate
+agent screens grounding before any scoring, which settles 51 of 250 pairs
+deterministically and spares the most expensive stage 80 more.
 
 \item \emph{Judge as a plugin.} Where LLM-as-a-judge is normally a
-notebook and a prompt, we deliver the judge as an installable plugin
-whose role contracts, rubric and few-shot bank are versioned files and
-whose every record carries a replayable evaluation trace, so a third
-party can run and audit the evaluator instead of reconstructing it. The
-design is also portable, which lets us implement it twice and turn
-delivery itself into a validation instrument (Section~III-F).
+notebook and a prompt, we deliver it as an installable plugin whose role
+contracts, rubric and few-shot bank are versioned files and whose records
+carry a replayable trace, so a third party can run and audit the evaluator
+rather than rebuild it---and, being portable, implement it twice, turning
+delivery into a validation instrument (Section~III-F).
 
 \item \emph{Validation by instruments that fail differently.} The two
-implementations route all 250 pairs with zero arithmetic errors and zero
-ordering inversions against the reference, agree with corpus-derived weak
-labels at 0.915, and agree with each other on routing for 94.4\,\% of
-candidates and on terminal category for 74 of 74. On the 109 candidates
-carrying no derivable label, a third independent reading agrees with the
-submitted run at $\rho = 0.960$ and places every terminated candidate at
-the bottom of its distribution; every number quoted here is re-derived
-from the shipped artefacts by one script.
+implementations agree with corpus-derived weak labels at 0.915 and with
+each other on routing for 94.4\,\% of candidates; on the 109 candidates
+carrying no derivable label a third independent reading agrees with the
+submitted run at $\rho = 0.960$. Every number quoted here is recomputable
+in one command.
 
 \end{enumerate}
 
 \section{Design}
 
 \subsection{The evidence boundary}
-The runtime evaluator sees exactly one article and one candidate---never
-a reference, never another article, never a corpus. This is not a
-stylistic preference: a signal that needs a second article is
-unavailable to a caller who sent one request, and a signal derived from
-a reference is unavailable to an application whose purpose is to run
-where no reference exists. An earlier relevance gate ranked each
-candidate against every article in the batch; that evidence was removed
-even though it worked, because it measured something the deployed system
-cannot. References enter once, after every score is final, in
-Section~III.
+The runtime evaluator sees exactly one article and one candidate---never a
+reference, never another article, never a corpus---because a caller who
+sent one request has nothing else to give. An earlier gate ranked each
+candidate against every article in the batch; it worked, and was removed
+anyway, because it measured something the deployed system cannot.
+References enter once, after every score is final (Section~III).
 
 \subsection{Two layers of hard constraint, then a graded score}
 Figure~\ref{fig:funnel} is the funnel, annotated with the actual counts
 from the submitted run. The organising principle is that constraints
 divide by what kind of evidence can settle them.
 
-\emph{Layer~1 is physical.} Empty output, sentence count above three,
-and near-verbatim copying are settled by a script, because the
-measurement \emph{is} the conclusion: a containment ratio near 1.0 is
-not evidence of copying, it is copying.
+\emph{Layer~1 is physical.} Empty output, sentence count above three and
+near-verbatim copying are settled by a script, because there the
+measurement \emph{is} the conclusion: a containment ratio near 1.0 is not
+evidence of copying, it is copying.
 
-\emph{Layer~2 is semantic.} Whether a candidate is grounded in its
-article cannot be settled by any measurement, so a dedicated Grounding
-Gate agent screens every survivor before any scoring happens. It answers
-one question---is this candidate grounded?---and returns at most one
-central category (\textsc{off\_topic}, \textsc{factual\_reversal},
-\textsc{fabricated\_content}) with one article span and one candidate
-span as evidence. It is deliberately blind to quality: it never receives
-the rubric, never sees the anchor, and cannot emit a score. An agent
-that both screens and scores will trade a central defect for a low
-score instead of stopping it.
+\emph{Layer~2 is semantic.} Whether a candidate is grounded cannot be
+settled by any measurement, so a Grounding Gate agent screens every
+survivor before any scoring, returning at most one central category
+(\textsc{off\_topic}, \textsc{factual\_reversal},
+\textsc{fabricated\_content}) with an article span and a candidate span as
+evidence. It is deliberately blind to quality---no rubric, no anchor, no
+score---because an agent that both screens and scores trades a central
+defect for a low score.
 
-Between the two layers sits embedding relevance, which is
-\emph{required but never terminal}. Every survivor must leave that stage
-carrying a similarity value against its own article; a run that could
-not reach the embedding model is incomplete, not cheaper. But a value
-below threshold is only a hint that the semantic layer should look
-closely.
+Between the two layers sits embedding relevance, \emph{required but never
+terminal}. Every survivor must leave that stage carrying a similarity
+value against its own article---a run that could not reach the embedding
+model is incomplete, not cheaper---but a value below threshold is only a
+hint that the semantic layer should look closely.
 
 Survivors of both layers receive a graded score
-(Table~\ref{tab:rubric}). Weights follow directly from the exploration:
-faithfulness carries half the total because fluent-but-false is the
-dominant risk in this corpus, and conciseness carries five points
-because the sentence limit is already a hard constraint and almost never
-violated.
+(Table~\ref{tab:rubric}). Faithfulness carries half the total because
+fluent-but-false is the dominant risk here; conciseness carries five
+points because the sentence limit is already a hard constraint.
 
-\begin{table}[htbp]
+\begin{table}[t]
 \caption{Soft rubric.}
 \label{tab:rubric}
-\centering\footnotesize
+\centering\tiny
 \begin{tabularx}{\columnwidth}{@{}p{18mm}rYr@{}}
 \toprule
 \textbf{Dimension} & \textbf{Max} & \textbf{Question} & \textbf{Mean} \\
@@ -340,39 +303,36 @@ reader who cannot check the source; copying and truncation rank above
 them, because a copy at least contains true sentences.
 
 \subsection{Independent review of every stopping decision}
-No stage in the funnel may stop a candidate on its own authority. Each
-proposal---from the script, from the grounding gate, from the scorer's
-backstop---goes to a Reviewer in a fresh context that re-derives the
-evidence from the article. The review is not a rubber stamp: in the
-submitted run it rejected 2 of 53 physical proposals, 8 of 37 grounding
-proposals (including all eight fabrication claims), and 3 of 4 late
-scorer proposals, sending each rejected case onward to be scored rather
-than stopped. It also escalated four truncations the gate had not
-proposed. Disagreement that survives one revision round is preserved as
-low confidence rather than averaged away.
+No stage may stop a candidate on its own authority: every proposal goes to
+a Reviewer in a fresh context that re-derives the evidence from the
+article. The review is not a rubber stamp---it rejected 2 of 53 physical
+proposals, 8 of 37 grounding proposals (including all eight fabrication
+claims) and 3 of 4 late scorer proposals, and escalated four truncations
+the gate had not proposed. Disagreement surviving one revision round is
+preserved as low confidence rather than averaged away.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
 \centering
 \begin{tikzpicture}[node distance=0mm]
-\node[det,text width=54mm] (s1) {%
+\node[det,text width=52mm] (s1) {%
   \textbf{Layer 1 · deterministic script}\\[.4mm]
   empty · $>3$ sentences · verbatim copy \emph{(decided)}\\
   truncation evidence \emph{(measured, not decided)}};
-\node[rev,below=2.6mm of s1] (r1) {Reviewer · 51 confirmed, 2 returned};
-\node[emb,below=2.6mm of r1,text width=54mm] (s2) {%
+\node[rev,below=1.4mm of s1] (r1) {Reviewer · 51 confirmed, 2 returned};
+\node[emb,below=1.4mm of r1,text width=52mm] (s2) {%
   \textbf{Embedding relevance} · \texttt{qwen3-embedding:0.6b}\\[.4mm]
   own article only · required · never terminal · 19 below 0.50};
-\node[sem,below=2.6mm of s2,text width=54mm] (s3) {%
+\node[sem,below=1.4mm of s2,text width=52mm] (s3) {%
   \textbf{Layer 2 · Grounding Gate agent}\\[.4mm]
   off-topic · factual reversal · fabricated content\\
   no score, no rubric, no anchor · 37 proposals};
-\node[rev,below=2.6mm of s3] (r2) {Reviewer · 29 confirmed, 8 returned};
-\node[scr,below=2.6mm of r2,text width=54mm] (s4) {%
+\node[rev,below=1.4mm of s3] (r2) {Reviewer · 29 confirmed, 8 returned};
+\node[scr,below=1.4mm of r2,text width=52mm] (s4) {%
   \textbf{Anchor + claim-grounded scoring}\\[.4mm]
   50 cached anchors · atomic claims · 4 dimensions\\
   semantic backstop: 4 late proposals};
-\node[rev,below=2.6mm of s4] (r3) {Reviewer · 157 approve · 5 revise · 4 escalate};
-\node[scr,below=2.6mm of r3,text width=54mm,align=center] (out) {%
+\node[rev,below=1.4mm of s4] (r3) {Reviewer · 157 approve · 5 revise · 4 escalate};
+\node[scr,below=1.4mm of r3,text width=52mm,align=center] (out) {%
   \textbf{165 graded 35--98} \quad + \quad \textbf{85 terminal at 0}};
 
 \node[cnt,above=1.2mm of s1] {250 pairs in};
@@ -400,32 +360,27 @@ never reach anchor generation and scoring, the most expensive stage.}
 \end{figure}
 
 \subsection{Alternatives considered and rejected}
-Table~\ref{tab:rejected} lists the approaches that were tried and
-dropped, each with the measurement that killed it. Two deserve a
-sentence. A cross-encoder reranker
-(\texttt{bge-reranker-v2-m3}) separates the off-topic population more
-cleanly than the embedding does in mean terms---0.0001 against
-0.9300---but at a 0.50 cut it flags 15 legitimate candidates as
-unrelated where the embedding flags 3, so it buys no recall and costs
-five times the false alarms. And embedding the candidate against the
-generated anchor correlated better with coverage
-($\rho = 0.630$ versus $0.528$) yet predicted it worse under
-leave-one-out (MAE 4.01 versus 3.62); a feature that correlates better
-and predicts worse is a feature fitted to the sample, so the anchor
-stayed a reasoning aid and never became a number.
+Table~\ref{tab:rejected} lists the approaches tried and dropped, each with
+the measurement that killed it. Two are worth naming. A cross-encoder
+reranker (\texttt{bge-reranker-v2-m3}) separates off-topic text more
+cleanly in mean terms but buys no recall at five times the false alarms.
+And embedding the candidate against the generated anchor correlated better
+with coverage yet predicted it worse under leave-one-out---a feature that
+correlates better and predicts worse is fitted to the sample, so the
+anchor stayed a reasoning aid and never became a number.
 
-\begin{table}[htbp]
+\begin{table}[t]
 \caption{Rejected approaches and the evidence that rejected them.}
 \label{tab:rejected}
-\centering\footnotesize
+\centering\tiny
 \begin{tabularx}{\columnwidth}{@{}>{\raggedright\arraybackslash\hyphenpenalty=10000}p{25mm}Y@{}}
 \toprule
 \textbf{Approach} & \textbf{Why it was rejected} \\
 \midrule
-Score against the reference &
-Unavailable in production, and demonstrably wrong here: 45 of 50
-references were outscored by a generated candidate in their own
-article. \\
+Score against the
+reference &
+Unavailable in production, and wrong here: generated candidates outscored
+45 of 50 references. \\
 \addlinespace[1pt]
 Similarity as a quality score &
 A verbatim copy is the most similar text there is. \\
@@ -438,12 +393,12 @@ Anchor similarity as a scoring feature &
 Higher correlation, worse leave-one-out error. \\
 \addlinespace[1pt]
 Batch-relative relevance &
-Uses articles a production caller never sent. Removing it changed
-0 of 19 nominations. \\
+Uses articles a production caller never sent; removing it changed 0 of
+19 nominations. \\
 \addlinespace[1pt]
 Regex decides truncation &
-\mbox{体言止め} is indistinguishable from an amputated predicate without the
-deleted text. \\
+\mbox{体言止め} is indistinguishable from an amputated predicate
+without the deleted text. \\
 \addlinespace[1pt]
 One agent screens \emph{and} scores &
 It trades a central defect for a low score instead of stopping. \\
@@ -452,106 +407,91 @@ It trades a central defect for a low score instead of stopping. \\
 \end{table}
 
 \subsection{Delivery: the design is a plugin, not a script}
-The evaluator is packaged as an installable plugin so that anyone who
-needs it can run it rather than reconstruct it. The primary
-implementation---\textbf{run~A} everywhere below---is a Claude Code
-plugin: one slash command, one skill,
-four isolated agents (Grounding Gate, Scorer, Reviewer, Reporter) and
-the deterministic scripts they call. Installation is two commands
-against a local marketplace declared in the repository. There is no
-orchestration notebook, no prompt to paste and no hidden state---the
-manifest, rubric, few-shot bank and agent contracts are all files under
-version control, so a reviewer can read exactly what each role was
+The evaluator is packaged as an installable plugin, so anyone who needs it
+can run it rather than reconstruct it. The primary
+implementation---\textbf{run~A} below---is a Claude Code plugin carrying
+four isolated agents (Grounding Gate, Scorer, Reviewer, Reporter) and the
+deterministic scripts they call. There is no orchestration notebook and no
+hidden state: the rubric, the few-shot bank and each agent's contract are
+files under version control, so a reader can see what every role was
 told.
-
-The same design is implemented a second time as a Codex plugin, and that
-is \textbf{run~B} everywhere below. This is
-not redundancy for its own sake---it is the instrument for the
-cross-host check in Section~III-F. Both plugins emit the same record
-schema, including an \texttt{evaluation\_trace} that lists every stage
-visited with its evidence, so any score in \texttt{scores.jsonl} can be
-replayed backwards to the measurement that produced it.
+The same design is implemented again as a Codex plugin, \textbf{run~B},
+which is the instrument for the cross-host check in Section~III-F. Both
+emit the same record schema, including a trace of every stage visited with
+its evidence, so any score replays backwards to the measurement that
+produced it.
 
 \section{Validation}
 
-An evaluation is only worth its weakest justification, so the goal here
-was several checks that fail differently rather than one check repeated.
+An evaluation is worth only its weakest justification, so the goal was
+several checks that fail differently rather than one repeated.
 Table~\ref{tab:runs} states what the two implementations produced;
-Tables~\ref{tab:pop}--\ref{tab:third} give each check's numbers. The
-prose says what each one can and cannot support.
+Tables~\ref{tab:pop}--\ref{tab:third} give each check's numbers.
 
 \textbf{Naming used throughout.} \textbf{Run~A is the Claude Code
 plugin}, the primary implementation and the source of the submitted
-\texttt{scores.jsonl}; \textbf{run~B is the Codex plugin}, an independent
-second implementation of the same design on a different host, used as
-cross-host validation and never as a fallback.
+scores; \textbf{run~B is the Codex plugin}, an independent second
+implementation on a different host with a different underlying model,
+used as cross-host validation, never as a fallback. Every table with an A
+and a B column repeats it.
 
 \subsection{Run-level results}
-Table~\ref{tab:runs} is the whole outcome of both runs; A is the
-submitted one. The two implementations land on the \emph{same} count for
-the failure a script can prove---50 verbatim copies---and within one for
-the failure an embedding can nominate, 16 against 17 off-topic; they
-diverge only on the two categories a reading must raise, A stopping 13
-reversals and 1 fabrication against B's 7 and 0. Their distributions
-differ in shape, not centre: the means are 76.1 and 76.2, but B's
-standard deviation is 19.0 against A's 15.1 and it awards 52
-\textsc{excellent} against 28, so B is the more generous reader and A
-stops eight more candidates. B's orchestration also sent 155 of 250
-drafts back for a second round against A's 8, which is a fact about the
-hosts rather than the design; both runs end with all 250 records approved
-and nothing escalated. Every disagreement below follows from that
-difference in temperament.
+Table~\ref{tab:runs} is the whole outcome of both runs; A is the submitted
+one. They land on the \emph{same} count for the failure a script can
+prove---50 verbatim copies---and within one for the failure an embedding
+can nominate, 16 against 17 off-topic; they diverge only on the two
+categories a reading must raise, A stopping 13 reversals and 1 fabrication
+against B's 7 and 0. Their distributions differ in shape, not centre: B has the wider spread
+and awards nearly twice as many top-band scores, so it is the more
+generous reader while A stops eight more candidates. B's orchestration
+also sent far more drafts back for a second round, a fact about the hosts
+rather than the design; both runs end with all 250 records approved and
+nothing escalated. Every disagreement below follows from it.
 
-\begin{table}[htbp]
+\begin{table}[t]
 \caption{Run-level results.}
 \label{tab:runs}
-\centering\footnotesize
-\begin{tabular}{@{}lrr@{}}
+\centering\tiny
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabular}{@{}lrr@{\hspace{3.2mm}}lrr@{}}
 \toprule
- & \textbf{A} & \textbf{B} \\
+ & \textbf{A} & \textbf{B} & & \textbf{A} & \textbf{B} \\
 \midrule
-Pairs / articles                       & 250 / 50 & 250 / 50 \\
-\addlinespace[2pt]
-\multicolumn{3}{@{}l}{\textit{Routing}}\\
-Terminal                               & 85    & 77 \\
-Graded                                 & 165   & 173 \\
-\addlinespace[2pt]
-\multicolumn{3}{@{}l}{\textit{Terminal category}}\\
-\quad \textsc{verbatim\_source\_copy}  & 50    & 50 \\
-\quad \textsc{off\_topic}              & 16    & 17 \\
-\quad \textsc{factual\_reversal}       & 13    & 7 \\
-\quad \textsc{obvious\_truncation}     & 5     & 3 \\
-\quad \textsc{fabricated\_content}     & 1     & 0 \\
-\addlinespace[2pt]
-\multicolumn{3}{@{}l}{\textit{Graded score}}\\
-Mean / median                          & 76.1 / 79 & 76.2 / 82 \\
-SD                                     & 15.1  & 19.0 \\
-Q1 / Q3                                & 68 / 87 & 63 / 91 \\
-Min / max                              & 35 / 98 & 28 / 100 \\
-\addlinespace[2pt]
-\multicolumn{3}{@{}l}{\textit{Dimension mean}}\\
-\quad Faithfulness \,/50               & 38.7  & 37.4 \\
-\quad Coverage \,/30                   & 19.0  & 20.0 \\
-\quad Coherence \,/15                  & 13.5  & 13.9 \\
-\quad Conciseness \,/5                 & 4.8   & 4.8 \\
-\addlinespace[2pt]
-\multicolumn{3}{@{}l}{\textit{Quality label}}\\
-\quad \textsc{excellent} (90--100)     & 28    & 52 \\
-\quad \textsc{good} (75--89)           & 66    & 49 \\
-\quad \textsc{fine} (65--74)           & 34    & 26 \\
-\quad \textsc{mixed} (50--64)          & 25    & 26 \\
-\quad \textsc{poor} (0--49)            & 12    & 20 \\
-\addlinespace[2pt]
-\multicolumn{3}{@{}l}{\textit{Review completion}}\\
-Final decision \textsc{approve}         & 250   & 250 \\
-Unresolved escalations                 & 0     & 0 \\
-Settled in one review round            & 242   & 95 \\
-Sent back for a second round           & 8     & 155 \\
-Reviewer confidence \textsc{high}       & 196   & 250 \\
-\addlinespace[2pt]
-\multicolumn{3}{@{}l}{\textit{Record integrity}}\\
-Dimension-sum errors                   & 0     & 0 \\
-Label-band violations                  & 0     & 0 \\
+Pairs / articles          & 250/50 & 250/50
+  & \multicolumn{3}{@{}l}{\textit{Dimension mean}} \\
+\multicolumn{3}{@{}l}{\textit{Routing}}
+  & \quad Faithfulness \,/50 & 38.7 & 37.4 \\
+Terminal                  & 85  & 77
+  & \quad Coverage \,/30     & 19.0 & 20.0 \\
+Graded                    & 165 & 173
+  & \quad Coherence \,/15    & 13.5 & 13.9 \\
+\multicolumn{3}{@{}l}{\textit{Terminal category}}
+  & \quad Conciseness \,/5   & 4.8  & 4.8 \\
+\quad \textsc{verbatim\_source\_copy} & 50 & 50
+  & \multicolumn{3}{@{}l}{\textit{Quality label}} \\
+\quad \textsc{off\_topic}      & 16 & 17
+  & \quad \textsc{excellent} (90--100) & 28 & 52 \\
+\quad \textsc{factual\_reversal} & 13 & 7
+  & \quad \textsc{good} (75--89)       & 66 & 49 \\
+\quad \textsc{obvious\_truncation} & 5 & 3
+  & \quad \textsc{fine} (65--74)       & 34 & 26 \\
+\quad \textsc{fabricated\_content} & 1 & 0
+  & \quad \textsc{mixed} (50--64)      & 25 & 26 \\
+\multicolumn{3}{@{}l}{\textit{Graded score}}
+  & \quad \textsc{poor} (0--49)        & 12 & 20 \\
+Mean / median             & 76.1/79 & 76.2/82
+  & \multicolumn{3}{@{}l}{\textit{Review completion}} \\
+SD                        & 15.1 & 19.0
+  & Final decision \textsc{approve} & 250 & 250 \\
+Q1 / Q3                   & 68/87 & 63/91
+  & Unresolved escalations   & 0   & 0 \\
+Min / max                 & 35/98 & 28/100
+  & Settled in one round     & 242 & 95 \\
+\multicolumn{3}{@{}l}{\textit{Record integrity}}
+  & Sent back for a second   & 8   & 155 \\
+Dimension-sum errors      & 0 & 0
+  & Reviewer confidence \textsc{high} & 196 & 250 \\
+Label-band violations     & 0 & 0 & & & \\
 \bottomrule
 \end{tabular}
 \tabnote{\textit{Note.} \abkey\ \emph{Terminal}: stopped by a confirmed
@@ -560,44 +500,37 @@ rubric.}
 \end{table}
 
 \subsection{Internal consistency}
-Across the 500 records of both runs, every soft score equals the sum of
-its four dimensions and every quality label falls inside its declared
-band: zero arithmetic and zero banding violations, the last two rows of
-Table~\ref{tab:runs}. This is a floor, not a result---it says the
-machinery did what it claims, nothing about whether the judgements are
-right.
+Across all 500 records, every soft score equals the sum of its four
+dimensions and every label falls inside its band---the last two rows of
+Table~\ref{tab:runs}. This is a floor, not a result.
 
 \subsection{Determinism, and a natural experiment in pair conditioning}
-The corpus supplies two free instruments, both noted in Section~I-A.
+The corpus supplies two free instruments (Section~I-A).
 
 Eight groups of candidates are byte-identical \emph{and} attached to the
-same article. Each was scored independently, in a separate context,
-without either scorer knowing the twin existed. All eight received
-identical totals \emph{and} identical values on all four dimensions, in
-both implementations, 8/8 and 8/8. Run-to-run variance on repeated input
-is therefore not the explanation for any spread reported below.
+same article, each scored independently without either scorer knowing the
+twin existed. All eight received identical totals and identical dimension
+values in both implementations, so run-to-run variance explains none of
+the spread below.
 
-Fourteen further groups, 32 candidates in all, are byte-identical but
-split across articles: the same text sits under its own article in one
-place and under a foreign one in another. If the evaluator graded text
-quality, both copies would score the same. They do not. In all 14
-groups, in both implementations, the foreign placement was terminated at
-0 as off-topic and the native placement was graded on its merits---the
-text of \texttt{54083932\_9e7163bb} scores 87 under its own article and
-0 as \texttt{44708203\_6d931562} under another. The evaluator conditions
-on the pair, which is what the contract requires and what a text-only
-metric cannot do.
+Fourteen further groups, 32 candidates, are byte-identical but split
+across articles. If the evaluator graded text quality both copies would
+score the same; they do not. In all 14, in both implementations, the
+foreign placement was terminated at
+0 as off-topic and the native placement graded on its merits---one such text scores 87
+under its own article and 0 under another---the evaluator conditions on
+the pair, which a text-only metric cannot.
 
 \subsection{Agreement with corpus-derived weak labels}
 After both runs were final, references were opened for the first time
 and the Table~\ref{tab:census} categories were used as weak labels.
-Table~\ref{tab:pop} is the per-population outcome and
-Fig.~\ref{fig:bands} the same data as distributions.
+Table~\ref{tab:pop} and Fig.~\ref{fig:bands} give the per-population
+outcome.
 
 \begin{table}[htbp]
 \caption{Outcome by corpus-derived population.}
 \label{tab:pop}
-\centering\footnotesize
+\centering\tiny
 \begin{tabular}{@{}lrrrrrr@{}}
 \toprule
  & & \multicolumn{2}{c}{\textbf{Stop}} & \multicolumn{2}{c}{\textbf{Survivor mean}} \\
@@ -616,31 +549,28 @@ Generated             & 109 & 14 & 8  & 76.6 & 77.9 \\
 \bottomrule
 \end{tabular}
 \tabnote{\textit{Note.} \abkey\ \emph{Stop}: candidates terminated; the
-score columns cover survivors only. \emph{Agreement}: a candidate counts
-as correct when its routing matches the population's expected
-routing---copies, foreign placements and fragments should stop, reference
-reproductions should not.}
+score columns cover survivors only. \emph{Agreement}: routing matches the
+population's expectation---copies, foreign placements and fragments stop,
+reference reproductions do not.}
 \end{table}
 
-Survivor ranges tell more than the means: fragments survive at 39--70 in
-A and 34--63 in B, reference reproductions at 42--89 and 40--99,
-generated candidates at 35--98 and 28--100, and no surviving fragment
-reaches \textsc{good} in either run. Two things in Fig.~\ref{fig:bands}
-matter more than the headline figure. The fragment population is graded
-rather than uniformly stopped---a deliberate divergence from the label,
-discussed in Section~IV-B---and in run~A \emph{no} reference reproduction
-reached \textsc{excellent} while 28 generated candidates did, which is
-the reference-quality problem of Section~I made quantitative: the
-evaluator credits only what the article body supports. Run~B places 10
-references in the top band and 42 generated candidates, so the ordering
-survives the difference in temperament.
+Survivor ranges tell more than the means: fragments survive at 39--70 and
+34--63, reference reproductions at 42--89 and 40--99, generated candidates
+at 35--98 and 28--100, and no surviving fragment reaches \textsc{good}. Two things in Fig.~\ref{fig:bands} matter
+more than the headline figure. The fragment population is graded rather
+than uniformly stopped---a deliberate divergence from the label, discussed
+in Section~IV-B---and in run~A \emph{no} reference reproduction reached
+\textsc{excellent} while 28 generated candidates did, the
+reference-quality problem of Section~I made quantitative. Run~B puts 10
+references in the top band against 42 generated candidates, so the
+ordering survives the difference in temperament.
 
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}
 \begin{axis}[
   name=axA,
-  width=\columnwidth, height=36mm,
+  width=\columnwidth, height=26mm,
   xbar stacked, xmin=0, xmax=112,
   bar width=3.6mm,
   ytick=data,
@@ -652,7 +582,7 @@ survives the difference in temperament.
   title style={yshift=-1.2mm},
   xticklabels={},
   legend style={font=\sffamily\fontsize{5.6}{6.4}\selectfont,
-                at={(0.5,1.62)},anchor=north,legend columns=6,
+                at={(0.5,1.42)},anchor=north,legend columns=6,
                 draw=none,/tikz/every even column/.append style={column sep=1.1mm}},
   axis lines*=left,
   xmajorgrids, grid style={draw=black!8},
@@ -668,7 +598,7 @@ survives the difference in temperament.
 \end{axis}
 \begin{axis}[
   at={(axA.below south west)}, anchor=north west, yshift=-2.5mm,
-  width=\columnwidth, height=36mm,
+  width=\columnwidth, height=26mm,
   xbar stacked, xmin=0, xmax=112,
   bar width=3.6mm,
   ytick=data,
@@ -704,38 +634,32 @@ The application needs candidates ordered inside an article, so ordering
 was checked directly rather than inferred from scores
 (Table~\ref{tab:order}). Across all 50 articles, in both runs, zero
 articles placed a planted failure at or above the reference reproduction,
-and the ordering is not degenerate: the median spread between best and
-worst survivor is 26 points in A and 32 in B, every article retained two
-to four survivors, and the reference reproduction sits at rank 2 in 43 of
-50 articles in A and 36 of 50 in B, never below rank 3. It is
+and the ordering is not degenerate: every article retained two to four
+survivors with a wide spread between them, and the reference reproduction
+sits at rank 2 in the large majority and never below rank 3. It is
 consistently near the top without being treated as the ceiling, which is
 what a design that distrusts its references should produce.
 
 \begin{table}[htbp]
 \caption{Within-article behaviour over the 50 articles.}
 \label{tab:order}
-\centering\footnotesize
-\begin{tabular}{@{}lrr@{}}
+\centering\tiny
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabular}{@{}lrr@{\hspace{3.2mm}}lrr@{}}
 \toprule
- & \textbf{A} & \textbf{B} \\
+ & \textbf{A} & \textbf{B} & & \textbf{A} & \textbf{B} \\
 \midrule
-Planted failure $\geq$ its reference & 0 & 0 \\
-\addlinespace[3pt]
-\multicolumn{3}{@{}l}{\textit{Rank of the reference reproduction}}\\
-\quad rank 1               & 5  & 7  \\
-\quad rank 2               & 43 & 36 \\
-\quad rank 3               & 2  & 7  \\
-\quad rank 4 or 5          & 0  & 0  \\
-\addlinespace[3pt]
-\multicolumn{3}{@{}l}{\textit{Survivors per article}}\\
-\quad 2 survivors          & 4  & 3  \\
-\quad 3 survivors          & 27 & 21 \\
-\quad 4 survivors          & 19 & 26 \\
-\quad 0, 1 or 5 survivors  & 0  & 0  \\
-\addlinespace[3pt]
-\multicolumn{3}{@{}l}{\textit{Score spread among survivors}}\\
-\quad median               & 26 & 32 \\
-\quad minimum / maximum    & 6 / 61 & 2 / 68 \\
+Planted failure $\geq$ ref. & 0 & 0
+  & \multicolumn{3}{@{}l}{\textit{Survivors per article}} \\
+\multicolumn{3}{@{}l}{\textit{Rank of the reference reproduction}}
+  & \quad 2 survivors        & 4  & 3  \\
+\quad rank 1 & 5  & 7   & \quad 3 survivors        & 27 & 21 \\
+\quad rank 2 & 43 & 36  & \quad 4 survivors        & 19 & 26 \\
+\quad rank 3 & 2  & 7   & \quad 0, 1 or 5          & 0  & 0  \\
+\quad rank 4 or 5 & 0 & 0
+  & \multicolumn{3}{@{}l}{\textit{Score spread among survivors}} \\
+ & & & \quad median             & 26 & 32 \\
+ & & & \quad min / max          & 6 / 61 & 2 / 68 \\
 \bottomrule
 \end{tabular}
 \tabnote{\textit{Note.} \abkey\ \emph{Survivors}: candidates that reached
@@ -746,44 +670,37 @@ article.}
 \subsection{Two implementations, two hosts}
 The strongest available check on a design---as opposed to a run---is to
 implement it twice and compare. The Codex plugin was written against the
-same rubric but a different host, different agent runtime and different
-underlying model, and neither implementation saw the other's output.
+same rubric but a different host and a different underlying model, and
+neither implementation saw the other's output.
 Table~\ref{tab:xhost} is the comparison; Fig.~\ref{fig:xhost} is the
 same data as a scatter and a difference distribution.
 
 \begin{table}[htbp]
 \caption{Cross-implementation agreement.}
 \label{tab:xhost}
-\centering\footnotesize
-\begin{tabular}{@{}lrr@{}}
+\centering\tiny
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabular}{@{}lrr@{\hspace{2.4mm}}lrr@{}}
 \toprule
- & \textbf{count} & \textbf{rate} \\
+ & \textbf{count} & \textbf{rate} & & \textbf{count} & \textbf{rate} \\
 \midrule
-\multicolumn{3}{@{}l}{\textit{Routing, $n=250$}}\\
-Agreement (both terminal or both graded) & 236 & 0.944 \\
-\quad both terminal                      & 74  & \\
-\quad both graded                        & 162 & \\
-\quad terminal in A only                 & 11  & \\
-\quad terminal in B only                 & 3   & \\
-Terminal-category agreement              & 74 / 74 & 1.000 \\
-\addlinespace[3pt]
-\multicolumn{3}{@{}l}{\textit{Score, $n=162$}}\\
-Spearman $\rho$                          &     & 0.891 \\
-Pearson $r$                              &     & 0.865 \\
-Mean $|\Delta|$                          &     & 6.85 \\
-Mean $\Delta$ (SD)                       &     & $-1.97$ (8.81) \\
-\quad $|\Delta| \leq 5$                  & 86  & 0.531 \\
-\quad $|\Delta| \leq 10$                 & 124 & 0.765 \\
-\quad $|\Delta| \leq 15$                 & 145 & 0.895 \\
-\quad $|\Delta| \leq 20$                 & 156 & 0.963 \\
-Label identical                          & 88  & 0.543 \\
-Label within one band                    & 157 & 0.969 \\
-\addlinespace[3pt]
-\multicolumn{3}{@{}l}{\textit{Per dimension, $n=162$: $\rho$ / mean $|\Delta|$}}\\
-\quad Faithfulness \,/50                 & \multicolumn{2}{r}{0.864 \,/\, 4.25} \\
-\quad Coverage \,/30                     & \multicolumn{2}{r}{0.882 \,/\, 2.96} \\
-\quad Coherence \,/15                    & \multicolumn{2}{r}{0.635 \,/\, 0.70} \\
-\quad Conciseness \,/5                   & \multicolumn{2}{r}{0.243 \,/\, 0.25} \\
+\multicolumn{3}{@{}l}{\textit{Routing, $n=250$}}
+  & \multicolumn{3}{@{}l}{\textit{Score, $n=162$}} \\
+Agreement (both ways) & 236 & 0.944 & Spearman $\rho$ & & 0.891 \\
+\quad both terminal & 74 & & Pearson $r$ & & 0.865 \\
+\quad both graded & 162 & & Mean $|\Delta|$ & & 6.85 \\
+\quad terminal in A only & 11 & & Mean $\Delta$ (SD) & & $-1.97$ (8.81) \\
+\quad terminal in B only & 3 & & \quad $|\Delta| \leq 5$ & 86 & 0.531 \\
+Terminal-category & 74 / 74 & 1.000 & \quad $|\Delta| \leq 10$ & 124 & 0.765 \\
+\multicolumn{3}{@{}l}{\textit{Per dim., $n=162$: $\rho$ / mean $|\Delta|$}}
+  & \quad $|\Delta| \leq 15$ & 145 & 0.895 \\
+\quad Faithfulness \,/50 & \multicolumn{2}{r}{0.864 / 4.25}
+  & \quad $|\Delta| \leq 20$ & 156 & 0.963 \\
+\quad Coverage \,/30 & \multicolumn{2}{r}{0.882 / 2.96}
+  & Label identical & 88 & 0.543 \\
+\quad Coherence \,/15 & \multicolumn{2}{r}{0.635 / 0.70}
+  & Label within one band & 157 & 0.969 \\
+\quad Conciseness \,/5 & \multicolumn{2}{r}{0.243 / 0.25} & & & \\
 \bottomrule
 \end{tabular}
 \tabnote{\textit{Note.} \abkey\ Routing rows cover all 250 pairs, score
@@ -791,38 +708,36 @@ rows the 162 both implementations graded. $\Delta =$ A $-$ B; $\rho$ is
 Spearman, $r$ is Pearson.}
 \end{table}
 
-The disagreements are more informative than the agreements, and they are
-one-sided. All 11 pairs stopped only by A are severity calls on a defect
-B also found---6 reversals, 4 fragments and 1 fabrication, which B scored
-between 28 and 66---and the 3 stopped only by B were scored 58--71 by A.
-Not one is a case where one implementation saw a defect the other missed
-entirely: the two disagree about where the cliff is, not about which
-candidates are near it, and all 14 come from the two populations where a
-judgement call is required.
+The disagreements are one-sided and more informative than the agreements.
+All 11 pairs stopped only by A are severity calls on a defect B also
+found---6 reversals, 4 fragments and 1 fabrication, which B scored between
+28 and 66---and the 3 stopped only by B were scored 58--71 by A. Not one is
+a defect that only one implementation saw: the two disagree about where the
+cliff is, not which candidates are near it, and all 14 come from the
+populations needing a judgement.
 
 The per-dimension block needs a caveat. Faithfulness and coverage, which
-carry 80 of the 100 points and do the discriminating, correlate at 0.864
-and 0.882 with mean absolute differences of 4.25 of 50 and 2.96 of 30.
-Coherence and conciseness correlate far worse, 0.635 and 0.243, but
-differ by only 0.70 of 15 and 0.25 of 5 because both runs push almost
-every survivor to the ceiling---range restriction, not disagreement, and
-a sign that 15 and 5 points are more than these dimensions earn. Exact
-agreement on the five-band label is only 88 of 162, the least flattering
-number in the report; it is a banding artefact, since 96.9\,\% of pairs
-fall within one band, but the bands are a convenience for a reader and
-the ordering is what should be trusted.
+carry 80 of the 100 points and do the discriminating, correlate well.
+Coherence and conciseness correlate far worse, yet differ by a fraction of
+a point, because both runs push almost every survivor to the
+ceiling---range restriction, not disagreement, and a sign that 15 and 5
+points are more than these dimensions earn. Exact agreement
+on the five-band label is only 88 of 162, the least flattering number in
+the report; it is a banding artefact, since 96.9\,\% of pairs fall within
+one band, but the bands are a convenience for a reader and the ordering is
+what should be trusted.
 
 \begin{figure}[htbp]
 \centering
 \begin{tikzpicture}
 \begin{axis}[
   name=sc,
-  width=\columnwidth, height=50mm,
+  width=\columnwidth, height=36mm,
   xmin=25,xmax=102,ymin=25,ymax=102,
   xlabel={run A score (Claude plugin)},
   ylabel={run B score (Codex plugin)},
   tick label style={font=\sffamily\fontsize{6}{7}\selectfont},
-  label style={font=\sffamily\fontsize{6.4}{7.4}\selectfont},
+  label style={font=\sffamily\fontsize{5.1}{6.0}\selectfont},
   xtick={30,40,50,60,70,80,90,100},
   ytick={30,40,50,60,70,80,90,100},
   grid=both, grid style={draw=black!7},
@@ -846,8 +761,8 @@ the ordering is what should be trusted.
 \addplot[draw=cgray,dashed,line width=.35pt,forget plot] coordinates {(25,25) (102,102)};
 \end{axis}
 \begin{axis}[
-  at={(sc.below south west)}, anchor=north west, yshift=-6mm,
-  width=\columnwidth, height=32mm,
+  at={(sc.below south west)}, anchor=north west, yshift=-4mm,
+  width=\columnwidth, height=22mm,
   ybar, bar width=4.4mm,
   xmin=-1, xmax=11,
   ymin=0, ymax=68,
@@ -855,7 +770,7 @@ the ordering is what should be trusted.
   xticklabels={$\leq\!-25$,$-25$,$-20$,$-15$,$-10$,$-5$,$5$,$10$,$15$,$20$,$>\!20$},
   x tick label style={font=\sffamily\fontsize{5.4}{6.2}\selectfont,rotate=0},
   y tick label style={font=\sffamily\fontsize{6}{7}\selectfont},
-  label style={font=\sffamily\fontsize{6.4}{7.4}\selectfont},
+  label style={font=\sffamily\fontsize{5.1}{6.0}\selectfont},
   xlabel={$\Delta = $ run A $-$ run B (5-point bins)},
   ylabel={pairs},
   ymajorgrids, grid style={draw=black!8},
@@ -876,26 +791,20 @@ within 20 points.}
 \end{figure}
 
 \subsection{The block with no ground truth}
-Every check so far rests on the 141 candidates the corpus can label. But
-those are the easy ones: copies, fragments and misfiled text are
-detectable by construction. The 109 generated candidates---the block
-that actually carries the fluent factual errors---have no derivable
-label at all, and they are 44\,\% of the corpus. An evaluation that
-reports 0.915 agreement while remaining silent about this block is
-reporting the wrong number.
-
-So the 109 were scored a third time, by a separate reading that used the
-same rubric but had no access to either run's output.
-Table~\ref{tab:third} gives the result. On the 94 candidates all three
-readings graded, the third read agrees with the primary run at
-$\rho = 0.960$ and 4.09 points, and with the secondary run at
-$\rho = 0.936$ and 5.95---in both cases more closely than the two
-implementations agree with each other on the same 94.
+Every check so far rests on the 141 labellable candidates, the easy ones.
+The 109 generated candidates---44\,\% of the corpus, and the block
+carrying the fluent factual errors---have no derivable label, so reporting
+0.915 while staying silent about them reports the wrong number. They were
+scored a third time by a separate reading with no access to either run's
+output (Table~\ref{tab:third}): on the 94 that all three readings graded
+it agrees with the primary run at $\rho = 0.960$ and the secondary at
+$\rho = 0.936$, both more closely than the two implementations agree with
+each other.
 
 \begin{table}[htbp]
 \caption{Third independent reading of the 109 unlabelled candidates.}
 \label{tab:third}
-\centering\footnotesize
+\centering\tiny
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
 \textbf{Pair} & \textbf{$n$} & \textbf{$\rho$} & \textbf{$r$} & \textbf{mean $|\Delta|$} \\
@@ -913,93 +822,70 @@ Neither           & 95 & \multicolumn{3}{r}{mean 77.0} \\
 \end{tabular}
 \tabnote{\textit{Note.} \abkey\ Upper block: the 94 candidates all three
 readings graded. Lower block: candidates one run terminated, scored by a
-reader never told they had been stopped.}
+reader not told so.}
 \end{table}
 
-The lower block of Table~\ref{tab:third} is the part that matters. The
-14 candidates the primary run terminated in this block were given a mean
-of 32.5 by the independent read, range 20--53, against 77.0 for the
-rest; the 8 the secondary run terminated came out at 34.2. An
-independent reader who was never told those candidates had been stopped
-placed every one of them at the bottom of the distribution, and the two
-runs stopped candidates the third read scored at the same depth. The
+The lower block of Table~\ref{tab:third} is the part that matters. A
+reader who was never told which candidates had been stopped placed every
+one of them at the bottom of the distribution---mean 32.5 for the 14 that
+run~A terminated and 34.2 for B's 8, against 77.0 for the rest---so the
 terminal decisions on the unlabelled block are corroborated by a source
-that did not make them.
-
-This does not make the scores correct---three readings of the same rubric
-can share a bias, and none is a human judgement---but it does establish
-that the signal on the unlabelled block is reproducible rather than
-idiosyncratic, which is the claim that was actually missing.
+that did not make them. This does not make the scores correct, since three
+readings of the same rubric can share a bias and none is a human
+judgement, but the signal there is reproducible rather than
+idiosyncratic.
 
 \subsection{Reproducing the numbers in this report}
-Every quantity quoted above is re-derived from the shipped artifacts by
-\texttt{code/valid\-ation/verify\_report\_numbers.py}, which reads only
-\texttt{data/}, the two run files and the third-read file. It prints 199
-checks and exits non-zero if any of them moves, so a reader who distrusts
-a number can recompute it in one command rather than take it on faith.
+Every quantity quoted above is re-derived by a checker reading only the
+corpus, the two run outputs and the third-read file. It prints 199 checks
+and exits non-zero if any moves, so a doubted number can be recomputed in
+one command.
 \section{Limitations}
 
 \subsection{What the evaluation does not measure}
-No human judgement enters anywhere. Every agreement number in
-Section~III is agreement with a mechanically derived label or between
-readings of the same rubric, and neither is accuracy, so the honest
-ceiling is \emph{reproducible}, not \emph{correct}. The weak-label check
-also treats reference reproductions as acceptable, which Section~I showed
-is not safe: the worst scores 42, and there the label rather than the
-evaluator is wrong. Beyond grammatical completeness the evaluation has no
-view on style, register, audience fit or the newsworthiness of the facts
-chosen---only on whether they are the article's main ones.
+No human judgement enters anywhere. Every agreement number in Section~III
+is agreement with a mechanical label or between readings of the same
+rubric, and neither is accuracy: the honest ceiling is
+\emph{reproducible}, not \emph{correct}. The weak-label check also treats
+reference reproductions as acceptable, which is not safe---the worst scores
+42, and there the label is wrong, not the evaluator. Beyond grammatical completeness it has no view on style,
+register, audience fit or newsworthiness---only on whether the facts
+chosen are the article's main ones.
 
 \subsection{What it measures poorly}
-Truncation is the weak point, and the failure is structural. Candidate
-\texttt{51395937\_e409196f} is the reference cut from 「…\mbox{方針を\mbox{発表}}した。」
-to 「…\mbox{方針を\mbox{発表}}」; the Reviewer declined to call it truncated because
-\mbox{発表} is a verbal noun discharging the clause, which is ordinary headline
-register. The argument is sound and the conclusion wrong---only the
-deleted した。 distinguishes \mbox{体言止め} from an amputated predicate, and a
+Truncation is the weak point, and structurally so. One candidate is a
+reference cut from 「…\mbox{方針を\mbox{発表}}した。」 to 「…\mbox{方針を\mbox{発表}}」;
+the Reviewer declined to call it truncated, since \mbox{発表} is a verbal
+noun discharging the clause, ordinary headline register. The argument is sound and the conclusion wrong---only the deleted した。
+distinguishes \mbox{体言止め} from an amputated predicate, and a
 reference-free evaluator does not have it. The fragment population
-therefore splits: mid-token endings (\mbox{しかしそ}, \mbox{女性2人が車}) are visible
-and missing them is a recall problem worth fixing, while \mbox{体言止め} endings
-are undecidable under the contract, so the 5-of-17 figure overstates the
-deficiency. The five-band labels are also less stable than the scores
-(Section~III-F); bands are for readers, ordering for decisions. Cost is
-uneven too: moving the truncation judgement from the script to the
-Reviewer makes a fragment consume both before it is stopped, about six
-percent of the scoring work.
+therefore splits: mid-token endings (\mbox{しかしそ}, \mbox{女性2人が車}) are
+visible and missing them is a recall problem worth fixing, while
+\mbox{体言止め} endings are undecidable under the contract, so the 5-of-17
+figure overstates the deficiency. The five-band labels are also
+less stable than the scores (Section~III-F), and cost is uneven: moving
+the truncation judgement to the Reviewer makes a fragment consume both
+stages before it is stopped, about six percent of the scoring work.
 
 \subsection{One structural gap, stated plainly}
 The Reviewer in the submitted run held file-read tools while the corpus
-sat on disk with its reference column intact. Its inputs contained no
+sat on disk with its reference column intact. Its inputs carried no
 reference field and the artifacts show none was used, but that is a
-guarantee by convention, and a convention is not evidence. A structurally
-blind Reviewer is written and shipped in both plugins and no run has used
-it; the right next step is to re-adjudicate the 85 terminal decisions
-with it and publish the delta.
+convention, and a convention is not evidence. A structurally blind
+Reviewer is shipped in both plugins but unused; the next step is to
+re-adjudicate the 85 terminal decisions with it and publish the delta,
+which is the honest measure of how much a reachable reference mattered.
 
 \subsection{What I would do next}
 More data, above everything else. The report rests on 250 pairs from 50
-articles of one publisher in one language, and every threshold here---the
-0.50 similarity cut, the dimension maxima, the band boundaries---is
-calibrated to that sample and should be assumed invalid outside it. The
-immediate work is the same funnel over a larger Japanese corpus from
-several publishers, then across languages, since hard constraints built
-on Japanese sentence segmentation and \mbox{体言止め} register must be
-re-derived rather than translated. Only then is it worth spending on
-human adjudication of a stratified sample, controlled perturbations for
-numbers, entities, negation and causality, and per-model re-calibration
-of the embedding threshold.
-
-\section{Conclusion}
-This is a working, fully audited prototype with evidence on one corpus:
-250 pairs routed, 85 stopped by a confirmed terminal decision, 165
-graded between 35 and 98, no arithmetic error, no ordering inversion
-against a reference, 94.4\,\% routing agreement with an independently
-implemented twin, and a reproducible signal on the 44\,\% of the corpus
-where no ground truth exists. It is not a production accuracy guarantee,
-for the reason in Section~IV-D: one corpus, one language, one publisher.
-What the design provides is the property that makes the next corpus
-cheap---it installs as a plugin, and every score carries the trace that
-produced it.
+articles of one publisher in one language, so every threshold here---the
+0.50 similarity cut, the dimension maxima, the band boundaries---should be
+assumed invalid outside that sample. The immediate work is the same funnel
+over a larger Japanese corpus from several publishers, then across languages, since constraints built on Japanese sentence
+segmentation and \mbox{体言止め} register must be re-derived rather than
+translated. Only then is human adjudication of a stratified sample, and
+controlled perturbation of numbers, entities, negation and causality,
+worth the spend.
 
 \balance
 \end{document}
