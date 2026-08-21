@@ -146,8 +146,8 @@ than uneven: several references assert facts the article body never
 contains. One reference states a 4割 sexual-assault share, a suspect
 profile and a 379-case figure, none of which appear in the supplied text;
 another is a photo caption opening with \mbox{この写真}, a demonstrative whose
-antecedent exists only in an image nobody is given. Any design scoring a candidate by its distance to the reference rewards
-them.
+antecedent exists only in an image nobody is given. Any design scoring a candidate by its distance to the reference
+rewards it.
 
 \subsection{Hypotheses, and which ones died}
 Five hypotheses were formed before building anything. Two survived
@@ -163,7 +163,8 @@ data (Table~\ref{tab:hyp}).
 \toprule
 \textbf{Hypothesis} & \textbf{Outcome} \\
 \midrule
-Copying is detectable with string evidence, not embeddings &
+Copying is detectable with strings, not
+embeddings &
 \textbf{Survived.} A copy is maximally similar to its article, so
 similarity is the wrong instrument; containment and $n$-gram coverage
 caught 50 of 50. \\
@@ -236,7 +237,7 @@ delivery itself into a validation instrument.
 implementations agree with corpus-derived weak labels at 0.915 and with
 each other on routing for 94.4\,\% of candidates; on the 109 candidates
 carrying no derivable label a third independent reading agrees with the submitted run at $\rho = 0.960$, and
-every number here is recomputable in one command.
+every number here is recomputable.
 
 \end{enumerate}
 
@@ -306,8 +307,7 @@ run~A (Claude Code plugin) over its 165 graded survivors.}
 Terminal outcomes all score 0 but keep separate rank tiers, so five
 candidates remain orderable even when several fail. Reversal,
 fabrication and off-topic share the worst tier, because each misleads a
-reader who cannot check the source; copying and truncation rank above them, a copy at least containing true
-sentences.
+reader who cannot check the source; copying and truncation rank above them.
 \vspace{-0.5cm}
 
 \begin{figure}[htbp]
@@ -431,7 +431,7 @@ hidden state: the rubric, the few-shot bank and each agent's contract are
 files under version control, so a reader can see what every role was
 told.
 The same design is implemented again as a Codex plugin, \textbf{run~B},
-which is the instrument for the cross-host check in Section~III-F. Both
+which is the instrument for the cross-host check in Section~III-E. Both
 emit the same record schema, including a trace of every stage visited with
 its evidence, so any score replays backwards to the measurement that
 produced it.
@@ -580,8 +580,8 @@ than uniformly stopped---a deliberate divergence from the label, discussed
 in Section~IV-B---and in run~A \emph{no} reference reproduction reached
 \textsc{excellent} while 28 generated candidates did, the
 reference-quality problem of Section~I made quantitative. Run~B puts 10
-references in the top band against 42 generated candidates, so the
-ordering survives the difference.
+references in the top band against 42 generated candidates, so the ordering
+survives.
 
 \vspace{-0.5cm}
 
@@ -826,8 +826,11 @@ carrying the fluent factual errors---have no derivable label, so reporting
 scored a third time by a separate reading with no access to either run's
 output (Table~\ref{tab:third}): on the 94 that all three readings graded
 it agrees with the primary run at $\rho = 0.960$ and the secondary at
-$\rho = 0.936$, both closer than the two implementations agree with each
-other.
+$\rho = 0.936$, both closer than the two implementations agree. Every quantity quoted in
+this report is re-derived by a checker that reads only the corpus and the
+run outputs, and that fails if any of its 199 assertions moves.
+
+
 \vspace{-0.5cm}
 \begin{table}[htbp]
 \caption{Third independent reading of the 109 unlabelled candidates.}
@@ -862,45 +865,49 @@ that did not make them. This does not make the scores correct, since three
 readings of the same rubric can share a bias and none is a human
 judgement, but the signal there is reproducible.
 
-\subsection{Reproducing the numbers in this report}
-Every quantity quoted above is re-derived by a checker reading only the
-corpus, the two run outputs and the third-read file. It prints 199 checks
-and exits non-zero if any moves, so a doubted number can be recomputed in
-one command.
 \section{Limitations}
 
 \subsection{What the evaluation does not measure}
-No human judgement is involved. Agreement therefore reflects reproducibility, not correctness. The weak-label check can also accept flawed references. Beyond grammatical completeness, the evaluation does not assess style, register, audience fit, or newsworthiness; it only checks whether the selected facts are central to the article.
+No human judgement is involved, so agreement reflects reproducibility rather than correctness, and the weak-label check can itself accept a flawed reference. Beyond grammatical completeness the evaluation does not assess style, register, audience fit or newsworthiness. It asks only whether the facts a candidate selects are the article's central ones.
 
 \subsection{What it measures poorly}
-Truncation is the weak point, and structurally so. One candidate is a
-reference cut from 「…\mbox{方針を\mbox{発表}}した。」 to 「…\mbox{方針を\mbox{発表}}」;
-the Reviewer declined to call it truncated, since \mbox{発表} is a verbal
-noun discharging the clause, ordinary headline register. The argument is sound and the conclusion wrong---only the deleted した。
-distinguishes \mbox{体言止め} from an amputated predicate, and a
-reference-free evaluator does not have it. The fragment population
-therefore splits: mid-token endings (\mbox{しかしそ}, \mbox{女性2人が車}) are
-visible and missing them is a recall problem worth fixing, while
-\mbox{体言止め} endings are undecidable under the contract, so the 5-of-17
-figure overstates the deficiency. The five-band labels are also
-less stable than the scores (Section~III-F), and cost is uneven: moving
-the truncation judgement to the Reviewer makes a fragment consume both
-stages before it is stopped, about six percent of the scoring work.
+Truncation is the weak point, and structurally so: a reference cut from
+「…\mbox{方針を\mbox{発表}}した。」 to 「…\mbox{方針を\mbox{発表}}」 was judged
+untruncated because \mbox{発表} is a verbal noun discharging the clause, and
+only the deleted した。 distinguishes \mbox{体言止め} from an amputated
+predicate. The fragment population therefore
+splits: mid-token endings are visible and missing them is a recall problem
+worth fixing, while \mbox{体言止め} endings are undecidable under a
+reference-free contract, so the 5-of-17 figure overstates the deficiency.
+The five-band labels are also less stable than the scores
+(Section~III-E), and cost is uneven, since moving the truncation
+judgement to the Reviewer makes a fragment consume both stages before it
+is stopped.
 
 \subsection{One structural gap, stated plainly}
 The Reviewer could technically access the corpus and its reference column, although no reference was provided or recorded as used. This is a procedural safeguard, not structural evidence. The next step is to re-adjudicate the 85 terminal cases with the reference-blind Reviewer and report the resulting delta.
 
 
 \subsection{What I would do next}
-More data, above everything else. The report rests on 250 pairs from 50
+More data, above everything else: the report rests on 250 pairs from 50
 articles of one publisher in one language, so every threshold here---the
 0.50 similarity cut, the dimension maxima, the band boundaries---should be
 assumed invalid outside that sample. The immediate work is the same funnel
-over a larger Japanese corpus from several publishers, then across languages, since constraints built on Japanese sentence
-segmentation and \mbox{体言止め} register must be re-derived rather than
-translated. Only then is human adjudication of a stratified sample, and
+over a larger Japanese corpus from several publishers, then across
+languages, since constraints built on Japanese sentence segmentation and
+\mbox{体言止め} register are language-specific and must be re-derived from
+scratch. Only then is human adjudication of a stratified sample, and
 controlled perturbation of numbers, entities, negation and causality,
 worth the spend.
+
+\section{Conclusion}
+The design rests on one claim: each constraint is decided by the evidence
+that can settle it, and no stage stops a candidate on its own authority.
+On this corpus it held---no ordering inversion against a reference, 0.915
+against the weak labels, 94.4\,\% routing agreement with an independent
+twin, and $\rho = 0.960$ from a third reading. And because it installs as
+a plugin with every score carrying its trace, the next corpus is a run,
+not a rebuild.
 
 \balance
 \end{document}

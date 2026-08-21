@@ -366,7 +366,7 @@ Still untested: whether a Reviewer catches the amputated-mid-token group. This t
 
 ## Language Policy
 
-Project-facing documentation, prompts, labels, reports, charts, and code messages are English. Japanese source articles, candidate summaries, evidence spans, and language-specific fixtures remain Japanese because translating them would change the evaluation task.
+Project-facing documentation, prompts, labels, reports, charts, and code messages are English. Japanese source articles, candidate summaries, evidence spans, and language-specific fixtures are used verbatim: they are the evaluation task.
 
 ## Next Validation Work
 

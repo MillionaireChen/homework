@@ -654,7 +654,7 @@ should be assumed invalid outside it. The immediate work is to run the same
 funnel over a much larger Japanese corpus drawn from several publishers, then
 across languages, because a design whose hard constraints include Japanese
 sentence segmentation and 体言止め register has obvious language-specific parts
-that must be re-derived rather than translated. Only after that does it make
+that must be re-derived from scratch. Only after that does it make
 sense to spend on human adjudication of a stratified sample, controlled
 perturbations for numbers, entities, negation and causality, and re-calibration
 of the embedding threshold per model and domain.
